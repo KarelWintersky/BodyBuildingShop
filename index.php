@@ -1,15 +1,4 @@
 <?
-	//echo 'Сайт временно закрыт на техническое обслуживание. Ориентировочное время запуска 01:00 30 сентября.';
-	//exit();
-
-	//if(!isset($_SERVER['REDIRECT_SCRIPT_URL'])){ //редиректим index.pgp на главную
-		//header('HTTP/1.1 301 Moved Permanently');
-		//header('Location: /');
-		//exit();
-	//}
-
-	//редиректим без www на с www
-
 	session_start();
 
 	error_reporting (E_ALL ^ E_STRICT ^ E_DEPRECATED);
