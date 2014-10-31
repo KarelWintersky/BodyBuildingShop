@@ -1,0 +1,28 @@
+<div id="page_cart">
+	<h1 class="second_style">Оплата заказа</h1>
+
+	<div class="texted">
+		По нажатию на кнопку "Оплатить" Вы будете перенаправлены на страницу платежной системы Robokassa для оплаты Вашего заказа. Обращаем Ваше внимание, что система может брать  дополнительную комиссию за перевод денег в зависимости от суммы платежа. Точный размер суммы к оплате будет показан на следующем шаге.
+	</div>
+
+	<form action="https://merchant.roboxchange.com/Index.aspx" method="POST" id="form_Robox">
+
+	   <input type="hidden" name="MrchLogin" value="<?=$this->registry['RD']['login'];?>">
+	   <input type="hidden" name="OutSum" value="<?=$this->registry['RD']['sum'];?>">
+	   <input type="hidden" name="InvId" value="<?=$this->registry['RD']['unique_id'];?>">
+	   <input type="hidden" name="Desc" value="<?=$this->registry['RD']['desc'];?>">
+	   <input type="hidden" name="SignatureValue" value="<?=$this->registry['RD']['signature'];?>">
+	   <input type="hidden" name="Shp_item" value="<?=$this->registry['RD']['code'];?>">
+	   <input type="hidden" name="Culture" value="<?=$this->registry['RD']['lang'];?>">
+
+	   <?if($_GET['tp']==4):?>
+	   	<input type="hidden" name="IncCurrLabel" value="<?=$this->registry['RD']['curr'];?>">
+	   <?endif;?>
+
+	   <div id="cart_submit">
+	   		<input type="submit" value="Оплатить">
+		</div>
+
+	</form>
+
+</div>

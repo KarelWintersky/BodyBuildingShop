@@ -1,0 +1,21 @@
+<?if($a['type']==1):?>
+
+	<li>
+		<?if($a['active']):?>
+			<?=$a['i'];?>
+		<?else:?>
+			<a href="<?=$a['link_href'].$a['lnk_param'];?>"><?=$a['i'];?></a>
+		<?endif;?>
+	</li>
+
+<?else:?>
+
+	<li class="<?=$a['class']?>">
+		<?if($a['link_param']):?>
+			<a href="<?=trim($a['link_href'].$a['link_param']);?>"><?=$a['link_text']?></a>
+		<?else:?>
+			<?=$a['link_text']?>
+		<?endif;?>
+	</li>
+
+<?endif;?>

@@ -1,0 +1,63 @@
+<h1>Список пользователей</h1>
+
+<div class="form_1">
+
+	<form id="form_userSrch" method="GET" action="/adm/users/">
+
+		<h3>Поиск</h3>
+		
+		<div class="form_l form_l_name">
+			<label>Имя</label>
+			<input type="text" name="name" value="<?= (isset($_GET['name'])) ? $_GET['name'] : ''?>">
+		</div>
+	
+		<div class="form_l form_l_email">
+			<label>Email</label>
+			<input type="text" name="email" value="<?= (isset($_GET['email'])) ? $_GET['email'] : ''?>">
+		</div>	
+		
+		<div class="form_l form_l_login">
+			<label>Логин</label>
+			<input type="text" name="login" value="<?= (isset($_GET['login'])) ? $_GET['login'] : ''?>">
+		</div>	
+		
+		<div class="form_l form_l_sbm">
+			<input type="submit" value="Поиск">
+		</div>	
+		
+		<div class="clr"></div>
+	
+	</form>
+	
+</div>
+
+<div class="form_1" id="users_FastLinks">
+	
+	<h3>Логин</h3>
+	
+	<?$this->registry['users']->aplhabet('login_FL');?>
+	
+	<div class="clr"></div>
+	
+	<h3 class="small_margin">Имя</h3>
+	
+	<?$this->registry['users']->aplhabet('name_FL');?>
+	
+	<div class="clr"></div>
+</div>
+
+<table class="users_table" cellpadding="0" cellspacing="0">
+	<tr>
+		<th id="th_id">ID</th>
+		<th id="th_name">Имя</th>
+		<th id="th_login">Логин</th>
+		<th id="th_email">Email</th>
+		<th id="th_address">Адрес</th>
+		<th class="th_num">Ск.</th>
+		<th class="th_num">Налож.</th>
+		<th class="th_num">Сч.</th>
+	</tr>
+
+	<?$this->registry['users']->users_list();?>
+
+</table>

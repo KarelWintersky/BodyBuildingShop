@@ -1,0 +1,10 @@
+<tr class="<?=$a['weekend_class'];?>">
+	<td>
+		<?=date('j',strtotime($a['day']))?> <?=$this->registry['logic']->date2monthname($a['day'])?> (<?=$this->registry['logic']->date2dayofweek($a['day'],0)?>)
+	</td>
+	<td><?=$a['count']?></td>
+	<td><?=$a['last_year']?></td>
+	<td><?=$a['prelast_year']?></td>
+	<td><?=$this->registry['logic']->price2read($a['overall_price'])?></td>
+	<td><?=$this->registry['logic']->price2read($a['average_price'])?></td>
+</tr>

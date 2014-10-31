@@ -1,0 +1,56 @@
+<div id="page_cart">
+
+	<noscript>
+		<div id="cart_js_hint" class="cart_hint">
+			Для работы с корзиной необходимо <a href="/how-to-enable-javascript/">включить Javascript</a>.
+		</div>
+	</noscript>
+
+	<form id="form_cart_1" action="/cart/order/check/" method="POST" onsubmit="return long_cart_submit(this);">
+
+		<h1 class="second_style">Оформление заказа</h1>
+
+		<div id="long_cart_table_container"></div>
+
+		<div id="user_data">
+			<h2>Ваши реквизиты</h2>
+			<div class="cart_hint">Еще раз <b>внимательно</b> проверьте реквизиты по которым будет отправлен Ваш заказ:</div>
+			<ul id="user_data_table">
+				<li>
+					<b>Адрес, на который будет отправлен товар:</b>
+					<span><?=$this->registry['userdata']['zip_code'];?>, Россия, <?=$this->registry['userdata']['city'];?>, ул. <?=$this->registry['userdata']['street'];?>, д. <?=$this->registry['userdata']['house'];?><?= ($this->registry['userdata']['corpus']!='') ? ', корп. '.$this->registry['userdata']['corpus'] : '';?><?= ($this->registry['userdata']['flat']!='') ? ', кв. '.$this->registry['userdata']['flat'] : '';?> </span>
+					<div class="clr"></div>
+				</li>
+				<li>
+					<b>Ваш контактный e-mail:</b>
+					<span><?=$this->registry['userdata']['email'];?></span>
+					<div class="clr"></div>
+				</li>
+			</ul>
+			<div class="cart_hint">Если в этих данных есть какие-либо неточности то зайдите в свою <a href="/profile/">регистрационную карточку</a> и укажите
+	правильные данные.</div>
+			<div class="common_hint ud_hint">
+				Обращаем Ваше внимание на то, что е-мэйл должен работать обязательно! Именно на него будут отсылаться все уведомления об отправленных заказах, полученых деньгах, а также (возможно) просьбы уточнить ваш адрес. Поэтому предупреждаем заранее - если Вы введете неверный е-мэйл Ваши заказы обработаны не будут. Проверить работает ли Ваш е-мэйл очень просто - после оформления заказа Вам по е-мэйлу придет письмо с подтверждением заказа. Если по каким-либо причинам у Вас е-мэйл отсутствует, обязательно укажите это в окошечке "пожелания".
+			</div>
+			<div id="wishes">
+				<label>Ваши пожелания по доставке, ароматизаторам и т.п. (не обязательно):</label>
+				<textarea name="order_vals[wishes]"><?= (isset($_COOKIE['cart_wishes'])) ? $_COOKIE['cart_wishes'] : ''?></textarea>
+			</div>
+		</div>
+
+
+		<div id="important_hint">
+			Личные сведения, полученные в распоряжение Интернет-магазина при регистрации или каким-либо иным образом, не будут без разрешения пользователей передаваться третьим организациям и лицам за исключением ситуаций, когда этого требует закон или судебное решение.
+		</div>
+
+		<div id="cart_err"></div>
+
+		<div id="cart_submit">
+			<input type="submit" value="Подтвердить заказ">
+		</div>
+
+		<div class="clr"></div>
+
+	</form>
+
+</div>

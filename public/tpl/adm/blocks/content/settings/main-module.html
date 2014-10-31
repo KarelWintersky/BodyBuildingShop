@@ -1,0 +1,34 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+	
+		<form id="form_MainModule" method="POST" action="/doer/">
+			
+			<input type="hidden" name="d_action" value="611">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">			
+		
+			<div class="mm_hint">Формат: filename::link, где filename = имя файла в папке /public/foto/module, а link - ссылка на страницу без доменного имени</div>
+			
+			<div class="form_l">
+				<textarea name="content"><?$this->registry['settings']->module_txt_file();?></textarea>
+			</div>
+			
+			<div class="form_l sbm">
+				<input type="submit" value="Сохранить">
+			</div>				
+			
+		</form>
+		
+	</div>
+
+</div>
+
+<div class="clr"></div>

@@ -1,0 +1,121 @@
+<?$this->registry['features']->features_list($a['id'],$count,$html,$next_sort);?>
+
+<div class="form_1 form_1_tog">
+
+	<a name="group_<?=$a['id'];?>"></a>
+
+	<div class="form_1_tog_h">
+		<h2><?=$a['name'];?> <span>(<?=$count;?>)</span></h2>
+		
+		<div class="form_1_tog_trig">
+			<a href="#" onclick="return form_tog(this,'feat_gr_<?=$a['id'];?>',<?=$this->registry['userdata']['id']?>);"><?=$this->registry['features']->form_tog_display('feat_gr_'.$a['id'],0);?></a>
+		</div>
+		
+		<div class="clr"></div>
+		
+	</div>	
+
+	<div class="form_1_tog_i" style="display:<?=$this->registry['features']->form_tog_display('feat_gr_'.$a['id'],1);?>;">
+		
+		<?if($html!=''):?>
+	
+			<form id="form_FeaturesUpd" action="/doer/" method="POST" enctype="multipart/form-data" onsubmit="return check_single_name(this);">
+			
+				<input type="hidden" name="d_action" value="401">
+				<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>#group_<?=$a['id'];?>">			
+			
+				<ul class="list_sort">
+					<?=$html;?>
+				</ul>
+						
+				<div class="sbm">
+					<input type="submit" value="Сохранить">
+				</div>				
+				
+			</form>
+		
+		<?endif;?>
+		
+		<form id="form_FeatureAdd" action="/doer/" method="POST" enctype="multipart/form-data" onsubmit="return check_single_name(this);">
+		
+			<h3>Добавить признак</h3>
+		
+			<input type="hidden" name="d_action" value="402">
+			<input type="hidden" name="group_id" value="<?=$a['id'];?>">
+			<input type="hidden" name="sort" value="<?=$next_sort;?>">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>#group_<?=$a['id'];?>">			
+		
+			<div class="form_l form_l_name">
+				<label>Название</label>
+				<input type="text" name="name" class="single_name">
+			</div>
+		
+			<div class="form_l feature_line form_l_image">
+				<input type="file" name="image" onchange="feat_img_caption(this);">
+				<div class="image_button_simulator">Изображение</div>
+				<div class="feat_img_caption">добавить</div>
+			</div>			
+			
+			<div class="form_l sbm">
+				<input type="submit" value="Добавить">
+			</div>				
+			
+			<div class="clr"></div>
+			
+		</form>		
+		
+		<form id="form_FeatureGroupUpd" action="/doer/" method="POST" onsubmit="return check_single_name(this);">
+		
+			<h3>Изменить группу</h3>
+		
+			<input type="hidden" name="d_action" value="404">
+			<input type="hidden" name="group_id" value="<?=$a['id'];?>">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>#group_<?=$a['id'];?>">				
+			
+			<div class="form_l form_l_name">
+				<label>Название</label>
+				<input type="text" name="name" value="<?=htmlspecialchars($a['name']);?>" class="single_name">
+			</div>
+					
+			<div class="form_l sbm">
+				<input type="submit" value="Сохранить">
+			</div>				
+			
+			<div class="clr"></div>			
+			
+		</form>
+		
+		<?if($this->registry['userdata']['type']==2):?>
+		
+			<form id="delForm" action="/doer/" method="POST">
+			
+				<input type="hidden" name="d_action" value="403">
+				<input type="hidden" name="group_id" value="<?=$a['id'];?>">
+				<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+				
+				<div class="delLink">
+				
+					<div class="del_confirm">
+						<div class="del_confirm_head">Удаление группы признаков</div>
+						<div class="del_confirm_i">
+							<span>Вы действительно хотите группу?</span>
+							<ul class="del_confirm_lnk">
+								<li class="y"><a onclick="return form_sbm('#delForm');" href="#">Да</a></li>
+								<li class="n"><a onclick="return delConfirmHide(this);" href="#">Нет</a></li>
+							</ul>
+							<div class="clr"></div>
+						</div>
+					</div>
+				
+					<a href="#" onclick="return delConfirm(this);">Удалить группу</a>				
+				</div>
+				
+			</form>
+	
+		<?endif;?>
+		
+		<div class="clr"></div>		
+		
+	</div>
+	
+</div>

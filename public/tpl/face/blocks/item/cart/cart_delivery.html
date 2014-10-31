@@ -1,0 +1,59 @@
+<div id="delivery">
+	<h2>Расходы на доставку</h2>
+	<div class="delivery_line">
+		<div class="delivery_line_l">Вес посылки:</div>
+		<div class="delivery_line_r"><b><?=$this->registry['logic']->price2read($this->registry['overall_weight']);?></b> гр.</div>
+		<div class="clr"></div>
+	</div>
+
+	<?if($this->registry['delivery_type']==1):?>
+
+		<?if($this->registry['delivery_cost_array']['total_cost']>0):?>
+
+			<div class="delivery_line">
+				<div class="delivery_line_l">Отправка посылки весом <?=$this->registry['logic']->price2read($this->registry['overall_weight']);?> гр.:</div>
+				<div class="delivery_line_r"><b><?=$this->registry['logic']->price2read($this->registry['delivery_cost_array']['total_cost']);?></b> руб.</div>
+				<div class="clr"></div>
+			</div>
+
+			<?if(intval($this->registry['delivery_cost_array']['hard_cost'])>0):?>
+
+				<div class="delivery_line">
+					<div class="delivery_line_l">Оплата за доставку в труднодоступный регион:</div>
+					<div class="delivery_line_r"><b><?=$this->registry['logic']->price2read($this->registry['delivery_cost_array']['hard_cost']);?></b> руб.</div>
+					<div class="clr"></div>
+				</div>
+
+			<?endif;?>
+
+		<?endif;?>
+
+	<?endif;?>
+
+	<?if(($this->registry['delivery_type']==1 && $this->registry['delivery_cost_array']['total_cost']>0) || ($this->registry['delivery_type']==2 && $this->registry['delivery_cost_array']['is_spb']==1)):?>
+
+		<div class="delivery_sum">
+			<div class="delivery_sum_val">
+				<b><?=$this->registry['logic']->price2read($this->registry['delivery_cost_array']['cost']);?></b> руб.
+			</div>
+			<div class="delivery_sum_lbl">
+				Итоговая стоимость доставки:
+			</div>
+			<div class="clr"></div>
+		</div>
+
+	<?else:?>
+
+		<div class="delivery_sum">
+			<div class="delivery_sum_lbl">
+				Итоговая стоимость доставки будет уточняться
+			</div>
+			<div class="clr"></div>
+		</div>
+
+	<?endif;?>
+
+	<input type="hidden" name="order_vals[delivery_costs]" value="<?=round($this->registry['delivery_cost_array']['cost'],2);?>">
+	<input type="hidden" name="order_vals[is_spb]" value="<?= ($this->registry['delivery_cost_array']['is_spb']==1) ? 1 : 0;?>">
+
+</div>

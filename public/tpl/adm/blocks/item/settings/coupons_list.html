@@ -1,0 +1,53 @@
+<tr class="<?= ($a['status']!=1) ? 'tr_disabled' : '';?>">
+	<td>
+		<?if(!is_null($a['usedon'])):?>
+			<a href="/adm/orders/<?=$a['order_link'];?>/">
+				<?=$a['hash'];?>
+			</a>
+		<?else:?>
+			<?=$a['hash'];?>
+		<?endif;?>
+	</td>
+	<td><?=$a['percent'];?> %</td>
+	<td>
+		<a href="/adm/users/<?=$a['createdby'];?>/">
+			<?=$a['created_user'];?>
+		</a>
+	</td>
+	<td>
+		<?=date('d.m.Y H:i',strtotime($a['createdon']));?>
+	</td>
+	<td>
+		<?=date('d.m.Y',strtotime($a['validtill']));?>
+	</td>
+	<td>
+		<?if(!is_null($a['usedon'])):?>
+			<a href="/adm/users/<?=$a['usedby'];?>/">
+				<?=$a['used_user'];?>
+			</a>
+		<?else:?>
+			-
+		<?endif;?>
+	</td>
+	<td>
+		<?if(!is_null($a['usedon'])):?>
+			<?=date('d.m',strtotime($a['usedon']));?>
+		<?else:?>
+			-
+		<?endif;?>
+	</td>
+	<td>
+		<?if(!is_null($a['usedon'])):?>
+			<?=$a['order_id'];?>
+		<?else:?>
+			-
+		<?endif;?>
+	</td>
+	<td class="td_status">
+		<select name="coupon[<?=$a['id'];?>][status]">
+			<?$this->registry['settings']->coupons_statuses_list($a['status']);?>
+		</select>
+
+		<input type="hidden" name="coupon[<?=$a['id'];?>][status_old]" value="<?=$a['status'];?>">
+	</td>
+</tr>

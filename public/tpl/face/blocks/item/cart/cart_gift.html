@@ -1,0 +1,41 @@
+<div id="coupon_area">
+	<label>Купон на скидку</label>
+	<input type="text" name="order_vals[coupon]">
+
+	<b class="tooltip_trigger"></b>
+	<?=$this->registry['template']->F_tooltip(TOOLTIP_COUPON);?>
+
+	<div class="clr"></div>
+</div>
+
+<?if($this->registry['full_cart_arr']['overall_price']>=GIFT_MIN):?>
+	<div id="gift">
+		<h2>Подарок</h2>
+		<div class="cart_hint">
+			Как и записано в правилах нашего магазина, при заказах свыше <?=GIFT_MIN;?> рублей каждый покупатель получает бесплатный подарок. Чем крупнее заказ, тем больше можно выбрать подарков.
+		</div>
+		<div class="gift_line">
+			<div class="gift_line_l">Выберите свой подарок:</div>
+			<div class="gift_line_r">
+				<?$this->registry['f_cart']->gifts_list($active_gift_id);?>
+			</div>
+			<div class="clr"></div>
+		</div>
+		<div class="common_hint">
+			В исключительных случаях администрация оставляет за собой право изменения выбранных подарков.
+		</div>
+		
+		<?if($active_gift_id!=0):?>
+		
+			<?$gift_id = md5(time());?>
+			
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][id]" value="<?=$active_gift_id;?>">
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][amount]" value="1">
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][is_gift]" value="1">
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][feats_str]" value="">	
+		
+		<?endif;?>		
+		
+	</div>
+	
+<?endif;?>

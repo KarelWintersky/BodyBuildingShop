@@ -1,0 +1,39 @@
+<tr>
+	<td class="td_ind">
+		<input type="text" value="<?= (isset($a['ind'])) ? $a['ind'] : '';?>" name="indexes[<?=$a['id'];?>][ind]">
+		
+		<div class="form_l cbox">
+			<input type="checkbox" name="indexes[<?=$a['id'];?>][del]" id="indexes_<?=$a['id'];?>_del">
+			<label for="indexes_<?=$a['id'];?>_del">удал.</label>
+			<div class="clr"></div>
+		</div>
+		
+	</td>
+	<td class="td_ind"><input type="text" value="<?= (isset($a['ind_old'])) ? $a['ind_old'] : '';?>" name="indexes[<?=$a['id'];?>][ind_old]"></td>
+	<td class="td_actual">
+		<input type="text" value="<?= (isset($a['actual'])) ? $a['actual'] : '';?>" name="indexes[<?=$a['id'];?>][actual]">
+		<input type="text" value="<?= (isset($a['time_ogr'])) ? $a['time_ogr'] : '';?>" name="indexes[<?=$a['id'];?>][time_ogr]">
+	</td>
+	<td class="td_kol_str">
+		<input type="text" value="<?= (isset($a['kol_str'])) ? $a['kol_str'] : '';?>" name="indexes[<?=$a['id'];?>][kol_str]">
+		<input type="text" value="<?= (isset($a['type_ogr'])) ? $a['type_ogr'] : '';?>" name="indexes[<?=$a['id'];?>][type_ogr]">
+		<input type="text" value="<?= (isset($a['type_dost'])) ? $a['type_dost'] : '';?>" name="indexes[<?=$a['id'];?>][type_dost]">
+	</td>
+	<td class="td_rrc">
+		<input type="text" value="<?= (isset($a['region'])) ? $a['region'] : '';?>" name="indexes[<?=$a['id'];?>][region]">
+		<input type="text" value="<?= (isset($a['rajon'])) ? $a['rajon'] : '';?>" name="indexes[<?=$a['id'];?>][rajon]">
+		<input type="text" value="<?= (isset($a['city'])) ? $a['city'] : '';?>" name="indexes[<?=$a['id'];?>][city]">
+	</td>
+	<td class="td_tarif">
+		<input type="text" value="<?= (isset($a['tarif_pos_basic'])) ? $a['tarif_pos_basic'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_pos_basic]">
+		<input type="text" value="<?= (isset($a['tarif_pos_add'])) ? $a['tarif_pos_add'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_pos_add]">
+		<input type="text" value="<?= (isset($a['tarif_band_basic'])) ? $a['tarif_band_basic'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_band_basic]">
+		<input type="text" value="<?= (isset($a['tarif_band_add'])) ? $a['tarif_band_add'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_band_add]">
+	</td>
+	<td class="td_tarif">
+		<input type="text" value="<?= (isset($a['tarif_post_avia_pos'])) ? $a['tarif_post_avia_pos'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_post_avia_pos]">
+		<input type="text" value="<?= (isset($a['tarif_avia_pos'])) ? $a['tarif_avia_pos'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_avia_pos]">
+		<input type="text" value="<?= (isset($a['tarif_post_avia_band'])) ? $a['tarif_post_avia_band'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_post_avia_band]">
+		<input type="text" value="<?= (isset($a['tarif_avia_band'])) ? $a['tarif_avia_band'] : '';?>" name="indexes[<?=$a['id'];?>][tarif_avia_band]">
+	</td>
+</tr>

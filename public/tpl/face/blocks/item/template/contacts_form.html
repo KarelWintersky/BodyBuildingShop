@@ -1,0 +1,46 @@
+<form id="form_Contacts" method="POST" action="<?=$_SERVER['REQUEST_URI']?>#form">
+	
+	<?if(count($_POST)>0):?>
+		<?$this->registry['template']->F_contacts_form_mail();?>
+	<?endif;?>
+	
+	<a name="form"></a>
+
+	<input type="hidden" name="rp">
+	<input type="hidden" name="d_action" value="6003">
+
+	<h2>Написать администрации магазина</h2>
+
+	<div id="fc_inner">
+		
+		<?if(count($_POST)>0):?>
+			<div id="fc_succ">Ваше сообщение успешно отправлено</div>
+		<?endif;?>
+		
+		<div class="fc_line">
+			<label>Тема письма</label>
+			<?$this->registry['template']->F_contacts_form_options();?>
+		</div>
+		
+		<div class="fc_line txt_fld">
+			<label>Ваше имя</label>
+			<input type="text" name="name">
+		</div>
+
+		<div class="fc_line txt_fld">
+			<label>Ваш email</label>
+			<input type="text" name="email">
+		</div>		
+		
+		<div class="fc_line">
+			<label>Ваше сообщение</label>
+			<textarea name="msg"></textarea>
+		</div>		
+		
+		<div class="fc_line sbm">
+			<input type="submit" value="Отправить">
+		</div>		
+		
+	</div>
+	
+</form>

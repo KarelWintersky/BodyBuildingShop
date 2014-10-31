@@ -1,0 +1,23 @@
+<tr>
+	<th class="git_name">Наименование</th>
+	
+	<?if(!$a['no_tastes']):?>
+		<th class="git_features">
+			<?if($a['parent_level_id']==4 || $a['parent_level_id']==3):?>
+				Размеры
+			<?else:?>
+				Вкусы
+			<?endif;?>	 
+		</th>
+	<?endif;?>
+		
+	<th class="git_packing">
+		<?if($a['parent_level_id']==4):?>
+			Цвета
+		<?else:?>
+			Упаковки
+		<?endif;?>
+	</th>
+	<th class="git_price">Цена</th>
+	<th class="git_book"></th>
+</tr>

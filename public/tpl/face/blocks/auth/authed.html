@@ -1,0 +1,27 @@
+<div id="h_authed">
+	<ul>
+		<li>
+			<span>Покупатель:</span>
+			<b><?=$this->registry['userdata']['name']?></b>
+			<div class="clr"></div>
+		</li>
+		<li>
+			<span>Ваша скидка:</span>
+			<b><?=$this->registry['userdata']['personal_discount']?> %</b>
+			<div class="clr"></div>
+		</li>		
+		<li class="h_authed_links">
+			<div class="lft">
+				<a href="/profile/">Войти в кабинет</a>
+			</div>
+			<div class="rgt">
+				<form id="form_Logout" action="/" method="POST">
+					<input type="hidden" name="logout" value="1">
+									
+					<a href="#" onclick="return form_sbm('#form_Logout');">Выход</a>
+				</form>				
+			</div>			
+			<div class="clr"></div>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,23 @@
+<tr>
+	<td>
+		<a href="/adm/orders/<?=$a['lnk']?>/"><?=$a['num']?></a>
+	</td>
+	<td>
+		<?=date('d.m.Y H:i',strtotime($a['made_on']))?>
+	</td>
+	<td>
+		<?=$a['status']?>
+	</td>
+	<td>
+		<?=$a['sum']?>
+	</td>
+	<td>
+		<?=$a['delivery_costs']?>
+	</td>
+	<td>
+		<?=$a['overall_price']?>
+	</td>
+	<td>
+		<?=$a['payment_method']?>
+	</td>
+</tr>

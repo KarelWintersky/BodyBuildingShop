@@ -1,0 +1,16 @@
+<?if($a['new_group']):?>
+	<h3><?=$a['group_name'];?></h3>
+<?endif;?>
+
+<div class="good_feature_line cbox">
+	<input type="checkbox" name="features[<?=$a['id'];?>]" id="feature_<?=$a['id'];?>" <?=$a['checked'];?>>
+	<label for="feature_<?=$a['id'];?>">
+		<a href="/public/foto/features/<?=$a['image'];?>" target="_blank"><?=$a['name'];?></a>
+	</label>
+	<div class="clr"></div>
+	
+	<?if($a['delimiter']==1):?>
+		<hr>
+	<?endif;?>
+	
+</div>

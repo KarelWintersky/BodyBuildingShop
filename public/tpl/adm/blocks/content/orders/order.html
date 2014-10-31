@@ -1,0 +1,163 @@
+<h1 style="float:left;">Заказ номер <?=$this->registry['order_info']['num']?></h1>
+
+<div id="order_delivery_type">
+	<?if($this->registry['order_info']['delivery_type']==1):?>
+		доставка почтой
+	<?elseif($this->registry['order_info']['delivery_type']==2):?>
+		доставка курьером
+	<?elseif($this->registry['order_info']['delivery_type']==3):?>
+		доставка транспортной компанией
+	<?endif;?>
+</div>
+
+<div id="order_links">
+
+	<div class="ol_block">
+		<form id="form_Order_Send_1" action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="1001">
+			<input type="hidden" name="num" value="<?=$this->registry['order_info']['num'];?>">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<a href="#" onclick="return form_sbm('#form_Order_Send_1');">Послать письмо о заказе</a>
+		</form>
+	</div>
+
+	<div class="ol_block">
+		<form id="form_Order_Send_2" action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="1002">
+			<input type="hidden" name="num" value="<?=$this->registry['order_info']['num'];?>">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<a href="#" onclick="return form_sbm('#form_Order_Send_2');">Послать квитанцию</a>
+		</form>
+	</div>
+
+	<div class="clr"></div>
+
+</div>
+
+<div class="clr"></div>
+
+<div class="form_1">
+
+	<form id="form_OrderInfo" action="/doer/" method="POST">
+
+		<input type="hidden" name="d_action" value="1000">
+		<input type="hidden" name="num" value="<?=$this->registry['order_info']['num'];?>">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+		<div class="form_l form_l_num lft">
+			<label>Номер</label>
+			<input type="text" value="<?=$this->registry['order_info']['num']?>" disabled>
+		</div>
+
+		<div class="form_l form_l_status lft">
+			<label>Статус</label>
+			<select name="status">
+				<?$this->registry['orders']->statuses_options($this->registry['order_info']['status'],false);?>
+			</select>
+		</div>
+
+		<div class="form_l form_l_date lft">
+			<label>Дата заказа</label>
+			<input type="text" value="<?=date('d.m.Y H:i',strtotime($this->registry['order_info']['made_on']))?>" disabled>
+		</div>
+
+		<div class="form_l form_l_date lft">
+			<label>Дата отправки</label>
+			<input type="text" value="<?= ($this->registry['order_info']['sent_on']!='0000-00-00') ? date('d.m.Y',strtotime($this->registry['order_info']['sent_on'])) : ''?>" name="sent_on" class="datepicker" readonly="1">
+		</div>
+
+		<div class="form_l form_l_date lft">
+			<label>Дата оплаты</label>
+			<input type="text" value="<?= ($this->registry['order_info']['payed_on']!='0000-00-00') ? date('d.m.Y',strtotime($this->registry['order_info']['payed_on'])) : ''?>" name="payed_on" class="datepicker" readonly="1">
+		</div>
+
+		<div class="form_l form_l_user lft">
+			<label>Пользователь</label>
+			<div>
+				<a href="/adm/users/<?=$this->registry['order_info']['user_id']?>/"><?=$this->registry['order_info']['user_name']?></a>
+			</div>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l lft form_l_sum">
+			<label>Сумма</label>
+			<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['sum']);?>" disabled>
+		</div>
+
+		<div class="form_l lft form_l_dlv">
+			<label>Доставка</label>
+			<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['delivery_costs']);?>" disabled>
+		</div>
+
+		<div class="form_l lft">
+			<label>Скидка</label>
+			<input type="text" value="<?=$this->registry['order_info']['discount']?>" disabled>
+		</div>
+
+		<div class="form_l lft form_l_overall">
+			<?if($this->registry['order_info']['from_account']>0):?>
+				<label>Всего&nbsp;&nbsp;/ со счета / доплатить</label>
+				<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['overall_price']);?>  /    <?=$this->registry['logic']->price2read($this->registry['order_info']['from_account']);?>    /    <?=$this->registry['logic']->price2read($this->registry['order_info']['overall_price']-$this->registry['order_info']['from_account']);?>
+				" disabled>
+			<?else:?>
+				<label>Всего</label>
+				<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['overall_price']);?>" disabled>
+			<?endif;?>
+		</div>
+
+		<div class="form_l lft form_l_address">
+			<?=$this->registry['logic']->implode_address($this->registry['order_info']);?>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l lft">
+			<label>Номер телефона</label>
+			<input type="text" value="<?=$this->registry['order_info']['phone_number'];?>" disabled>
+		</div>
+
+		<div class="form_l lft">
+			<label>Номер почтового отправления</label>
+			<input type="text" value="<?=$this->registry['order_info']['postnum'];?>" name="postnum">
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_wishes lft">
+			<label>Пожелания</label>
+			<textarea name="wishes"><?=$this->registry['order_info']['wishes'];?></textarea>
+		</div>
+
+		<div class="form_l form_l_wishes lft">
+			<label>Комментарий</label>
+			<textarea name="comment" disabled><?=$this->registry['order_info']['comment'];?></textarea>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_sbm">
+			<input type="submit" value="Сохранить">
+		</div>
+
+	</form>
+
+</div>
+
+<table cellpadding="0" cellspacing="0" class="og_table">
+	<tr>
+		<th>ID</th>
+		<th id="th_name">Название</th>
+		<th>Цена</th>
+		<th>Кол-во</th>
+		<th>Скидка</th>
+		<th>Итого</th>
+	</tr>
+
+	<?$this->registry['orders']->goods_list();?>
+
+</table>

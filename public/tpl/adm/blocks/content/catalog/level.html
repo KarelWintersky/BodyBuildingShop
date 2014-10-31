@@ -1,0 +1,206 @@
+<h1>
+	<a href="/adm/catalog/">
+		Каталог товаров</a>
+	<?= ($this->registry['level']['parent_id']!=0) ? '/ <a href="/adm/catalog/0/'.$this->registry['level']['parent_id'].'/">'.$this->registry['level']['parent_name'].'</a>' : '';?>
+	/
+	<?= ($this->registry['action']==50) ? $this->registry['level']['name'] : 'Новый раздел'?>
+</h1>
+
+<?if($this->registry['action']==50):?>
+
+	<div class="level_good_add">
+		<a href="<?=$_SERVER['REQUEST_URI'];?>0/">Добавить <?= ($this->registry['level']['parent_id']!=0) ? 'товар' : 'раздел';?></a>
+	</div>
+
+	<?$this->registry['catalog']->print_level_list($this->registry['level']['id'],$level_html);?>
+
+	<?if($level_html!=''):?>
+
+		<div class="form_2">
+			<h2><?= ($this->registry['level']['parent_id']==0) ? 'Подразделы' : 'Товары';?> раздела</h2>
+
+			<form class="usual_form" id="form_LevelOrder" action="/doer/" method="POST">
+
+				<input type="hidden" name="d_action" value="52">
+				<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+				<input type="hidden" name="table" value="<?= ($this->registry['level']['parent_id']!=0) ? 'goods' : 'levels';?>">
+
+				<?if($this->registry['level']['parent_id']==0):?>
+
+					<table class="catalog_table" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>Название</th>
+							<th>Товаров</th>
+						</tr>
+						<?=$level_html;?>
+					</table>
+
+				<?else:?>
+
+					<table class="catalog_table" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>Штрихкод</th>
+							<th>Название</th>
+							<th>Производитель</th>
+							<th>Упаковка</th>
+							<th>Наличие</th>
+							<th>Горячий</th>
+							<th>Новый</th>
+							<th>Цена</th>
+							<th>Скидка</th>
+							<th></th>
+						</tr>
+						<?=$level_html;?>
+					</table>
+
+					<div class="form_l form_l_op">
+						<label>С выделенными товарами</label>
+						<select name="gr_op">
+							<option value="0">нет</option>
+							<option value="1">пометить как в наличии</option>
+							<option value="2">пометить как отсутствующие</option>
+							<option value="3">изъять из продажи</option>
+							<option value="4">пометить как новый</option>
+							<option value="5">снять пометку нового</option>
+						</select>
+					</div>
+
+				<?endif;?>
+
+				<div class="form_l sbm">
+					<input type="submit" value="Сохранить">
+				</div>
+
+			</form>
+
+		</div>
+
+	<?endif;?>
+
+<?endif;?>
+
+<div class="form_1">
+	<h2>Информация о разделе</h2>
+
+	<form class="usual_form" id="form_LevelInfo" action="/doer/" method="POST" enctype="multipart/form-data" onsubmit="return level_form_check(this);">
+
+		<input type="hidden" name="d_action" value="<?=$this->registry['action']?>">
+		<input type="hidden" name="id" value="<?=$this->registry['level']['id']?>">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+		<div class="form_l form_l_name lft">
+			<label>Название раздела</label>
+			<input type="text" name="name" value="<?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['name']) : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<?if($this->registry['level']['parent_id']==0):?>
+
+			<input type="hidden" name="parent_id" value="<?=$this->registry['level']['parent_id']?>">
+
+		<?else:?>
+
+			<div class="form_l form_l_level_id lft">
+				<label>Родительский раздел</label>
+				<select name="parent_id">
+					<?$this->registry['catalog']->level_select_options($this->registry['level']['parent_id'],true);?>
+				</select>
+			</div>
+
+		<?endif;?>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_content">
+			<label>Текстовое описание</label>
+			<textarea name="content" class="tinyMCE"><?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['content']) : '';?></textarea>
+		</div>
+
+		<?if($this->registry['action']==50):?>
+
+			<div class="form_l form_l_avatar">
+				<label>Аватарка</label>
+				<input type="hidden" name="old_avatar" value="<?=$this->registry['level']['avatar'];?>">
+
+				<?if($this->registry['level']['avatar']!=''):?>
+					<img src="/public/foto/levels/160x160/<?=$this->registry['level']['avatar'];?>">
+				<?endif;?>
+
+				<input type="file" name="avatar">
+
+			</div>
+
+		<?endif;?>
+
+		<div class="form_l form_l_published cbox">
+			<input type="checkbox" name="published" id="published" value="1" <?=($this->registry['action']==50 && $this->registry['level']['published']==1) ? 'checked' : '';?>>
+			<label for="published">Опубликован</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_seo_title lft">
+			<label>Тег TITLE</label>
+			<input type="text" name="seo_title" value="<?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['seo_title']) : '';?>">
+		</div>
+
+		<div class="form_l form_l_alias lft">
+			<label>Alias</label>
+			<input type="text" name="alias" value="<?= ($this->registry['action']==50) ? $this->registry['level']['alias'] : '';?>">
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_seo_kw lft">
+			<label>Тег KEYWORDS</label>
+			<textarea name="seo_kw"><?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['seo_kw']) : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_seo_dsc lft">
+			<label>Тег DESCRIPTION</label>
+			<textarea name="seo_dsc"><?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['seo_dsc']) : '';?></textarea>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l sbm">
+			<input type="submit" value="<?= ($this->registry['action']==50) ? 'Сохранить' : 'Добавить';?>">
+		</div>
+
+		<div id="overall_err_msg">Возникли ошибки. Заполните корректно указанные поля и сохраните форму еще раз.</div>
+
+		<div class="clr"></div>
+
+	</form>
+
+	<?if($this->registry['action']==50 && $this->registry['userdata']['type']==2):?>
+
+		<form id="delForm" action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="53">
+			<input type="hidden" name="id" value="<?=$this->registry['level']['id']?>">
+			<input type="hidden" name="rp" value="/adm/">
+
+			<div class="delLink">
+
+				<div class="del_confirm">
+					<div class="del_confirm_head">Удаление раздела</div>
+					<div class="del_confirm_i">
+						<span>Вы действительно хотите удалить раздел?</span>
+						<ul class="del_confirm_lnk">
+							<li class="y"><a onclick="return form_sbm('#delForm');" href="#">Да</a></li>
+							<li class="n"><a onclick="return delConfirmHide(this);" href="#">Нет</a></li>
+						</ul>
+						<div class="clr"></div>
+					</div>
+				</div>
+
+				<a href="#" onclick="return delConfirm(this);">Удалить раздел</a>
+			</div>
+
+		</form>
+
+		<div class="clr"></div>
+
+	<?endif;?>
+
+</div>

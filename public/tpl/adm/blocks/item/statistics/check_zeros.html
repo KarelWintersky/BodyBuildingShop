@@ -1,0 +1,32 @@
+<?if($a['parent_change']):?>
+	<tr class="parent_tr">
+		<td colspan="6"><?=$a['parent_name'];?></td>
+	</tr>
+<?endif;?>
+
+<?if($a['level_change']):?>
+	<tr class="level_tr">
+		<td colspan="6"><?=$a['level_name'];?></td>
+	</tr>
+<?endif;?>
+
+<tr class="<?=$a['published_class'];?>">
+	<td>
+		<?=$a['barcode'];?>
+	</td>
+	<td>
+		<a href="/adm/catalog/<?=$a['parent_id'];?>/<?=$a['level_id'];?>/<?=$a['id'];?>/"><?=$a['display_name'];?></a>
+	</td>
+	<td class="<?= ($a['price_2']==0) ? 'no' : 'yes';?>">
+		<?= ($a['price_2']==0) ? 'нет' : 'да';?>
+	</td>
+	<td class="<?= ($a['weight']<=0) ? 'no' : 'yes';?>">
+		<?= ($a['weight']<=0) ? 'нет' : 'да';?>
+	</td>
+	<td class="<?= ($a['packing']=='') ? 'no' : 'yes';?>">
+		<?= ($a['packing']=='') ? 'нет' : 'да';?>
+	</td>
+	<td>
+		<?= ($a['present']==1) ? 'да' : 'нет';?>
+	</td>
+</tr>

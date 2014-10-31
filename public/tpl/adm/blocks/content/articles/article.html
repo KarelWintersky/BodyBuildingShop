@@ -1,0 +1,113 @@
+<h1 style="float:left;"><?= ($this->registry['action']==901) ? $this->registry['article']['name'] : 'Новая статья';?></h1>
+
+<?if($this->registry['action']==901):?>
+	<div class="look_1">
+		<a href="/<?=$this->registry['article']['alias'];?>/" target="_blank">предпросмотр</a>
+	</div>
+<?endif;?>
+
+<div class="clr"></div>
+
+<div class="form_1">
+
+	<form class="usual_form" id="form_Article" method="POST" action="/doer/" enctype="multipart/form-data" onsubmit="return article_form_check(this);">
+
+		<input type="hidden" name="d_action" value="<?=$this->registry['action'];?>">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+		<input type="hidden" name="id" value="<?= ($this->registry['action']==901) ? $this->registry['article']['id'] : 0;?>">
+
+		<div class="form_l form_l_name">
+			<label>Название</label>
+			<input type="text" value="<?= ($this->registry['action']==901) ? htmlspecialchars($this->registry['article']['name']) : '';?>" name="name">
+			<div class="errF"></div>
+		</div>
+
+		<div class="form_l form_l_content">
+			<label>Содержание</label>
+			<textarea name="content" class="tinyMCE"><?= ($this->registry['action']==901) ? $this->registry['article']['content'] : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_introtext">
+			<label>Вступительный текст</label>
+			<textarea name="introtext"><?= ($this->registry['action']==901) ? $this->registry['article']['introtext'] : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_longtitle lft">
+			<label>Тег TITLE</label>
+			<input type="text" value="<?= ($this->registry['action']==901) ? htmlspecialchars($this->registry['article']['longtitle']) : '';?>" name="longtitle">
+		</div>
+
+		<div class="form_l form_l_alias lft">
+			<label>Alias</label>
+			<input type="text" value="<?= ($this->registry['action']==901) ? $this->registry['article']['alias'] : '';?>" name="alias">
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_meta lft">
+			<label>Тег KEYWORDS</label>
+			<textarea name="seo_kw"><?= ($this->registry['action']==901) ? $this->registry['article']['seo_kw'] : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_meta form_l_dsc lft">
+			<label>Тег DESCRIPTION</label>
+			<textarea name="seo_dsc"><?= ($this->registry['action']==901) ? $this->registry['article']['seo_dsc'] : '';?></textarea>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_img_alt">
+			<label>ALT для картинки</label>
+			<input type="text" value="<?= ($this->registry['action']==901) ? htmlspecialchars($this->registry['article']['img_alt']) : '';?>" name="img_alt">
+		</div>
+
+		<div class="form_l form_l_main_h2">
+			<label>H2 на главную страницу</label>
+			<input type="text" value="<?= ($this->registry['action']==901) ? htmlspecialchars($this->registry['article']['main_h2']) : '';?>" name="main_h2">
+		</div>
+
+		<div class="form_l form_l_published cbox">
+			<input type="checkbox" name="published" id="published" value="1" <?=($this->registry['action']==901 && $this->registry['article']['published']==1) ? 'checked' : '';?>>
+			<label for="published">Опубликована</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_in_sitemap cbox">
+			<input type="checkbox" name="in_sitemap" id="in_sitemap" value="1" <?=($this->registry['action']==901 && $this->registry['article']['in_sitemap']==1) ? 'checked' : '';?>>
+			<label for="in_sitemap">Включить в карту сайта</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_mainpage cbox">
+			<input type="checkbox" name="socialblock" id="socialblock" value="1" <?=($this->registry['action']==901 && $this->registry['article']['socialblock']==1) ? 'checked' : '';?>>
+			<label for="socialblock">Показывать блок социальных сетей</label>
+			<div class="clr"></div>
+		</div>
+
+		<?if($this->registry['action']==901):?>
+
+			<div class="form_l form_l_avatar">
+				<label>Аватарка</label>
+				<input type="hidden" name="old_avatar" value="<?=$this->registry['article']['avatar'];?>">
+
+				<?if($this->registry['article']['avatar']!=''):?>
+					<img src="/public/foto/articles/<?=$this->registry['article']['avatar'];?>">
+				<?endif;?>
+
+				<input type="file" name="avatar">
+
+			</div>
+
+		<?endif;?>
+
+		<div class="form_l sbm">
+			<input type="submit" value="<?= ($this->registry['action']==901) ? 'Сохранить' : 'Добавить' ;?>">
+		</div>
+
+		<div id="overall_err_msg">Возникли ошибки. Заполните корректно указанные поля и сохраните форму еще раз.</div>
+
+		<div class="clr"></div>
+
+	</form>
+
+</div>

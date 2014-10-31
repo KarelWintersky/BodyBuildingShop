@@ -1,0 +1,135 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+	
+		<form id="form_indexesFileUpload" method="POST" action="/doer/" enctype="multipart/form-data">
+	
+			<input type="hidden" name="d_action" value="600">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">			
+		
+			<div class="form_l form_l_file">
+				<label>Файл с индексами в формате .dat</label>
+				<input type="file" name="indexes">
+			</div>
+			
+			<div class="form_l sbm">
+				<input type="submit" value="Загрузить">
+			</div>	
+			
+			<div class="clr"></div>
+			
+		</form>
+		
+	</div>
+	
+	<div class="form_1">
+		<h2>Добавление/редактирование индексов</h2>
+		
+		<form id="form_IndexFind" method="GET">
+		
+			<div class="form_l form_l_index">
+				<label>Индекс</label>
+				<input type="text" name="index" value="<?= (isset($_GET['index'])) ? $_GET['index'] : '';?>">
+			</div>			
+			
+			<div class="form_l sbm">
+				<input type="submit" value="Найти">
+			</div>				
+		
+			<div class="clr"></div>
+		
+		</form>
+		
+		<?if(isset($_GET['index'])):?>
+		
+		<?$this->registry['CL_settings_indexes']->index_find($html,$count);?>
+		
+			<form id="form_indexesTable" method="POST" action="/doer/">
+			
+				<input type="hidden" name="d_action" value="621">
+				<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+			
+				<h3>
+					<?if($count>0):?>
+						Найденная информация по индексам
+					<?else:?>
+						Индекс не найден: добавить	
+					<?endif;?>
+				</h3>
+			
+				<table class="the_table">
+					<tr>
+						<th>Индекс</th>
+						<th>Старый индекс</th>
+						<th>actual<br>time_ogr</th>
+						<th>kol_str<br>type_ogr<br>type_dost</th>
+						<th>Регион<br>Район<br>Город</th>
+						<th>tarif_pos_basic<br>tarif_pos_add<br>tarif_band_basic<br>tarif_band_add</th>
+						<th>tarif_post_avia_pos<br>tarif_avia_pos<br>tarif_post_avia_band<br>tarif_avia_band</th>					
+					</tr>
+					<?=$html;?>
+				</table>
+			
+				<div class="form_l sbm">
+					<input type="submit" value="<?= ($count>0) ? 'Сохранить' : 'Добавить'?>">
+				</div>						
+		
+				<textarea class="tinyMCE the_hint">
+<p class="p1">&nbsp; &nbsp;id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; INT(4) UNSIGNED NOT NULL PRIMARY KEY auto_increment, /* 0 - № */</p>
+<p class="p2">&nbsp;&nbsp; ind &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; INT(2), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* 1 индекс */</p>
+<p class="p2">&nbsp;&nbsp; ind_old &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; INT(2), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* 2 старый индекс */</p>
+<p class="p2">&nbsp;&nbsp; actual&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 3 дата актуализации */</p>
+<p class="p2">&nbsp;&nbsp; kol_str &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; INT(1), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* 4 количество строк */</p>
+<p class="p2">&nbsp;&nbsp; region&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 5 регион */</p>
+<p class="p2">&nbsp;&nbsp; rajon &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 6 район */</p>
+<p class="p2">&nbsp;&nbsp; city&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 7 НП */</p>
+<p class="p2">&nbsp;&nbsp; type_ogr&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; INT(1), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* 8 ТИП ОГРАНЕЧЕНИЯ */</p>
+<p class="p2">&nbsp;&nbsp; tarif_pos_basic&nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 9 Тариф посылки основной */</p>
+<p class="p2">&nbsp;&nbsp; tarif_pos_add&nbsp; &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 10 Тариф посылки - дополнительный */</p>
+<p class="p2">&nbsp;&nbsp; tarif_band_basic &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 11 Тариф бандероли основной */</p>
+<p class="p2">&nbsp;&nbsp; tarif_band_add &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 12 Тип доставки при наличие ограничения (т.е. если 8 пункт не равен 0) */</p>
+<p class="p2">&nbsp;&nbsp; type_dost&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; INT(1), &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* 13 индекс */</p>
+<p class="p2">&nbsp;&nbsp; time_ogr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 14 период действия ограничения */</p>
+<p class="p2">&nbsp;&nbsp; tarif_post_avia_pos&nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 15 почтовый тариф для авиа-доставки посылок */</p>
+<p class="p2">&nbsp;&nbsp; tarif_avia_pos &nbsp; &nbsp; &nbsp; VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 16 авиа тариф для авиа-доставки посылок */</p>
+<p class="p2">&nbsp;&nbsp; tarif_post_avia_band VARCHAR(127), &nbsp; &nbsp; &nbsp; /* 17 почтовый тариф для авиа-доставки бандеролей */</p>
+<p class="p2">&nbsp;&nbsp; tarif_avia_band&nbsp; &nbsp; &nbsp; VARCHAR(127)&nbsp; &nbsp; &nbsp; &nbsp; /* 18 авиа тариф для авиа-доставки бандеролей */</p>
+<p class="p3">&nbsp;</p>
+<p class="p1">Примечание: тип ограничение (поле 8) может быть таким:</p>
+<p class="p2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case 1 :&nbsp; &nbsp; $return[6] = "Вы проживаете в труднодоступном регионе, в который периодически запрещается прием бандеролей и посылок для пересылки наземным транспортом. Авиа-доставка в Ваш регион ОТСУТСТВУЕТ!";</p>
+<p class="p2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case 2 :&nbsp; &nbsp; $return[6] = "Вы проживаете в труднодоступном регионе, в который периодически запрещается прием бандеролей и посылок для пересылки наземным транспортом. Авиа-доставка ЕСТЬ.";</p>
+<p class="p2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case 3 :&nbsp; &nbsp; $return[6] = "Вы проживаете в труднодоступном регионе, в который доставка почтовых отправлений осуществляется &lt;b&gt;только&lt;/b&gt; авиа-транспортом. Поэтому Вы можете делать заказы только ПО ПРЕДОПЛАТЕ или с оплатой через систему WebMoney.";</p>
+<p class="p1">Поле 13 определяет тип возможной доставки:</p>
+<p class="p1">0: доставки вообще нет (и следующие два поля определяют промежуток времени когда ее нет). делать заказ нельзя.</p>
+<p class="p1">1:&nbsp; доставка комбинированная - сначала наземная, а потом авиа-доставка (и следующие два поля определяют промежуток времени когда действует эта комбинированная доставка и, соответственно, другие цены на доставку). Только предоплата.</p>
+<p class="p1">2: доставка ТОЛЬКО авиатранспортом&nbsp; (и следующие два поля определяют промежуток времени когда действует эта авиа-доставка и, соответственно, другие цены на доставку). Только предоплата.</p>
+<p class="p1">3: Возможна доставка наземным транспортом. Любой вид оплаты.</p>
+<p class="p1">Соответственно для п.1 и 2 возможны периоды (поле 14) типа 1.01-31.12 Это значит что круглый год только авиа или только комбинированная. Для таких клиентов только предоплата. Но естественно скрипт сам определяет текущую дату и какая в данный момент доставка есть.&nbsp;</p>
+<p class="p1">База индексов формируется из такого файла&nbsp;</p>
+<p class="p1">101000::101000::17.06.02::1::Москва::Москва::г.Москва::0::120.60::10.50::21.15::21.15::3::1.01-31.12::0.00::0.00::0.00::0.00</p>
+<p class="p1">101194::101194::30.01.02::1::Москва::Москва::г.Москва::0::120.60::10.50::21.15::21.15::3::1.01-31.12::0.00::0.00::0.00::0.00</p>
+<p class="p1">101990::101990::28.03.01::1::Москва::Москва::г.Москва::0::120.60::10.50::21.15::21.15::3::1.01-31.12::0.00::0.00::0.00::0.00</p>
+<p class="p1">102000::135810::19.11.02::1::Москва::Москва::г.Москва::0::120.60::10.50::21.15::21.15::3::1.01-31.12::0.00::0.00::0.00::0.00</p>
+<p class="p1">102001::102001::20.12.02::1::Москва::Москва::г.Москва::0::120.60::10.50::21.15::21.15::3::1.01-31.12::0.00::0.00::0.00::0.00</p>
+<p class="p1">Таких строк под 50 тыс. и они описывают все индексы страны. Файл берется с сайта почты и периодически закидывается по фтп. Т.е. нужна возможность его импортить.&nbsp; Далее исходя из этих данных определяется возможность доставки и рассчитывается ее стоимость.&nbsp; Вообще это будет самая сложная часть магазина. От доставки многое зависит. Есть населенные пункты, в которые доставка вообще невозможна в какой-то период времени. Соответственно должен идти отлуп &laquo;доставка в настоящий момент к Вам невозможна&raquo;. Есть пункты куда доставка комбинированная &ndash; сначала наземная, потом Авиа. Есть пункты куда только авиа. Если в доставке присутствует авиа то заказ может быть ТОЛЬКО по предоплате. Т.к. очень высокие издержки доставки и если человек не заберет заказ на почте мы попадаем на бабки.&nbsp; Т.е. при комбинированной доставке или авиа только предоплата. Есть населенные пункты, куда в один период времени есть наземная доставка, в другой &ndash; комбинированная, в третий &ndash; вообще никак. Т.е. в один период &ndash; любой заказ, в другой &ndash; предоплата, в третий &ndash; ничего. &nbsp; Все это надо учитывать. Пункт 4 базы &ndash; количество строк. Т.е. к одному индексу может быть привязано несколько строк. Они описывают разные промежутки времени и разные ограничения на них. Т.е. в один промежуток любая доставка, в другой &ndash; комбинированная, в третий авиа, потом никак, потом снова авиа.</p>
+<p class="p1">Так же на заглавной должен быть расчет стоимости доставки по индексу (типа кидает человек индекс, а ему стоимость доставки к нему), эти же данные должны быть в карточке клиента для справки. Выдаваться они должны в виде данных из БД. Типа &laquo;Базовый тариф за отправку ххх руб + ууу руб за каждый неполный кг.&nbsp; бандероли.&nbsp; То же и для посылок. Вес&nbsp; товара заказа &lt; 3кг (вес уточню еще, но можно сделать и глобальной переменной в админке) &ndash; это бандероль. Больше &ndash; посылка. Соответственно надо брать нужные тарифы или для бандероли или для посылки.</p>
+<p class="p1">Соответственно будет много предупреждений и сообщений человеку в процессе оформления заказа. Если у него ограничения по доставке и, как следствие, форме оплаты заказа. Возможно стоит эти сообщения сделать какими-то переменными, чтобы я мог их редактировать. Да и вообще все служебные тексты. Правда тогда будет вопрос с форматированием&nbsp; текстов на странице.</p>				
+				</textarea>
+			
+			</form>
+							
+		<?endif;?>
+		
+	</div>
+
+</div>
+
+<div class="clr"></div>

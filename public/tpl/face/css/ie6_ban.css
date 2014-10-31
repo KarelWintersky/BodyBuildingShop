@@ -1,0 +1,4 @@
+#not_ie6{display:none;}
+
+#ie6_alert{background:url(/public/tpl/face/i/noscript_alert.jpg) 0 0 repeat-x;height:34px;position:fixed;width:100%;}
+	#ie6_alert #ie6_alert_i{background:url(/public/tpl/face/i/noscript_alert_sign.png) 0 8px no-repeat;padding:9px 0 0 28px;height:25px;color:#fff;font-size:11px;}

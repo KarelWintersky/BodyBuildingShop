@@ -1,0 +1,19 @@
+<div id="typical_page">
+
+	<h1 class="second_style"><?=$this->registry['page']['name'];?></h1>
+
+	<div class="texted">
+		<?=$this->registry['page']['content'];?>
+	</div>
+	
+	<?=$this->registry['template']->F_tech();?>
+	
+	<?if($this->registry['page']['socialblock']):?>
+		<div id="social_stripe">
+			<div class="yashare_label">Поделиться:</div> <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+	<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,lj,friendfeed,moikrug,gplus"></div>
+			<div class="clr"></div>
+		</div>	
+	<?endif;?>
+	
+</div>

@@ -1,0 +1,20 @@
+<tr>
+	<td class="td_right" colspan="4">Сумма заказа</td>
+	<td class="td_right">
+		<?=$this->registry['logic']->price2read($a['sum'])?> руб.
+	</td>
+</tr>
+
+<tr>
+	<td class="td_right" colspan="4">Ваша персональная скидка (<?=$a['personal_discount']?> %)</td>
+	<td class="td_right">
+		<?=$this->registry['logic']->price2read($a['discount_amount'])?> руб.
+	</td>
+</tr>
+
+<tr>
+	<td class="td_right" colspan="4">ИТОГО</td>
+	<td class="td_right">
+		<?=$this->registry['logic']->price2read($a['sum']-$a['discount_amount'])?> руб.
+	</td>
+</tr>

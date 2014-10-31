@@ -1,0 +1,42 @@
+<li class="goods_photo <?=$a['class']?>">
+
+	<div class="goods_photo_i">
+		<img src="/public/foto/goods/80x80/<?=$a['goods_id']?>/<?=$a['alias']?>">
+	</div>
+	
+	<div class="goods_photo_r">
+		
+		<div class="goods_photo_alt">
+			<label>ALT</label>
+			<input type="text" name="photo[<?=$a['id']?>][alt]" value="<?=$a['alt']?>">
+		</div>
+	
+		<div class="cbox goods_photo_ava">
+			<input type="radio" value="<?=$a['id']?>" name="avatar" id="ava_<?=$a['id']?>" <?=$a['avatar_checked']?>>
+			<label for="ava_<?=$a['id']?>">аватар</label>
+			<div class="clr"></div>
+		</div>		
+		
+		<div class="cbox">
+			<input type="checkbox" value="1" name="photo[<?=$a['id']?>][del]" id="del_<?=$a['id']?>">
+			<label for="del_<?=$a['id']?>">удалить</label>
+			<div class="clr"></div>
+		</div>
+		
+	</div>
+	
+	<div class="clr"></div>
+	
+	<div class="photo_alias">
+		<?=$a['alias']?>
+	</div>
+	
+	<div class="photo_weight">
+		<?=$a['photo_weight']?>
+	</div>	
+	
+	<input type="hidden" name="photo[<?=$a['id']?>][sort]" class="input_sort" value="<?=$a['sort']?>">
+		
+	<input type="hidden" name="photo[<?=$a['id']?>][alias]" value="<?=$a['alias']?>">
+	
+</li>

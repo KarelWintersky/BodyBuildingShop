@@ -1,0 +1,33 @@
+<div id="not_authed" class="form_1">
+	
+	<?if(isset($_POST['login'])):?>
+		<div id="not_authed_err">Неверное сочетание логин/пароль</div>
+	<?endif;?>
+	
+	<form id="form_Not_authed" method="post" action="/adm/">
+		
+		<div class="f_line f_login">
+			<label>Логин</label>
+			<input type="text" name="login">
+		</div>
+
+		<div class="f_line f_pass">
+			<label>Пароль</label>
+			<input type="password" name="pass">
+		</div>		
+
+		<div class="f_line cbox">
+			<input type="checkbox" name="remember" id="ch_remember">
+			<label for="ch_remember">Не запоминать</label>
+			<div class="clr"></div>
+		</div>			
+				
+		<div class="f_line f_sbm">
+			<input type="submit" value="Войти">
+		</div>		
+		
+		<div class="clr"></div>
+		
+	</form>
+	
+</div>

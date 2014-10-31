@@ -1,0 +1,121 @@
+<h1 style="float:left;"><a href="/adm/pages/">Страницы</a> / <?= ($this->registry['action']==200) ? $this->registry['page']['name'] : 'Новая страница' ?></h1>
+
+<?if($this->registry['action']==200):?>
+	<div class="look_1">
+		<a href="/<?=$this->registry['page']['alias'];?>/" target="_blank">предпросмотр</a>
+	</div>
+<?endif;?>
+
+<div class="clr"></div>
+
+<div class="form_1">
+
+	<form class="usual_form" id="form_PageInfo" action="/doer/" method="POST" onsubmit="return page_form_check(this);">
+
+		<input type="hidden" name="d_action" value="<?=$this->registry['action']?>">
+		<input type="hidden" name="id" value="<?= ($this->registry['action']==200) ? $this->registry['page']['id'] : 0;?>">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+	
+		<div class="form_l form_l_h1">
+			<label>Название (H1)</label>
+			<input type="text" name="name" value="<?= ($this->registry['action']==200) ? htmlspecialchars($this->registry['page']['name']) : '';?>">
+			<div class="errF"></div>
+		</div>	
+		
+		<div class="form_l form_l_h2">
+			<label>Название (H2)</label>
+			<input type="text" name="h2_title" value="<?= ($this->registry['action']==200) ? htmlspecialchars($this->registry['page']['h2_title']) : '';?>">
+			<div class="errF"></div>
+		</div>		
+		
+		<div class="clr"></div>
+		
+		<div class="form_l form_l_content">
+			<label>Текст на странице</label>
+			<textarea class="tinyMCE" name="content"><?= ($this->registry['action']==200) ? $this->registry['page']['content'] : '';?></textarea>
+		</div>		
+		
+		<div class="form_l form_l_seo_title lft">
+			<label>Тег TITLE</label>
+			<input type="text" name="seo_title" value="<?= ($this->registry['action']==200) ? $this->registry['page']['seo_title'] : '';?>">
+		</div>			
+		
+		<div class="form_l form_l_alias lft">
+			<label>Alias</label>
+			<input type="text" name="alias" value="<?= ($this->registry['action']==200) ? $this->registry['page']['alias'] : '';?>">
+		</div>			
+		
+		<div class="clr"></div>
+		
+		<div class="form_l form_l_meta lft">
+			<label>KEYWORDS</label>
+			<textarea name="seo_kw"><?= ($this->registry['action']==200) ? $this->registry['page']['seo_kw'] : '';?></textarea>
+		</div>			
+		
+		<div class="form_l form_l_meta form_l_dsc lft">
+			<label>DESCRIPTION</label>
+			<textarea name="seo_dsc"><?= ($this->registry['action']==200) ? $this->registry['page']['seo_dsc'] : '';?></textarea>
+		</div>		
+		
+		<div class="clr"></div>
+		
+		<div class="form_l form_l_in_sitemap cbox">
+			<input type="checkbox" name="in_sitemap" id="in_sitemap" value="1" <?=($this->registry['action']==200 && $this->registry['page']['in_sitemap']==1) ? 'checked' : '';?>>
+			<label for="in_sitemap">Включить в карту сайта</label>
+			<div class="clr"></div>
+		</div>	
+		
+		<div class="form_l form_l_in_sitemap cbox">
+			<input type="checkbox" name="socialblock" id="socialblock" value="1" <?=($this->registry['action']==200 && $this->registry['page']['socialblock']==1) ? 'checked' : '';?>>
+			<label for="socialblock">Выводить блок социальных сетей</label>
+			<div class="clr"></div>
+		</div>			
+		
+		<div class="form_l form_l_published cbox">
+			<input type="checkbox" name="published" id="published" value="1" <?=($this->registry['action']==200 && $this->registry['page']['published']==1) ? 'checked' : '';?>>
+			<label for="published">Опубликована</label>
+			<div class="clr"></div>
+		</div>			
+		
+		<div class="form_l sbm">
+			<input type="submit" value="<?= ($this->registry['action']==200) ? 'Сохранить' : 'Добавить';?>">
+		</div>			
+		
+		<div id="overall_err_msg">Возникли ошибки. Заполните корректно указанные поля и сохраните форму еще раз.</div>
+		
+		<div class="clr"></div>
+		
+	</form>
+	
+	<?if($this->registry['action']==200 && $this->registry['userdata']['type']==2):?>
+	
+		<form id="delForm" action="/doer/" method="POST">
+		
+			<input type="hidden" name="d_action" value="202">
+			<input type="hidden" name="id" value="<?=$this->registry['page']['id']?>">	
+			<input type="hidden" name="rp" value="/adm/pages/">
+			
+			<div class="delLink">
+			
+				<div class="del_confirm">
+					<div class="del_confirm_head">Удаление страницы</div>
+					<div class="del_confirm_i">
+						<span>Вы действительно хотите удалить страницу?</span>
+						<ul class="del_confirm_lnk">
+							<li class="y"><a onclick="return form_sbm('#delForm');" href="#">Да</a></li>
+							<li class="n"><a onclick="return delConfirmHide(this);" href="#">Нет</a></li>
+						</ul>
+						<div class="clr"></div>
+					</div>
+				</div>
+			
+				<a href="#" onclick="return delConfirm(this);">Удалить страницу</a>				
+			</div>
+			
+		</form>
+	
+		<div class="clr"></div>
+		
+	<?endif;?>	
+	
+</div>

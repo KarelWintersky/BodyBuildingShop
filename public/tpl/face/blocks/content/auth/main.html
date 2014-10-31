@@ -1,0 +1,54 @@
+<div class="auth_page">
+
+	<h1 class="second_style">Авторизация</h1>
+
+	<?if(isset($_GET['failed']) && $_GET['failed']=1):?>
+	
+		<div id="auth_upper_hint">
+			Ошибка: Неправильный логин и/или пароль.<br>Если вы забыли логин или пароль, воспользуйтесь <a href="/forgotyourpassword/">процедурой восстановления</a>.
+		</div>
+	
+	<?endif;?>
+	
+	<div id="auth_form">
+		<h2>Авторизация</h2>
+
+		<form id="form_Auth" method="POST" action="/">
+		
+			<div class="form_auth_l">
+				<label>Логин</label>
+				<input type="text" name="login" value="">
+			</div>
+
+			<div class="form_auth_l">
+				<label>Пароль</label>
+				<input type="password" name="pass">
+			</div>			
+			
+			<div class="form_auth_l sbm">
+				<input type="submit" value="Войти">
+			</div>			
+			
+			<div class="form_auth_l cbox">
+				<input type="checkbox" name="remember" value="1" id="remember">
+				<label for="remember">Не запоминать</label>
+				<div class="clr"></div>
+			</div>			
+			
+			<div class="clr"></div>
+			
+		</form>
+		
+		<a href="/forgotyourpassword/">Забыли пароль?</a>
+		
+	</div>	
+	
+	<div id="auth_register">
+		<h2>Регистрация</h2>
+		<div id="auth_register_hint">Регистрация необходима только для совершения покупок. После регистрации Вы получаете возможность оформить заказ.</div>	
+		<a href="/register/">Регистрация</a>
+	</div>
+	
+	<div class="clr"></div>
+	
+</div>

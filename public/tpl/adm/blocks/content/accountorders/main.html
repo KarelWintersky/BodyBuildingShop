@@ -1,0 +1,85 @@
+<?$this->registry['accountorders']->get_orders_list($list);?>
+
+<h1 style="float:left;">Авансовые заказы</h1>
+
+<div class="orders_hint">
+	Показаны заказы с <b><?=$this->registry['orders_display_first']?></b> по <b><?=$this->registry['orders_display_last']?></b> из <b><?=$this->registry['orders_amount']?></b>
+</div>
+
+<div class="clr"></div>
+
+<div class="form_1">
+	<form id="form_AccountOrders_Srch" method="GET">
+		<h2>Поиск:</h2>
+		
+		<div class="form_l">
+			<label>№</label>
+			<input type="text" name="id" value="<?= (isset($_GET['id'])) ? $_GET['id'] : '';?>">
+		</div>
+		
+		<div class="form_l">
+			<label>Статус</label>
+			<select name="status">
+				<?$this->registry['accountorders']->statuses_options((isset($_GET['status'])) ? $_GET['status'] : 0,true);?>
+			</select>
+		</div>
+		
+		<div class="form_l">
+			<input type="submit" value="Найти">
+		</div>
+		
+		<div class="clr"></div>
+		
+	</form>
+	
+	<form id="form_AccountOrderPag">
+		
+		<input type="hidden" name="level_link" value="<?=$_SERVER['REQUEST_URI'];?>">	
+	
+		<label>Выводить по</label>
+		<select name="pag_val" onchange="set_orders_paging(2,'#form_AccountOrderPag');">
+			<?$this->registry['accountorders']->pagination_options(2);?>
+		</select>
+		<div class="clr"></div>
+	</form>	
+	
+	<form id="form_AccountOrders_Expire" action="/doer/" method="POST">
+	
+		<input type="hidden" name="d_action" value="1201">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">	
+	
+		<input type="submit" value="Отменить устаревшие">
+		
+	</form>
+	
+	<div class="clr"></div>
+	
+</div>
+
+<form id="form_AccountOrders" action="/doer/" method="POST">
+
+	<input type="hidden" name="d_action" value="1200">
+	<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+	<table class="account_orders" cellpadding="0"cellspacing="0">
+		<tr>
+			<th>№</th>
+			<th>Пользователь</th>
+			<th>Дата заказа</th>
+			<th>Сумма</th>
+			<th>Статус</th>
+		</tr>
+		<?=$list;?>
+	</table>
+
+	<?if($list!=''):?>
+	
+		<div class="sbm">
+			<input type="submit" value="Сохранить">
+		</div>
+	
+	<?endif;?>
+	
+</form>
+
+<?$this->registry['accountorders']->pagination();?>

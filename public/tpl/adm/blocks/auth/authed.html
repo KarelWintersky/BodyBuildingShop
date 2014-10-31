@@ -1,0 +1,91 @@
+<div id="head">
+
+	<div id="goods_srch">
+		<form action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="1100">
+			<input type="hidden" name="rp" value="/adm/catalog/?no_barcode=1">
+
+			<input type="text" value="Товар/штрихкод" onfocus="this.value=(this.value=='Товар/штрихкод')? '' : this.value;" onblur="this.value=(this.value=='')? 'Товар/штрихкод' : this.value;" name="barcode">
+
+			<?if(isset($_GET['no_barcode'])):?>
+				<b>Товар не найден.</b>
+			<?endif;?>
+
+		</form>
+	</div>
+
+	<div id="orders_srch">
+		<form action="/adm/orders/" method="GET">
+
+			<input type="text" value="Заказ/номер" onfocus="this.value=(this.value=='Заказ/номер')? '' : this.value;" onblur="this.value=(this.value=='')? 'Заказ/номер' : this.value;" name="num">
+
+		</form>
+	</div>
+
+	<div class="users_srch">
+		<form action="/adm/users/" method="GET">
+
+			<input type="text" value="Юзер/email" onfocus="this.value=(this.value=='Юзер/email')? '' : this.value;" onblur="this.value=(this.value=='')? 'Юзер/email' : this.value;" name="email">
+
+		</form>
+	</div>
+
+	<div class="users_srch">
+		<form action="/adm/users/" method="GET">
+
+			<input type="text" value="Юзер/логин" onfocus="this.value=(this.value=='Юзер/логин')? '' : this.value;" onblur="this.value=(this.value=='')? 'Юзер/логин' : this.value;" name="login">
+
+		</form>
+	</div>
+
+	<div class="users_srch">
+		<form action="/adm/users/" method="GET">
+
+			<input type="text" value="Юзер/ФИО" onfocus="this.value=(this.value=='Юзер/ФИО')? '' : this.value;" onblur="this.value=(this.value=='')? 'Юзер/ФИО' : this.value;" name="name">
+
+		</form>
+	</div>
+
+	<div id="catalog_quick">
+		<form>
+			<select onchange="window.location.href = $(this).val();">
+				<?$this->registry['template']->catalog_quick_opts();?>
+			</select>
+		</form>
+	</div>
+
+	<div class="clr"></div>
+
+</div>
+
+<ul id="main_menu">
+	<?$this->registry['template']->main_menu();?>
+</ul>
+
+<div id="content">
+
+	<?$this->content();?>
+
+</div>
+
+<div id="footer">
+
+	<div id="copy">&copy 2012. ООО «Body Building Shop»</div>
+
+	<div id="login_data">
+
+		<div id="username"><?=$this->registry['userdata']['name']?></div>
+		<div id="exit_link">
+			<form id="form_Logout" action="/adm/" method="POST">
+				<input type="hidden" name="logout" value="1">
+
+				<a href="#" onclick="return form_sbm('#form_Logout');">Выход</a>
+			</form>
+		</div>
+
+	</div>
+
+	<div class="clr"></div>
+
+</div>

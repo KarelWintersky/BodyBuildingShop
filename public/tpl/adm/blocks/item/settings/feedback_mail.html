@@ -1,0 +1,22 @@
+<li class="feedback_mail_item">
+	<div class="fmi_line">
+		<input type="text" value="<?=$a['name'];?>" name="mail[<?=$a['id']?>][name]">
+	</div>
+	
+	<div class="fmi_line">
+		<input type="text" value="<?=$a['email'];?>" name="mail[<?=$a['id']?>][email]">
+	</div>	
+	
+	<div class="fmi_line cbox">
+		<input type="checkbox" name="mail[<?=$a['id']?>][del]" value="1" id="del_<?=$a['id']?>">
+		<label for="del_<?=$a['id']?>">удалить</label>
+		<div class="clr"></div>
+	</div>	
+	
+	<div class="ci_drag"><div class="ci_drag_i"></div></div>
+	
+	<div class="clr"></div>
+	
+	<input type="hidden" name="mail[<?=$a['id']?>][sort]" class="input_sort" value="<?=$a['sort']?>">
+	
+</li>

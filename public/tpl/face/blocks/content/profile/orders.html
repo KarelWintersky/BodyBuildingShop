@@ -1,0 +1,108 @@
+<div class="profile_page">
+
+	<h1 class="second_style"><?=$this->registry['full_ui']['name']?></h1>
+
+	<div id="profile_page_id">(<?=$this->registry['full_ui']['id']?>)</div>
+
+	<div id="profile_page_personal_discount">Персональная скидка: <b><?=$this->registry['full_ui']['personal_discount']?> %</b></div>
+
+	<div class="clr"></div>
+
+	<ul id="profile_nav">
+		<li><a href="/profile/">Ваши установки</a></li>
+		<li>Ваши заказы и баланс</li>
+		<li><a href="/profile/accountorder/">Пополнить счет</a></li>
+	</ul>
+
+	<div id="profile_page_hint">
+		<p>В настоящее время в Вашей корзине товаров на сумму <b><?=$this->registry['logic']->price2read($this->registry['f_profile']->get_cart_sum());?> руб.</b></p>
+		<p>Максимальная сумма заказа для наложенного платежа <b><?=$this->registry['logic']->price2read($this->registry['full_ui']['max_nalog'])?> руб.</b> Для предоплаты ограничений нет.</p>
+		<p>На Вашем счету сейчас <b><?=$this->registry['logic']->price2read($this->registry['full_ui']['my_account'])?> руб.</b> (<a href="/profile/accountorder/">зачем это нужно</a>, <a href="/profile/accountorder/">пополнить счет</a><?= ($this->registry['full_ui']['my_account']>0) ? ', <a href="/profile/returnaccount/">забрать деньги</a>' : '';?>)</p>
+	</div>
+
+	<?$this->registry['f_profile']->get_your_orders($orders);?>
+
+	<div id="your_orders">
+		<h2>Ваши заказы</h2>
+
+		<div class="yo_table">
+			<div class="yo_table_h">Не отправленные заказы</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>№ заказа</th>
+					<th>Дата заказа</th>
+					<th>Скидка</th>
+					<th>Сумма</th>
+					<th></th>
+				</tr>
+				<?$this->registry['f_profile']->print_orders($orders,array(5,1),4);?>
+			</table>
+		</div>
+
+		<div class="yo_post_hint">
+			Для каждого заказа в статусе "отправлен" указан номер почтового отправления. К сожалению, в связи с защитными мерами сайта почты мы не можем предоставить Вам прямой ссылки на страницу с информацией о Вашей посылке. Однако Вы можете перейти на сайт почте по ссылке и ввести там номер отправления вручную. Если номер отправления в строке заказа отсутствует, то вы можете <a href="/contacts/" target="_blank">связаться с нами</a> для его получения.
+		</div>
+
+		<div class="yo_table">
+			<div class="yo_table_h">Отправленные Вам заказы, за которые оплата не получена</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>№ заказа</th>
+					<th>№ отправления</th>
+					<th>Дата заказа</th>
+					<th>Отправлено</th>
+					<th>Скидка</th>
+					<th>Сумма</th>
+				</tr>
+				<?$this->registry['f_profile']->print_orders($orders,2,6);?>
+			</table>
+		</div>
+
+		<div class="yo_table">
+			<div class="yo_table_h">Отправленные и оплаченные Вами заказы</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>№ заказа</th>
+					<th>№ отправления</th>
+					<th>Дата заказа</th>
+					<th>Отправлено</th>
+					<th>Оплачено</th>
+					<th>Скидка</th>
+					<th>Сумма</th>
+				</tr>
+				<?$this->registry['f_profile']->print_orders($orders,3,7);?>
+			</table>
+		</div>
+
+		<div class="yo_table">
+			<div class="yo_table_h">Отмененные заказы</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>№ заказа</th>
+					<th>Дата заказа</th>
+					<th>Отправлено</th>
+					<th>Оплачено</th>
+					<th>Скидка</th>
+					<th>Сумма</th>
+				</tr>
+				<?$this->registry['f_profile']->print_orders($orders,4,6);?>
+			</table>
+		</div>
+
+		<div class="yo_table">
+			<div class="yo_table_h">Авансовые заказы</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>№ заказа</th>
+					<th>Дата заказа</th>
+					<th>Сумма</th>
+					<th>Статус</th>
+					<th></th>
+				</tr>
+				<?$this->registry['f_profile']->print_account_orders();?>
+			</table>
+		</div>
+
+	</div>
+
+</div>

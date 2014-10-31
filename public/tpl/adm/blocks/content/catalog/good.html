@@ -1,0 +1,300 @@
+<h1>
+	<a href="/adm/catalog/">
+		Каталог товаров</a>
+	/
+	<a href="/adm/catalog/0/<?=$this->registry['good']['parent_id'];?>/">
+		<?=$this->registry['good']['parent_name'];?></a>
+	/
+	<a href="/adm/catalog/<?=$this->registry['good']['parent_id'];?>/<?=$this->registry['good']['level_id']?>/">
+		<?=$this->registry['good']['level_name']?></a>
+	/
+	<?= ($this->registry['action']==100) ? $this->registry['good']['name'] : 'Новый товар';?>
+</h1>
+
+<div class="form_1">
+
+	<form class="usual_form" id="form_GoodInfo" action="/doer/" method="POST" onsubmit="return goods_form_check(this);" <?= ($this->registry['action']==100) ? '' : 'target="_blank"';?>>
+
+		<h2>Информация о товаре</h2>
+
+		<ul class="look">
+			<li><a href="/<?=$this->registry['good']['parent_alias']?>/<?=$this->registry['good']['level_alias']?>/<?=$this->registry['good']['alias']?>/" target="_blank">предпросмотр</a></li>
+			<li><a href="orders/">товар в заказах</a></li>
+		</ul>
+
+		<div class="clr"></div>
+
+		<input type="hidden" name="d_action" value="<?=$this->registry['action']?>">
+		<input type="hidden" name="id" value="<?=$this->registry['good']['id']?>">
+		<input type="hidden" name="avatar_id" value="<?= ($this->registry['action']==100) ? $this->registry['good']['avatar_id'] : 0;?>">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+		<div class="form_l form_l_name lft">
+			<label>Название товара</label>
+			<input type="text" name="name" value="<?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['name']) : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<div class="form_l form_l_level_id lft">
+			<label>Раздел</label>
+			<select name="level_id">
+				<?$this->registry['catalog']->level_select_options($this->registry['good']['level_id']);?>
+			</select>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_content">
+			<label>Текстовое описание</label>
+			<textarea name="content" class="tinyMCE"><?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['content']) : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_introtext">
+			<label>Вводный текст</label>
+			<textarea name="introtext"><?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['introtext']) : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_content">
+			<label>Рекоммендации</label>
+			<textarea name="recommendations" class="tinyMCE"><?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['recommendations']) : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_content">
+			<label>Ингредиенты</label>
+			<textarea name="ingredients" class="tinyMCE"><?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['ingredients']) : '';?></textarea>
+		</div>
+
+		<?if($this->registry['action']==100):?>
+			<table class="table_barcodes">
+				<tr>
+					<th class="td_barcode">Штрихкод</th>
+					<th class="td_packing">Упаковка</th>
+					<th class="td_feature">Доп. св-во</th>
+					<th class="td_weight">Вес</th>
+					<th class="td_price">Цена</th>
+					<th class="td_present">В наличии</th>
+					<th class="td_del">Удалить</th>
+				</tr>
+				<?$this->registry['catalog']->print_goods_barcodes();?>
+			</table>
+
+			<div class="table_barcodes_add">
+				<a href="#" onclick="return barcode_add(<?=$this->registry['good']['id'];?>);">добавить штрихкод</a>
+			</div>
+		<?endif;?>
+
+		<div class="form_l form_l_price lft">
+			<label>Цена</label>
+			<input type="text" name="price_1" value="<?= ($this->registry['action']==100) ? $this->registry['good']['price_1'] : '';?>">
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_barcode lft">
+			<label>Штрихкод</label>
+			<input type="text" name="barcode" value="<?= ($this->registry['action']==100) ? $this->registry['good']['barcode'] : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<div class="form_l form_l_parent_barcode lft">
+			<label>Штрихкод родителя</label>
+			<input type="text" name="parent_barcode" value="<?= ($this->registry['action']==100) ? $this->registry['good']['parent_barcode'] : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_packing">
+			<label>Упаковка</label>
+			<input type="text" name="packing" value="<?= ($this->registry['action']==100) ? $this->registry['good']['packing'] : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<div class="form_l form_l_weight">
+			<label>Вес</label>
+			<input type="text" name="weight" value="<?= ($this->registry['action']==100) ? $this->registry['good']['weight'] : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<div class="form_l form_l_personal_discount">
+			<label>Перс. скидка</label>
+			<input type="text" name="personal_discount" value="<?= ($this->registry['action']==100) ? $this->registry['good']['personal_discount'] : '';?>">
+			<div class="errF"></div>
+		</div>
+
+		<div class="form_l form_l_grower_id">
+			<label>Производитель</label>
+			<select name="grower_id">
+				<?$this->registry['catalog']->grower_options($this->registry['good']['grower_id']);?>
+			</select>
+		</div>
+
+		<div class="form_l form_l_delivery_way_id">
+			<label>Способ доставки</label>
+			<select name="delivery_way_id">
+				<?$this->registry['catalog']->delivery_way_options($this->registry['good']['delivery_way_id']);?>
+			</select>
+		</div>
+
+		<div class="form_l form_l_published cbox">
+			<input type="checkbox" name="present" id="present" value="1" <?=($this->registry['action']==100 && $this->registry['good']['present']==1) ? 'checked' : '';?>>
+			<label for="present">В наличии</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_published cbox">
+			<input type="checkbox" name="published" id="published" value="1" <?=($this->registry['action']==100 && $this->registry['good']['published']==1) ? 'checked' : '';?>>
+			<label for="published">Опубликован</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_hot cbox">
+			<input type="checkbox" name="hot" id="hot" value="1" <?=($this->registry['action']==100 && $this->registry['good']['hot']==1) ? 'checked' : '';?>>
+			<label for="hot">Горячий</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_new cbox">
+			<input type="checkbox" name="new" id="new" value="1" <?=($this->registry['action']==100 && $this->registry['good']['new']==1) ? 'checked' : '';?>>
+			<label for="new">Новый</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="form_l form_l_seo_title">
+			<label>Тег TITLE</label>
+			<input type="text" name="seo_title" value="<?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['seo_title']) : '';?>">
+		</div>
+
+		<div class="form_l form_l_seo_title">
+			<label>Тег H1</label>
+			<input type="text" name="seo_h1" value="<?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['seo_h1']) : '';?>">
+		</div>
+
+		<div class="form_l form_l_alias">
+			<label>Alias</label>
+			<input type="text" name="alias" value="<?= ($this->registry['action']==100) ? $this->registry['good']['alias'] : '';?>">
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="form_l form_l_seo_kw lft">
+			<label>Тег KEYWORDS</label>
+			<textarea name="seo_kw"><?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['seo_kw']) : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_seo_dsc lft">
+			<label>Тег DESCRIPTION</label>
+			<textarea name="seo_dsc"><?= ($this->registry['action']==100) ? htmlspecialchars($this->registry['good']['seo_dsc']) : '';?></textarea>
+		</div>
+
+		<div class="clr"></div>
+
+		<div id="block_GoodFeatures">
+
+			<h2>Признаки товара</h2>
+
+			<div id="block_GoodFeatures_Trigger">
+				<a href="#" onclick="return good_features_spoiler();">развернуть</a>
+			</div>
+
+			<div class="clr"></div>
+
+			<div id="block_GoodFeatures_Spoiler">
+				<?$this->registry['catalog']->print_goods_feature_list();?>
+			</div>
+
+		</div>
+
+		<div class="form_l sbm">
+			<input type="submit" value="<?= ($this->registry['action']==100) ? 'Сохранить' : 'Добавить';?>">
+		</div>
+
+		<div id="overall_err_msg">Возникли ошибки. Заполните корректно указанные поля и сохраните форму еще раз.</div>
+
+		<div class="clr"></div>
+
+	</form>
+
+	<?if($this->registry['action']==100 && $this->registry['userdata']['type']==2):?>
+
+		<form id="delForm" action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="102">
+			<input type="hidden" name="id" value="<?=$this->registry['good']['id']?>">
+			<input type="hidden" name="rp" value="/adm/">
+
+			<div class="delLink">
+
+				<div class="del_confirm">
+					<div class="del_confirm_head">Удаление товара</div>
+					<div class="del_confirm_i">
+						<span>Вы действительно хотите удалить товар?</span>
+						<ul class="del_confirm_lnk">
+							<li class="y"><a onclick="return form_sbm('#delForm');" href="#">Да</a></li>
+							<li class="n"><a onclick="return delConfirmHide(this);" href="#">Нет</a></li>
+						</ul>
+						<div class="clr"></div>
+					</div>
+				</div>
+
+				<a href="#" onclick="return delConfirm(this);">Удалить товар</a>
+			</div>
+
+		</form>
+
+		<div class="clr"></div>
+
+	<?endif;?>
+
+</div>
+
+<?if(($this->registry['action']==100)):?>
+
+	<div class="form_1">
+
+		<a name="foto"></a>
+
+		<h2>Фотографии товара</h2>
+
+		<form class="usual_form" id="form_GoodPhotoUpload" action="/doer/" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="d_action" value="105">
+			<input type="hidden" name="goods_id" value="<?=$this->registry['good']['id']?>">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>#foto">
+
+			<div class="form_l form_l_photo">
+				<input type="file" name="photo">
+			</div>
+
+			<div class="form_l sbm">
+				<input type="submit" value="Загрузить">
+			</div>
+
+			<div class="clr"></div>
+
+		</form>
+
+		<form class="usual_form" id="form_GoodPhoto" action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="103">
+			<input type="hidden" name="goods_id" value="<?=$this->registry['good']['id']?>">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>#foto">
+
+			<ul class="list_sort">
+				<?$this->registry['catalog']->print_photo_list($count_photos);?>
+			</ul>
+
+			<div class="clr"></div>
+
+			<?if($count_photos>0):?>
+
+				<div class="form_l sbm">
+					<input type="submit" value="Сохранить">
+				</div>
+
+			<?endif;?>
+
+		</form>
+
+	</div>
+
+<?endif;?>

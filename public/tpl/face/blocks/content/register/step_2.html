@@ -1,0 +1,154 @@
+<div id="register_page">
+
+	<h1 class="second_style">Регистрация покупателя</h1>
+
+	<ul id="register_crumbs">
+		<li>1</li>
+		<li class="active second">2</li>
+		<li class="last">3</li>
+		<div class="clr"></div>
+	</ul>
+	
+	<?$this->registry['f_register']->reg_err();?>
+	
+	<div id="register_left">
+		<div class="coloured">
+			<h2>При регистрации необходимо соблюдать следующие правила:</h2>
+			<ul>
+				<li>Логин и пароль набирайте используя ТОЛЬКО латинские буквы и цифры</li>
+				<li>Фамилию, имя, отчество и почтовые реквизиты набирайте ТОЛЬКО русскими буквами. Если у Вас нет такой возможности то свяжитесь с нами.</li>
+				<li>Е-мэйл должен быть введен обязательно! На него будут отсылаться все уведомления об отправленных заказах и полученых деньгах. Поэтому убедитесь лишний раз, что Ваш е-мэйл работает. Проверьте - после регистрации на него должно прийти уведомление.</li>
+				<li>Постарайтесь указать почтовый адрес максимально подробно - это ускорит доставку Ваших заказов</li>
+				<li>Если Вы проживаете в отдельном доме, то поле "квартира" оставьте пустым.</li>
+				<li>Поля, помеченные красной звездочкой * - обязательны к заполнению.</li>
+			</ul>
+		</div>
+		
+		<div class="coloured">
+			<h2>Обратите внимание:</h2>
+			<p>В настоящий момент мы обслуживаем клиентов только из России. Связано это с разнообразием местных валют в странах СНГ, в то время как посылки принимаются и оцениваются в российских рублях. Однако мы работаем над этим вопросом и в будущем, обязательно, постараемся рассылать товары и в страны ближнего зарубежья.</p>
+		</div>		
+		
+	</div>
+		
+	<div id="register_right">
+		<div class="register_form">
+			
+			<form id="form_registerStep2" action="/doer/" method="POST">
+			
+				<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI']?>">
+				<input type="hidden" name="d_action" value="6000">
+			
+				<div class="rf_inner">
+			
+					<h3>Регистрация. Шаг №2</h3>
+					
+					<div class="rf_line">
+						<label>Логин <span>*</span></label>
+						<input type="text" name="lgn" value="<?=$this->registry['reg_arr']['lgn'];?>" autocomplete="off">
+						<div class="rf_line_h">Логин набирайте используя ТОЛЬКО латинские символы!</div>
+					</div>				
+					
+					<div class="rf_line">
+						<label>Пароль <span>*</span></label>
+						<input type="password" name="pwd" value="" autocomplete="off">
+					</div>					
+					
+					<div class="rf_line">
+						<label>Пароль еще раз <span>*</span></label>
+						<input type="password" name="pwd_confirm" value="" autocomplete="off">
+					</div>						
+					
+					<div class="rf_line">
+						<label>Полные Фамилия, Имя, Отчество <span>*</span></label>
+						<input type="text" name="fio" value="<?=$this->registry['reg_arr']['fio'];?>" autocomplete="off">
+					</div>					
+					
+					<div class="rf_line">
+						<label>Email <span>*</span></label>
+						<input type="text" name="email" value="<?=$this->registry['reg_arr']['email'];?>" autocomplete="off">
+						<div class="rf_line_h">В случае указания неверного/нерабочего е-мэйла Ваши заказы наложенным платежом обработаны не будут</div>
+					</div>					
+				
+				</div>
+				
+				<div class="rf_divider">
+					<div class="rf_divider_i">Ваш почтовый адрес</div>
+					<div class="clr"></div>
+				</div>
+				
+				<div class="rf_inner">
+				
+					<div class="rf_line">
+						<label>Почтовый индекс</label>
+						<input type="text" name="index" value="<?=$this->registry['reg_arr']['index'];?>" autocomplete="off">
+					</div>	
+						
+					<div class="rf_line">
+						<label>Страна <span>*</span></label>
+						<input type="text" name="conutry" value="Россия" disabled="1" autocomplete="off">
+					</div>						
+						
+					<div class="rf_line">
+						<label>Район</label>
+						<input type="text" name="region" value="<?=$this->registry['reg_arr']['region'];?>" autocomplete="off">
+					</div>						
+							
+					<div class="rf_line">
+						<label>Город <span>*</span></label>
+						<input type="text" name="city" value="<?=$this->registry['reg_arr']['city'];?>" autocomplete="off">
+					</div>						
+					
+					<div class="rf_line">
+						<label>Улица <span>*</span></label>
+						<input type="text" name="street" value="<?=$this->registry['reg_arr']['street'];?>" autocomplete="off">
+					</div>						
+					
+					<div class="rf_line short">
+						<label>Дом <span>*</span></label>
+						<input type="text" name="house" value="<?=$this->registry['reg_arr']['house'];?>" autocomplete="off">
+					</div>						
+					
+					<div class="rf_line short">
+						<label>Корпус</label>
+						<input type="text" name="corp" value="<?=$this->registry['reg_arr']['corp'];?>" autocomplete="off">
+					</div>	
+
+					<div class="rf_line short">
+						<label>Квартира</label>
+						<input type="text" name="flat" value="<?=$this->registry['reg_arr']['flat'];?>" autocomplete="off">
+					</div>										
+					
+					<div class="clr"></div>
+					
+				</div>
+				
+				<div class="rf_divider rf_divider_2"></div>				
+				
+				<div class="rf_inner">
+				
+					<div class="rf_line">
+						<label>Напоследок Вы можете указать дополнительные пожелания к обработке или отправке Ваших заказов:</label>
+						<textarea name="wishes"><?=$this->registry['reg_arr']['wishes'];?></textarea>
+					</div>					
+				
+					<div class="rf_line cbox">
+						<input type="checkbox" name="terms" id="ch_terms" value="1" checked>
+						<label for="ch_terms">Я ознакомился и согласен с <a href="/" target="_blank">правилами</a></label>
+						<div class="clr"></div>
+					</div>						
+					
+					<div class="rf_line rf_sbm_1">
+						<input type="submit" value="Зарегистрироваться">
+					</div>						
+					
+				</div>
+				
+			</form>
+		
+		</div>
+	</div>
+	
+	<div class="clr"></div>
+	
+</div>

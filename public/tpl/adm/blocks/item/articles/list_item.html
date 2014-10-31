@@ -1,0 +1,10 @@
+<li class="article_item <?= ($a['published']==0) ? 'tr_unpub' : '';?>">
+	<div class="ci_name">
+		<a href="/adm/articles/<?=$a['id']?>/"><?=$a['name']?></a>
+	</div>
+	<div class="ci_drag"><div class="ci_drag_i"></div></div>
+	<div class="clr"></div>
+	
+	<input type="hidden" name="sort[<?=$a['id']?>]" class="input_sort" value="<?=$a['sort']?>">
+	
+</li>

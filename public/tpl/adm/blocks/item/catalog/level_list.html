@@ -1,0 +1,6 @@
+<tr class="table_sort <?= ($a['published']==0) ? 'unpublished' : '';?>">
+	<td class="td_level_name"><a href="/adm/<?=$this->registry['aias_path'][0]?>/<?=$a['parent_id']?>/<?=$a['id']?>/"><?=$a['name']?></a></td>
+	<td class="td_goods_count"><?=$a['level_inside_count']?></td>
+	
+	<input type="hidden" name="sort[<?=$a['id']?>]" class="input_sort" value="<?=$a['sort']?>">
+</tr>

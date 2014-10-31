@@ -1,0 +1,109 @@
+<h1>Блоки</h1>
+
+<div class="form_1">
+
+	<a name="b1"></a>
+
+	<h2>Блочный ввод состояния заказов</h2>
+		
+	<form class="form_Blocks" method="POST" action="<?=$_SERVER['REQUEST_URI'];?>#b1">
+
+		<?$this->registry['blocks']->blocks_reply(1);?>
+		
+		<input type="hidden" name="d_action" value="700">
+	
+		<div class="form_l">
+			<textarea name="blocks_field"></textarea>
+		</div>
+		
+		<div class="form_l sbm">
+			<input type="submit" value="Отправить">
+		</div>	
+	
+	</form>
+	
+</div>
+
+<div class="form_1">
+
+	<a name="b2"></a>
+
+	<h2>Блочный ввод поступления товаров</h2>
+		
+	<form class="form_Blocks" method="POST" action="<?=$_SERVER['REQUEST_URI'];?>#b2">
+
+		<?$this->registry['blocks']->blocks_reply(2);?>
+			
+		<input type="hidden" name="d_action" value="701">
+	
+		<div class="form_l">
+			<textarea name="blocks_field"><?= isset($_COOKIE['goods_presence_block']) ? $_COOKIE['goods_presence_block'] : '';?></textarea>
+		</div>
+		
+		<div class="form_l cbox">
+			<input type="checkbox" name="check_presence" id="check_presence">
+			<label for="check_presence">Проверить наличие в магазине</label>
+			<div class="clr"></div>
+		</div>
+		
+		<div class="form_l sbm">
+			<input type="submit" value="Отправить">
+		</div>	
+	
+	</form>
+	
+</div>
+
+<div class="form_1">
+
+	<a name="b3"></a>
+
+	<h2>Блочный ввод отсутствия товаров</h2>
+		
+	<form class="form_Blocks" method="POST" action="<?=$_SERVER['REQUEST_URI'];?>#b3">
+
+		<?$this->registry['blocks']->blocks_reply(3);?>
+		
+		<input type="hidden" name="d_action" value="702">
+	
+		<div class="form_l">
+			<textarea name="blocks_field"></textarea>
+		</div>
+		
+		<div class="form_l cbox">
+			<input type="checkbox" name="unpublish" id="unpublish">
+			<label for="unpublish">Изъять из продажи</label>
+			<div class="clr"></div>
+		</div>
+		
+		<div class="form_l sbm">
+			<input type="submit" value="Отправить">
+		</div>	
+	
+	</form>
+	
+</div>
+
+<div class="form_1">
+
+	<a name="b4"></a>
+
+	<h2>Корректировка цен</h2>
+		
+	<form class="form_Blocks" method="POST" action="<?=$_SERVER['REQUEST_URI'];?>#b4">
+
+		<?$this->registry['blocks']->blocks_reply(4);?>
+		
+		<input type="hidden" name="d_action" value="703">
+	
+		<div class="form_l">
+			<textarea name="blocks_field"></textarea>
+		</div>
+				
+		<div class="form_l sbm">
+			<input type="submit" value="Отправить">
+		</div>	
+	
+	</form>
+	
+</div>

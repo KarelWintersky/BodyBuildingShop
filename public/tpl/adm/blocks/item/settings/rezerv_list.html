@@ -1,0 +1,15 @@
+<tr>
+	<td><?=$a['ostatok_id'];?></td>
+	<td>
+		<a href="/adm/catalog/<?=$a['goods_parent_id'];?>/<?=$a['goods_level_id'];?>/<?=$a['goods_id'];?>/" target="_blank">
+			<?=$a['goods_name'];?>
+		</a>
+	</td>
+	<td><?=$a['goods_barcode'];?></td>
+	<td>
+		<a href="/adm/orders/<?=$a['order_link_alias'];?>/" target="_blank">
+			<?=$a['order_id'];?>
+		</a>
+	</td>
+	<td><?=$a['amount'];?></td>
+</tr>

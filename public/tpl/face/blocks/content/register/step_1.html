@@ -1,0 +1,71 @@
+<div id="register_page">
+
+	<h1 class="second_style">Регистрация покупателя</h1>
+
+	<ul id="register_crumbs">
+		<li class="active">1</li>
+		<li class="second">2</li>
+		<li class="last">3</li>
+		<div class="clr"></div>
+	</ul>
+	
+	<?if(isset($this->registry['index_not_found'])):?>
+	
+		<div id="register_upper_hint">
+			Индекс <b><?=$_GET['index']?></b> не найден в "Эталонном справочнике индексов предприятий почтовой связи ГУПС РФ". Соответственно, мы не сможем организовать доставку к вам до тех пор, пока вы не предоставите корректный индекс. Если у вас есть вопросы - <a href="/contacts/">свяжитесь с нами</a>.
+		</div>	
+	
+	<?elseif(!isset($_GET['index'])):?>		
+		
+		<div id="register_upper_hint">
+			Пока что вы можете зарегистрироваться без индекса, но доставка к вам будет невозможна, пока вы его не введете.
+		</div>		
+	
+	<?else:?>
+	
+		<div id="register_upper_hint">
+			Согласно базе данных "Эталонного справочника индексов предприятий почтовой связи ГУПС РФ" индексу
+		</div>
+		
+		<div id="register_left">
+			<div class="register_left_gr"><div class="register_left_index">
+				<?=$_GET['index']?>
+			</div></div>
+			
+			<div class="register_left_hint">соответствуют следующие данные:</div>
+			
+			<div class="register_left_gr"><ul class="register_left_city">
+				<li>Регион: <b><?=$this->registry['r_region_data']['region']?></b></li>
+				<li>Населенный пункт: <b><?=$this->registry['r_region_data']['city']?></b></li>
+			</ul></div>
+					
+		</div>
+		
+		<div class="clr"></div>
+	
+		<?if(isset($this->registry['r_region_data']['index_changed'])):?>
+			<div id="register_upper_hint">
+				Теперь ваш новый индекс <?=$this->registry['r_region_data']['index_changed'];?>, несмотря на то, что в профиле указан старый, доставка будет осуществляться на него.
+			</div>				
+		<?endif;?>
+		
+	<?endif;?>
+	
+	<div class="s1_sbm">
+		<form id="form_registerStep1" action="/register/2/" method="GET">
+		
+			<input type="hidden" name="index" value="<?= (isset($_GET['index'])) ? $_GET['index'] : '';?>">
+			<input type="hidden" name="region" value="<?= (!isset($this->registry['index_not_found'])) ? $this->registry['r_region_data']['region'] : ''?>">
+			<input type="hidden" name="city" value="<?= (!isset($this->registry['index_not_found'])) ? $this->registry['r_region_data']['city'] : ''?>">
+		
+			<input type="submit" value="Продолжить">
+		</form>
+	</div>		
+
+	<div class="s1_comeback">
+		<a href="/register/">Вернуться назад и ввести индекс заново</a>
+	</div>			
+	
+	<div class="clr"></div>
+	
+</div>

@@ -1,0 +1,73 @@
+<tr class="<?= ($a['status']==4 || $a['status']==5) ? 'cancelled' : '';?>">
+	<td>
+		<a href="/profile/orders/<?=$a['lnk']?>/"><?=$a['num']?></a>
+	</td>
+
+	<?if(in_array($a['status'],array(3,2))):?>
+		<td>
+			<?if(!is_null($a['postnum']) && $a['postnum']!=''):?>
+				<a href="http://www.russianpost.ru/rp/servise/ru/home/postuslug/trackingpo" target="_blank"><?=$a['postnum']?></a>
+			<?endif;?>
+		</td>
+	<?endif;?>
+
+	<td>
+		<?=date('d.m.Y',strtotime($a['made_on']));?>
+	</td>
+
+	<?if(in_array($a['status'],array(2,3,4))):?>
+		<td>
+			<?if($a['sent_on']!='0000-00-00 00:00:00' && $this->registry['logic']->date2read($a['sent_on'])!='00.00.0000'):?>
+				<?=$this->registry['logic']->date2read($a['sent_on'])?>
+			<?else:?>
+				-
+			<?endif;?>
+		</td>
+	<?endif;?>
+
+	<?if(in_array($a['status'],array(3,4))):?>
+		<td>
+			<?if($a['payed_on']!='0000-00-00 00:00:00' && $this->registry['logic']->date2read($a['payed_on'])!='00.00.0000'):?>
+				<?=$this->registry['logic']->date2read($a['payed_on'])?>
+			<?else:?>
+				-
+			<?endif;?>
+		</td>
+	<?endif;?>
+
+	<td>
+		<?=$a['discount']?> %
+	</td>
+	<td class="td_price">
+		<b><?=$this->registry['logic']->price2read($a['overall_price']);?></b> руб.
+	</td>
+
+	<?if($a['status']==1 || $a['status']==5):?>
+		<td class="td_bill">
+			<?if($a['status']!=5):?>
+				<?if($a['payment_method']!='H' && $a['payment_method']!='Н' && $a['by_card']==0):?>
+					<a class="td_bill_lnk" href="#" rel="<?=$a['num']?>" title="распечатать квитанцию на оплату"></a>
+				<?elseif($a['by_card']==1):?>
+					<a class="payment_lnk" href="/profile/orders/<?=$a['lnk']?>/pay/" title="оплатить заказ кредитной картой"></a>
+				<?endif;?>
+			<?endif;?>
+		</td>
+	<?endif;?>
+
+</tr>
+
+<?if($a['status']==4):?>
+
+	<tr class="cancelled_cause">
+		<td colspan="6">
+			<?=$a['comment']?>
+		</td>
+	</tr>
+
+<?elseif($a['status']==5):?>
+	<tr class="cancelled_cause">
+		<td colspan="6">
+			Деньги за заказ поступили,  заказ  формируется.
+		</td>
+	</tr>
+<?endif;?>

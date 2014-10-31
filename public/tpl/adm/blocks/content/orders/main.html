@@ -1,0 +1,75 @@
+<?$this->registry['orders']->get_list($list);?>
+
+<h1 style="float:left;">Заказы</h1>
+
+<div class="orders_hint">
+	Показаны заказы с <b><?=$this->registry['orders_display_first']?></b> по <b><?=$this->registry['orders_display_last']?></b> из <b><?=$this->registry['orders_amount']?></b>
+</div>
+
+<div class="clr"></div>
+
+<div class="form_1">
+
+	<form id="form_orderSrch" method="GET" action="/adm/orders/">
+
+		<h3>Поиск</h3>
+		
+		<div class="form_l form_l_num">
+			<label>Номер</label>
+			<input type="text" name="num" value="<?= (isset($_GET['num'])) ? $_GET['num'] : ''?>">
+		</div>
+	
+		<div class="form_l form_l_type">
+			<label>Тип</label>
+			<select name="status">	
+				<?$this->registry['orders']->statuses_options((isset($_GET['status'])) ? $_GET['status'] : 0,true);?>
+			</select>	
+		</div>	
+		
+		<div class="form_l form_l_date">
+			<label>С</label>
+			<input type="text" name="date_from" value="<?= (isset($_GET['date_from'])) ? $_GET['date_from'] : ''?>" class="datepicker" readonly="1">
+		</div>		
+		
+		<div class="form_l form_l_date">
+			<label>По</label>
+			<input type="text" name="date_to" value="<?= (isset($_GET['date_to'])) ? $_GET['date_to'] : ''?>" class="datepicker" readonly="1">
+		</div>			
+		
+		<div class="form_l form_l_sbm">
+			<input type="submit" value="Поиск">
+		</div>	
+		
+		<div class="clr"></div>
+	
+	</form>
+	
+	<form id="form_orderPag">
+		
+		<input type="hidden" name="level_link" value="<?=$_SERVER['REQUEST_URI'];?>">	
+	
+		<label>Выводить по</label>
+		<select name="pag_val" onchange="set_orders_paging(1,'#form_orderPag');">
+			<?$this->registry['orders']->pagination_options();?>
+		</select>
+		<div class="clr"></div>
+	</form>
+	
+	<div class="clr"></div>
+	
+</div>
+
+<table cellpadding="0" cellspacing="0" class="orders_table">
+	<th>ID</th>
+	<th>Дата</th>
+	<th>Статус</th>
+	<th>Сумма</th>
+	<th>Доставка</th>
+	<th>Всего</th>
+	<th>Оплата</th>
+	
+	<?=$list;?>
+	
+</table>
+
+<?$this->registry['orders']->pagination();?>

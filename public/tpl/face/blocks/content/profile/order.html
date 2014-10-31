@@ -1,0 +1,128 @@
+<div class="profile_page">
+
+	<h1 class="second_style"><?=$this->registry['full_ui']['name']?></h1>
+
+	<div id="profile_page_id">(<?=$this->registry['full_ui']['id']?>)</div>
+
+	<div id="profile_page_personal_discount">Персональная скидка: <b><?=$this->registry['full_ui']['personal_discount']?> %</b></div>
+
+	<div class="clr"></div>
+
+	<ul id="profile_nav">
+		<li><a href="/profile/">Ваши установки</a></li>
+		<li><a href="/profile/orders/">Ваши заказы и баланс</a></li>
+		<li><a href="/profile/accountorder/">Пополнить счет</a></li>
+	</ul>
+
+	<div id="order_block">
+
+		<h2>Заказ номер <?=$this->registry['orderdata']['num'];?></h2>
+
+		<div class="texted">
+			<p>
+				<b>Дата заказа:</b> <?=date('d.m.Y',strtotime($this->registry['orderdata']['made_on']));?>
+				<br><b>Способ оплаты:</b> <?=$this->registry['orderdata']['payment_type_text'];?>
+				
+				<?if(isset($this->registry['orderdata']['delivery_type_text'])):?>
+					<br><b>Способ доставки:</b> <?=$this->registry['orderdata']['delivery_type_text'];?>
+				<?endif;?>
+				
+				<?if($this->registry['orderdata']['sent_on']!='0000-00-00'):?>
+					<br><b>Отправлен:</b> <?=date('d.m.Y',strtotime($this->registry['orderdata']['sent_on']));?>
+				<?endif;?>
+				<?if($this->registry['orderdata']['payed_on']!='0000-00-00'):?>
+					<br><b>Оплачен:</b> <?=date('d.m.Y',strtotime($this->registry['orderdata']['payed_on']));?>
+				<?endif;?>
+				<br><b>Общая скидка:</b> <?=$this->registry['orderdata']['discount'];?> %
+				<?if($this->registry['orderdata']['status']==1 && $this->registry['orderdata']['payment_method']!='H' && $this->registry['orderdata']['payment_method']!='Н'):?>
+					<br><br><a href="#" class="order_bill_link" rel="<?=$this->registry['orderdata']['num'];?>">Квитанция на оплату</a>
+				<?endif;?>
+				<br><br>
+			</p>
+		</div>
+
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th id="th_name">Товар</th>
+				<th>Цена</th>
+				<th>Кол-во</th>
+				<th>Скидка</th>
+				<th>Сумма</th>
+			</tr>
+			<?$this->registry['f_profile']->order_goods_table($is_barcodes,$final_price);?>
+		</table>
+
+		<?if($is_barcodes && ($this->registry['orderdata']['payment_method']=='Н' || $this->registry['orderdata']['payment_method']=='H')):?>
+		
+			<?$discount = $final_price*$this->registry['orderdata']['discount']/100;?>
+			<?$nadb = ($final_price-$discount)*30/100;?>
+		
+			<ul id="ob_summary">
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($final_price)?></b> руб.
+					</div>
+					<div class="obs_hint">Сумма заказа:</div>
+					<div class="clr"></div>
+				</li>
+				
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($discount);?></b> руб.
+					</div>
+					<div class="obs_hint">Скидка (<?=$this->registry['orderdata']['discount'];?>%):</div>
+					<div class="clr"></div>
+				</li>				
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($nadb)?></b> руб.
+					</div>
+					<div class="obs_hint">Дополнительные расходы на доставку наложенным платежом:</div>
+					<div class="clr"></div>
+				</li>				
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($this->registry['orderdata']['delivery_costs'])?></b> руб.
+					</div>
+					<div class="obs_hint">Стоимость доставки:</div>
+					<div class="clr"></div>
+				</li>
+			</ul>		
+			<?$thisfinal = $final_price - $discount + $nadb + $this->registry['orderdata']['delivery_costs'];?>
+		<?else:?>
+			<ul id="ob_summary">
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($final_price)?></b> руб.
+					</div>
+					<div class="obs_hint">Сумма заказа:</div>
+					<div class="clr"></div>
+				</li>
+				<?$discount = $final_price*$this->registry['orderdata']['discount']/100;?>
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($discount);?></b> руб.
+					</div>
+					<div class="obs_hint">Скидка (<?=$this->registry['orderdata']['discount'];?>%):</div>
+					<div class="clr"></div>
+				</li>				
+				<li>
+					<div class="obs_val">
+						<b><?=$this->registry['logic']->price2read($this->registry['orderdata']['delivery_costs'])?></b> руб.
+					</div>
+					<div class="obs_hint">Стоимость доставки:</div>
+					<div class="clr"></div>
+				</li>
+			</ul>		
+			<?$thisfinal = $final_price - $discount + $this->registry['orderdata']['delivery_costs'];?>
+		<?endif;?>
+
+		<div id="order_overall">
+			Общая сумма заказа: <span><b><?=$this->registry['logic']->price2read($thisfinal)?></b> руб.</span>
+		</div>
+
+		<div class="clr"></div>
+
+	</div>
+
+</div>

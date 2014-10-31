@@ -1,0 +1,18 @@
+<div class="mail_tpl_item">
+	
+	<div class="mti_line">
+		<label>Название</label>
+		<input type="text" value="<?=$a['name']?>" name="tpl[<?=$a['id']?>][name]" autocomplete="off">
+	</div>
+	
+	<div class="mti_line">
+		<label>Тема</label>
+		<input type="text" value="<?=$a['subject']?>" name="tpl[<?=$a['id']?>][subject]" autocomplete="off">
+	</div>	
+	
+	<div class="mti_line">
+		<label>Шаблон</label>
+		<textarea class="tinyMCE" name="tpl[<?=$a['id']?>][content]"><?=$a['content']?></textarea>
+	</div>	
+	
+</div>

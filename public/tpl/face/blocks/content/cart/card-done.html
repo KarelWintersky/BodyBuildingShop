@@ -1,0 +1,44 @@
+<div id="page_cart">
+	<h1 class="second_style">Ваш заказ успешно отправлен</h1>
+	
+	<div class="texted" id="cart_done_msg">
+		
+		<p>Ваш заказ <strong><?=$this->registry['order_info']['id']?>/<?=$this->registry['order_info']['user_num']?>/<?=$this->registry['order_info']['payment_method']?></strong> оплачен!</p>
+		
+		<div class="hint_2">
+			<h2>Ваш заказ оплачен</h2>
+			<p>С Вашей  карты списана сумма <?=$this->registry['order_info']['overall_price']?> руб. (не включая комиссию системы). В течение 2-3 РАБОЧИХ дней Ваш заказ будет отвезен на почту для отправки. После поступления отчета с почты (2-3 рабочих дня) Вы получите уведомление об отправке заказа с точной датой отправки.</p>
+		</div>
+		<p>Напоминаем реквизиты по которым будет отправлен заказ:</p>
+		<div class="hint_1">
+		<ul class="noborder">
+		<li><strong>Получатель:</strong> <em><?=$this->registry['userdata']['name']?></em></li>
+		<li><strong>Почтовый адрес:</strong>&nbsp;<em><?=$this->registry['logic']->implode_address($this->registry['userdata']);?></em></li>
+		</ul>
+		</div>
+		<p>На адрес&nbsp;<strong><?=$this->registry['userdata']['email']?></strong>&nbsp;будет выслано подтверждение о формировании заказа. Если Вы его не получите, то обязательно свяжитесь с нами!</p>
+		<p>Со всеми вопросами обращайтесь по адресу&nbsp;<a href="mailto:of@bodybuilding-shop.ru">of@bodybuilding-shop.ru</a></p>
+		<p>&nbsp;</p>	
+	
+	</div>	
+		
+	<div id="cart_social" class="texted">
+		<p>Уважаемый <b><?=$this->registry['userdata']['name']?></b>, напоминаем Вам, что Вы можете следить за новостями нашего магазина в популярных социальных сетях:</p>
+		<ul>
+			<li class="cs_vk">
+				<span></span>
+				<a href="<?=VK_LINK;?>" target="_blank">Вконтакте</a>
+			</li>
+			<li class="cs_tw">
+				<span></span>
+				<a href="<?=TW_LINK;?>" target="_blank">Twitter</a>
+			</li>
+			<li class="cs_fb">
+				<span></span>
+				<a href="<?=FB_LINK;?>" target="_blank">Facebook</a>
+			</li>
+			<div class="clr"></div>
+		</ul>
+	</div>
+	
+</div>

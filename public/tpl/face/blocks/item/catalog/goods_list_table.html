@@ -1,0 +1,53 @@
+<?if($a['grower_change']):?>
+	<tr class="grower_head">
+		<td colspan="6"><?=$a['grower'];?></td>
+	</tr>
+<?endif;?>
+
+<tr class="goods_parent">
+	<td class="git_name <?= ($a['new']==1) ? 'goods_item_new_small' : '' ;?> <?= ($a['no_tastes']) ? 'no_tastes' : '';?>">
+
+		<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">
+			<?=$a['name'];?></a>
+		<br>
+		
+		<?= ($a['grower_id']!=0) ? sprintf('<b>%s</b>',$a['grower']) : '';?>
+
+		<?if($a['personal_discount']>0):?>
+			<span>-<?=$a['personal_discount'];?>%</span>
+		<?endif;?>
+
+	</td>
+	
+	<?if(!$a['no_tastes']):?>
+		<td class="git_features goods_item_feats">
+			<?=$a['features_list_table'];?>
+		</td>
+	<?endif;?>
+	
+	<td class="git_packing">
+		<?if($a['parent_level_id']==4):?>
+			<?=$a['colors_list_table'];?>	
+		<?else:?>
+			<?=$a['packs_list_table'];?>				
+		<?endif;?>	
+	</td>
+	<td class="git_price git_price_1">
+
+		<?=$a['min_price'];?>
+
+	</td>
+	<td class="git_book">
+		<?if($a['barcodes_avialable_check']):?>
+			<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">Заказать</a>
+		<?else:?>
+			<div class="goods_item_more_link">
+				<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">Подробнее</a>
+			</div>
+		<?endif;?>
+	</td>
+
+	<input type="hidden" class="goods_feats_string" value="<?$this->registry['f_catalog']->goods_feats_first_values($a['id']);?>">
+	<input type="hidden" class="goods_price" value="<?=$a['price_1'];?>">
+
+</td>

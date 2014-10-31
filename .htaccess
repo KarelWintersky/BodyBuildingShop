@@ -1,0 +1,21 @@
+#DirectoryIndex index.php
+
+RewriteEngine on
+
+Redirect 301 /importnoe/specialnye-dobavki/universal-zma-90kap/  http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/zma/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
+
+AddDefaultCharset utf-8
+php_flag magic_quotes_gpc off
+
+php_flag display_errors on
+
+php_flag session.use_trans_sid off
+php_flag session.use_cookies on
+php_value upload_max_filesize 10M
+
+#deny from all

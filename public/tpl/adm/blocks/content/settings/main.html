@@ -1,0 +1,30 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+	
+		<form action="/doer/" id="settings_Params" method="POST">
+	
+			<input type="hidden" name="d_action" value="604">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">		
+		
+			<?$this->registry['settings']->params_list();?>
+	
+			<div class="sbm">
+				<input type="submit" value="Сохранить">
+			</div>
+			
+		</form>
+		
+	</div>
+
+</div>
+
+<div class="clr"></div>

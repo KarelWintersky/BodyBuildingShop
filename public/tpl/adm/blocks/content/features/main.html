@@ -1,0 +1,25 @@
+<h1>Признаки товаров</h1>
+
+<?$this->registry['features']->features_group_list();?>
+
+<div class="form_1">
+
+	<form id="form_FeaturesGroupAdd" action="/doer/" method="POST" onsubmit="return check_single_name(this);">
+	
+		<input type="hidden" name="d_action" value="400">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">	
+	
+		<h2>Добавить группу признаков</h2>
+		
+		<div class="form_l form_l_name">
+			<label>Название</label>
+			<input type="text" name="name" class="single_name">
+		</div>
+	
+		<div class="form_l sbm">
+			<input type="submit" value="Добавить">
+		</div>		
+	
+	</form>
+	
+</div>

@@ -1,0 +1,30 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+	
+		<form id="form_MailTpls" method="POST" action="/doer/">
+			
+			<input type="hidden" name="d_action" value="610">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">			
+		
+			<?$this->registry['settings']->order_msgs_list();?>
+			
+			<div class="form_l sbm">
+				<input type="submit" value="Сохранить">
+			</div>				
+			
+		</form>
+		
+	</div>
+
+</div>
+
+<div class="clr"></div>

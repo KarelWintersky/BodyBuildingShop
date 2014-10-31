@@ -1,0 +1,15 @@
+<div class="goods_tog_block">
+	
+	<div class="goods_tog_block_h">
+		<h3><a href="#" onclick="return goods_tog_block(this,'#gtbi_gr_<?=$a['group_id']?>','gr_<?=$a['group_id']?>');"><?=$a['name']?></a></h3>
+	</div>
+	
+	<div class="goods_tog_block_i" id="gtbi_gr_<?=$a['group_id']?>" style="display:<?= isset($_COOKIE['goods_block']['gr_'.$a['group_id']]) ? 'none' : 'block';?>;">
+
+		<?$this->registry['f_catalog']->print_feats_photo($a['feats']);?>
+	
+		<div class="clr"></div>
+		
+	</div>	
+		
+</div>

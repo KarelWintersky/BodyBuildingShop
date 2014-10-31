@@ -1,0 +1,25 @@
+<h1>Статистика</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<table cellspacing="0" cellpadding="0" class="admins_table" id="check_zeros">
+		<tr>
+			<th>Штрихкод</th>
+			<th>Название</th>
+			<th>Цена</th>
+			<th>Вес</th>
+			<th>Уп.</th>
+			<th>Нал.</th>
+		</tr>
+		<?$this->registry['statistics']->check_zeros();?>
+	</table>
+
+</div>
+
+<div class="clr"></div>

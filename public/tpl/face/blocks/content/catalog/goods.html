@@ -1,0 +1,148 @@
+<link rel="stylesheet" type="text/css" href="<?=$this->registry['template']->front_path;?>css/shadowbox.css">
+<script type="text/javascript" src="<?=$this->registry['template']->front_path;?>js/lib/shadowbox.js"></script>
+
+<script>
+$(document).ready(function(){
+	Shadowbox.init({
+		continuous: true
+	});
+});
+</script>
+
+<div id="goods_page" class="goods_parent">
+
+	<h1>
+		<?=$this->registry['goods']['seo_h1']?>
+
+		<?if(isset($this->registry['userdata']) && $this->registry['userdata']['type']==2):?>
+			<b><a href="/adm/catalog/<?=$this->registry['goods']['parent_id']?>/<?=$this->registry['goods']['level_id']?>/<?=$this->registry['goods']['id']?>/" target="_blank">(ред.)</a></b>
+		<?endif;?>
+
+	</h1>
+
+	<div id="goods_vendor"><?=$this->registry['goods']['grower'];?></div>
+
+	<div id="goods_gallery">
+
+		<div id="goods_gallery_big"><div id="goods_gallery_big_i">
+
+			<?$this->registry['f_catalog']->goods_gallery_matrix('goods_photo_list');?>
+
+			<div id="goods_info_abs">
+				<?if($this->registry['goods']['personal_discount']>0):?>
+					<span id="goods_info_dsc">-<?=$this->registry['goods']['personal_discount'];?>%</span>
+				<?endif;?>
+				<?if($this->registry['goods']['new']==1):?>
+					<div id="goods_info_new"></div>
+				<?endif;?>
+			</div>
+				
+		</div></div>
+
+		<div id="goods_gallery_matrix">
+			<?$this->registry['f_catalog']->goods_gallery_matrix('goods_photo');?>
+			<div class="clr"></div>
+		</div>
+
+	</div>
+
+	<div id="goods_info">
+
+		<div id="goods_info_upper_order"><div id="goods_info_upper_order_i">
+			<?$this->registry['CL_catalog_barcodes']->order_barcodes();?>
+		</div></div>
+
+		<?$this->registry['f_catalog']->print_ostatok();?>
+
+		<div id="goods_social_share">
+			<table>
+				<tr>
+					<td style="width:96px;"><div style="margin:-5px 0 0;">
+						<script type="text/javascript" src="//vk.com/js/api/openapi.js?95"></script>
+	
+						<script type="text/javascript">
+						  VK.init({apiId: 3786656, onlyWidgets: true});
+						</script>
+	
+						<div id="vk_like"></div>
+						<script type="text/javascript">
+						VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+						</script>
+					</div></td>
+					<td style="width:119px;">
+						<div id="fb-root"></div>
+						<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+						<div class="fb-like" data-send="false" data-layout="button_count" data-width="95" data-show-faces="false" data-font="lucida grande"></div>
+					</td>
+					<td><div style="width:110px !important;overflow:hidden;">
+						<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<div class="clr"></div>
+
+	<?$this->registry['f_catalog']->print_feats_groups();?>
+
+	<div id="goods_desc" class="goods_tog_block">
+
+		<div class="goods_tog_block_h <?= isset($_COOKIE['goods_block'][1]) ? 'invis' : 'vis';?>">
+			<h2><a href="#" onclick="return goods_tog_block(this,'#gtbi_1',1);">Описание <?=$this->registry['goods']['name']?></a></h2>
+		</div>
+
+		<div class="goods_tog_block_i" id="gtbi_1" style="display:<?= isset($_COOKIE['goods_block'][1]) ? 'none' : 'block';?>;">
+			<?=$this->registry['goods']['content']?>
+		</div>
+
+	</div>
+
+	<?if($this->registry['goods']['recommendations']!=''):?>
+
+		<div id="goods_recom" class="goods_tog_block">
+
+			<div class="goods_tog_block_h <?= isset($_COOKIE['goods_block'][2]) ? 'invis' : 'vis';?>">
+				<h2><a href="#" onclick="return goods_tog_block(this,'#gtbi_2',2);">Рекомендации по применению <?=$this->registry['goods']['name']?></a></h2>
+			</div>
+
+			<div class="goods_tog_block_i" id="gtbi_2" style="display:<?= isset($_COOKIE['goods_block'][2]) ? 'none' : 'block';?>;">
+				<?=$this->registry['goods']['recommendations']?>
+			</div>
+
+		</div>
+
+	<?endif;?>
+
+	<?if($this->registry['goods']['ingredients']!=''):?>
+
+		<div id="goods_ingr" class="goods_tog_block">
+
+			<div class="goods_tog_block_h <?= isset($_COOKIE['goods_block'][3]) ? 'invis' : 'vis';?>">
+				<h2><a href="#" onclick="return goods_tog_block(this,'#gtbi_3',3);">Ингредиенты <?=$this->registry['goods']['name']?></a></h2>
+			</div>
+
+			<div class="goods_tog_block_i" id="gtbi_3" style="display:<?= isset($_COOKIE['goods_block'][3]) ? 'none' : 'block';?>;">
+				<?=$this->registry['goods']['ingredients']?>
+			</div>
+
+		</div>
+
+	<?endif;?>
+
+	<div class="clr"></div>
+
+	<?$this->registry['f_catalog']->prev_next();?>
+
+	<input type="hidden" class="goods_feats_string" value="<?$this->registry['f_catalog']->goods_feats_first_values($this->registry['goods']['id']);?>">
+	<input type="hidden" class="goods_price" value="<?=$this->registry['goods']['price_1'];?>">
+
+</div>

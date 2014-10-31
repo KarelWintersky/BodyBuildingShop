@@ -1,0 +1,42 @@
+<div class="barcode_line <?=$a['classes'];?>">
+	<div class="barcode_line_l">
+		<div class="barcode_line_packing"><?=$a['packing'];?></div>
+		<div class="barcode_line_features">
+			<?if($a['tastes']!==false):?>
+				<select class="chzn">
+					<?=$a['tastes'];?>
+				</select>
+			<?else:?>
+				<input type="hidden" class="first_barcode" value="<?=$a['first_barcode'];?>">	
+			<?endif;?>
+		</div>
+		
+		<?if($a['colours']):?>
+			<div class="barcode_line_colors">
+				<select class="chzn">
+					<?=$a['colours'];?>
+				</select>
+			</div>	
+		<?endif;?>
+		
+	</div>
+	<div class="barcode_line_price">
+		<b><?=$a['price'];?></b> руб.
+	</div>
+	<div class="barcode_line_buy">
+		<?if($a['all_disabled']===false):?>
+			<div class="g_order_button">
+				<a class="g_order_lnk_<?=md5($this->registry['goods']['id'].$a['packing']);?>" href="#" onclick="return add2cart(this,'<?=$a['packing'];?>');">
+					<div class="g_order_ostatok_zero">Превышено кол-во товара</div>
+					<?$this->registry['f_catalog']->in_the_cart($this->registry['goods']['id'],$a['packing']);?>
+					<span>Купить</span>
+				</a>
+			</div>
+		<?else:?>
+			<div class="g_order_no">
+				Нет<br>в наличии
+			</div>
+		<?endif;?>	
+	</div>
+	<div class="clr"></div>
+</div>

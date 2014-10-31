@@ -1,0 +1,83 @@
+<div class="goods_item goods_parent">
+	<h2>
+		<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">
+			<?= ($a['grower_id']!=0) ? '«'.$a['grower'].'». ' : '';?><?=$a['name'];?></a>
+
+		<?if($a['personal_discount']>0):?>
+			<span>-<?=$a['personal_discount'];?>%</span>
+		<?endif;?>
+	</h2>
+
+	<div class="goods_item_i">
+
+		<?if($a['new']==1):?>
+			<div class="goods_item_new_big"></div>
+		<?endif;?>
+
+		<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">
+			<?if($a['avatar']!=''):?>
+				<?=$a['avatar'];?>
+			<?else:?>
+				<img src="/public/tpl/face/i/noimg.jpg">
+			<?endif;?>
+		</a>
+	</div>
+
+	<div class="goods_item_l">
+
+		<div class="goods_item_dsc">
+			<?=$a['introtext'];?>
+		</div>
+
+		<ul class="goods_item_feats">
+			<li>
+				<?if($a['parent_level_id']==4):?>
+					<b>Цвет:</b>
+					<?=$a['colors_list'];?>	
+				<?else:?>
+					<b>Упаковка:</b>
+					<?=$a['packs_list'];?>				
+				<?endif;?>
+			</li>
+			<?if($a['features_list']!=''):?>
+				<li>
+					<?if($a['parent_level_id']==4):?>
+						<b>Размеры:</b>
+					<?else:?>
+						<b>Вкусы:</b>
+					<?endif;?>	 
+					<?=$a['features_list'];?>
+				</li>
+			<?endif;?>
+		</ul>
+
+	</div>
+
+	<div class="goods_item_r">
+
+		<ul class="goods_item_price">
+
+			<?=$a['min_price'];?>
+
+		</ul>
+
+	</div>
+
+	<div class="clr"></div>
+
+	<?if($a['barcodes_avialable_check']):?>
+
+		<div class="goods_item_buy_link">
+			<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">Заказать</a>
+		</div>
+
+	<?else:?>
+		<div class="goods_item_more_link">
+			<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">Подробнее</a>
+		</div>
+	<?endif;?>
+
+	<input type="hidden" class="goods_feats_string" value="<?$this->registry['f_catalog']->goods_feats_first_values($a['id']);?>">
+	<input type="hidden" class="goods_price" value="<?=$a['price_1'];?>">
+
+</div>

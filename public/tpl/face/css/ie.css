@@ -1,0 +1,12 @@
+#cart_preloader{position:relative;}
+
+#main_menu #main_menu_srch #main_menu_srch_i input{padding-top:5px;height:18px;}
+.srb_delivery form input[type="text"]{padding-top:5px;height:19px;}
+.dropdown_container input[type="text"]{padding-top:5px;height:19px;}
+.cart_table td.ct_amount input[type="text"]{padding-top:5px;height:19px;}
+#page_cart .radio_block .radio_phone input{padding-top:5px;height:19px;}
+#form_Contacts #fc_inner .txt_fld input[type="text"]{padding-top:5px;height:18px;}
+#profile_info_form input[type="text"], #profile_info_form input[type="password"]{padding-top:5px;height:18px;}
+#register_page input[type="text"], #register_page input[type="password"]{padding-top:5px;height:18px;}
+.pwd_recover_page .pr_form input[type="text"]{padding-top:5px;height:18px;}
+#h_auth #form_h_auth #h_auth_l #h_auth_l_block input{padding-top:4px;height:17px;}

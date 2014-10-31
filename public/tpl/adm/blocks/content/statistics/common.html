@@ -1,0 +1,29 @@
+<h1>Статистика</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<table cellspacing="0" cellpadding="0" class="admins_table" id="main_stat">
+		<tr>
+			<th rowspan="2">День</th>
+			<th colspan="3">Число заказов</th>
+			<th colspan="2">Сумма заказов в <?=date('Y')?></th>
+		</tr>
+		<tr>
+			<th><?=date('Y')?></th>
+			<th><?=date('Y',strtotime('-1 year'))?></th>
+			<th><?=date('Y',strtotime('-2 year'))?></th>
+			<th>общая</th>
+			<th>средняя</th>
+		</tr>
+		<?$this->registry['statistics']->main_statistics();?>
+	</table>
+
+</div>
+
+<div class="clr"></div>

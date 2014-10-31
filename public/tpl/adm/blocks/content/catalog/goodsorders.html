@@ -1,0 +1,32 @@
+<h1>
+	<a href="/adm/catalog/">
+		Каталог товаров</a>
+	/
+	<a href="/adm/catalog/0/<?=$this->registry['good']['parent_id'];?>/">
+		<?=$this->registry['good']['parent_name'];?></a>
+	/
+	<a href="/adm/catalog/<?=$this->registry['good']['parent_id'];?>/<?=$this->registry['good']['level_id']?>/">
+		<?=$this->registry['good']['level_name']?></a>
+	/
+	<a href="/adm/catalog/<?=$this->registry['good']['parent_id'];?>/<?=$this->registry['good']['level_id']?>/<?=$this->registry['good']['id']?>/">
+		<?=$this->registry['good']['name']?></a>
+
+</h1>
+
+<div class="form_1" id="block_goods_in_orders">
+	<h2>Товар в заказах</h2>
+
+	<?$this->registry['catalog']->goods_in_orders($total_amount);?>
+
+	<?if($total_amount>0):?>
+
+		<div id="block_goods_in_orders_total">
+			Всего: <b><?=$total_amount;?></b>
+		</div>
+		<ul>
+			<?$this->registry['catalog']->goods_in_orders_nav($total_amount);?>
+		</ul>
+
+	<?endif;?>
+
+</div>

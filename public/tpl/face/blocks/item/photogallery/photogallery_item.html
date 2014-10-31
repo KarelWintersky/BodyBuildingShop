@@ -1,0 +1,18 @@
+<div class="photogallery_item <?=$a['class'];?>">
+	<div class="li_img"><div class="li_img_i">
+		<a href="/<?=$a['parent_alias'];?>/<?=$a['level_alias'];?>/<?=$a['alias'];?>/">
+			<?if($a['avatar']!=''):?>
+				<img src="/public/foto/goods/122x122/<?=$a['id'];?>/<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['alt']);?>">
+			<?else:?>
+				<img src="http://bbs.loc/public/tpl/face/i/noimg.jpg">
+			<?endif;?>
+		</a>
+	</div></div>
+	<div class="li_lnk">
+		<a href="/<?=$a['parent_alias'];?>/<?=$a['level_alias'];?>/<?=$a['alias'];?>/"><?=$a['name'];?></a>
+	</div>
+</div>
+
+<?if($a['next_line']):?>
+	<div class="clr"></div>
+<?endif;?>

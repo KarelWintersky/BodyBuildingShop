@@ -1,0 +1,27 @@
+<div id="page_cart">
+	<h1 class="second_style">Ошибка при проведении оплаты</h1>
+	
+	<div class="texted" id="cart_done_msg">
+		К сожалению, оплата заказа не была завершена успешно. Вы можете повторно попробовать <a href="/profile/orders/">оплатить заказ из личного кабинета</a>, нажав на соответствующую ссылку рядом с заказом в таблице. В случае возникновения вопросов - <a href="/contacts/">обращайтесь к нам</a>.
+	</div>	
+		
+	<div id="cart_social" class="texted">
+		<p>Уважаемый <b><?=$this->registry['userdata']['name']?></b>, напоминаем Вам, что Вы можете следить за новостями нашего магазина в популярных социальных сетях:</p>
+		<ul>
+			<li class="cs_vk">
+				<span></span>
+				<a href="<?=VK_LINK;?>" target="_blank">Вконтакте</a>
+			</li>
+			<li class="cs_tw">
+				<span></span>
+				<a href="<?=TW_LINK;?>" target="_blank">Twitter</a>
+			</li>
+			<li class="cs_fb">
+				<span></span>
+				<a href="<?=FB_LINK;?>" target="_blank">Facebook</a>
+			</li>
+			<div class="clr"></div>
+		</ul>
+	</div>
+	
+</div>

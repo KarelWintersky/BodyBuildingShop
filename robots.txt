@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /openbill
+Disallow: /i.html
+Disallow: /board/
+Disallow: /forum/
+Disallow: /bag/
+Host: www.bodybuilding-shop.ru
+Sitemap: http://www.bodybuilding-shop.ru/sitemap.xml

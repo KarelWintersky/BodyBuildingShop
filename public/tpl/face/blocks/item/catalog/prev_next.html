@@ -1,0 +1,17 @@
+<div id="news_prev_next">
+
+	<?if($a[0]):?>
+		<div id="news_prev" class="npn">
+			<span>Предыдущий товар</span>
+			<a href="<?=$this->registry['level']['level_link']?><?=$a[0]['alias']?>/"><?= ($a[0]['grower']!='') ? '«'.$a[0]['grower'].'». ' : '';?><?=$a[0]['name']?></a>
+		</div>
+	<?endif;?>
+	
+	<?if($a[1]):?>
+		<div id="news_next" class="npn">
+			<span>Следующий товар</span>
+			<a href="<?=$this->registry['level']['level_link']?><?=$a[1]['alias']?>/"><?= ($a[1]['grower']!='') ? '«'.$a[1]['grower'].'». ' : '';?><?=$a[1]['name']?></a>
+		</div>	
+	<?endif;?>
+	
+</div>

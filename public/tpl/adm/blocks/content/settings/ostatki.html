@@ -1,0 +1,112 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+
+		<form action="/doer/" method="POST" id="form_OstatokAdd">
+
+			<input type="hidden" name="d_action" value="617">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<h2>Добавить остаток</h2>
+
+			<div class="form_l">
+				<label>Штрихкод товара</label>
+				<input type="text" name="barcode">
+			</div>
+
+			<div class="form_l">
+				<label>Остаток</label>
+				<input type="text" name="value">
+			</div>
+
+			<div class="form_l">
+				<input type="submit" value="Добавить">
+			</div>
+
+			<div id="form_OstatokAdd_BlockLink">
+				<a href="/adm/settings/ostatki/#block">блоком</a>
+			</div>
+
+			<div class="clr"></div>
+
+		</form>
+
+	</div>
+
+	<div class="form_2">
+
+		<h2>Текущие остатки</h2>
+
+		<form action="/doer/" method="POST" id="form_OstatkiSav">
+
+			<input type="hidden" name="d_action" value="619">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<table class="ostatki_table" cellpadding="0" cellspacing="0">
+				<tr>
+					<th>ID</th>
+					<th>Название товара</th>
+					<th>Штрихкод товара</th>
+					<th>Остаток</th>
+					<th>Добавлено</th>
+					<th>Удал.</th>
+				</tr>
+				<?$this->registry['settings']->ostatki_list();?>
+			</table>
+
+			<input type="submit" value="Сохранить">
+
+		</form>
+
+	</div>
+
+	<div class="form_2">
+
+		<h2>Резерв остатков</h2>
+
+		<table class="ostatki_table" cellpadding="0" cellspacing="0">
+			<tr>
+				<th>Остаток</th>
+				<th>Название товара</th>
+				<th>Штрихкод товара</th>
+				<th>Заказ</th>
+				<th>Резерв</th>
+			</tr>
+			<?$this->registry['settings']->rezerv_list();?>
+		</table>
+
+	</div>
+
+	<div class="form_1">
+		<a name="block"></a>
+		<h2>Блочное добавление остатков</h2>
+
+		<form action="/doer/" method="POST" id="form_OstatokAddByBlocks">
+
+			<input type="hidden" name="d_action" value="618">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<div class="form_l">
+				<label>Блок</label>
+				<textarea name="block"></textarea>
+			</div>
+
+			<div class="form_l">
+				<input type="submit" value="Добавить">
+			</div>
+
+		</form>
+
+	</div>
+
+</div>
+
+<div class="clr"></div>

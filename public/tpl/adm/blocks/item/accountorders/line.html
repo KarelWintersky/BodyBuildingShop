@@ -1,0 +1,28 @@
+<tr>
+	<td>
+		<?=$a['num']?>
+	</td>
+	<td>
+		<a href="/adm/users/<?=$a['user_id']?>/"><?=$a['user_name']?></a>
+	</td>
+	<td>
+		<?=date('d.m.Y',strtotime($a['createdon']));?>
+	</td>
+	<td>
+		<?=$this->registry['logic']->price2read($a['sum']);?> руб.
+	</td>
+	<td>
+		<select name="order[<?=$a['id']?>][new]">
+			<?$this->registry['accountorders']->statuses_options($a['status']);?>
+		</select>
+		
+		<input type="hidden" name="order[<?=$a['id']?>][old]" value="<?=$a['status'];?>">
+		<input type="hidden" name="order[<?=$a['id']?>][id]" value="<?=$a['id'];?>">
+		<input type="hidden" name="order[<?=$a['id']?>][user_num]" value="<?=$a['user_num'];?>">
+		<input type="hidden" name="order[<?=$a['id']?>][createdon]" value="<?=$a['createdon'];?>">
+		<input type="hidden" name="order[<?=$a['id']?>][user_id]" value="<?=$a['user_id'];?>">
+		<input type="hidden" name="order[<?=$a['id']?>][sum]" value="<?=$a['sum'];?>">
+		
+		
+	</td>
+</tr>

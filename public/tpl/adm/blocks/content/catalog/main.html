@@ -1,0 +1,31 @@
+<h1>Каталог товаров</h1>
+
+<div class="level_good_add">
+	<a href="<?=$_SERVER['REQUEST_URI'];?>0/">Добавить раздел</a>
+</div>
+
+<?$this->registry['catalog']->print_level_list(0,$level_html);?>
+
+<div class="form_2">
+
+	<form class="usual_form" id="form_LevelOrder" action="/doer/" method="POST">
+	
+		<input type="hidden" name="d_action" value="52">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">			
+		<input type="hidden" name="table" value="levels">		
+		
+		<table class="catalog_table" cellpadding="0" cellspacing="0">
+			<tr>
+				<th>Название</th>
+				<th>Разделов</th>
+			</tr>
+			<?=$level_html;?>
+		</table>		
+			
+		<div class="form_l sbm">
+			<input type="submit" value="Сохранить порядок">
+		</div>				
+		
+	</form>
+	
+</div>

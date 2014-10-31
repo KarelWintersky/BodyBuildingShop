@@ -1,0 +1,45 @@
+<div class="g_order">
+	<ul class="g_order_price">
+
+		<?if($this->registry['goods']['personal_discount']>0):?>
+
+			<li class="price_1"><i><?=$this->registry['logic']->price2read($this->registry['goods']['price_1']);?></i> <span><?=$this->registry['logic']->price2read($this->registry['goods']['price_1_n']);?></span> руб. <b class="tooltip_trigger"></b></li>
+
+			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_1);?>
+
+			<li class="price_2 new"><i><?=$this->registry['logic']->price2read($this->registry['goods']['price_2']);?></i> <span><?=$this->registry['logic']->price2read($this->registry['goods']['price_2_n']);?></span> руб. <b class="tooltip_trigger"></b></li>
+
+			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_2);?>
+
+		<?else:?>
+
+			<li class="price_1"><span><?=$this->registry['logic']->price2read($this->registry['goods']['price_1']);?></span> руб. <b class="tooltip_trigger"></b></li>
+
+			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_1);?>
+
+			<li class="price_2"><span><?=$this->registry['logic']->price2read($this->registry['goods']['price_2']);?></span> руб. <b class="tooltip_trigger"></b></li>
+
+			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_2);?>
+
+		<?endif;?>
+
+	</ul>
+
+	<?if($this->registry['goods']['present']==1):?>
+
+		<div class="g_order_button">
+			<a class="g_order_lnk_<?=$this->registry['goods']['id'];?>" href="#" onclick="return add2cart(this,<?=$this->registry['goods']['id'];?>);">
+				<div class="g_order_ostatok_zero">Превышено кол-во товара</div>
+				<?$this->registry['f_catalog']->in_the_cart($this->registry['goods']['id']);?>
+				<span>В корзину</span>
+			</a>
+		</div>
+
+	<?else:?>
+
+		<div class="g_noorder_button"><div class="g_noorder_button_i">Временно нет в продаже</div></div>
+
+	<?endif;?>
+
+	<div class="clr"></div>
+</div>

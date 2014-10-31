@@ -1,0 +1,24 @@
+<?if($a['month_change']):?>
+	<div class="goods_in_orders_caption">
+		<?=date('m.Y',strtotime($a['made_on']));?>
+	</div>
+<?endif;?>
+
+<div class="goods_in_orders">
+	<div class="goods_in_orders_num">
+		<a href="/adm/orders/<?=$a['id'];?>-<?=$a['user_num'];?>-<?=$a['payment_method'];?>/" target="_blank"><?=$a['id'];?>/<?=$a['user_num'];?>/<?=$a['payment_method'];?></a>
+	</div>
+	<div class="goods_in_orders_pf">
+		<?=$a['pf'];?>&nbsp;
+	</div>
+	<div class="goods_in_orders_amount">
+		<?=$a['amount'];?>
+	</div>
+	<div class="goods_in_orders_date">
+		<?=date('d.m.Y',strtotime($a['made_on']));?>
+	</div>
+	<div class="goods_in_orders_status">
+		<?=$a['status_txt'];?>
+	</div>
+	<div class="clr"></div>
+</div>

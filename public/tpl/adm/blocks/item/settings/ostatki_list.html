@@ -1,0 +1,22 @@
+<tr>
+	<td><?=$a['id'];?></td>
+	<td>
+		<a href="/adm/catalog/<?=$a['goods_parent_id'];?>/<?=$a['goods_level_id'];?>/<?=$a['goods_id'];?>/" target="_blank">
+			<?=$a['goods_name'];?>
+		</a>
+	</td>
+	<td><?=$a['barcode'];?></td>
+	<td>
+		<input type="text" value="<?=$a['value'];?>" name="ostatok[<?=$a['id'];?>][val]">
+	</td>
+	<td>
+		<a href="#" onclick="return false;" title="<?=$a['added_by_name'];?>">
+			<?=date('d.m.Y H:i',strtotime($a['added_on']));?>
+		</a>
+	</td>
+	<td>
+		<?if($a['rezerv_count']==0):?>
+			<input type="checkbox" name="ostatok[<?=$a['id'];?>][del]">
+		<?endif;?>
+	</td>
+</tr>

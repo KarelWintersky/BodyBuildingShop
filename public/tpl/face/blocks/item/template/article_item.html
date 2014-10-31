@@ -1,0 +1,15 @@
+<div class="article_item texted">
+
+	<?if($a['type_change']):?>
+		<h2>Алфавитный указатель</h2>
+	<?endif;?>
+	
+	<?if($a['alphabet']==1 && $a['letter_change']):?>
+		<div class="article_item_letter">
+			<?=$a['first_letter'];?>
+		</div>
+	<?endif;?>
+
+	<a href="/<?=$a['alias']?>/"><?=$a['name']?></a>
+	
+</div>

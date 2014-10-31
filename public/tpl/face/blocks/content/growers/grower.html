@@ -1,0 +1,39 @@
+<h1 class="second_style">Товары производителя «<?=$this->registry['grower']['name'];?>»</h1>
+
+<?$this->registry['f_growers']->goods_list($list_html,$list_params,$reqiure_file);?>
+
+<input type="hidden" name="cookie_type" value="<?=$this->registry['cookie_type'];?>">
+<input type="hidden" name="level_id" value="<?=$this->registry['grower']['id']?>">
+<input type="hidden" name="level_link" value="<?=$this->registry['grower']['level_link'];?>">
+<input type="hidden" name="reqiure_file" value="<?=$reqiure_file;?>">
+
+<div id="level_filter">
+	<div id="lf_amount" class="lft"><div id="lf_amount_i">
+		<b><?=$list_params['start'];?></b> - <b><?=$list_params['fin'];?></b> из <b><?=$list_params['total_goods_amount'];?></b>
+	</div></div>
+	
+	<div id="lf_measure" class="lft"><div id="lf_measure_i">
+		<?$this->registry['template']->F_dropdown($this->registry['f_catalog']->goods_display_number[$reqiure_file],'display_number','','display_number_change(this);');?>
+	</div></div>
+	
+	<div id="lf_sort" class="lft">
+		<span>Сортировать по:</span>
+		<?$this->registry['template']->F_dropdown($this->registry['f_catalog']->goods_sort_values,'sort_by','','level_sort_change(this);');?>
+	</div>
+	
+	<ul class="lft" id="lf_display_type">
+		<?$this->registry['f_catalog']->print_goods_display_type();?>
+	</ul>
+	
+	<div class="clr"></div>
+</div>
+
+<?=$list_html;?>
+
+<?$this->registry['f_catalog']->show_pagination($list_params,1);?>
+
+<?if(!isset($_GET['page'])):?>
+	<div class="texted" id="level_description">
+		<?=$this->registry['grower']['content']?>
+	</div>
+<?endif;?>

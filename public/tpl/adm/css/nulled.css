@@ -1,0 +1,8 @@
+*{margin:0;padding:0;}
+ul{list-style:none;}
+img{border:0;vertical-align:top;}
+.clr{clear:both;}
+a{text-decoration:underline;}
+	a:hover{text-decoration:none;}
+	
+.nomargin{width:1px;height:1px;margin:0;}	

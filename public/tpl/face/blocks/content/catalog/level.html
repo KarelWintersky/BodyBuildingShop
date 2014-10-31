@@ -1,0 +1,74 @@
+<?$this->registry['f_catalog']->goods_list($list_html,$list_params,$reqiure_file,0);?>
+
+<input type="hidden" name="cookie_type" value="<?=$this->registry['cookie_type'];?>">
+<input type="hidden" name="level_id" value="<?=$this->registry['level']['id']?>">
+<input type="hidden" name="level_link" value="<?=$this->registry['level']['level_link'];?>">
+<input type="hidden" name="reqiure_file" value="<?=$reqiure_file;?>">
+
+<div id="level_filter">
+	<div id="lf_amount" class="lft"><div id="lf_amount_i">
+		<b><?=$list_params['start'];?></b> - <b><?=$list_params['fin'];?></b> из <b><?=$list_params['total_goods_amount'];?></b>
+	</div></div>
+	
+	<div id="lf_measure" class="lft"><div id="lf_measure_i">
+		<?$this->registry['template']->F_dropdown($this->registry['f_catalog']->goods_display_number[$reqiure_file],'display_number','','display_number_change(this);');?>
+	</div></div>
+	
+	<div id="lf_sort" class="lft">
+		<span>Сортировать по:</span>
+		<?$this->registry['template']->F_dropdown($this->registry['f_catalog']->goods_sort_values,'sort_by','','level_sort_change(this);');?>
+	</div>
+	
+	<ul class="lft" id="lf_display_type">
+		<?$this->registry['f_catalog']->print_goods_display_type();?>
+	</ul>
+	
+	<div class="clr"></div>
+</div>
+
+<?=$list_html;?>
+
+<?$this->registry['f_catalog']->show_pagination($list_params,0);?>
+
+<?if(!isset($_GET['page'])):?>
+
+		<div id="goods_social_share_1">
+			<table>
+				<tr>
+					<td style="width:96px;"><div style="margin:-5px 0 0;">
+						<script type="text/javascript" src="//vk.com/js/api/openapi.js?95"></script>
+	
+						<script type="text/javascript">
+						  VK.init({apiId: 3786656, onlyWidgets: true});
+						</script>
+	
+						<div id="vk_like"></div>
+						<script type="text/javascript">
+						VK.Widgets.Like("vk_like", {type: "mini", height: 20});
+						</script>
+					</div></td>
+					<td style="width:119px;">
+						<div id="fb-root"></div>
+						<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+						<div class="fb-like" data-send="false" data-layout="button_count" data-width="95" data-show-faces="false" data-font="lucida grande"></div>
+					</td>
+					<td><div style="width:110px !important;overflow:hidden;">
+						<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="clr"></div>
+
+	<div class="texted" id="level_description">
+		<?=$this->registry['level']['content']?>
+	</div>
+<?endif;?>

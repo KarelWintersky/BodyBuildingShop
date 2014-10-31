@@ -1,0 +1,78 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+
+		<h2>Яндекс.Маркет</h2>
+
+		<form id="form_YandexMarket" method="POST" action="/doer/">
+
+			<input type="hidden" name="d_action" value="612">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<div class="ym_hint">
+				Последнее время генерации файла: <?$this->registry['settings']->get_fdata('y_market.xml');?>
+			</div>
+
+			<div class="form_l">
+				<input type="submit" value="Сгенерировать файл">
+			</div>
+
+		</form>
+
+	</div>
+
+
+	<div class="form_1">
+
+		<h2>Sitemap.xml</h2>
+
+		<form id="form_YandexMarket" method="POST" action="/doer/">
+
+			<input type="hidden" name="d_action" value="613">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<div class="ym_hint">
+				Последнее время генерации файла: <?$this->registry['settings']->get_fdata('sitemap.xml');?>
+			</div>
+
+			<div class="form_l">
+				<input type="submit" value="Сгенерировать файл">
+			</div>
+
+		</form>
+
+	</div>
+
+
+	<div class="form_1">
+
+		<h2>Прайс-лист</h2>
+
+		<form id="form_YandexMarket" method="POST" action="/doer/">
+
+			<input type="hidden" name="d_action" value="614">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<div class="ym_hint">
+				Последнее время генерации файла: <?$this->registry['settings']->get_fdata('sportivnoe-pitanie-price.xls');?>
+			</div>
+
+			<div class="form_l">
+				<input type="submit" value="Сгенерировать файл">
+			</div>
+
+		</form>
+
+	</div>
+
+</div>
+
+<div class="clr"></div>

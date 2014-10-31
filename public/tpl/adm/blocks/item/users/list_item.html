@@ -1,0 +1,46 @@
+<?if($a['type_change']):?>
+
+	<tr>
+		<td colspan="8" class="group_head">
+			<?= ($a['type']==2) ? 'Администраторы' : (($a['type']==1) ? 'Менеджеры' : 'Покупатели' );?>
+		</td>
+	</tr>
+
+<?endif;?>
+
+<?if($a['type']==0):?>
+
+<tr>
+	<td>
+		<?=$a['id'];?>
+	</td>
+	<td class="td_name">
+		<a href="/adm/users/<?=$a['id'];?>/"><?=$a['name'];?></a>
+	</td>
+	<td>
+		<?=$a['login'];?>
+	</td>
+	<td>
+		<?=$a['email'];?>
+	</td>
+	<td class="td_address">
+		<?=$a['zip_code'];?>, <?=$a['country'];?>, <?=$a['region'];?>, <?=$a['city'];?>, <?=$a['street'];?>, д. <?=$a['house'];?><?= ($a['corpus']!='') ? ', корп. '.$a['corpus'] : '';?><?= ($a['flat']!='') ? ', кв. '.$a['flat'] : '';?>
+	</td>	
+	<td>
+		<?=$a['personal_discount'];?>
+	</td>
+	<td>
+		<?=$a['max_nalog'];?>
+	</td>
+	<td>
+		<?=$a['my_account'];?>
+	</td>	
+</tr>
+
+<?else:?>
+
+<tr>
+	<td colspan="8" class="adm_head"><a href="/adm/users/<?=$a['id'];?>/"><?=$a['name'];?></a></td>
+</tr>
+
+<?endif;?>

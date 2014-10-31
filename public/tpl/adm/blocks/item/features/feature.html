@@ -1,0 +1,38 @@
+<li class="feature_line feature_line_<?=$a['id']?>">
+	
+	<div class="fl_l fl_l_name">
+		<input type="text" value="<?=htmlspecialchars($a['name']);?>" name="feature[<?=$a['id']?>][name]" class="single_name">
+	</div>	
+
+	<div class="fl_l old_image">
+		<input type="hidden" value="<?=$a['image']?>" name="feature[<?=$a['id']?>][old_image]">
+		<?if($a['image']!=''):?>
+			<img src="/public/foto/features/<?=$a['image']?>">
+		<?endif;?>
+	</div>
+	
+	<div class="fl_l image">
+		<input type="file" name="feature[<?=$a['id']?>][img]" onchange="feat_img_caption(this);">
+		<div class="image_button_simulator">Изображение</div>
+		<div class="feat_img_caption">изменить</div>
+	</div>
+	
+	<div class="fl_l cbox">
+		<input type="checkbox" value="1"  name="feature[<?=$a['id']?>][del]" id="del_<?=$a['id']?>">
+		<label for="del_<?=$a['id']?>">удалить</label>
+		<div class="clr"></div>
+	</div>		
+
+	<div class="fl_l cbox">
+		<input type="checkbox" value="1" name="feature[<?=$a['id']?>][delimiter]" id="delimiter_<?=$a['id']?>" <?= ($a['delimiter']==1) ? 'checked' : '';?>>
+		<label for="delimiter_<?=$a['id']?>">разделитель после</label>
+		<div class="clr"></div>
+	</div>		
+	
+	<div class="ci_drag"><div class="ci_drag_i"></div></div>
+	
+	<div class="clr"></div>
+	
+	<input type="hidden" name="feature[<?=$a['id']?>][sort]" class="input_sort" value="<?=$a['sort']?>">
+	
+</li>

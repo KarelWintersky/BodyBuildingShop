@@ -1,0 +1,37 @@
+<tr class="<?= ($a['status']==4) ? 'cancelled' : '';?>">
+	<td>
+		<a href="/adm/orders/<?=$a['id']?>-<?=$a['user_num']?>-<?=$a['payment_method']?>/"><?=$a['num']?></a>
+	</td>
+	<td>
+		<?=date('d.m.Y',strtotime($a['made_on']));?>
+	</td>
+	
+	<?if(in_array($a['status'],array(2,3,4))):?>
+		<td>
+			<?=$this->registry['logic']->date2read($a['sent_on'])?>
+		</td>	
+	<?endif;?>
+	
+	<?if(in_array($a['status'],array(3,4))):?>
+		<td>
+			<?=$this->registry['logic']->date2read($a['payed_on'])?>
+		</td>	
+	<?endif;?>	
+	
+	<td>
+		<?=$a['discount']?> %
+	</td>
+	<td class="td_price">
+		<b><?=$this->registry['logic']->price2read($a['overall_price']);?></b> руб.
+	</td>
+</tr>
+
+<?if($a['status']==4):?>
+
+	<tr class="cancelled_cause">
+		<td colspan="6">
+			<?=$a['comment']?>
+		</td>
+	</tr>
+
+<?endif;?>

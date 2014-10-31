@@ -1,0 +1,26 @@
+<h1>Статьи</h1>
+
+<div class="level_good_add">
+	<a href="/adm/articles/0/">Добавить статью</a>
+</div>
+
+<div class="form_1">
+
+	<h2>Обычные статьи</h2>
+
+	<form class="usual_form" id="form_ArticlesOrder" action="/doer/" method="POST">
+
+		<input type="hidden" name="d_action" value="900">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+		<ul class="list_sort">
+			<?$this->registry['articles']->articles_list();?>
+		</ul>
+
+		<div class="form_l sbm">
+			<input type="submit" value="Сохранить порядок">
+		</div>
+
+	</form>
+
+</div>

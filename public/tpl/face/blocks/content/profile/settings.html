@@ -1,0 +1,190 @@
+<div class="profile_page">
+
+	<h1 class="second_style"><?=$this->registry['full_ui']['name']?></h1>
+
+	<div id="profile_page_id">(<?=$this->registry['full_ui']['id']?>)</div>
+	
+	<div id="profile_page_personal_discount">Персональная скидка: <b><?=$this->registry['full_ui']['personal_discount']?> %</b></div>
+	
+	<div class="clr"></div>
+	
+	<ul id="profile_nav">
+		<li>Ваши установки</li>
+		<li><a href="/profile/orders/">Ваши заказы и баланс</a></li>
+		<li><a href="/profile/accountorder/">Пополнить счет</a></li>
+	</ul>
+	
+	<div id="profile_page_hint">
+		В данном разделе Вы можете уточнить свои данные, которые будут использованы при отправке Вам сделанных заказов.
+	</div>
+	
+	<?$this->registry['f_profile']->prof_err();?>
+	
+	<div id="profile_info_form">
+		
+		<form id="form_profileInfo" method="POST" action="/doer/" onsubmit="return form_profileInfo_preloader(this);">
+	
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI']?>">
+			<input type="hidden" name="d_action" value="6001">		
+			
+			<input type="hidden" name="id" value="<?=$this->registry['full_ui']['id']?>">		
+			<input type="hidden" name="personal_discount" value="<?=$this->registry['full_ui']['personal_discount']?>">		
+			<input type="hidden" name="get_news" value="<?=$this->registry['full_ui']['get_news']?>">		
+			<input type="hidden" name="get_catalog_changes" value="<?=$this->registry['full_ui']['get_catalog_changes']?>">		
+		
+			<div class="pif_block">
+		
+				<div class="pif_l">
+					<label>Логин <span>*</span></label>
+					<input type="text" name="login_visible" disabled value="<?=$this->registry['full_ui']['login']?>">
+					<input type="hidden" name="login" value="<?=$this->registry['full_ui']['login']?>">
+				</div>
+				
+				<div class="pif_l">
+					<label>Пароль</label>
+					<input type="password" name="pass" value="" autocomplete="off">
+				</div>				
+				
+				<div class="pif_l">
+					<label>Пароль еще раз</label>
+					<input type="password" name="pass_confirm" value="" autocomplete="off">
+					<div class="pif_l_hint">Оставьте эти поля пустыми, если не хотите менять пароль.</div>					
+				</div>					
+				
+				<div class="pif_l">
+					<label>Полные Фамилия, Имя, Отчество <span>*</span></label>
+					<input type="text" name="name" value="<?=$this->registry['full_ui']['name']?>" autocomplete="off">
+					<input type="hidden" name="old_name" value="<?=$this->registry['full_ui']['name']?>">
+				</div>					
+				
+				<div class="pif_l">
+					<label>Email <span>*</span></label>
+					<input type="text" name="email" value="<?=$this->registry['full_ui']['email']?>" autocomplete="off">
+					<input type="hidden" name="old_email" value="<?=$this->registry['full_ui']['email']?>">
+					<div class="pif_l_hint">Обращаем Ваше внимание на то, что е-мэйл должен быть введен обязательно! Именно на него будут отсылаться все уведомления об отправленных заказах, полученых деньгах, а также (возможно) просьбы уточнить ваш адрес. Поэтому предупреждаем заранее - если Вы введете неверный е-мэйл Ваши заказы обработаны не будут. Проверить работает ли Ваш е-мэйл очень просто - после регистрации Вам по е-мэйлу придет письмо с подтверждением регистрации.</div>
+				</div>					
+				
+			</div>
+		
+			<div class="pif_divider">
+				<div class="pif_divider_i">Ваш почтовый адрес</div>
+				<div class="clr"></div>
+			</div>
+				
+			<div class="pif_block">
+				<div class="pif_lft">
+								
+					<div class="pif_l">
+						<label>Почтовый индекс</label>
+						<input type="text" name="zip_code" value="<?=$this->registry['full_ui']['zip_code']?>" autocomplete="off">
+						<input type="hidden" name="old_zip_code" value="<?=$this->registry['full_ui']['zip_code']?>">
+					</div>					
+				
+					<?$this->registry['logic']->zip_code_find($this->registry['userdata']['zip_code'],$zc_flag);?>
+					
+					<?if(!$zc_flag):?>
+						<div class="zc_hint">Ваш индекс не найден в Эталонном Справочнике. Доставка невозможна до тех пор, пока не будет указан корректный индекс.</div>
+					<?elseif(isset($this->registry['zc_data']['in_old_index'])):?>	
+						<div class="zc_hint">Ваш индекс изменен. Отправка будет идти по новому индексу, несмотря на то, что в профиле указан старый. Новый индекс <b><?=$this->registry['zc_data']['ind']?></b>.</div>
+					<?endif;?>
+					
+					<div class="pif_l">
+						<label>Страна <span>*</span></label>
+						<input type="text" name="country_visible" disabled value="<?=$this->registry['full_ui']['country']?>">
+						<input type="hidden" name="country" value="<?=$this->registry['full_ui']['country']?>">
+					</div>					
+					
+					<div class="pif_l">
+						<label>Регион</label>
+						<input type="text" name="region" value="<?=$this->registry['full_ui']['region']?>" autocomplete="off">
+						<input type="hidden" name="old_region" value="<?=$this->registry['full_ui']['region']?>">
+					</div>						
+					
+					<div class="pif_l">
+						<label>Район</label>
+						<input type="text" name="district" value="<?=$this->registry['full_ui']['district']?>" autocomplete="off">
+						<input type="hidden" name="old_district" value="<?=$this->registry['full_ui']['district']?>">
+					</div>						
+					
+					<div class="pif_l">
+						<label>Город <span>*</span></label>
+						<input type="text" name="city" value="<?=$this->registry['full_ui']['city']?>" autocomplete="off">
+						<input type="hidden" name="old_city" value="<?=$this->registry['full_ui']['city']?>">
+					</div>						
+					
+					<div class="pif_l">
+						<label>Улица <span>*</span></label>
+						<input type="text" name="street" value="<?=$this->registry['full_ui']['street']?>" autocomplete="off">
+						<input type="hidden" name="old_street" value="<?=$this->registry['full_ui']['street']?>">
+					</div>						
+					
+					<div class="pif_l narrow">
+						<label>Дом <span>*</span></label>
+						<input type="text" name="house" value="<?=$this->registry['full_ui']['house']?>" autocomplete="off">
+						<input type="hidden" name="old_house" value="<?=$this->registry['full_ui']['house']?>">
+					</div>						
+					
+					<div class="pif_l narrow">
+						<label>Корпус</label>
+						<input type="text" name="corpus" value="<?=$this->registry['full_ui']['corpus']?>" autocomplete="off">
+						<input type="hidden" name="old_corpus" value="<?=$this->registry['full_ui']['corpus']?>">
+					</div>	
+
+					<div class="pif_l narrow">
+						<label>Квартира</label>
+						<input type="text" name="flat" value="<?=$this->registry['full_ui']['flat']?>" autocomplete="off">
+						<input type="hidden" name="old_flat" value="<?=$this->registry['full_ui']['flat']?>">
+					</div>										
+					
+					<div class="clr"></div>
+					
+				</div>
+				<div class="pif_rgt">
+					<p>Заполняйте почтовый адрес ВНИМАТЕЛЬНО. Проверьте их лишний раз, помните, что именно по этим реквизитам будут отправлены Ваши заказы. Обращаем Ваше внимание на необходимость именно точно и, по возможности, максимально подробно указывать свои почтовые реквизиты! В случае любой ошибки (к примеру, не указан корпус дома) Ваша посылка может вернуться обратно! Указывайте в своих почтовых данных не только город, но, если надо, и название области, края, республики.</p>
+					<p>К сожалению, наши почтовые службы и сами не достаточно хорошо орентируются в географии нашей необъятной страны. Поэтому чем подробнее Вы укажете свои реквизиты тем быстрее к Вам доставят Ваш заказ.</p>
+				</div>
+				<div class="clr"></div>
+			</div>
+			
+			<div class="pif_divider pif_divider_2"></div>			
+			
+			<div class="pif_block">
+			
+				<div class="pif_l pif_wishes">
+					<label>Напоследок Вы можете указать дополнительные пожелания к обработке или отправке Ваших заказов</label>
+					<textarea name="wishes"><?=$this->registry['full_ui']['wishes']?></textarea>
+					<input type="hidden" name="old_wishes" value="<?=$this->registry['full_ui']['wishes']?>">
+				</div>				
+			
+			</div>
+			
+			<div class="pif_divider pif_divider_2"></div>	
+			
+			<div class="pif_block">
+				<div class="pif_l cbox">
+					<input type="checkbox" name="get_news_val" value="1" <?= ($this->registry['full_ui']['get_news']==1) ? 'checked' : '';?> id="get_news">				
+					<label for="get_news">Я готов получать по е-мэйлу новости "Бодибилдинг-Магазина"!</label>
+					<div class="clr"></div>
+				</div>	
+				
+				<div class="pif_l cbox">
+					<input type="checkbox" name="get_catalog_changes_val" value="1" <?= ($this->registry['full_ui']['get_catalog_changes']==1) ? 'checked' : '';?> id="get_catalog_changes">
+					<label for="get_catalog_changes">Я готов получать информацию об изменениях в ассортименте магазина!</label>
+					<div class="clr"></div>
+				</div>					
+					
+				<div class="pif_l sbm">
+					<input type="submit" value="Сохранить изменения">	
+				</div>
+				
+			</div>
+			
+		</form>
+		
+	</div>
+	
+	<h2>Информация по тарифам на доставку</h2>
+	
+	<?$this->registry['logic']->zip_code_data($this->registry['userdata']['zip_code']);?>
+	
+</div>

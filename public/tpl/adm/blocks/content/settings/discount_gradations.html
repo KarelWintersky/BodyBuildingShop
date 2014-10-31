@@ -1,0 +1,59 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+	
+		<form method="POST" action="/doer/" id="discount_gradations_Upd">
+	
+			<input type="hidden" name="d_action" value="605">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">			
+		
+			<?$this->registry['settings']->discount_gradations_list();?>
+		
+			<div class="sbm">
+				<input type="submit" value="Сохранить">
+			</div>
+			
+		</form>
+				
+	</div>
+	
+	<div class="form_1">
+	
+		<h3>Добавить градацию</h3>
+	
+		<form method="POST" action="/doer/" id="discount_gradation_Add">
+	
+			<input type="hidden" name="d_action" value="606">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">			
+		
+			<div class="form_l form_l_sum">
+				<label>Сумма</label>
+				<input type="text" name="sum">
+			</div>
+
+			<div class="form_l form_l_percent">
+				<label>Процент</label>
+				<input type="text" name="percent">
+			</div>			
+					
+			<div class="sbm">
+				<input type="submit" value="Добавить">
+			</div>
+			
+			<div class="clr"></div>
+			
+		</form>		
+	
+	</div>
+		
+</div>
+
+<div class="clr"></div>

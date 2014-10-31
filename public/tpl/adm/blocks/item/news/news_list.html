@@ -1,0 +1,13 @@
+<div class="news_list <?= ($a['published']==0) ? 'unpub' : '';?>">
+
+	<div class="nl_name">
+		<a href="/adm/<?=$this->registry['aias_path'][0]?>/<?=$a['id']?>/"><?=$a['name']?></a>
+	</div>
+	
+	<div class="nl_date">
+		<?=date('d.m.Y',strtotime($a['date']))?>
+	</div>
+	
+	<div class="clr"></div>
+	
+</div>

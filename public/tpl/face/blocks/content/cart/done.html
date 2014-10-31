@@ -1,0 +1,35 @@
+<div id="page_cart">
+	<h1 class="second_style">Ваш заказ успешно отправлен</h1>
+	
+	<div class="texted" id="cart_done_msg">
+		<?=$this->registry['cart_done_msg'];?>
+	</div>	
+	
+	<?if(isset($this->registry['do_bill'])):?>
+		<script>
+			$(function() {
+				 window.open('/openbill/?o=<?=$this->registry['order_id'];?>','mywindow','width=700,height=600');
+			});			
+		</script>
+	<?endif;?>
+	
+	<div id="cart_social" class="texted">
+		<p>Уважаемый <b><?=$this->registry['userdata']['name']?></b>, напоминаем Вам, что Вы можете следить за новостями нашего магазина в популярных социальных сетях:</p>
+		<ul>
+			<li class="cs_vk">
+				<span></span>
+				<a href="<?=VK_LINK;?>" target="_blank">Вконтакте</a>
+			</li>
+			<li class="cs_tw">
+				<span></span>
+				<a href="<?=TW_LINK;?>" target="_blank">Twitter</a>
+			</li>
+			<li class="cs_fb">
+				<span></span>
+				<a href="<?=FB_LINK;?>" target="_blank">Facebook</a>
+			</li>
+			<div class="clr"></div>
+		</ul>
+	</div>
+	
+</div>

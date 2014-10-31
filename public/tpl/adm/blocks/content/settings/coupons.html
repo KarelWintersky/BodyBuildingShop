@@ -1,0 +1,74 @@
+<h1>Настройки</h1>
+
+<div id="settings_sb">
+	<ul>
+		<?$this->registry['template']->sb_menu();?>
+	</ul>
+</div>
+
+<div id="settings_c">
+
+	<div class="form_1">
+
+		<form method="POST" action="/doer/" id="form_CouponAdd" onsubmit="return coupon_add_check(this);">
+
+			<input type="hidden" name="d_action" value="616">
+			<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+			<h2>Добавить купон</h2>
+
+			<div class="form_l form_l_percent">
+				<label>Скидка, %</label>
+				<input type="text" name="percent">
+			</div>
+
+			<div class="form_l form_l_validtill">
+				<label>Действителен до</label>
+				<input type="text" class="datepicker" name="validtill" readonly value="<?=date('d.m.Y',strtotime("+ ".COUPON_VALID_DURATION." days"))?>">
+			</div>
+
+			<div class="form_l sbm">
+				<input type="submit" value="Добавить">
+			</div>
+
+			<div class="clr"></div>
+
+		</form>
+
+	</div>
+
+	<form method="POST" action="/doer/" id="form_CouponsList">
+
+		<input type="hidden" name="d_action" value="615">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">
+
+		<table cellpadding="0" cellspacing="0" class="coupons_table">
+			<tr>
+				<th rowspan="2">Купон</th>
+				<th rowspan="2">Скид-<br>ка</th>
+				<th colspan="2">Создан</th>
+				<th rowspan="2">Действи-<br>телен до</th>
+				<th colspan="3">Использован</th>
+				<th rowspan="2">Статус</th>
+			</tr>
+			<tr>
+				<th>Кем</th>
+				<th>Когда</th>
+				<th>Кем</th>
+				<th>Когда</th>
+				<th>Заказ</th>
+			</tr>
+			<?$this->registry['settings']->coupons_list();?>
+		</table>
+
+		<div class="sbm">
+			<input type="submit" value="Сохранить">
+		</div>
+
+		<div class="clr"></div>
+
+	</form>
+
+</div>
+
+<div class="clr"></div>

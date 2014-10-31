@@ -1,0 +1,24 @@
+<h1>Производители</h1>
+
+<div class="growers_add">
+	<a href="/adm/growers/0/">Добавить производителя</a>
+</div>
+
+<div class="form_1">
+
+	<form class="usual_form" id="form_GrowersOrder" action="/doer/" method="POST">
+	
+		<input type="hidden" name="d_action" value="503">
+		<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI'];?>">	
+		
+		<ul class="list_sort">
+			<?$this->registry['growers']->growers_list();?>
+		</ul>
+		
+		<div class="form_l">
+			<input type="submit" value="Сохранить порядок">
+		</div>
+		
+	</form>
+	
+</div>

@@ -1,0 +1,10 @@
+#growers_carousel .jcarousel-skin-tango .jcarousel-container-horizontal{width:707px;padding:21px 0 0;}
+#growers_carousel .jcarousel-skin-tango .jcarousel-clip-horizontal{width:707px;overflow:hidden;}
+#growers_carousel .jcarousel-skin-tango .jcarousel-item{text-align:center;width:175px;height:92px;}
+	#growers_carousel .jcarousel-skin-tango .jcarousel-item div{width:175px;height:92px;display:table-cell;vertical-align:middle;}
+	
+#growers_carousel .jcarousel-skin-tango .jcarousel-next-horizontal, #growers_carousel .jcarousel-skin-tango .jcarousel-prev-horizontal{position:absolute;width:29px;height:26px;cursor:pointer;background-image:url(/public/tpl/face/i/jcarousel_nav.png);top:-36px;}
+	#growers_carousel .jcarousel-skin-tango .jcarousel-next-horizontal{left:201px;background-position:-29px 0;}
+		#growers_carousel .jcarousel-skin-tango .jcarousel-next-disabled-horizontal{background-position:-29px -26px;cursor:auto;}
+	#growers_carousel .jcarousel-skin-tango .jcarousel-prev-horizontal{left:175px;background-position:0 -26px;}
+		#growers_carousel .jcarousel-skin-tango .jcarousel-prev-disabled-horizontal{background-position:0 0;cursor:auto;}

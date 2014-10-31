@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+	<head>
+		<title>АДМИНКА</title>
+
+		<link rel="icon" href="<?=$this->registry['template']->front_path;?>i/favicon.ico" type="image/x-icon" />
+
+		<link rel="stylesheet" href="<?=$this->registry['template']->front_path;?>css/nulled.css" type="text/css" />
+		<link rel="stylesheet" href="<?=$this->registry['template']->front_path;?>css/main.css" type="text/css" />
+		<link rel="stylesheet" href="<?=$this->registry['template']->front_path;?>css/forms.css" type="text/css" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+		<script src="<?=$this->registry['template']->front_path;?>js/lib/jquery.cookie.js" type="text/javascript"></script>
+
+		<script type="text/javascript" src="<?=$this->registry['template']->front_path;?>js/lib/tiny_mce/tiny_mce.js"></script>
+
+		<script src="<?=$this->registry['template']->front_path;?>js/lib/ui/jquery.ui.core.js"></script>
+		<script src="<?=$this->registry['template']->front_path;?>js/lib/ui/jquery.ui.widget.js"></script>
+		<script src="<?=$this->registry['template']->front_path;?>js/lib/ui/jquery.ui.mouse.js"></script>
+		<script src="<?=$this->registry['template']->front_path;?>js/lib/ui/jquery.ui.sortable.js"></script>
+
+		<script type="text/javascript" src="<?=$this->registry['template']->front_path;?>js/lib/date/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="<?=$this->registry['template']->front_path;?>js/lib/date/date.js"></script>
+		<link rel="stylesheet" href="<?=$this->registry['template']->front_path;?>css/datePicker.css" type="text/css" />
+
+		<script src="<?=$this->registry['template']->front_path;?>js/uses.js" type="text/javascript"></script>
+		<script src="<?=$this->registry['template']->front_path;?>js/checks.js" type="text/javascript"></script>
+
+
+		<script>
+
+			tinyMCE.init({
+				mode:'specific_textareas',
+				editor_selector:'tinyMCE',
+				theme : 'advanced',
+				plugins : 'advimage,advlink,media,contextmenu,paste',
+				theme_advanced_toolbar_location : 'top',
+				theme_advanced_toolbar_align : 'left',
+				relative_urls : 'false',
+				remove_script_host : false,
+				convert_urls : false,
+				theme_advanced_buttons1:'bold,italic,underline,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,link,unlink,anchor,image,code,pasteword',
+				theme_advanced_buttons2 : '',
+				file_browser_callback : 'ajaxfilemanager'
+			});
+
+			function ajaxfilemanager(field_name, url, type, win) {
+				var ajaxfilemanagerurl = "<?=$this->registry['template']->front_path;?>js/lib/tiny_mce/plugins/ajaxfilemanager/ajaxfilemanager.php";
+				var view = 'detail';
+				switch (type) {
+					case "image":
+					view = 'thumbnail';
+						break;
+					case "media":
+						break;
+					case "flash":
+						break;
+					case "file":
+						break;
+					default:
+						return false;
+				}
+			    tinyMCE.activeEditor.windowManager.open({
+			        url: "<?=$this->registry['template']->front_path;?>js/lib/tiny_mce/plugins/ajaxfilemanager/ajaxfilemanager.php?view=" + view,
+			        width: 782,
+			       	height: 440,
+			        inline : "yes",
+			        close_previous : "no"
+			    },{
+			        window : win,
+			        input : field_name
+			    });
+
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="iw"><div class="iw_2">
+			<div class="nomargin"></div>
+
+			<?
+
+			if(isset($_SESSION['user_id'])):
+				if($this->registry['userdata']['type']!=0):
+					require($this->registry['template']->TF.'blocks/auth/authed.html');
+				else:
+					require($this->registry['template']->TF.'blocks/auth/not_enough_privil.html');
+				endif;
+			else:
+				require($this->registry['template']->TF.'blocks/auth/not_authed.html');
+			endif;
+
+			?>
+
+			<div class="nomargin"></div>
+		</div></div>
+
+	</body>
+</html>
