@@ -430,7 +430,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 		.texted ul li{background:url(/public/tpl/face/i/texted_li.png) 0 5px no-repeat;padding:0 0 10px 23px;}
 	.texted ol{}
 		.texted ol li{padding:0 0 10px;margin:0 0 0 18px;}
-			.texted ol li ul{padding:6px 0 0;}		
+			.texted ol li ul{padding-top:7px;}		
 	.texted .texted_hint{background:#fbf1d3 url(/public/tpl/face/i/ico_hint_1.png) 13px 17px no-repeat;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;margin:0 0 30px;padding:13px 33px 9px 42px;}
 		.texted .texted_hint h2{color:#e38a25;font-size:14px;font-weight:normal;padding:0;margin:0 0 9px;}
 
