@@ -426,8 +426,9 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 	.texted h2{color:#e38a25;font-size:19px;line-height:25px;font-weight:normal;padding:0 0 17px;}
 	.texted h3{color:#e38a25;font-size:15px;line-height:20px;padding:5px 0 17px;}
 	.texted p{padding:0 0 10px;}
-	.texted ul{}
+	.texted ul{padding-bottom:10px;}
 		.texted ul li{background:url(/public/tpl/face/i/texted_li.png) 0 5px no-repeat;padding:0 0 10px 23px;}
+		.texted ul li:last-child{padding-bottom:0;}
 	.texted ol{}
 		.texted ol>li{padding:0 0 10px;margin:0 0 0 18px;}
 			.texted ol>li ul{padding-top:7px;padding-bottom:0;}		
