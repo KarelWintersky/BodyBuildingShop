@@ -18,4 +18,4 @@ php_flag session.use_trans_sid off
 php_flag session.use_cookies on
 php_value upload_max_filesize 10M
 
-#deny from all
+php_value date.timezone "Europe/Moscow"
