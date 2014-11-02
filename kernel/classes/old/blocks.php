@@ -47,7 +47,7 @@ Class Blocks{
 
 	public function cron_do_goods_absence(){
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		$blocks_str = file_get_contents($file);
 		$blocks_arr = explode('$$',$blocks_str);
 
@@ -112,7 +112,7 @@ Class Blocks{
 
 		$unpub = (isset($_POST['unpublish'])) ? 1 : 0;
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$unpub.'$$'.$_POST['blocks_field']);
 		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_goods_absence',$output);
 
@@ -183,7 +183,7 @@ Class Blocks{
 
 	public function cron_do_goods_prices(){
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		$blocks_field = file_get_contents($file);
 
 		$feedback = array();
@@ -236,7 +236,7 @@ Class Blocks{
 
 	public function do_goods_prices(){
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
 		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_goods_prices',$output);
 
@@ -336,7 +336,7 @@ Class Blocks{
 
 	public function cron_go_goods_present(){
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		$blocks_field = file_get_contents($file);
 
 		$feedback = array();
@@ -395,7 +395,7 @@ Class Blocks{
 
 	public function go_goods_present(){
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
 		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php go_goods_present',$output);
 
@@ -431,7 +431,7 @@ Class Blocks{
 	}
 
 	public function do_orders(){
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
 		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_orders',$output);
 
@@ -443,7 +443,7 @@ Class Blocks{
 
 	public function cron_do_orders(){
 
-		$file = ROOT_PATH.'blocks_work_file.txt';
+		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		$blocks_field = file_get_contents($file);
 
 		$feedback = array();

@@ -290,7 +290,7 @@
 
 		public function cron_do_news(){
 
-			$file = ROOT_PATH.'news_work_file.txt';
+			$file = ROOT_PATH.'files/news_work_file.txt';
 			$news_str =  file_get_contents($file);
 
 
@@ -339,21 +339,21 @@
 		public function news_send(){
 			foreach($_POST as $key => $val){$$key = $val;}
 
-			$file = ROOT_PATH.'news_work_file.txt';
+			$file = ROOT_PATH.'files/news_work_file.txt';
 			file_put_contents($file,$news_topic.'::'.$news_text);
 			exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_news',$output);
 
 		}
 
 		public function module_txt_file(){
-			$file = ROOT_PATH.'public/tpl/face/module.txt';
+			$file = ROOT_PATH.'files/module.txt';
 			if(is_file($file)){
 				echo file_get_contents($file);
 			}
 		}
 
 		public function sav_module_file(){
-			$file = ROOT_PATH.'public/tpl/face/module.txt';
+			$file = ROOT_PATH.'files/module.txt';
 
 			$fh = fopen($file, 'w');
 			$lines = preg_split("/[\n\r]+/s", $_POST['content']);

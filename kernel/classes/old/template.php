@@ -271,7 +271,7 @@ Class Template {
 
 		public function F_main_page_module_items(){
 
-			$file = ROOT_PATH.'public/tpl/face/module.txt';
+			$file = ROOT_PATH.'files/module.txt';
 			if(is_file($file)){
 				$lines = preg_split("/[\n\r]+/s", file_get_contents($file));
 				foreach($lines as $l){
