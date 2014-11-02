@@ -87,7 +87,7 @@
 				$output[] = array(
 						'lnk' => '/'.$g['parent_level_alias'].'/'.$g['level_alias'].'/'.$g['alias'].'/',
 						'name' => (($g['grower']!='') ? '«'.$g['grower'].'». ' : '').$g['name'],
-						'add' => (isset($g['price'])) ? sprintf('от %s руб.',$this->registry['logic']->price2read($g['price'])) : '',
+						'add' => (isset($g['price'])) ? sprintf('от %s руб.',Common_Useful::price2read($g['price'])) : '',
 				);
 			}	
 

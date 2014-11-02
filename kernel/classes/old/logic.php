@@ -18,75 +18,6 @@
 			}
 		}
 
-		public function rus2translit($s) {
-		    $converter = array(
-		        'а' => 'a',   'б' => 'b',   'в' => 'v',
-		        'г' => 'g',   'д' => 'd',   'е' => 'e',
-		        'ё' => 'e',   'ж' => 'zh',  'з' => 'z',
-		        'и' => 'i',   'й' => 'y',   'к' => 'k',
-		        'л' => 'l',   'м' => 'm',   'н' => 'n',
-		        'о' => 'o',   'п' => 'p',   'р' => 'r',
-		        'с' => 's',   'т' => 't',   'у' => 'u',
-		        'ф' => 'f',   'х' => 'h',   'ц' => 'c',
-		        'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
-		        'ь' => '',    'ы' => 'y',   'ъ' => '',
-		        'э' => 'e',   'ю' => 'yu',  'я' => 'ya',
-		        ' ' => '-',	  '"' => '',    '«' => '',
-		        '»' => '',    '(' => '',    ')' => '',
-		        '.' => '',    ',' => '',    '&' => 'and',
-		        '+' => '',    '%' => 'percent', ';' => '',
-		        ':' => '', '№' => '',       '!' => '',
-		        '/' => '', '|' => '',       DIRSEP => '-',
-		        '?' => ''
-		    );
-		    return strtr(mb_strtolower(trim($s),'utf8'), $converter);
-		}
-
-		public function date2monthname($date){
-			$captions = array(
-				1 => 'января',
-				2 => 'февраля',
-				3 => 'марта',
-				4 => 'апреля',
-				5 => 'мая',
-				6 => 'июня',
-				7 => 'июля',
-				8 => 'августа',
-				9 => 'сентября',
-				10 => 'октября',
-				11 => 'ноября',
-				12 => 'декабря'
-			);
-			return $captions[date('n',strtotime($date))];
-		}
-
-		public function date2dayofweek($date,$t){
-			$days = array(
-				0 => array('вс','воскресение'),
-				1 => array('пн','понедельник'),
-				2 => array('вт','вторник'),
-				3 => array('ср','среда'),
-				4 => array('чт','четверг'),
-				5 => array('пт','пятница'),
-				6 => array('сб','суббота'),
-			);
-			return $days[date('w',strtotime($date))][$t];
-		}
-
-		public function price2read($price){
-			return number_format($price,0,'',' ');
-		}
-
-		public function date2read($date){
-			$date = explode('-',$date);
-			return $date[2].'.'.$date[1].'.'.$date[0];
-		}
-
-		public function read2date($read){
-			$arr = explode('.',$read);
-			return $arr[2].'-'.$arr[1].'-'.$arr[0];
-		}
-
 		public function get_index_data($zip_code){
 			$qLnk = mysql_query("
 								SELECT
@@ -463,7 +394,7 @@
 					ob_end_clean();
 
 					if($order['from_account']!=$order['overall_price'] && $order['from_account']>0){
-						$additional_payment = 'С Вашего личного счета удержано '.$this->price2read($order['from_account']).' руб., <b>к оплате '.$this->price2read($order['overall_price']-$order['from_account']).' руб.</b>';
+						$additional_payment = 'С Вашего личного счета удержано '.Common_Useful::price2read($order['from_account']).' руб., <b>к оплате '.Common_Useful::price2read($order['overall_price']-$order['from_account']).' руб.</b>';
 					}else{
 						if(count($ostatki)>0){
 							$additional_payment = 'Поскольку в вашей корзине присутствует товар <b>'.implode(', ',$ostatki).'</b>, количество которого строго ограничено и резервируется под заказ, то Вам будет доступна только предоплата.<br><br>Заказ Вы должны будете оплатить в течении '.REZERV_ORDER_DAYS.' дней и ОБЯЗАТЕЛЬНО сообщить нам о факте оплаты е-мэйлом. В противном случае, через '.REZERV_ORDER_DAYS.' дней если от вас не поступят деньги или уведомление об оплате - резерв на товар будет снят и он вернется в продажу.';

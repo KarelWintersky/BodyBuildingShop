@@ -16,10 +16,10 @@
 		<div class="ct_price_block">
 			<b>
 				<?if($a['personal_discount']>0):?>
-					<s><?=$this->registry['logic']->price2read(intval($a['old_price']));?></s>
-					<i><?=$this->registry['logic']->price2read(round($a['price']));?></i>
+					<s><?=Common_Useful::price2read(intval($a['old_price']));?></s>
+					<i><?=Common_Useful::price2read(round($a['price']));?></i>
 				<?else:?>
-					<?=$this->registry['logic']->price2read(intval($a['price']));?>
+					<?=Common_Useful::price2read(intval($a['price']));?>
 				<?endif;?>
 			</b>
 			<div>руб.</div>

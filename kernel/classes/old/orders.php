@@ -145,11 +145,11 @@ Class Orders{
 		}
 
 		if(isset($_GET['date_from']) && $_GET['date_from']!=''){
-			$q[] = "DATE(orders.made_on) >= DATE('".$this->registry['logic']->read2date($_GET['date_from'])."')";
+			$q[] = "DATE(orders.made_on) >= DATE('".Common_Useful_Date::read2date($_GET['date_from'])."')";
 		}
 
 		if(isset($_GET['date_to']) && $_GET['date_to']!=''){
-			$q[] = "DATE(orders.made_on) <= DATE('".$this->registry['logic']->read2date($_GET['date_to'])."')";
+			$q[] = "DATE(orders.made_on) <= DATE('".Common_Useful_Date::read2date($_GET['date_to'])."')";
 		}
 
 		$q_str = (count($q)>0) ? "WHERE ".implode(" AND ",$q) : "";

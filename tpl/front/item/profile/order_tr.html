@@ -17,8 +17,8 @@
 
 	<?if(in_array($a['status'],array(2,3,4))):?>
 		<td>
-			<?if($a['sent_on']!='0000-00-00 00:00:00' && $this->registry['logic']->date2read($a['sent_on'])!='00.00.0000'):?>
-				<?=$this->registry['logic']->date2read($a['sent_on'])?>
+			<?if($a['sent_on']!='0000-00-00 00:00:00' && Common_Useful_Date::date2read($a['sent_on'])!='00.00.0000'):?>
+				<?=Common_Useful_Date::date2read($a['sent_on'])?>
 			<?else:?>
 				-
 			<?endif;?>
@@ -27,8 +27,8 @@
 
 	<?if(in_array($a['status'],array(3,4))):?>
 		<td>
-			<?if($a['payed_on']!='0000-00-00 00:00:00' && $this->registry['logic']->date2read($a['payed_on'])!='00.00.0000'):?>
-				<?=$this->registry['logic']->date2read($a['payed_on'])?>
+			<?if($a['payed_on']!='0000-00-00 00:00:00' && Common_Useful_Date::date2read($a['payed_on'])!='00.00.0000'):?>
+				<?=Common_Useful_Date::date2read($a['payed_on'])?>
 			<?else:?>
 				-
 			<?endif;?>
@@ -39,7 +39,7 @@
 		<?=$a['discount']?> %
 	</td>
 	<td class="td_price">
-		<b><?=$this->registry['logic']->price2read($a['overall_price']);?></b> руб.
+		<b><?=Common_Useful::price2read($a['overall_price']);?></b> руб.
 	</td>
 
 	<?if($a['status']==1 || $a['status']==5):?>

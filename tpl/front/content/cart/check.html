@@ -52,7 +52,7 @@
 				<ul id="cart_2_total_goods_price">
 					<li>
 						<div class="c2tgp_val">
-							<b><?=$this->registry['logic']->price2read($total_goods_price);?></b> руб.
+							<b><?=Common_Useful::price2read($total_goods_price);?></b> руб.
 						</div>
 						<div class="c2tgp_hint">
 							Общая стоимость без учета скидки:
@@ -76,7 +76,7 @@
 
 					<li>
 						<div class="c2tgp_val">
-							<b><?=$this->registry['logic']->price2read($total_goods_price);?></b> руб.
+							<b><?=Common_Useful::price2read($total_goods_price);?></b> руб.
 						</div>
 						<div class="c2tgp_hint">
 							Общая стоимость со скидкой:
@@ -90,7 +90,7 @@
 					
 						<li>
 							<div class="c2tgp_val">
-								<b><?=$this->registry['logic']->price2read($diff);?></b> руб.
+								<b><?=Common_Useful::price2read($diff);?></b> руб.
 							</div>
 							<div class="c2tgp_hint">
 								Дополнительные расходы на доставку наложенным платежом
@@ -108,7 +108,7 @@
 							<?elseif($_POST['order_vals']['is_spb']==1 && $_POST['order_vals']['delivery']==2 && $_POST['order_vals']['delivery_costs']==0):?>
 								бесплатна
 							<?else:?>
-								<b><?=$this->registry['logic']->price2read(round($_POST['order_vals']['delivery_costs']));?></b> руб.
+								<b><?=Common_Useful::price2read(round($_POST['order_vals']['delivery_costs']));?></b> руб.
 							<?endif;?>
 						</div>
 						<div class="c2tgp_hint">
@@ -120,7 +120,7 @@
 
 				<?$overall_price = $total_goods_price + $diff + round($_POST['order_vals']['delivery_costs']);?>
 				<div id="cart_2_overall">
-					Общая стоимость заказа составляет: <span><b><?=$this->registry['logic']->price2read($overall_price);?></b> руб.</span>
+					Общая стоимость заказа составляет: <span><b><?=Common_Useful::price2read($overall_price);?></b> руб.</span>
 				</div>
 
 				<div class="clr"></div>
@@ -143,7 +143,7 @@
 
 				<?if(isset($_POST['order_vals']['payment']) && $_POST['order_vals']['payment']==6 && $overall_price>$this->registry['userdata']['my_account']):?>
 					<div class="common_hint">
-						К сожалению, средств на вашем счету не хватает для оплаты заказа. Еще требуется <b><?=$this->registry['logic']->price2read($overall_price-$this->registry['userdata']['my_account']);?></b> рублей. Выберите способ для оплаты их.
+						К сожалению, средств на вашем счету не хватает для оплаты заказа. Еще требуется <b><?=Common_Useful::price2read($overall_price-$this->registry['userdata']['my_account']);?></b> рублей. Выберите способ для оплаты их.
 
 						<input type="hidden" name="order_vals[from_account]" value="<?=$this->registry['userdata']['my_account'];?>">
 

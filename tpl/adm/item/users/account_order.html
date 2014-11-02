@@ -6,7 +6,7 @@
 		<?=date('d.m.Y',strtotime($a['createdon']));?>
 	</td>
 	<td>
-		<?=$this->registry['logic']->price2read($a['sum']);?> руб.
+		<?=Common_Useful::price2read($a['sum']);?> руб.
 	</td>
 	<td>
 		<select name="order[<?=$a['id']?>][new]">

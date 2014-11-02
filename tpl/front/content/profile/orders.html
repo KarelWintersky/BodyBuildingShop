@@ -15,9 +15,9 @@
 	</ul>
 
 	<div id="profile_page_hint">
-		<p>В настоящее время в Вашей корзине товаров на сумму <b><?=$this->registry['logic']->price2read($this->registry['f_profile']->get_cart_sum());?> руб.</b></p>
-		<p>Максимальная сумма заказа для наложенного платежа <b><?=$this->registry['logic']->price2read($this->registry['full_ui']['max_nalog'])?> руб.</b> Для предоплаты ограничений нет.</p>
-		<p>На Вашем счету сейчас <b><?=$this->registry['logic']->price2read($this->registry['full_ui']['my_account'])?> руб.</b> (<a href="/profile/accountorder/">зачем это нужно</a>, <a href="/profile/accountorder/">пополнить счет</a><?= ($this->registry['full_ui']['my_account']>0) ? ', <a href="/profile/returnaccount/">забрать деньги</a>' : '';?>)</p>
+		<p>В настоящее время в Вашей корзине товаров на сумму <b><?=Common_Useful::price2read($this->registry['f_profile']->get_cart_sum());?> руб.</b></p>
+		<p>Максимальная сумма заказа для наложенного платежа <b><?=Common_Useful::price2read($this->registry['full_ui']['max_nalog'])?> руб.</b> Для предоплаты ограничений нет.</p>
+		<p>На Вашем счету сейчас <b><?=Common_Useful::price2read($this->registry['full_ui']['my_account'])?> руб.</b> (<a href="/profile/accountorder/">зачем это нужно</a>, <a href="/profile/accountorder/">пополнить счет</a><?= ($this->registry['full_ui']['my_account']>0) ? ', <a href="/profile/returnaccount/">забрать деньги</a>' : '';?>)</p>
 	</div>
 
 	<?$this->registry['f_profile']->get_your_orders($orders);?>

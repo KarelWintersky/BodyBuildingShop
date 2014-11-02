@@ -60,7 +60,7 @@
 			<ul id="ob_summary">
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($final_price)?></b> руб.
+						<b><?=Common_Useful::price2read($final_price)?></b> руб.
 					</div>
 					<div class="obs_hint">Сумма заказа:</div>
 					<div class="clr"></div>
@@ -68,21 +68,21 @@
 				
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($discount);?></b> руб.
+						<b><?=Common_Useful::price2read($discount);?></b> руб.
 					</div>
 					<div class="obs_hint">Скидка (<?=$this->registry['orderdata']['discount'];?>%):</div>
 					<div class="clr"></div>
 				</li>				
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($nadb)?></b> руб.
+						<b><?=Common_Useful::price2read($nadb)?></b> руб.
 					</div>
 					<div class="obs_hint">Дополнительные расходы на доставку наложенным платежом:</div>
 					<div class="clr"></div>
 				</li>				
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($this->registry['orderdata']['delivery_costs'])?></b> руб.
+						<b><?=Common_Useful::price2read($this->registry['orderdata']['delivery_costs'])?></b> руб.
 					</div>
 					<div class="obs_hint">Стоимость доставки:</div>
 					<div class="clr"></div>
@@ -93,7 +93,7 @@
 			<ul id="ob_summary">
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($final_price)?></b> руб.
+						<b><?=Common_Useful::price2read($final_price)?></b> руб.
 					</div>
 					<div class="obs_hint">Сумма заказа:</div>
 					<div class="clr"></div>
@@ -101,14 +101,14 @@
 				<?$discount = $final_price*$this->registry['orderdata']['discount']/100;?>
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($discount);?></b> руб.
+						<b><?=Common_Useful::price2read($discount);?></b> руб.
 					</div>
 					<div class="obs_hint">Скидка (<?=$this->registry['orderdata']['discount'];?>%):</div>
 					<div class="clr"></div>
 				</li>				
 				<li>
 					<div class="obs_val">
-						<b><?=$this->registry['logic']->price2read($this->registry['orderdata']['delivery_costs'])?></b> руб.
+						<b><?=Common_Useful::price2read($this->registry['orderdata']['delivery_costs'])?></b> руб.
 					</div>
 					<div class="obs_hint">Стоимость доставки:</div>
 					<div class="clr"></div>
@@ -118,7 +118,7 @@
 		<?endif;?>
 
 		<div id="order_overall">
-			Общая сумма заказа: <span><b><?=$this->registry['logic']->price2read($thisfinal)?></b> руб.</span>
+			Общая сумма заказа: <span><b><?=Common_Useful::price2read($thisfinal)?></b> руб.</span>
 		</div>
 
 		<div class="clr"></div>

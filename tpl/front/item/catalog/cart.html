@@ -1,12 +1,12 @@
 <ul>				
 	<li>Товаров: <b><?=$a['cart_goods_amount'];?></b></li>
-	<li>на сумму: <b><?=$this->registry['logic']->price2read($a['cart_sum']);?> р.</b></li>							
+	<li>на сумму: <b><?=Common_Useful::price2read($a['cart_sum']);?> р.</b></li>							
 </ul>
 
 <?if(isset($_SESSION['user_id'])):?>
 
 	<div class="basket_bill">
-		На счету: <b><a href="/profile/accountorder/"><?=$this->registry['logic']->price2read($this->registry['userdata']['my_account'])?> р.</a></b>
+		На счету: <b><a href="/profile/accountorder/"><?=Common_Useful::price2read($this->registry['userdata']['my_account'])?> р.</a></b>
 	</div>
 
 <?endif;?>

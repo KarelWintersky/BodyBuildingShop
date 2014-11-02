@@ -169,15 +169,15 @@
 
 
 							$price_1 = ($goods_arr['personal_discount']>0) ? $goods_arr['price_1'] - $goods_arr['price_1']*$goods_arr['personal_discount']/100 : $goods_arr['price_1'];
-							$xls->getActiveSheet()->setCellValueByColumnAndRow(3, $j, $this->registry['logic']->price2read($goods_arr['price_1']));
+							$xls->getActiveSheet()->setCellValueByColumnAndRow(3, $j, Common_Useful::price2read($goods_arr['price_1']));
 
 
 							$price_2 = ($goods_arr['personal_discount']>0) ? $goods_arr['price_2'] - $goods_arr['price_2']*$goods_arr['personal_discount']/100 : $goods_arr['price_2'];
-							$xls->getActiveSheet()->setCellValueByColumnAndRow(4, $j, $this->registry['logic']->price2read($goods_arr['price_2']));
+							$xls->getActiveSheet()->setCellValueByColumnAndRow(4, $j, Common_Useful::price2read($goods_arr['price_2']));
 
 							if($goods_arr['personal_discount']>0){
-								$xls->getActiveSheet()->setCellValueByColumnAndRow(3, $j+1, $this->registry['logic']->price2read($price_1));
-								$xls->getActiveSheet()->setCellValueByColumnAndRow(4, $j+1, $this->registry['logic']->price2read($price_2));
+								$xls->getActiveSheet()->setCellValueByColumnAndRow(3, $j+1, Common_Useful::price2read($price_1));
+								$xls->getActiveSheet()->setCellValueByColumnAndRow(4, $j+1, Common_Useful::price2read($price_2));
 							}
 
 							$new_cpt = ($goods_arr['new']==1) ? 'новый' : '';

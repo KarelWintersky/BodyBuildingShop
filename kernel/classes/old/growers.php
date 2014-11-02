@@ -77,7 +77,7 @@
 		public function add_grower(){
 			foreach($_POST as $key => $val){$$key = (is_array($val)) ? $val : mysql_real_escape_string($val);}
 			
-			$alias = ($alias!='') ? $alias : $this->registry['logic']->rus2translit($name);
+			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
 			$alias = $this->urlGenerate($alias,$id);				
 			
 			$longtitle = ($longtitle!='') ? $longtitle : $name;
@@ -118,7 +118,7 @@
 			$photomanager = new Photomanager($this->registry);
 			$avatar = $photomanager->upload_grower_avatar($old_avatar);			
 			
-			$alias = ($alias!='') ? $alias : $this->registry['logic']->rus2translit($name);
+			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
 			$alias = $this->urlGenerate($alias,$id);			
 			
 			$longtitle = ($longtitle!='') ? $longtitle : $name;

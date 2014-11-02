@@ -1,5 +1,5 @@
 <div class="news_item">
-	<div class="news_date"><?=date('d',strtotime($a['date']));?> <?=$this->registry['logic']->date2monthname($a['date']);?> <?=date('Y',strtotime($a['date']));?></div>
+	<div class="news_date"><?=date('d',strtotime($a['date']));?> <?=Common_Useful_Date::date2monthname($a['date']);?> <?=date('Y',strtotime($a['date']));?></div>
 	<div class="news_lnk">
 		<a href="/news/<?=$a['alias'];?>/"><?=$a['name'];?></a>
 	</div>

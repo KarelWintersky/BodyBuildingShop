@@ -539,7 +539,7 @@ Class Catalog{
 			$good_arr['name'] = implode('',$letters);
 
 			$good_arr['seo_title'] = $this->mk_seo_title($g['level_id'],$g['grower_id'],$good_arr['name'],$g['packing']);
-			$good_arr['alias'] = $this->registry['logic']->rus2translit(mb_strtolower(strip_tags($good_arr['name']),'utf8'));
+			$good_arr['alias'] = Common_Useful::rus2translit(mb_strtolower(strip_tags($good_arr['name']),'utf8'));
 
 			$good_arr['content'] = $g['content'];
 			$good_arr['content'] = str_replace('<b>','<strong>',$g['content']);
@@ -796,7 +796,7 @@ Class Catalog{
 		//транслит имени для всего
 		$name = str_replace('&quot;','',$name);
 			$name = str_replace('&quot;','',htmlspecialchars($name));
-				$alias_arr[] = $this->registry['logic']->rus2translit($name);		
+				$alias_arr[] = Common_Useful::rus2translit($name);		
 		
 		//производитель для всего кроме одежды (ID:4) и суперсета (ID:1)
 		if($level_id_arr[0]!=4 && $level_id_arr[0]!=1){
@@ -810,7 +810,7 @@ Class Catalog{
 		/*if($level_id_arr[0]!=4){
 			$packing = str_replace(' ','',$packing);
 				$packing = str_replace('&nbsp;','',$packing);
-			$alias_arr[] = $this->registry['logic']->rus2translit($packing);
+			$alias_arr[] = Common_Useful::rus2translit($packing);
 		}*/
 
 		$alias = implode('-',$alias_arr);
@@ -960,7 +960,7 @@ Class Catalog{
 
 		$published = (isset($published) && $published==1) ? 1 : 0;
 
-		$alias = ($alias=='') ? $this->registry['logic']->rus2translit(str_replace('&quot;','',htmlspecialchars($name))) : $alias;
+		$alias = ($alias=='') ? Common_Useful::rus2translit(str_replace('&quot;','',htmlspecialchars($name))) : $alias;
 		$alias = $this->urlGenerate($alias,$id,'levels',$parent_id,'parent_id');
 
 		$seo_title = ($seo_title=='') ? str_replace('&quot;','',htmlspecialchars($name)) : $seo_title;
@@ -999,7 +999,7 @@ Class Catalog{
 
 		$published = (isset($published) && $published==1) ? 1 : 0;
 
-		$alias = ($alias=='') ? $this->registry['logic']->rus2translit(str_replace('&quot;','',htmlspecialchars($name))) : $alias;
+		$alias = ($alias=='') ? Common_Useful::rus2translit(str_replace('&quot;','',htmlspecialchars($name))) : $alias;
 		$alias = $this->urlGenerate($alias,0,'levels',$parent_id,'parent_id');
 
 		$seo_title = ($seo_title=='') ? str_replace('&quot;','',htmlspecialchars($name)) : $seo_title;

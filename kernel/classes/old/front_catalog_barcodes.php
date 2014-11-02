@@ -170,11 +170,11 @@
 			if(count($prices)==0) return '';
 			elseif(count($prices)==1)
 				return sprintf('<div><span>%s</span> руб.</div>',
-						$this->registry['logic']->price2read($prices[0])
+						Common_Useful::price2read($prices[0])
 				);
 			else
 				return sprintf('<div>от <span>%s</span> руб.</div>',
-						$this->registry['logic']->price2read(min($prices))
+						Common_Useful::price2read(min($prices))
 						);
 			
 		}

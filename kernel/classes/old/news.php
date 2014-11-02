@@ -74,7 +74,7 @@
 			$published = (isset($published) && $published==1) ? 1 : 0;
 			$rss = (isset($rss) && $rss==1) ? 1 : 0;
 
-			$alias = ($alias!='') ? $alias : $this->registry['logic']->rus2translit($name);
+			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
 			$alias = $this->urlGenerate($alias,$id);
 
 			mysql_query("
@@ -89,7 +89,7 @@
 						VALUES
 						('".$name."',
 							'".$alias."',
-								'".$this->registry['logic']->read2date($date)." ".date('H:i:s')."',
+								'".Common_Useful_Date::read2date($date)." ".date('H:i:s')."',
 									'".$content."',
 										'".$published."',
 											'".$rss."')
@@ -115,7 +115,7 @@
 
 			$published = (isset($published) && $published==1) ? 1 : 0;
 
-			$alias = ($alias!='') ? $alias : $this->registry['logic']->rus2translit($name);
+			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
 			$alias = $this->urlGenerate($alias,$id);
 
 			$qLnk = mysql_query("
@@ -124,7 +124,7 @@
 								SET
 									news.name = '".$name."',
 									news.alias = '".$alias."',
-									news.date = '".$this->registry['logic']->read2date($date)." ".date('H:i:s')."',
+									news.date = '".Common_Useful_Date::read2date($date)." ".date('H:i:s')."',
 									news.content = '".$content."',
 									news.published = '".$published."',
 									news.rss = '".$rss."'

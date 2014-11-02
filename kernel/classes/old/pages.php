@@ -77,7 +77,7 @@ Class Pages{
 		$seo_title = ($seo_title!='') ? $seo_title : $name;
 		$h2_title = ($h2_title!='') ? $h2_title : $name;
 
-		$alias = ($alias!='') ? $alias : $this->registry['logic']->rus2translit($name);
+		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
 		$alias = $this->urlGenerate($alias,$id);
 
 		mysql_query("
@@ -128,7 +128,7 @@ Class Pages{
 		$seo_title = ($seo_title!='') ? $seo_title : $name;
 		$h2_title = ($h2_title!='') ? $h2_title : $name;
 
-		$alias = ($alias!='') ? $alias : $this->registry['logic']->rus2translit($name);
+		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
 		$alias = $this->urlGenerate($alias,$id);
 
 		$qLnk = mysql_query("

@@ -524,7 +524,7 @@
 				}
 
 			}
-			return $this->registry['logic']->price2read($cart);
+			return Common_Useful::price2read($cart);
 		}
 
 		public function print_account_orders(){

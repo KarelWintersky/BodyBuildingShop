@@ -20,7 +20,7 @@
 		<?endif;?>
 	</td>
 	<td class="td_right">
-		<?=$this->registry['logic']->price2read($a['price'])?> руб.
+		<?=Common_Useful::price2read($a['price'])?> руб.
 	</td>
 	<td class="td_right">
 		<?=$a['amount'];?> шт.
@@ -29,6 +29,6 @@
 		<?=$a['discount'];?> %
 	</td>
 	<td class="td_right">
-		<?=$this->registry['logic']->price2read($a['final_sum']);?> руб.
+		<?=Common_Useful::price2read($a['final_sum']);?> руб.
 	</td>
 </tr>

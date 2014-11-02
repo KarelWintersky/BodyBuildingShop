@@ -504,10 +504,10 @@ Class Template {
 			while($g = mysql_fetch_assoc($qLnk)){
 				$goods[$g['goods_id']]['price'] = ($g['the_count']>1)
 					? sprintf('от <span>%s</span> руб.',
-							$this->registry['logic']->price2read($g['min_price'])
+							Common_Useful::price2read($g['min_price'])
 							)
 					: sprintf('<span>%s</span> руб.',
-							$this->registry['logic']->price2read($g['min_price'])
+							Common_Useful::price2read($g['min_price'])
 							);
 			}
 			

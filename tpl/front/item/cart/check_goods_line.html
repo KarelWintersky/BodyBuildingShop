@@ -11,7 +11,7 @@
 	</td>
 	<td class="ct_price">
 		<?if($a['price']!=0):?>
-			<b><?=$this->registry['logic']->price2read($a['price']);?></b> руб.
+			<b><?=Common_Useful::price2read($a['price']);?></b> руб.
 		<?else:?>
 			<b>-</b>
 		<?endif;?>

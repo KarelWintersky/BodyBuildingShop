@@ -3,6 +3,6 @@
 		<a href="<?=THIS_URL.$a['parent_alias'].'/'.$a['level_alias'].'/'.$a['alias'].'/'?>"><?=$a['goods_full_name'];?></a>
 	</td>
 	<td>
-		от <?=$this->registry['logic']->price2read($a['min_price'])?> руб.
+		от <?=Common_Useful::price2read($a['min_price'])?> руб.
 	</td>
 </tr>

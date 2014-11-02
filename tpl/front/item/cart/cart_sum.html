@@ -1,7 +1,7 @@
 <div id="cart_sum">
 
 	<div class="cart_sum_val cart_sum_val_1">
-		<b><?=$this->registry['logic']->price2read($this->registry['full_cart_arr']['overall_price']);?></b> руб.
+		<b><?=Common_Useful::price2read($this->registry['full_cart_arr']['overall_price']);?></b> руб.
 	</div>	
 	<div class="cart_sum_label cart_sum_label_1">
 		Общая стоимость без учета персональной скидки:
@@ -19,7 +19,7 @@
 	
 
 	<div class="cart_sum_val">
-		<b><?=$this->registry['logic']->price2read(round($this->registry['full_cart_arr']['overall_price']-$discount_amount));?></b> руб.
+		<b><?=Common_Useful::price2read(round($this->registry['full_cart_arr']['overall_price']-$discount_amount));?></b> руб.
 	</div>	
 	<div class="cart_sum_label">
 		Итоговая стоимость вашего заказа (без учета доставки):

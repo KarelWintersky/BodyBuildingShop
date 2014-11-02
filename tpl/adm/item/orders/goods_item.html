@@ -23,8 +23,8 @@
 			<?if($a['goods_feats_str']!=''):?><br><span><?=$a['goods_feats_str']?></span><?endif;?>
 		<?endif;?>
 	</td>
-	<td><?=$this->registry['logic']->price2read($a['price'])?></td>
+	<td><?=Common_Useful::price2read($a['price'])?></td>
 	<td><?=$a['amount']?></td>
 	<td><?=$a['discount']?> %</td>
-	<td><?=$this->registry['logic']->price2read($a['final_price'])?></td>
+	<td><?=Common_Useful::price2read($a['final_price'])?></td>
 </tr>

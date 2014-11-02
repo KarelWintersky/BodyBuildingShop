@@ -86,12 +86,12 @@
 
 		<div class="form_l lft form_l_sum">
 			<label>Сумма</label>
-			<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['sum']);?>" disabled>
+			<input type="text" value="<?=Common_Useful::price2read($this->registry['order_info']['sum']);?>" disabled>
 		</div>
 
 		<div class="form_l lft form_l_dlv">
 			<label>Доставка</label>
-			<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['delivery_costs']);?>" disabled>
+			<input type="text" value="<?=Common_Useful::price2read($this->registry['order_info']['delivery_costs']);?>" disabled>
 		</div>
 
 		<div class="form_l lft">
@@ -102,11 +102,11 @@
 		<div class="form_l lft form_l_overall">
 			<?if($this->registry['order_info']['from_account']>0):?>
 				<label>Всего&nbsp;&nbsp;/ со счета / доплатить</label>
-				<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['overall_price']);?>  /    <?=$this->registry['logic']->price2read($this->registry['order_info']['from_account']);?>    /    <?=$this->registry['logic']->price2read($this->registry['order_info']['overall_price']-$this->registry['order_info']['from_account']);?>
+				<input type="text" value="<?=Common_Useful::price2read($this->registry['order_info']['overall_price']);?>  /    <?=Common_Useful::price2read($this->registry['order_info']['from_account']);?>    /    <?=Common_Useful::price2read($this->registry['order_info']['overall_price']-$this->registry['order_info']['from_account']);?>
 				" disabled>
 			<?else:?>
 				<label>Всего</label>
-				<input type="text" value="<?=$this->registry['logic']->price2read($this->registry['order_info']['overall_price']);?>" disabled>
+				<input type="text" value="<?=Common_Useful::price2read($this->registry['order_info']['overall_price']);?>" disabled>
 			<?endif;?>
 		</div>
 
