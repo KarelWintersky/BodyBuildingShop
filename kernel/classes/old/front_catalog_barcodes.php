@@ -30,7 +30,7 @@
 			}
 			
 			$string = implode(', ',$features);
-			if(count($features)!=$count) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/public/tpl/face/i/goods_list_more.jpg"></a>',
+			if(count($features)!=$count) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/browser/front/i/goods_list_more.jpg"></a>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']
@@ -52,7 +52,7 @@
 			}
 
 			$string = implode(', ',$packs);
-			if(count($packs)!=$count) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/public/tpl/face/i/goods_list_more.jpg"></a>',
+			if(count($packs)!=$count) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/browser/front/i/goods_list_more.jpg"></a>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']

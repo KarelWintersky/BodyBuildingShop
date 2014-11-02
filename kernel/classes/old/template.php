@@ -253,7 +253,7 @@ Class Template {
 					$class = ($i==1) ? 'first' : (($i==(count($this->F_crumbs)) && $i!=1) ? 'last' : '');
 
 					$crumb = '<li class="'.$class.'">'.$inner_html.'</li>';
-						if(!($i==(count($this->F_crumbs)))) $crumb.='<li class="divider"><img src="/public/tpl/face/i/crumbs_li.png"></li>';
+						if(!($i==(count($this->F_crumbs)))) $crumb.='<li class="divider"><img src="/browser/front/i/crumbs_li.png"></li>';
 
 					$html[]=$crumb;
 					$i++;

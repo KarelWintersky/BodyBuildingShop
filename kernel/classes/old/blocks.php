@@ -22,7 +22,7 @@ Class Blocks{
 	}
 
 	private function item_rq($name,$a = NULL){
-		require(ROOT_PATH.'public/tpl/face/blocks/item/blocks/'.$name.'.html');
+		require(ROOT_PATH.'tpl/front/item/blocks/'.$name.'.html');
 	}
 
 	private function go_blocks(){
@@ -114,7 +114,7 @@ Class Blocks{
 
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$unpub.'$$'.$_POST['blocks_field']);
-		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_goods_absence',$output);
+		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/kernel/cron.php do_goods_absence',$output);
 
 		$reply[3] = $output;
 		$this->registry['reply_arr'] = $reply;
@@ -238,7 +238,7 @@ Class Blocks{
 
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
-		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_goods_prices',$output);
+		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/kernel/cron.php do_goods_prices',$output);
 
 		$reply[4] = $output;
 		$this->registry['reply_arr'] = $reply;
@@ -397,7 +397,7 @@ Class Blocks{
 
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
-		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php go_goods_present',$output);
+		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/kernel/cron.php go_goods_present',$output);
 
 		$reply[2] = $output;
 		$this->registry['reply_arr'] = $reply;
@@ -433,7 +433,7 @@ Class Blocks{
 	public function do_orders(){
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
-		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/cron.php do_orders',$output);
+		exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/kernel/cron.php do_orders',$output);
 
 		$reply[1] = $output;
 		$this->registry['reply_arr'] = $reply;

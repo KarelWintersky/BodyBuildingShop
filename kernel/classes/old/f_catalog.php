@@ -540,7 +540,7 @@
 			$new_colors = array_slice($colors,0,4);
 			$string = implode(', ',$new_colors);
 			
-			if(count($new_colors)!=count($colors)) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/public/tpl/face/i/goods_list_more.jpg"></a>',
+			if(count($new_colors)!=count($colors)) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/browser/front/i/goods_list_more.jpg"></a>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']

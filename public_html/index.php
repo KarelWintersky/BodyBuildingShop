@@ -1,7 +1,5 @@
 <?
 	session_start();
-
-	error_reporting (E_ALL ^ E_STRICT ^ E_DEPRECATED);
 	
 	require('../kernel/config.php');
 	require('../kernel/core.php');
