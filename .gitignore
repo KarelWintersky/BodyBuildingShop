@@ -1,6 +1,5 @@
-/oldsite
-/public/foto
+/public/data
 /kernel/config.php
-/catalog-odezdy-superset-full.pdf
-/catalog-odezdy-superset-light.pdf
-/Arnold-Classis-Lybitelskyj-2013.pdf
+/public/data/catalog-odezdy-superset-full.pdf
+/public/data/catalog-odezdy-superset-light.pdf
+/public/data/Arnold-Classis-Lybitelskyj-2013.pdf

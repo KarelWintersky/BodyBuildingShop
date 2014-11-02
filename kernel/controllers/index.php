@@ -3,7 +3,7 @@ Class Controller_Index Extends Controller_Base {
 		
     function index($A = NULL) {
     	        	
-		$this->registry['template']->set('tpl','face');
+		$this->registry['template']->set('tpl','front');
 		$this->registry->set('route_path', $A);
     	
     	if(count($this->registry['route_path'])==0){

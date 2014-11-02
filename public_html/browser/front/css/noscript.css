@@ -1,0 +1,11 @@
+#main_page_module{overflow:hidden;}
+#growers_carousel{display:none;}
+
+#noscript_alert{background:url(/browser/front/i/noscript_alert.jpg) 0 0 repeat-x;height:34px;position:fixed;width:100%;}
+	#noscript_alert #noscript_alert_i{background:url(/browser/front/i/noscript_alert_sign.png) 0 8px no-repeat;padding:9px 0 0 28px;height:25px;color:#fff;font-size:11px;}
+		#noscript_alert #noscript_alert_i a{color:#fff;}
+		
+#basket_js_hint{font-size:13px;line-height:18px;}		
+	#basket_js_hint a{color:#ccc !important;}		
+	
+#form_cart_1{display:none;}	
