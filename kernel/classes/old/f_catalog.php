@@ -362,7 +362,7 @@
 			$photo = mysql_fetch_assoc($qLnk);
 			if(!$photo) return false;
 			
-			return sprintf('<img src="/public/foto/goods/122x122/%d/%s" alt="%s">',
+			return sprintf('<img src="/data/foto/goods/122x122/%d/%s" alt="%s">',
 					$photo['goods_id'],
 					$photo['alias'],
 					htmlspecialchars($photo['alt'])

@@ -555,7 +555,7 @@
 						//$picture = str_replace(' ','%20',$picture);
 						
 						$item->appendChild(
-												$this->SM->createElement('picture',THIS_URL.'public/foto/goods/src/'.$goods_arr['id'].'/'.rawurlencode($picture))
+												$this->SM->createElement('picture',THIS_URL.'data/foto/goods/src/'.$goods_arr['id'].'/'.rawurlencode($picture))
 													);
 					}
 				}

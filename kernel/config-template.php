@@ -1,4 +1,6 @@
 <?
+	error_reporting (E_ALL ^ E_STRICT ^ E_DEPRECATED);
+
 	define('DIRSEP',DIRECTORY_SEPARATOR,true);
 	$site_path = realpath(dirname(__FILE__).DIRSEP.'..'.DIRSEP).DIRSEP;
 	define ('ROOT_PATH',$site_path);

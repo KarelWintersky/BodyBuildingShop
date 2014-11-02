@@ -211,7 +211,7 @@ Class Catalog{
 	}
 
 	private function photo_weight($photo){
-		$file = ROOT_PATH.sprintf('public//foto/goods/src/%s/%s',$photo['goods_id'],$photo['alias']);
+		$file = ROOT_PATH.sprintf('/data/foto/goods/src/%s/%s',$photo['goods_id'],$photo['alias']);
 		if(!is_file($file)) return '';
 		$size = filesize($file);
 		
