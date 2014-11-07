@@ -104,7 +104,7 @@
 					$tpl_text = str_replace($find, $replace, $tpl_text);
 				}
 				ob_start();
-				require(ROOT_PATH.'public/tpl/mail/common.html');
+				require(ROOT_PATH.'tpl/mail/common.html');
 				$tpl_html = ob_get_contents();
 				ob_end_clean();
 			else:

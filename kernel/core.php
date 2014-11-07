@@ -48,7 +48,7 @@ function __autoload($className){
 		$arr = explode('_',$className);
 				
 		//старые классы будут лежать в директории old, а новые будем помалу переносить в new
-		if($className=='Controller_Base' || $className=='Front_Catalog_Barcodes' || count($arr)==1 || (count($arr)==2 && $arr[0]=='f')){
+		if($className=='Settings_Indexes' || $className=='Controller_Base' || $className=='Front_Catalog_Barcodes' || count($arr)==1 || (count($arr)==2 && $arr[0]=='f')){
 			
 			$fileName = strtolower($className);
 			$dir = 'old';

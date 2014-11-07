@@ -86,12 +86,12 @@
 
 			if(isset($_SESSION['user_id'])):
 				if($this->registry['userdata']['type']!=0):
-					require($this->registry['template']->TF.'blocks/auth/authed.html');
+					require($this->registry['template']->TF.'auth/authed.html');
 				else:
-					require($this->registry['template']->TF.'blocks/auth/not_enough_privil.html');
+					require($this->registry['template']->TF.'auth/not_enough_privil.html');
 				endif;
 			else:
-				require($this->registry['template']->TF.'blocks/auth/not_authed.html');
+				require($this->registry['template']->TF.'auth/not_authed.html');
 			endif;
 
 			?>
