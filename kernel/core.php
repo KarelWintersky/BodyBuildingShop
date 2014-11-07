@@ -46,14 +46,14 @@ function __autoload($className){
 	else{
 		
 		$arr = explode('_',$className);
-		
+				
 		//старые классы будут лежать в директории old, а новые будем помалу переносить в new
 		if($className=='Controller_Base' || $className=='Front_Catalog_Barcodes' || count($arr)==1 || (count($arr)==2 && $arr[0]=='f')){
 			
 			$fileName = strtolower($className);
 			$dir = 'old';
 		}else{
-			$fileName = implode('/',$arr);
+			$fileName = strtolower(implode('/',$arr));
 			$dir = 'new';
 		}
 		
@@ -62,7 +62,7 @@ function __autoload($className){
 				$dir,
 				$fileName
 				);
-				
+						
 		if(!file_exists($file)) return false;
 					
 		require_once($file);

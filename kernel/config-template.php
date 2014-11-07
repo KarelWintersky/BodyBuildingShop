@@ -13,4 +13,6 @@
 	define('DB_NAME','whbody2',true);
 
 	define('THIS_URL','http://www.bodybuilding-shop.ru/',true);
+	
+	define('CLOSE_FRONTEND',true,true); //закрыть фронтенд от незалогиненных в админку
 ?>
