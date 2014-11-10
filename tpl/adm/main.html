@@ -26,53 +26,21 @@
 		<script src="<?=$this->registry['template']->front_path;?>js/uses.js" type="text/javascript"></script>
 		<script src="<?=$this->registry['template']->front_path;?>js/checks.js" type="text/javascript"></script>
 
-
-		<script>
-
-			tinyMCE.init({
-				mode:'specific_textareas',
-				editor_selector:'tinyMCE',
-				theme : 'advanced',
-				plugins : 'advimage,advlink,media,contextmenu,paste,jbimages',
-				theme_advanced_toolbar_location : 'top',
-				theme_advanced_toolbar_align : 'left',
-				relative_urls : 'false',
-				remove_script_host : false,
-				convert_urls : false,
-				theme_advanced_buttons1:'bold,italic,underline,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,bullist,numlist,link,unlink,anchor,image,jbimages,code,pasteword',
-				theme_advanced_buttons2 : '',
-				file_browser_callback : 'ajaxfilemanager'
-			});
-
-			function ajaxfilemanager(field_name, url, type, win) {
-				var ajaxfilemanagerurl = "<?=$this->registry['template']->front_path;?>js/lib/tiny_mce/plugins/ajaxfilemanager/ajaxfilemanager.php";
-				var view = 'detail';
-				switch (type) {
-					case "image":
-					view = 'thumbnail';
-						break;
-					case "media":
-						break;
-					case "flash":
-						break;
-					case "file":
-						break;
-					default:
-						return false;
-				}
-			    tinyMCE.activeEditor.windowManager.open({
-			        url: "<?=$this->registry['template']->front_path;?>js/lib/tiny_mce/plugins/ajaxfilemanager/ajaxfilemanager.php?view=" + view,
-			        width: 782,
-			       	height: 440,
-			        inline : "yes",
-			        close_previous : "no"
-			    },{
-			        window : win,
-			        input : field_name
-			    });
-
-			}
-
+		<script type="text/javascript" src="/browser/adm/js/lib/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript">
+			tinymce.init({
+			    selector:	"textarea.tinyMCE",
+			    plugins:	['responsivefilemanager link code fullscreen image paste'],
+			    toolbar1: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | styleselect | link unlink anchor | image responsivefilemanager | code fullscreen",
+			   	paste_word_valid_elements: "b,strong,i,em,h1,h2,table,tr,td,th,tbody",
+			    image_advtab: true ,
+			    external_filemanager_path:"/browser/adm/js/lib/filemanager/",
+			    filemanager_title:"Загрузка файлов" ,
+			    external_plugins: { "filemanager" : "/browser/adm/js/lib/filemanager/plugin.min.js"},
+			    relative_urls: false,
+			    menubar: false,
+			    language: 'ru'
+			 });
 		</script>
 
 	</head>
