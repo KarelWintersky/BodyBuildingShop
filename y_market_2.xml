@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2014-10-30 20:15">
+<yml_catalog date="2014-11-08 23:29">
   <shop>
     <name>http://www.bodybuilding-shop.ru/</name>
     <company>Бодибилдинг Магазин</company>
@@ -2105,7 +2105,7 @@
         <model>130 гр.</model>
         <barcode>202734401302</barcode>
       </offer>
-      <offer id="202734400031" available="true">
+      <offer id="202734400035" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
         <price>792</price>
         <currencyId>RUR</currencyId>
@@ -2116,33 +2116,7 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>СуперСет</vendor>
         <model>3000 гр.</model>
-        <barcode>202734400031</barcode>
-      </offer>
-      <offer id="202734400032" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
-        <price>792</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <delivery>true</delivery>
-        <name>Milk Protein</name>
-        <description>Высококачественный гейнер на основе концентрата молочных белков и полисахаридов.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>3000 гр.</model>
-        <barcode>202734400032</barcode>
-      </offer>
-      <offer id="202734400013" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
-        <price>282</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <delivery>true</delivery>
-        <name>Milk Protein</name>
-        <description>Высококачественный гейнер на основе концентрата молочных белков и полисахаридов.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>1000 гр.</model>
-        <barcode>202734400013</barcode>
+        <barcode>202734400035</barcode>
       </offer>
       <offer id="202734400014" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
@@ -2157,7 +2131,7 @@
         <model>1000 гр.</model>
         <barcode>202734400014</barcode>
       </offer>
-      <offer id="202734400015" available="true">
+      <offer id="202734400013" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
         <price>282</price>
         <currencyId>RUR</currencyId>
@@ -2168,11 +2142,11 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>СуперСет</vendor>
         <model>1000 гр.</model>
-        <barcode>202734400015</barcode>
+        <barcode>202734400013</barcode>
       </offer>
-      <offer id="202734400011" available="true">
+      <offer id="202734400032" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
-        <price>282</price>
+        <price>792</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -2180,8 +2154,21 @@
         <description>Высококачественный гейнер на основе концентрата молочных белков и полисахаридов.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>СуперСет</vendor>
-        <model>1000 гр.</model>
-        <barcode>202734400011</barcode>
+        <model>3000 гр.</model>
+        <barcode>202734400032</barcode>
+      </offer>
+      <offer id="202734400031" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
+        <price>792</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>6</categoryId>
+        <delivery>true</delivery>
+        <name>Milk Protein</name>
+        <description>Высококачественный гейнер на основе концентрата молочных белков и полисахаридов.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>3000 гр.</model>
+        <barcode>202734400031</barcode>
       </offer>
       <offer id="202734400012" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
@@ -2196,9 +2183,9 @@
         <model>1000 гр.</model>
         <barcode>202734400012</barcode>
       </offer>
-      <offer id="202734400035" available="true">
+      <offer id="202734400011" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
-        <price>792</price>
+        <price>282</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -2206,8 +2193,21 @@
         <description>Высококачественный гейнер на основе концентрата молочных белков и полисахаридов.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>СуперСет</vendor>
-        <model>3000 гр.</model>
-        <barcode>202734400035</barcode>
+        <model>1000 гр.</model>
+        <barcode>202734400011</barcode>
+      </offer>
+      <offer id="202734400015" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
+        <price>282</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>6</categoryId>
+        <delivery>true</delivery>
+        <name>Milk Protein</name>
+        <description>Высококачественный гейнер на основе концентрата молочных белков и полисахаридов.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1000 гр.</model>
+        <barcode>202734400015</barcode>
       </offer>
       <offer id="202734400034" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
@@ -2975,6 +2975,36 @@
         <model>1490 гр.</model>
         <barcode>003944204814</barcode>
       </offer>
+      <offer id="003944204893" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/protein/universal-casein-pro/</url>
+        <price>2310</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>8</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2644/UNIVERSAL-Casein-Pro.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2644/UNIVERSAL-Casein-Pro-ingredients.jpg</picture>
+        <delivery>true</delivery>
+        <name>Casein Pro</name>
+        <description>Протеин на основе прекрасного мицеллярного казеина. Обеспечивает организм плавным поступлением питательных веществ в течение длительного времени.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Universal Nutrition</vendor>
+        <model>909 гр.</model>
+        <barcode>003944204893</barcode>
+      </offer>
+      <offer id="003944204883" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/protein/universal-casein-pro/</url>
+        <price>3849</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>8</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2644/UNIVERSAL-Casein-Pro.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2644/UNIVERSAL-Casein-Pro-ingredients.jpg</picture>
+        <delivery>true</delivery>
+        <name>Casein Pro</name>
+        <description>Протеин на основе прекрасного мицеллярного казеина. Обеспечивает организм плавным поступлением питательных веществ в течение длительного времени.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Universal Nutrition</vendor>
+        <model>1816 гр.</model>
+        <barcode>003944204883</barcode>
+      </offer>
       <offer id="083426607620" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/bsn-syntha-6-isolate/</url>
         <price>3388</price>
@@ -2990,20 +3020,6 @@
         <model>1820 гр.</model>
         <barcode>083426607620</barcode>
       </offer>
-      <offer id="074892702670" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
-        <price>1832</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2464/Optimum-Nutrition-hydrobuilder-1040gramm.jpg</picture>
-        <delivery>true</delivery>
-        <name>Platinum Hydrobuilder</name>
-        <description>Высокоэффективный протеин на основе гидролизатов сывороточного и яичного протеинов. Содержит креатиновую матрицу и аминокислоты в свободной форме. Идеален для приема после тренировки.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>1040 гр.</model>
-        <barcode>074892702670</barcode>
-      </offer>
       <offer id="074892702643" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
         <price>2063</price>
@@ -3018,9 +3034,9 @@
         <model>795 гр.</model>
         <barcode>074892702643</barcode>
       </offer>
-      <offer id="074892702632" available="true">
+      <offer id="074892702670" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
-        <price>1348</price>
+        <price>1832</price>
         <currencyId>RUR</currencyId>
         <categoryId>8</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2464/Optimum-Nutrition-hydrobuilder-1040gramm.jpg</picture>
@@ -3029,8 +3045,8 @@
         <description>Высокоэффективный протеин на основе гидролизатов сывороточного и яичного протеинов. Содержит креатиновую матрицу и аминокислоты в свободной форме. Идеален для приема после тренировки.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>Optimum Nutrition</vendor>
-        <model>454 гр.</model>
-        <barcode>074892702632</barcode>
+        <model>1040 гр.</model>
+        <barcode>074892702670</barcode>
       </offer>
       <offer id="074892702639" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
@@ -3045,6 +3061,20 @@
         <vendor>Optimum Nutrition</vendor>
         <model>1590 гр.</model>
         <barcode>074892702639</barcode>
+      </offer>
+      <offer id="074892702632" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
+        <price>1348</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>8</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2464/Optimum-Nutrition-hydrobuilder-1040gramm.jpg</picture>
+        <delivery>true</delivery>
+        <name>Platinum Hydrobuilder</name>
+        <description>Высокоэффективный протеин на основе гидролизатов сывороточного и яичного протеинов. Содержит креатиновую матрицу и аминокислоты в свободной форме. Идеален для приема после тренировки.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Optimum Nutrition</vendor>
+        <model>454 гр.</model>
+        <barcode>074892702632</barcode>
       </offer>
       <offer id="074892702672" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
@@ -3190,6 +3220,21 @@
         <model>1950 гр.</model>
         <barcode>074892702353</barcode>
       </offer>
+      <offer id="074892702348" available="false">
+        <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-gold-standard-2270gr/</url>
+        <price>2310</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>8</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm-supplement-facts.jpg</picture>
+        <delivery>true</delivery>
+        <name>100% Whey Protein Gold Standard</name>
+        <description>Одна из последних разработок компании Optimum Nutrition и, безусловно, самый популярный продукт этой фирмы.  100% WHEY PROTEIN - это превосходный молочный протеин, в котором отсутствует лактоза! В нем нет ни жиров ни углеводов! В данном протеины содержатся разветвленные аминокислоты.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Optimum Nutrition</vendor>
+        <model>908 гр.</model>
+        <barcode>074892702348</barcode>
+      </offer>
       <offer id="074892702315" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-gold-standard-2270gr/</url>
         <price>4697</price>
@@ -3219,21 +3264,6 @@
         <vendor>Optimum Nutrition</vendor>
         <model>4540 гр.</model>
         <barcode>074892702043</barcode>
-      </offer>
-      <offer id="074892702348" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-gold-standard-2270gr/</url>
-        <price>2310</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>100% Whey Protein Gold Standard</name>
-        <description>Одна из последних разработок компании Optimum Nutrition и, безусловно, самый популярный продукт этой фирмы.  100% WHEY PROTEIN - это превосходный молочный протеин, в котором отсутствует лактоза! В нем нет ни жиров ни углеводов! В данном протеины содержатся разветвленные аминокислоты.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>908 гр.</model>
-        <barcode>074892702348</barcode>
       </offer>
       <offer id="074892702728" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-natural-2270gr/</url>
@@ -3848,6 +3878,20 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1000 гр.</model>
         <barcode>641712424592</barcode>
       </offer>
+      <offer id="087330370351" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/protein/whey-pro-genetic-force/</url>
+        <price>1887</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>8</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2675/genetic-force-whey-pro.jpg</picture>
+        <delivery>true</delivery>
+        <name>Whey Pro</name>
+        <description>Высококачественный протеин на основе концентрата сывороточных белков. Не содержит лактозы.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Genetic Force</vendor>
+        <model>1000 гр.</model>
+        <barcode>087330370351</barcode>
+      </offer>
       <offer id="404691800060" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/genetic-force-mega-protein-80/</url>
         <price>923</price>
@@ -3951,7 +3995,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="590133003966" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/olimp-gainerator-900gr/</url>
-        <price>962</price>
+        <price>1001</price>
         <currencyId>RUR</currencyId>
         <categoryId>9</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2418/OLIMP-Gainerator-900gr.jpg</picture>
@@ -3978,21 +4022,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Olimp</vendor>
         <model>3200 гр.</model>
         <barcode>590133002502</barcode>
-      </offer>
-      <offer id="404478232809" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/weider-super-mega-mass-2000-3000gr/</url>
-        <price>3272</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/145/Weider-mega-mass-2000-3000-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/145/Weider-Super-Mega-Mass-ingredients.jpg</picture>
-        <delivery>true</delivery>
-        <name>Super Mega Mass 2000</name>
-        <description>2000 калорий в порции с натуральным вкусом - это то, что надо для создания мускулатуры поразительной массы и силы.  Надо быть серьезным спортсменом, чтобы справиться с такой калорийностью и превратить содержащийся в SUPER MEGA MASS белок в собственные мышцы! Формула обогащена глютамином!  Почему MEGA MASS 2000 наилучшая? С помощью MEGA MASS Вы получите необходимое количество белков, углеводов, микроэлементов и калорий, что поможет Вам быстро набрать вес.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>5000 гр.</model>
-        <barcode>404478232809</barcode>
       </offer>
       <offer id="400664322071" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/weider-super-mega-mass-2000-3000gr/</url>
@@ -4173,9 +4202,24 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>2316 гр.</model>
         <barcode>003944201211</barcode>
       </offer>
+      <offer id="003944201261" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/real-gains/</url>
+        <price>4620</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>9</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2371/Universal-real-gains-4813gr.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2371/Universal-real-gains-4813gr-Ingredients.jpg</picture>
+        <delivery>true</delivery>
+        <name>Real Gains</name>
+        <description>Протеиновая матрица в сочетании с высококачественными углеводами для набора массы.  Real Gains поможет Вам нарастить мышечную массу, без образования лишнего подкожного жира, за счет сниженного содержания углеводов.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Universal Nutrition</vendor>
+        <model>4813 гр.</model>
+        <barcode>003944201261</barcode>
+      </offer>
       <offer id="003944209331" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/real-gains/</url>
-        <price>2495</price>
+        <price>3118</price>
         <currencyId>RUR</currencyId>
         <categoryId>9</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2371/Universal-real-gains-4813gr.jpg</picture>
@@ -4190,7 +4234,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944208137" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/real-gains/</url>
-        <price>1463</price>
+        <price>1809</price>
         <currencyId>RUR</currencyId>
         <categoryId>9</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2371/Universal-real-gains-4813gr.jpg</picture>
@@ -4441,22 +4485,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1000 гр.</model>
         <barcode>590133002773</barcode>
       </offer>
-      <offer id="590133003162" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/energetik/Olimp-dextrex-juice/</url>
-        <price>385</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>10</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2406/OLIMP-Dextrex-Juice-1000gr.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2406/OLIMP-Dextrex-Juice-Ingredients.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2406/OLIMP-Dextrex-Juice-Supplement-Facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>Dextrex Juice</name>
-        <description>Olimp Carbo Nox - это напиток, способный быстро поставить энергию спортсмену! Он содержит углеводы различной длины цепи, что способствует равномерному усвоению и обеспечивает организм топливом на длительный промежуток времени. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Olimp</vendor>
-        <model>1000 гр.</model>
-        <barcode>590133003162</barcode>
-      </offer>
       <offer id="400664351648" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/energetik/multipower-fit-aktiv-400gr/</url>
         <price>1124</price>
@@ -4608,22 +4636,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1000 мл.</model>
         <barcode>404691800061</barcode>
       </offer>
-      <offer id="083426606330" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/bsn-amino-x-435gr/</url>
-        <price>2657</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>11</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2447/BSN-Amino-X.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2447/BSN-Amino-X-ingredients.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2447/BSN-Amino-X-aminokislotnyj-sostav.jpg</picture>
-        <delivery>true</delivery>
-        <name>Amino X</name>
-        <description>Новейшая аминокислотная формула в шипуче-растворимом виде!</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>BSN</vendor>
-        <model>1010 гр.</model>
-        <barcode>083426606330</barcode>
-      </offer>
       <offer id="590133002597" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/Olimp-aakg-extreme-mega-caps/</url>
         <price>2695</price>
@@ -4696,7 +4708,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="590133003774" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/Olimp-bcaa-xplode-powder/</url>
-        <price>3080</price>
+        <price>3503</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2403/OLIMP-BCAA-Xplode-Powder-500gr.jpg</picture>
@@ -4752,7 +4764,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="404478231691" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/weider-amino-drink-powder-500gr/</url>
-        <price>1771</price>
+        <price>1924</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2105/Weider-Amino-Drink-Powder.jpg</picture>
@@ -4879,7 +4891,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="404478241161" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/weider-pure-amino-egg-300tab/</url>
-        <price>1332</price>
+        <price>1540</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2138/Weider-Pure-Amino-Egg.jpg</picture>
@@ -4992,28 +5004,12 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>200 кап.</model>
         <barcode>074892702037</barcode>
       </offer>
-      <offer id="074892702585" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-glutamine-1000-caps-240kap/</url>
-        <price>1193</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>11</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/182/Optimum-Nutrition-GLUTAMINE-1000-CAPS-240-capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/182/Optimum-Nutrition-GLUTAMINE-1000-CAPS-240-capsules-Supplement-Facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>Glutamine 1000 Caps</name>
-        <description>Glutamine Caps содержит аминокислоту L-Глутамин, которую некоторые исследователи считают ключевой анаболической аминокислотой.  Глутамин способствует синтезу белка, пополнению запасов гликогена, задержке азота в мышцах, а также снижению выработки кортизола - основного катаболического гормона, под воздействием которого происходит расщепление белка мышц до аминокислот.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>240 кап.</model>
-        <barcode>074892702585</barcode>
-      </offer>
       <offer id="074892702280" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-glutamine-1000-caps-240kap/</url>
         <price>786</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/182/Optimum-Nutrition-GLUTAMINE-1000-CAPS-240-capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/182/Optimum-Nutrition-GLUTAMINE-1000-CAPS-240-capsules-Supplement-Facts.jpg</picture>
         <delivery>true</delivery>
         <name>Glutamine 1000 Caps</name>
         <description>Glutamine Caps содержит аминокислоту L-Глутамин, которую некоторые исследователи считают ключевой анаболической аминокислотой.  Глутамин способствует синтезу белка, пополнению запасов гликогена, задержке азота в мышцах, а также снижению выработки кортизола - основного катаболического гормона, под воздействием которого происходит расщепление белка мышц до аминокислот.</description>
@@ -5021,6 +5017,20 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Optimum Nutrition</vendor>
         <model>150 гр.</model>
         <barcode>074892702280</barcode>
+      </offer>
+      <offer id="074892702585" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-glutamine-1000-caps-240kap/</url>
+        <price>1193</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>11</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/182/Optimum-Nutrition-GLUTAMINE-1000-CAPS-240-capsules.jpg</picture>
+        <delivery>true</delivery>
+        <name>Glutamine 1000 Caps</name>
+        <description>Glutamine Caps содержит аминокислоту L-Глутамин, которую некоторые исследователи считают ключевой анаболической аминокислотой.  Глутамин способствует синтезу белка, пополнению запасов гликогена, задержке азота в мышцах, а также снижению выработки кортизола - основного катаболического гормона, под воздействием которого происходит расщепление белка мышц до аминокислот.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Optimum Nutrition</vendor>
+        <model>240 кап.</model>
+        <barcode>074892702585</barcode>
       </offer>
       <offer id="074892705161" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-bcaa-5000-powder-300gr/</url>
@@ -5052,21 +5062,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>60 кап.</model>
         <barcode>074892706040</barcode>
       </offer>
-      <offer id="074892702036" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-bcaa-1000-400kap/</url>
-        <price>1617</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>11</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1905/Optimum-Nutrition-BCAA-1000-caps-400-capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1905/Optimum-Nutrition-BCAA-1000-caps-400-capsules-Supplement-Facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>BCAA 1000</name>
-        <description>BCAA 1000 состоит из трех аминокислот с разветвленными боковыми цепочками (L-валина, L-изолейцина, L-лейцина), которые увеличивают мышечную массу и размер.  Так как обмен ВСАА происходит непосредственно в мышце, они могут улучшить удерживание азота, в то время как другие аминокислотные группы будут отвечать за процесс восстановления.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>400 кап.</model>
-        <barcode>074892702036</barcode>
-      </offer>
       <offer id="074892702521" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-bcaa-5000-powder-380gr/</url>
         <price>1732</price>
@@ -5083,7 +5078,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204238" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-amino-1000-500kap/</url>
-        <price>1732</price>
+        <price>1847</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/208/Universal-Nutrition-Amino-1000-500capsules.jpg</picture>
@@ -5099,7 +5094,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204542" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-amino-1900-110tab/</url>
-        <price>731</price>
+        <price>770</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/212/Universal-Nutrition-Amino-1900-110-tab.jpg</picture>
@@ -5115,7 +5110,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204540" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-amino-1900-110tab/</url>
-        <price>1348</price>
+        <price>1425</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/212/Universal-Nutrition-Amino-1900-110-tab.jpg</picture>
@@ -5131,7 +5126,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944205730" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-amino-2250/</url>
-        <price>1040</price>
+        <price>1117</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2456/Universal-Nutrition-amino-2250-180tab.jpg</picture>
@@ -5222,7 +5217,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204544" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-bcaa-2000-120kap/</url>
-        <price>886</price>
+        <price>1078</price>
         <currencyId>RUR</currencyId>
         <categoryId>11</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/220/Universal-Nutrition-BCAA-2000-120cap.jpg</picture>
@@ -5265,6 +5260,21 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Universal Nutrition</vendor>
         <model>50 кап.</model>
         <barcode>003944204665</barcode>
+      </offer>
+      <offer id="003944204531" available="false">
+        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-100percent-egg-amino-250tab/</url>
+        <price>1578</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>11</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/205/un_eggamino1700.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/205/un_eggamino1700.gif</picture>
+        <delivery>true</delivery>
+        <name>100% Egg Amino.</name>
+        <description> 100% Egg Amino 1700 содержит аминокислоты в свободной форме, ди- и три- пептиды, полученные из яичного альбумина, а также L-Орнитин и Биотин.  Яичный альбумин имеет наивысший коэффициент эффективности белка и оптимальный аминокислотный состав, а аминокислоты с разветвленной цепью (L-Валин, L-Лейцин и L-Изолейцин), входящие в его состав, являются основными компонентами строительства мышечной ткани и увеличения сухой массы тела.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Universal Nutrition</vendor>
+        <model>250 таб</model>
+        <barcode>003944204531</barcode>
       </offer>
       <offer id="070501605805" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/dymatize-bcaa-complex-2200-400kap/</url>
@@ -5426,9 +5436,9 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>30 пак.</model>
         <barcode>003944203072</barcode>
       </offer>
-      <offer id="590133000361" available="true">
+      <offer id="590133000362" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/olimp-krea-alkalyn-2500-mega-caps/</url>
-        <price>1308</price>
+        <price>1694</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2615/Olimp-Krea-Alkalyn-2500.jpg</picture>
@@ -5439,7 +5449,7 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>Olimp</vendor>
         <model>120 кап.</model>
-        <barcode>590133000361</barcode>
+        <barcode>590133000362</barcode>
       </offer>
       <offer id="590133002541" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/olimp-creatine-xplode-powder/</url>
@@ -5500,7 +5510,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="590133002460" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/Olimp-tcm-mega-caps/</url>
-        <price>1309</price>
+        <price>1540</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2384/OLIMP-TCM-Mega-Caps-120cap.jpg</picture>
@@ -5628,20 +5638,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>150 гр.</model>
         <barcode>074892702201</barcode>
       </offer>
-      <offer id="074892702202" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-creatine-powder-150gr/</url>
-        <price>593</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/230/Optimum-Nutrition-Creatine-Powder-150gramm.jpg</picture>
-        <delivery>true</delivery>
-        <name>Creatine Powder</name>
-        <description>Содержит 99,9-процентный кристаллический порошок моногидрата креатина высшего фармацевтического качества.  Креатин перерабатывается организмом в аденозин три-фосфат (АТФ) и хранится в митохондрии мышечной клетки.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>300 гр.</model>
-        <barcode>074892702202</barcode>
-      </offer>
       <offer id="074892702215" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-creatine-powder-150gr/</url>
         <price>1887</price>
@@ -5655,21 +5651,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Optimum Nutrition</vendor>
         <model>1200 гр.</model>
         <barcode>074892702215</barcode>
-      </offer>
-      <offer id="074892702238" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-pre-load-creatine-complex-1816gr/</url>
-        <price>1348</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/237/on_preload1816.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/237/Pre-Load-Creatine-Complex.jpg</picture>
-        <delivery>true</delivery>
-        <name>Pre-Load Creatine Complex</name>
-        <description>Pre-Load Creatine Complex - мощнейший энергетический напиток, предназначенный для приема до и во время тренировки.  Содержит креатин, который участвует в синтезе и накоплении в мышечной ткани высокоэнергетического соединения аденозин-трифосфата (АТФ) - основного энергетического субстрата, который расщепляясь высвобождает энергию, обеспечивающую двигательную активность мышц.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>1816 гр.</model>
-        <barcode>074892702238</barcode>
       </offer>
       <offer id="003944204683" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/universal-creatine-100kap/</url>
@@ -5730,7 +5711,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204684" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/universal-creatine-powder-300gr/</url>
-        <price>289</price>
+        <price>331</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/249/Universal-Nutrition-Creatine-Powder-300gramm.jpg</picture>
@@ -5787,7 +5768,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="007434509155" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/weider-creatine-pure-capsules-200kap/</url>
-        <price>1271</price>
+        <price>1386</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2119/Weider-Creatine-Pure-Capsules-200.jpg</picture>
@@ -5855,6 +5836,20 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>120 гр.</model>
         <barcode>009907100050</barcode>
       </offer>
+      <offer id="404691800075" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/creatine/genetic-force-creatine-transport-system-1000gr/</url>
+        <price>1040</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>12</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1386/gf_creatine-transportsystem.jpg</picture>
+        <delivery>true</delivery>
+        <name>Creatine Transport System</name>
+        <description>Креатин-транспортная система с мощным вольюмизирующим эффектом. </description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Genetic Force</vendor>
+        <model>1000 гр.</model>
+        <barcode>404691800075</barcode>
+      </offer>
       <offer id="003944204849" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/Shock-Therapy/</url>
         <price>2387</price>
@@ -5872,7 +5867,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944203012" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/universal-animal-pak-44pak/</url>
-        <price>1001</price>
+        <price>1078</price>
         <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/257/Universal-Nutrition-Animal-Pak-44pack.jpg</picture>
@@ -5887,7 +5882,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944203011" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/universal-animal-pak-44pak/</url>
-        <price>2156</price>
+        <price>2233</price>
         <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/257/Universal-Nutrition-Animal-Pak-44pack.jpg</picture>
@@ -5918,7 +5913,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944202830" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/universal-animal-stak-2-21pak/</url>
-        <price>2233</price>
+        <price>2580</price>
         <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1913/Universal-Nutrition-Animal-Stak-2-anabolic.jpg</picture>
@@ -5934,7 +5929,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204192" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/universal-uni-liver-30-grain-500tab/</url>
-        <price>808</price>
+        <price>962</price>
         <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/287/Universal-Nutrition-Uni-Liver-30-Grain-500tabs.jpg</picture>
@@ -5950,7 +5945,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="003944204091" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/universal-uni-liver-30-grain-500tab/</url>
-        <price>1463</price>
+        <price>1694</price>
         <currencyId>RUR</currencyId>
         <categoryId>13</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/287/Universal-Nutrition-Uni-Liver-30-Grain-500tabs.jpg</picture>
@@ -6080,6 +6075,22 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Universal Nutrition</vendor>
         <model>60 таб.</model>
         <barcode>003944207043</barcode>
+      </offer>
+      <offer id="003944205192" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/universal-NOX3/</url>
+        <price>2502</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>14</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2537/Universal-NOX3.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2537/Universal-NOX3-Ingredients.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2537/Universal-NOX3-old-pack.jpg</picture>
+        <delivery>true</delivery>
+        <name>NOX3</name>
+        <description>Высокоэффективный препарат для расширения сосудов, повышения азотистого баланса и усиления естественной выработки гормонов. Обладает ярко выраженным анаболическим действием</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Universal Nutrition</vendor>
+        <model>180 таб.</model>
+        <barcode>003944205192</barcode>
       </offer>
       <offer id="009907100038" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/ultimate-nutrition-coenzyme-q10-30kap/</url>
@@ -6211,20 +6222,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Olimp</vendor>
         <model>120 кап.</model>
         <barcode>590133002435</barcode>
-      </offer>
-      <offer id="590133000413" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/Olimp-kolagen-activ-plus-collagen/</url>
-        <price>539</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2392/OLIMP-Collagen-Active-Plus-Kolagen-80tab.jpg</picture>
-        <delivery>true</delivery>
-        <name>Kolagen Activ Plus (коллаген, collagen)</name>
-        <description>OLIMP KOLAGEN ACTIV PLUS - продукт, основанный на простом гидролизате коллагена, с добавлением кальция, витаминов С и В6, уменьшающими распад и восстанавливающими структуры организма, содержащие коллаген, рекомендуется для ежедневного потребления.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Olimp</vendor>
-        <model>80 таб</model>
-        <barcode>590133000413</barcode>
       </offer>
       <offer id="590133007734" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/Olimp-coenzyme-q10-koenzim-q10-koferment/</url>
@@ -6371,20 +6368,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>180 таб.</model>
         <barcode>003944201526</barcode>
       </offer>
-      <offer id="007434504471" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/weider-gelatine-forte-400gr/</url>
-        <price>808</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1433/Weider-Gelatine_Forte.jpg</picture>
-        <delivery>true</delivery>
-        <name>Gelatine Forte</name>
-        <description>Gelatine Forte - это гидролизат коллагена (соединительной ткани), который обеспечит поддержку и восстановление Ваших суставов.  Регулярный прием Gelatine Forte также способствует упругости кожи и прочности соединительных тканей.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>400 гр.</model>
-        <barcode>007434504471</barcode>
-      </offer>
       <offer id="002743407246" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/twinlab-joint-fuel-120kap/</url>
         <price>2310</price>
@@ -6399,22 +6382,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Twinlab</vendor>
         <model>120 кап.</model>
         <barcode>002743407246</barcode>
-      </offer>
-      <offer id="002743407479" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/twinlab-yohimbe-fuel-100kap/</url>
-        <price>478</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2178/Twinlab-Yohimbe-Fuel-100-Capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2178/Twinlab-Yohimbe-Fuel-100-Capsules-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name> Yohimbe Fuel</name>
-        <description>Действующее вещество препаратов серии Yohimbe - вытяжка из внутреннего слоя коры дерева семейства Pausinystalia johimbe, произрастающего в единственном районе Западной Африки.  &#13;
-Поразительный лечебный эффект коры деревьев Yohimbe был открыт европейцами около 100 лет назад, тогда как африканские знахари использовали эти растения на протяжении трех тысячелетий.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Twinlab</vendor>
-        <model>50 кап.</model>
-        <barcode>002743407479</barcode>
       </offer>
       <offer id="002743406736" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/twinlab-yohimbe-fuel-100kap/</url>
@@ -6446,20 +6413,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1 амп.</model>
         <barcode>404691800018</barcode>
       </offer>
-      <offer id="087330306892" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/genetic-force-collagen-liquid-1000ml/</url>
-        <price>1178</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1984/genetic_force_collagen_liquid_1000ml.jpg</picture>
-        <delivery>true</delivery>
-        <name>Collagen Liquid</name>
-        <description>Collagen Liquid andmdash; жидкая форма гидролизата коллагена.  Коллаген является уникальным источником белка, который содержит большое количество аминокислот глицина (33%) и пролина (10%) andndash; основных строительных andlaquo;блоковandraquo; для синтеза в организме коллагена и эластина.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Genetic Force</vendor>
-        <model>1000 мл</model>
-        <barcode>087330306892</barcode>
-      </offer>
       <offer id="087330301902" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/genetic-force-collagen-liquid-1000ml/</url>
         <price>56</price>
@@ -6468,11 +6421,25 @@ NSP Nitro Stack Protein обладает положительными свойс
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1984/genetic_force_collagen_liquid_1000ml.jpg</picture>
         <delivery>true</delivery>
         <name>Collagen Liquid</name>
-        <description>Collagen Liquid andmdash; жидкая форма гидролизата коллагена.  Коллаген является уникальным источником белка, который содержит большое количество аминокислот глицина (33%) и пролина (10%) andndash; основных строительных andlaquo;блоковandraquo; для синтеза в организме коллагена и эластина.</description>
+        <description>Collagen Liquid andmdash; жидкая форма гидролизата коллагена.  &lt;a href=http://www.bodybuilding-shop.ru/collagen/&gt;Коллаген&lt;/a&gt; является уникальным источником белка, который содержит большое количество аминокислот глицина (33%) и пролина (10%) andndash; основных строительных andlaquo;блоковandraquo; для синтеза в организме коллагена и эластина.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>Genetic Force</vendor>
         <model>1 амп.</model>
         <barcode>087330301902</barcode>
+      </offer>
+      <offer id="087330306892" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/genetic-force-collagen-liquid-1000ml/</url>
+        <price>1271</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>14</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1984/genetic_force_collagen_liquid_1000ml.jpg</picture>
+        <delivery>true</delivery>
+        <name>Collagen Liquid</name>
+        <description>Collagen Liquid andmdash; жидкая форма гидролизата коллагена.  &lt;a href=http://www.bodybuilding-shop.ru/collagen/&gt;Коллаген&lt;/a&gt; является уникальным источником белка, который содержит большое количество аминокислот глицина (33%) и пролина (10%) andndash; основных строительных andlaquo;блоковandraquo; для синтеза в организме коллагена и эластина.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Genetic Force</vendor>
+        <model>1000 мл</model>
+        <barcode>087330306892</barcode>
       </offer>
       <offer id="009907100420" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/ultimate-nutrition-arginine-ornithine-lysine-100kap/</url>
@@ -6530,20 +6497,19 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>180 кап.</model>
         <barcode>009907100682</barcode>
       </offer>
-      <offer id="007434507239" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/weider-tribulus-terrestris-120kap/</url>
-        <price>1155</price>
+      <offer id="202734432100" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/l-carnitine-powder/</url>
+        <price>942</price>
         <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1807/Weider-Tribulus-Terrestris-120capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1807/%D1%82%D1%80%D0%B8%D0%B1%D1%83%D0%BB%D1%83%D1%81.jpg</picture>
+        <categoryId>15</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2659/L-Carnitine-Powder.jpg</picture>
         <delivery>true</delivery>
-        <name>Трибулус Tribulus Terrestris</name>
-        <description>Растительный препарат, стимулирующий организм спортсмена на производство эндогенного (собственного) мужского гормона тестостерона.  Основной компонент - экстракт растения Tribulus Terrestris.</description>
+        <name>L-Carnitine Powder</name>
+        <description>Порошковая фасовка л-карнитина высочайшего качества. Ускоряет сжигание подкожного жира, повышает выносливость.</description>
         <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>120 кап.</model>
-        <barcode>007434507239</barcode>
+        <vendor>СуперСет</vendor>
+        <model>200 гр.</model>
+        <barcode>202734432100</barcode>
       </offer>
       <offer id="202734431100" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/l-carnitine-powder/</url>
@@ -6559,20 +6525,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>100 гр.</model>
         <barcode>202734431100</barcode>
       </offer>
-      <offer id="202734432100" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/l-carnitine-powder/</url>
-        <price>942</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>15</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2659/L-Carnitine-Powder.jpg</picture>
-        <delivery>true</delivery>
-        <name>L-Carnitine Powder</name>
-        <description>Порошковая фасовка л-карнитина высочайшего качества. Ускоряет сжигание подкожного жира, повышает выносливость.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>200 гр.</model>
-        <barcode>202734432100</barcode>
-      </offer>
       <offer id="202734430100" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/superset-l-carnitine-500-mg-100kap/</url>
         <price>898</price>
@@ -6586,6 +6538,20 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>СуперСет</vendor>
         <model>100 кап.</model>
         <barcode>202734430100</barcode>
+      </offer>
+      <offer id="590133002884" available="false">
+        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/olimp-l-carnitine-1500-extreme/</url>
+        <price>2156</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>15</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2617/Olimp-L-Carnitine-1500-Extreme.jpg</picture>
+        <delivery>true</delivery>
+        <name>L-Carnitine 1500 Extreme</name>
+        <description>Высококачественный л-карнитин в жидкой форме.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Olimp</vendor>
+        <model>120 кап.</model>
+        <barcode>590133002884</barcode>
       </offer>
       <offer id="009907100600" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/ultimate-nutrition-l-carnitine-300-60tab/</url>
@@ -6619,7 +6585,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="590133002399" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/olimp-szigatel-zira-thermo-speed-extreme-120kap/</url>
-        <price>1271</price>
+        <price>1117</price>
         <currencyId>RUR</currencyId>
         <categoryId>15</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2410/OLIMP-Thermo-Speed-Extreme-120cap.jpg</picture>
@@ -6734,6 +6700,20 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Universal Nutrition</vendor>
         <model>130 таб.</model>
         <barcode>003944203423</barcode>
+      </offer>
+      <offer id="007434504521" available="false">
+        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/weider-chitosan-c-calcium-120kap/</url>
+        <price>808</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>15</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2116/Weider-Chitosan-C-Calcium.jpg</picture>
+        <delivery>true</delivery>
+        <name> Chitosan + C + Calcium</name>
+        <description>Средство для снижения веса Weider Chitosan + C + Calcium останавливает процессы старения организма.  Пищевые волокна Weider Chitosan + C в комплексе с витамином С и лимонной кислотой сорбируют жиры, предотвращают их всасывание и накопление в клетках и тканях.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Weider</vendor>
+        <model>120 кап.</model>
+        <barcode>007434504521</barcode>
       </offer>
       <offer id="007434500707" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/weider-thermo-caps-120kap/</url>
@@ -6851,7 +6831,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="404691800083" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/genetic-force-l-carnitine/</url>
-        <price>808</price>
+        <price>847</price>
         <currencyId>RUR</currencyId>
         <categoryId>15</categoryId>
         <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2638/GENETIC-FORCE-L-Carnitine.jpg</picture>
@@ -6862,6 +6842,21 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Genetic Force</vendor>
         <model>120 кап.</model>
         <barcode>404691800083</barcode>
+      </offer>
+      <offer id="003944246061" available="true">
+        <url>http://www.bodybuilding-shop.ru/importnoe/vitaminy/Uni-Vite/</url>
+        <price>770</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>16</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2674/uni-vite.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2674/Uni-Vite-ingredients.jpg</picture>
+        <delivery>true</delivery>
+        <name>Uni-Vite</name>
+        <description>Мощный витаминно-минеральный комплекс для занимающихся силовыми видами спорта. </description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Universal Nutrition</vendor>
+        <model>120 кап.</model>
+        <barcode>003944246061</barcode>
       </offer>
       <offer id="404691800063" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/vitaminy/genetic-force-beautiful-women/</url>
@@ -7478,6 +7473,20 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>36 гр.</model>
         <barcode>007434507728</barcode>
       </offer>
+      <offer id="007434503940" available="false">
+        <url>http://www.bodybuilding-shop.ru/importnoe/batonchiki/weider-42percent-maximum-protein-bar-100gr/</url>
+        <price>193</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>27</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/1463/Weider-42-Maximum-Protein-Bar.jpg</picture>
+        <delivery>true</delivery>
+        <name>42% Maximum Protein Bar</name>
+        <description>Maximum Protein Bar от Weider - это 42 г высококачественного многокомпонентного протеина.  Содержит сывороточный протеин, молочный протеин и гидролизат коллагенового протеина.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Weider</vendor>
+        <model>100 гр.</model>
+        <barcode>007434503940</barcode>
+      </offer>
       <offer id="007434505954" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/batonchiki/weider-mega-mass-bar-60gr/</url>
         <price>88</price>
@@ -7492,6 +7501,22 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Weider</vendor>
         <model>60 гр.</model>
         <barcode>007434505954</barcode>
+      </offer>
+      <offer id="404478230927" available="false">
+        <url>http://www.bodybuilding-shop.ru/importnoe/batonchiki/weider-double-pro-bar-100gr/</url>
+        <price>112</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>27</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2120/Weider-Double-Pro-Bar-01.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2120/Weider-Double-Pro-Bar-02.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/public/foto/goods/src/2120/Weider-Double-Pro-Bar-03.jpg</picture>
+        <delivery>true</delivery>
+        <name>Double Pro Bar</name>
+        <description>Отличный заменитель пищи.  Double Pro - двухслойный батончик.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>Weider</vendor>
+        <model>50 гр.</model>
+        <barcode>404478230927</barcode>
       </offer>
       <offer id="202734420400" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/creatine/kreatin-creatine-750-mg-100kap/</url>

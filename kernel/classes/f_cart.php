@@ -478,10 +478,6 @@
 				
 				$goods_ids[] = $goods['goods_id'];
 			}
-
-			ob_start();
-			var_dump($cart_arr);
-			file_put_contents(ROOT_PATH.'1.html',ob_get_clean());
 			
 			/*
 			(goods.personal_discount + ".OVERALL_DISCOUNT.") AS personal_discount,
