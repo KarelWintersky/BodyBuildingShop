@@ -1,21 +1,7 @@
 <?
-	error_reporting (E_ALL ^ E_STRICT ^ E_DEPRECATED);
-	require('kernel/config.php');
-
-	function __autoload($className){
-
-		if(substr($className, 0, 3) == 'ezc'){
-			ezcBase::autoload($className);
-		}elseif(substr($className, 0, 9) == 'PHPExcel_'){
-			PHPExcel_Autoloader::Load($className);
-		}else{
-		   $fileName = strtolower($className).'.php';
-		   $f = ROOT_PATH.'kernel/classes'.DIRSEP.$fileName;
-		   if(!file_exists($f)){return false;}
-		   include ($f);
-	   }
-	}
-
+	require('config.php');
+	require('core.php');
+	
 	$registry = new Registry;
 	$db = new Database();
 	$logic = new Logic($registry);

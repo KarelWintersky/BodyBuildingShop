@@ -35,7 +35,7 @@
 
 				/*картинка в шапку*/
 				if($tpl_id!=12 && $tpl_id!=27 && $tpl_id!=3 && $tpl_id!=28 && $tpl_id!=29 && $tpl_id!=30 && $tpl_id!=31 && $tpl_id!=32): //для служебного письма не нужно
-					$idata = file_get_contents('http://www.bodybuilding-shop.ru/public/tpl/mail/logo.jpg');
+					$idata = file_get_contents(ROOT_PATH.'tpl/mail/logo.jpg');
 					//$idata = file_get_contents(THIS_URL.'public/tpl/mail/logo.jpg');
 					$img = $mail->createAttachment($idata, 'image/png', Zend_Mime::DISPOSITION_INLINE, Zend_Mime::ENCODING_BASE64);
 					$img->id = 'logomail';
