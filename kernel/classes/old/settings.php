@@ -367,8 +367,8 @@
 		public function yandex_market_xml(){
 
 			$output_files = array(
-					1 => ROOT_PATH.'y_market.xml',
-					2 => ROOT_PATH.'y_market_2.xml',
+					1 => ROOT_PATH.'public_html/y_market.xml',
+					2 => ROOT_PATH.'public_html/y_market_2.xml',
 					);
 
 			foreach($output_files as $num => $file){
@@ -660,7 +660,7 @@
 		}
 
 		public function mk_sitemap_xml(){
-			$file = ROOT_PATH.'sitemap.xml';
+			$file = ROOT_PATH.'public_html/sitemap.xml';
 
 			$pages = array();
 
@@ -827,7 +827,7 @@
 		}
 
 		public function get_fdata($file){
-			$file = ROOT_PATH.$file;
+			$file = ROOT_PATH.'public_html/'.$file;
 			if(is_file($file)){
 				$modified = filemtime($file);
 				echo date('d.m.Y в H:i',$modified);
