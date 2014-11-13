@@ -1463,7 +1463,7 @@ Class Catalog{
 			'present' => 1,
 			);
 
-		require(ROOT_PATH.'public/tpl/adm/blocks/item/catalog/barcode.html');
+		require(ROOT_PATH.'tpl/adm/blocks/item/catalog/barcode.html');
 	}
 
 	public function print_goods_barcodes(){
