@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2014-11-14 13:53">
+<yml_catalog date="2014-11-19 12:19">
   <shop>
     <name>http://www.bodybuilding-shop.ru/</name>
     <company>Бодибилдинг Магазин</company>
@@ -1129,9 +1129,9 @@
         <model>1216 гр.</model>
         <barcode>202734412160</barcode>
       </offer>
-      <offer id="202734400369" available="true">
+      <offer id="202734410809" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>51</price>
+        <price>1169</price>
         <currencyId>RUR</currencyId>
         <categoryId>5</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
@@ -1141,8 +1141,23 @@
         <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <vendor>СуперСет</vendor>
-        <model>36 гр.</model>
-        <barcode>202734400369</barcode>
+        <model>1080 гр.</model>
+        <barcode>202734410809</barcode>
+      </offer>
+      <offer id="202734404682" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>584</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>468 гр.</model>
+        <barcode>202734404682</barcode>
       </offer>
       <offer id="202734404686" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
@@ -1158,6 +1173,66 @@
         <vendor>СуперСет</vendor>
         <model>468 гр.</model>
         <barcode>202734404686</barcode>
+      </offer>
+      <offer id="202734410802" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>1169</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1080 гр.</model>
+        <barcode>202734410802</barcode>
+      </offer>
+      <offer id="202734410800" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>1169</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1080 гр.</model>
+        <barcode>202734410800</barcode>
+      </offer>
+      <offer id="202734404680" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>584</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>468 гр.</model>
+        <barcode>202734404680</barcode>
+      </offer>
+      <offer id="202734400369" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>51</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>36 гр.</model>
+        <barcode>202734400369</barcode>
       </offer>
       <offer id="202734430240" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
@@ -1189,6 +1264,21 @@
         <model>3024 гр.</model>
         <barcode>202734430242</barcode>
       </offer>
+      <offer id="202734410806" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>1169</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1080 гр.</model>
+        <barcode>202734410806</barcode>
+      </offer>
       <offer id="202734400366" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
         <price>51</price>
@@ -1203,66 +1293,6 @@
         <vendor>СуперСет</vendor>
         <model>36 гр.</model>
         <barcode>202734400366</barcode>
-      </offer>
-      <offer id="202734400362" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>51</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>Super Whey</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>36 гр.</model>
-        <barcode>202734400362</barcode>
-      </offer>
-      <offer id="202734400360" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>51</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>Super Whey</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>36 гр.</model>
-        <barcode>202734400360</barcode>
-      </offer>
-      <offer id="202734404682" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>584</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>Super Whey</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>468 гр.</model>
-        <barcode>202734404682</barcode>
-      </offer>
-      <offer id="202734404680" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>584</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>Super Whey</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>468 гр.</model>
-        <barcode>202734404680</barcode>
       </offer>
       <offer id="202734430246" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
@@ -1279,9 +1309,54 @@
         <model>3024 гр.</model>
         <barcode>202734430246</barcode>
       </offer>
+      <offer id="202734430249" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>2656</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>3024 гр.</model>
+        <barcode>202734430249</barcode>
+      </offer>
+      <offer id="202734400360" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>51</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>36 гр.</model>
+        <barcode>202734400360</barcode>
+      </offer>
+      <offer id="202734400362" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
+        <price>51</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>Super Whey</name>
+        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>36 гр.</model>
+        <barcode>202734400362</barcode>
+      </offer>
       <offer id="202734401402" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>56</price>
+        <price>58</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1296,7 +1371,7 @@
       </offer>
       <offer id="202734401401" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>56</price>
+        <price>58</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1311,7 +1386,7 @@
       </offer>
       <offer id="202734401404" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>56</price>
+        <price>58</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1326,7 +1401,7 @@
       </offer>
       <offer id="202734401403" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>56</price>
+        <price>58</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1341,7 +1416,7 @@
       </offer>
       <offer id="202734401405" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>56</price>
+        <price>58</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1506,7 +1581,7 @@
       </offer>
       <offer id="202734442004" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>1188</price>
+        <price>1248</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1521,7 +1596,7 @@
       </offer>
       <offer id="202734442003" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>1188</price>
+        <price>1248</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1536,7 +1611,7 @@
       </offer>
       <offer id="202734442001" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>1188</price>
+        <price>1248</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1566,7 +1641,7 @@
       </offer>
       <offer id="202734442005" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>1188</price>
+        <price>1248</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1581,7 +1656,7 @@
       </offer>
       <offer id="202734442002" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>1188</price>
+        <price>1248</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1611,7 +1686,7 @@
       </offer>
       <offer id="202734484002" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>2028</price>
+        <price>2173</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1626,7 +1701,7 @@
       </offer>
       <offer id="202734484003" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>2028</price>
+        <price>2173</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1641,7 +1716,7 @@
       </offer>
       <offer id="202734484005" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>2028</price>
+        <price>2173</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1656,7 +1731,7 @@
       </offer>
       <offer id="202734484004" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>2028</price>
+        <price>2173</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -1671,7 +1746,7 @@
       </offer>
       <offer id="202734484001" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>2028</price>
+        <price>2173</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
@@ -2143,7 +2218,7 @@
       </offer>
       <offer id="202734408049" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/superset-carbo-power-bcaa-3000/</url>
-        <price>282</price>
+        <price>294</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2656/Carbo-Power-BCAA-3000-superset.jpg</picture>
@@ -2158,7 +2233,7 @@
       </offer>
       <offer id="202734408048" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/superset-carbo-power-bcaa-3000/</url>
-        <price>282</price>
+        <price>294</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2656/Carbo-Power-BCAA-3000-superset.jpg</picture>
@@ -2173,7 +2248,7 @@
       </offer>
       <offer id="202734400548" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/superset-carbo-power-bcaa-3000/</url>
-        <price>26</price>
+        <price>29</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2656/Carbo-Power-BCAA-3000-superset.jpg</picture>
@@ -2188,7 +2263,7 @@
       </offer>
       <offer id="202734400549" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/superset-carbo-power-bcaa-3000/</url>
-        <price>26</price>
+        <price>29</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2656/Carbo-Power-BCAA-3000-superset.jpg</picture>
@@ -2200,36 +2275,6 @@
         <vendor>СуперСет</vendor>
         <model>50 гр.</model>
         <barcode>202734400549</barcode>
-      </offer>
-      <offer id="202734408059" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-creatine/</url>
-        <price>249</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>7</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine-superset.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine.jpg</picture>
-        <delivery>true</delivery>
-        <name>Carbo Power + Creatine</name>
-        <description>Новая энергетическая формула от компании Суперсет. Основу составляет прогрессивный комплекс углеводов и креатин - основная добавка для развития силы и повышения выносливости.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>800 гр.</model>
-        <barcode>202734408059</barcode>
-      </offer>
-      <offer id="202734408058" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-creatine/</url>
-        <price>249</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>7</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine-superset.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine.jpg</picture>
-        <delivery>true</delivery>
-        <name>Carbo Power + Creatine</name>
-        <description>Новая энергетическая формула от компании Суперсет. Основу составляет прогрессивный комплекс углеводов и креатин - основная добавка для развития силы и повышения выносливости.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>800 гр.</model>
-        <barcode>202734408058</barcode>
       </offer>
       <offer id="202734400558" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-creatine/</url>
@@ -2261,9 +2306,39 @@
         <model>50 гр.</model>
         <barcode>202734400559</barcode>
       </offer>
+      <offer id="202734408058" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-creatine/</url>
+        <price>249</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>7</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine-superset.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine.jpg</picture>
+        <delivery>true</delivery>
+        <name>Carbo Power + Creatine</name>
+        <description>Новая энергетическая формула от компании Суперсет. Основу составляет прогрессивный комплекс углеводов и креатин - основная добавка для развития силы и повышения выносливости.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>800 гр.</model>
+        <barcode>202734408058</barcode>
+      </offer>
+      <offer id="202734408059" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-creatine/</url>
+        <price>249</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>7</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine-superset.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2657/Carbo-Power-Creatine.jpg</picture>
+        <delivery>true</delivery>
+        <name>Carbo Power + Creatine</name>
+        <description>Новая энергетическая формула от компании Суперсет. Основу составляет прогрессивный комплекс углеводов и креатин - основная добавка для развития силы и повышения выносливости.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>800 гр.</model>
+        <barcode>202734408059</barcode>
+      </offer>
       <offer id="202734400503" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>21</price>
+        <price>23</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2277,7 +2352,7 @@
       </offer>
       <offer id="202734408001" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>173</price>
+        <price>181</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2291,7 +2366,7 @@
       </offer>
       <offer id="202734408002" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>173</price>
+        <price>181</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2305,7 +2380,7 @@
       </offer>
       <offer id="202734408003" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>173</price>
+        <price>181</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2319,7 +2394,7 @@
       </offer>
       <offer id="202734408004" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>173</price>
+        <price>181</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2389,7 +2464,7 @@
       </offer>
       <offer id="202734400504" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>22</price>
+        <price>23</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2403,7 +2478,7 @@
       </offer>
       <offer id="202734400501" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>21</price>
+        <price>23</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2417,7 +2492,7 @@
       </offer>
       <offer id="202734400502" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/energetiki/carbo-power-limonnyy-800gr/</url>
-        <price>22</price>
+        <price>23</price>
         <currencyId>RUR</currencyId>
         <categoryId>7</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/73/superset-carbo-power-3500gr.jpg</picture>
@@ -2954,7 +3029,7 @@
       </offer>
       <offer id="074892702672" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
-        <price>3618</price>
+        <price>5159</price>
         <currencyId>RUR</currencyId>
         <categoryId>8</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2464/Optimum-Nutrition-hydrobuilder-1040gramm.jpg</picture>
@@ -3084,7 +3159,7 @@
       </offer>
       <offer id="074892702315" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-gold-standard-2270gr/</url>
-        <price>4697</price>
+        <price>5236</price>
         <currencyId>RUR</currencyId>
         <categoryId>8</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm.jpg</picture>
@@ -3096,21 +3171,6 @@
         <vendor>Optimum Nutrition</vendor>
         <model>2270 гр.</model>
         <barcode>074892702315</barcode>
-      </offer>
-      <offer id="074892702043" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-gold-standard-2270gr/</url>
-        <price>8008</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/648/OPTIMUM_NUTRITION-Whey-Protein-Gold-Standard-2270-gramm-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>100% Whey Protein Gold Standard</name>
-        <description>Одна из последних разработок компании Optimum Nutrition и, безусловно, самый популярный продукт этой фирмы.  100% WHEY PROTEIN - это превосходный молочный протеин, в котором отсутствует лактоза! В нем нет ни жиров ни углеводов! В данном протеины содержатся разветвленные аминокислоты.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>4540 гр.</model>
-        <barcode>074892702043</barcode>
       </offer>
       <offer id="074892702728" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-natural-2270gr/</url>
@@ -3162,7 +3222,7 @@
       </offer>
       <offer id="074892706929" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-casein-protein-908gr/</url>
-        <price>3496</price>
+        <price>4620</price>
         <currencyId>RUR</currencyId>
         <categoryId>8</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1535/OPTIMUM_NUTRITION_Casein_Protein_908_gramm.jpg</picture>
@@ -3448,21 +3508,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Dymatize</vendor>
         <model>908 гр.</model>
         <barcode>070501602697</barcode>
-      </offer>
-      <offer id="070501635204" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/dymatize-iso-100-whey-3632gr/</url>
-        <price>1702</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2202/Dymatize-Iso-100-Whey-3632-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2202/Dymatize-Iso-100-Whey-3632-gramm-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>Iso 100 Whey</name>
-        <description>ISO 100 от Dymatize - это новый стандарт высочайшего качества и биологического потенциала в протеиновых продуктах.  В состав продукта включены: усиленный состав аминокислот с разветвленной цепью (BCAA) (L-лейцин, L-изолейцин , L-валин) и увеличенные пропорции глютамина и таурина, что в значительной степени повышает биологические характеристики данного продукта.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Dymatize</vendor>
-        <model>726 гр.</model>
-        <barcode>070501635204</barcode>
       </offer>
       <offer id="070501635020" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/dymatize-iso-100-whey-3632gr/</url>
@@ -3856,21 +3901,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1500 гр.</model>
         <barcode>007434500339</barcode>
       </offer>
-      <offer id="074892709033" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/optimum-nutrition-after-max-1992gr/</url>
-        <price>2502</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/120/Optimum-Nutrition-After-Max-gainer.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/120/Optimum-Nutrition-After-Max-gainer-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>After Max</name>
-        <description>Специальный белково-углеводный продукт с добавлением кретина, таурина и глютамина для максимально быстрого восстановления после тренировки и набора сухой мышечной массы.  Мощное послетренировочное средство, которое обеспечивает быстрое восстановление и значительный мышечный рост.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>1992 гр.</model>
-        <barcode>074892709033</barcode>
-      </offer>
       <offer id="074892702299" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/optimum-nutrition-serious-mass-5448gr/</url>
         <price>2426</price>
@@ -4034,21 +4064,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Dymatize</vendor>
         <model>2722 гр.</model>
         <barcode>070501633837</barcode>
-      </offer>
-      <offer id="070501633849" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/dymatize-elite-mass-hi-protein-gainer-4540gr/</url>
-        <price>3965</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2209/Dymatize-Elite-Mass-Hi-Protein-Gainer-4540-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2209/Dymatize-Elite-Mass-Hi-Protein-Gainer-4540-gramm-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>Elite Mass Hi Protein Gainer</name>
-        <description>Компания Dymatize представляет препарат Elite Mass Gainer.  Elite Mass Gainer поможет нарастить мощную мышечную массу!  Добейтесь Внушающих Размеров, о которых мечтает каждый увлеченный спортсмен, вместе Elite Mass Gainer!  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Dymatize</vendor>
-        <model>4540 гр.</model>
-        <barcode>070501633849</barcode>
       </offer>
       <offer id="070501633884" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/dymatize-elite-mass-hi-protein-gainer-4540gr/</url>
@@ -4649,20 +4664,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Weider</vendor>
         <model>120 таб.</model>
         <barcode>404478231651</barcode>
-      </offer>
-      <offer id="404478231701" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/weider-bcaa-premium-powder-500gr/</url>
-        <price>1617</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>11</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2113/Weider-Premium-BCAA-Powder.jpg</picture>
-        <delivery>true</delivery>
-        <name> BCAA Premium Powder</name>
-        <description>Мускулатура человека примерно на треть состоит из аминокислот ВСАА! Эти аминокислоты абсолютно необходимы для эффективного наращивания мышц! Этот продукт особенно ценен еще и потому, что организм наиболее быстро может усваивать аминокислоты в свободной форме.  L-лейцин, L-изолейцин и L-валин необходимы для этого процесса и поэтому содержатся в высокой дозировке в совобной форме.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>500 гр.</model>
-        <barcode>404478231701</barcode>
       </offer>
       <offer id="404478231631" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/weider-bcaa-syntho-240kap/</url>
@@ -5370,7 +5371,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="074892702133" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-creatine-2500-caps-200kap/</url>
-        <price>654</price>
+        <price>886</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/226/Optimum-Nutrition-Creatine-2500-caps-200capsules.jpg</picture>
@@ -5385,7 +5386,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="074892702134" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-creatine-2500-caps-200kap/</url>
-        <price>1309</price>
+        <price>1809</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/226/Optimum-Nutrition-Creatine-2500-caps-200capsules.jpg</picture>
@@ -5443,7 +5444,7 @@ NSP Nitro Stack Protein обладает положительными свойс
       </offer>
       <offer id="074892702215" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-creatine-powder-150gr/</url>
-        <price>1887</price>
+        <price>2695</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/230/Optimum-Nutrition-Creatine-Powder-150gramm.jpg</picture>
@@ -5596,20 +5597,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Weider</vendor>
         <model>120 кап.</model>
         <barcode>404478231851</barcode>
-      </offer>
-      <offer id="404478231861" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/creatine/weider-krea-genic-240kap/</url>
-        <price>2695</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2128/Weider-Krea-Genic-240.jpg</picture>
-        <delivery>true</delivery>
-        <name>Krea-Genic</name>
-        <description>Krea-Genic креатин последнего поколения.  В отличие обычного моногидрата креатина, Krea-Genic располагает двумя защитными буферными группами, которые предотвращают его разрушение как в желудке, так и в крови.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>240 кап.</model>
-        <barcode>404478231861</barcode>
       </offer>
       <offer id="009907100050" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/ultimate-nutrition-creatine-monohydrate-1000gr/</url>
@@ -6025,21 +6012,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>90 кап.</model>
         <barcode>074892702312</barcode>
       </offer>
-      <offer id="074892701281" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/optimum-nutrition-glucosamine-plus-csa-120kap/</url>
-        <price>1440</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1573/Optimum-Nutrition-Glucosamine-plus-CSA-120capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1573/Optimum-Nutrition-Glucosamine-plus-CSA-120capsules-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>Glucosamine plus CSA</name>
-        <description>Глюкозамин - основной строительный материал для соединительной ткани.  Он участвует в образовании суставных хрящей, связок, сухожилий, присутствует в стенках сосудов, бронхов, коже и слизистых оболочках.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>120 кап.</model>
-        <barcode>074892701281</barcode>
-      </offer>
       <offer id="074892702482" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/optimum-nutrition-zma-zinc-methionine-aspartate-180kap/</url>
         <price>886</price>
@@ -6183,20 +6155,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Ultimate Nutrition</vendor>
         <model>100 кап.</model>
         <barcode>009907100420</barcode>
-      </offer>
-      <offer id="009907103229" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/ultimate-nutrition-glucosamine-msm-60tab/</url>
-        <price>461</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2280/Ultimate-Nutrition-Glucosamine-MSM.jpg</picture>
-        <delivery>true</delivery>
-        <name>Glucosamine + MSM</name>
-        <description>Глюкозамин является соединением сахаров и аминокислот, производящихся в организме человека.  Он используется в качестве строительного материала для восстановления соединительной ткани и хрящей.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Ultimate Nutrition</vendor>
-        <model>60 таб.</model>
-        <barcode>009907103229</barcode>
       </offer>
       <offer id="009907100680" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/ultimate-nutrition-omega-3-180kap/</url>
@@ -6355,21 +6313,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1 амп</model>
         <barcode>590133002456</barcode>
       </offer>
-      <offer id="074892702191" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/optimum-nutrition-l-carnitine-500-60tab/</url>
-        <price>1155</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>15</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/346/Optimum-Nutrition-L-Carnitine-500-60tablets.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/346/Optimum-Nutrition-L-Carnitine-500-60tablets-Ingredients.jpg</picture>
-        <delivery>true</delivery>
-        <name>L-Carnitine 500</name>
-        <description>L-карнитин - аминокислота, которая участвует в транспортировке жирных кислот в мышцы для сжигания и получения энергии.  L-карнитин может способствовать снижению веса и повышению общей выносливости.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Optimum Nutrition</vendor>
-        <model>60 таб.</model>
-        <barcode>074892702191</barcode>
-      </offer>
       <offer id="074892702302" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/optimum-nutrition-thermo-cuts-100kap/</url>
         <price>1078</price>
@@ -6428,22 +6371,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Weider</vendor>
         <model>120 кап.</model>
         <barcode>007434504521</barcode>
-      </offer>
-      <offer id="007434500707" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/weider-thermo-caps-120kap/</url>
-        <price>1117</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>15</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2142/WEIDER-Thermo-Caps.jpg</picture>
-        <delivery>true</delivery>
-        <name>Thermo Caps</name>
-        <description>Несмотря на соблюдаемую Вами диету и изнурительные тренировки, процесс сжигания жира может замедлиться и прекратиться, так как организм человека приспосабливается, замедляя процесс метаболизма. &#13;
-&#13;
-В состав Thermo Caps от Weider входят ингредиенты, эффективность которых уже давно не подлежит обсуждению в мире спортивных продуктов, способствующих снижению жировых отложений и выработке энергии за счет этого снижения.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>120 кап.</model>
-        <barcode>007434500707</barcode>
       </offer>
       <offer id="009907102131" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/ultimate-nutrition-l-carnitine-500-60tab/</url>
@@ -6514,20 +6441,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>Genetic Force</vendor>
         <model>1000 мл</model>
         <barcode>087330309733</barcode>
-      </offer>
-      <offer id="404691800087" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/genetic-force-l-carnitine-3600-1000ml/</url>
-        <price>923</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>15</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2654/L-Carnitine-3600-GENETIC-FORCE.jpg</picture>
-        <delivery>true</delivery>
-        <name>L-Carnitine 3600</name>
-        <description>Л-карнитин в жидкой форме. Обладает высокой эффективностью и скоростью усвоения.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Genetic Force</vendor>
-        <model>500 мл.</model>
-        <barcode>404691800087</barcode>
       </offer>
       <offer id="404691800062" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/czhigateli-zhira/genetic-force-l-carnitine-3600-1000ml/</url>
@@ -6736,22 +6649,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>1 амп.</model>
         <barcode>007434502874</barcode>
       </offer>
-      <offer id="007434508910" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/vitaminy/weider-multi-vita-special-b-complex-90kap/</url>
-        <price>731</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>16</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2133/Weider-Multi-Vita-Special-B-Complex.jpg</picture>
-        <delivery>true</delivery>
-        <name> Multi Vita + Special B Complex</name>
-        <description>Мультивитаминный комплекс с высоким содержанием витаминов группы В, необходим каждому спортсмену. &#13;
-&#13;
-Витамин Е выполняет защитную функцию, он нейтрализует свободные радикалы, разрушающие полезные жирные кислоты, и обеспечивает кислородное дыхание клеток, предотвращает воспалительные процессы и благотворно влияет на половую функцию, омолаживает организм.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>Weider</vendor>
-        <model>90 кап.</model>
-        <barcode>007434508910</barcode>
-      </offer>
       <offer id="002743407229" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/vitaminy/twinlab-multimineral-180kap/</url>
         <price>593</price>
@@ -6869,51 +6766,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>СуперСет</vendor>
         <model>1 пара</model>
         <barcode>202734404845</barcode>
-      </offer>
-      <offer id="202734401912" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/binty-zapyastya-ekstra-50-sm/</url>
-        <price>350</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1906/bint_extra1.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1906/bint_extra2.jpg</picture>
-        <delivery>true</delivery>
-        <name>Бинты запястья экстра 50 см</name>
-        <description>Эти бинты в два раза жестче чем обычные</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>1 пара</model>
-        <barcode>202734401912</barcode>
-      </offer>
-      <offer id="202734400550" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/binty-zapyastya-50-sm/</url>
-        <price>297</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1314/ss_bint_ruka.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1314/ss_bint_ruka2.jpg</picture>
-        <delivery>true</delivery>
-        <name>Бинты запястья 50 см</name>
-        <description/>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>1 пара</model>
-        <barcode>202734400550</barcode>
-      </offer>
-      <offer id="202734407895" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/binty-kolennye-ekstra-18-m/</url>
-        <price>459</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1907/bint_extra1.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1907/bint_extra2.jpg</picture>
-        <delivery>true</delivery>
-        <name> Бинты коленные экстра 1.8 м</name>
-        <description>Эти бинты в два раза жестче чем обычные</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>1 пара</model>
-        <barcode>202734407895</barcode>
       </offer>
       <offer id="202734400102" available="true">
         <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/poyas-kozhanyy-uzkiy-superset-razmer-s/</url>
@@ -7172,36 +7024,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <model>200 кап.</model>
         <barcode>202734420200</barcode>
       </offer>
-      <offer id="202734420250" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/creatine/kreatin-creatine-750-mg-100kap/</url>
-        <price>241</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>28</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1100/SUPERSET-Creatine-100.jpg</picture>
-        <delivery>true</delivery>
-        <name>Креатин - Creatine</name>
-        <description>Высококачественный креатина моногидрат. Представлен не только в виде порошка, но и удобных к применению желатиновых капсулах фасовкой 750 мг в каждой. Высокая степень усвояемости и эффективности.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>250 гр.</model>
-        <barcode>202734420250</barcode>
-      </offer>
-      <offer id="202734432000" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/aminokisloty/bcaa-powder/</url>
-        <price>442</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>29</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2658/superset-BCAA-100-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2658/BCAA-Powder.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2658/superset-BCAA-400-gramm.jpg</picture>
-        <delivery>true</delivery>
-        <name>BCAA Powder</name>
-        <description>Высококачественный комплекс BCAA аминокислот в форме порошка. Препарат обогащен кристаллической фруктозой, янтарной кислотой и витаминами для лучшего усвоения.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <vendor>СуперСет</vendor>
-        <model>200 гр.</model>
-        <barcode>202734432000</barcode>
-      </offer>
       <offer id="202734431000" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/aminokisloty/bcaa-powder/</url>
         <price>241</price>
@@ -7359,6 +7181,628 @@ NSP Nitro Stack Protein обладает положительными свойс
         <vendor>СуперСет</vendor>
         <model>250 гр.</model>
         <barcode>202734440250</barcode>
+      </offer>
+      <offer id="202734404240" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/golovnye-ubory/bandana-superset/</url>
+        <price>234</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>30</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1418/superset_bandana.jpg</picture>
+        <delivery>true</delivery>
+        <name>Бандана</name>
+        <description>Состав: хлопок - 100%</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734404240</barcode>
+      </offer>
+      <offer id="202734406411" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shtany/losiny-dlinnye-superset-razmer-s/</url>
+        <price>555</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>33</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1016/superset_losiny.jpg</picture>
+        <delivery>true</delivery>
+        <name>Лосины длинные</name>
+        <description>Лосины длинные</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406411</barcode>
+      </offer>
+      <offer id="202734406412" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shtany/losiny-dlinnye-superset-razmer-s/</url>
+        <price>555</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>33</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1016/superset_losiny.jpg</picture>
+        <delivery>true</delivery>
+        <name>Лосины длинные</name>
+        <description>Лосины длинные</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406412</barcode>
+      </offer>
+      <offer id="202734406413" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shtany/losiny-dlinnye-superset-razmer-s/</url>
+        <price>555</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>33</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1016/superset_losiny.jpg</picture>
+        <delivery>true</delivery>
+        <name>Лосины длинные</name>
+        <description>Лосины длинные</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406413</barcode>
+      </offer>
+      <offer id="202734406414" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shtany/losiny-dlinnye-superset-razmer-s/</url>
+        <price>555</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>33</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1016/superset_losiny.jpg</picture>
+        <delivery>true</delivery>
+        <name>Лосины длинные</name>
+        <description>Лосины длинные</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406414</barcode>
+      </offer>
+      <offer id="202734406741" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-prostaya-superset-razmer-s/</url>
+        <price>459</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/634/superset_maika.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка простая</name>
+        <description>Майка простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406741</barcode>
+      </offer>
+      <offer id="202734406742" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-prostaya-superset-razmer-s/</url>
+        <price>459</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/634/superset_maika.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка простая</name>
+        <description>Майка простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406742</barcode>
+      </offer>
+      <offer id="202734406743" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-prostaya-superset-razmer-s/</url>
+        <price>459</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/634/superset_maika.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка простая</name>
+        <description>Майка простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406743</barcode>
+      </offer>
+      <offer id="202734406744" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-prostaya-superset-razmer-s/</url>
+        <price>459</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/634/superset_maika.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка простая</name>
+        <description>Майка простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406744</barcode>
+      </offer>
+      <offer id="202734406745" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-prostaya-superset-razmer-s/</url>
+        <price>459</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/634/superset_maika.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка простая</name>
+        <description>Майка простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406745</barcode>
+      </offer>
+      <offer id="202734400121" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-tonkie-lyamki-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/717/superset_maika_t.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка тонкие лямки</name>
+        <description>Майка тонкие лямки</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734400121</barcode>
+      </offer>
+      <offer id="202734400122" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-tonkie-lyamki-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/717/superset_maika_t.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка тонкие лямки</name>
+        <description>Майка тонкие лямки</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734400122</barcode>
+      </offer>
+      <offer id="202734400123" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-tonkie-lyamki-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/717/superset_maika_t.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка тонкие лямки</name>
+        <description>Майка тонкие лямки</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734400123</barcode>
+      </offer>
+      <offer id="202734400124" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/mayki/mayka-tonkie-lyamki-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>34</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/717/superset_maika_t.jpg</picture>
+        <delivery>true</delivery>
+        <name>Майка тонкие лямки</name>
+        <description>Майка тонкие лямки</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734400124</barcode>
+      </offer>
+      <offer id="202734406992" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-dlinnyy-rukav-superset-razmer-s/</url>
+        <price>724</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/749/superset_rubashka_dr1.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/749/superset_rubashka_dr2.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка длинный рукав</name>
+        <description>Рубашка длинный рукав</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406992</barcode>
+      </offer>
+      <offer id="202734406991" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-dlinnyy-rukav-superset-razmer-s/</url>
+        <price>724</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/749/superset_rubashka_dr1.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/749/superset_rubashka_dr2.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка длинный рукав</name>
+        <description>Рубашка длинный рукав</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406991</barcode>
+      </offer>
+      <offer id="202734401962" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-polo-superset-razmer-s/</url>
+        <price>724</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2595/rubashka_polo-S.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка Поло</name>
+        <description>Рубашка Поло</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734401962</barcode>
+      </offer>
+      <offer id="202734401965" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-polo-superset-razmer-s/</url>
+        <price>724</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2595/rubashka_polo-S.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка Поло</name>
+        <description>Рубашка Поло</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734401965</barcode>
+      </offer>
+      <offer id="202734401961" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-polo-superset-razmer-s/</url>
+        <price>724</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2595/rubashka_polo-S.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка Поло</name>
+        <description>Рубашка Поло</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734401961</barcode>
+      </offer>
+      <offer id="202734404864" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-so-shnurovkoy-superset-razmer-xs/</url>
+        <price>676</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1961/superset_rubashka_shn.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка со шнуровкой</name>
+        <description>Рубашка со шнуровкой</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734404864</barcode>
+      </offer>
+      <offer id="202734404863" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-so-shnurovkoy-superset-razmer-xs/</url>
+        <price>676</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1961/superset_rubashka_shn.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка со шнуровкой</name>
+        <description>Рубашка со шнуровкой</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734404863</barcode>
+      </offer>
+      <offer id="202734404862" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/rubashki/rubashka-so-shnurovkoy-superset-razmer-xs/</url>
+        <price>676</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>37</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1961/superset_rubashka_shn.jpg</picture>
+        <delivery>true</delivery>
+        <name>Рубашка со шнуровкой</name>
+        <description>Рубашка со шнуровкой</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734404862</barcode>
+      </offer>
+      <offer id="202734408421" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-prostaya-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/870/superset_futbolka.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка  простая</name>
+        <description>Футболка  простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408421</barcode>
+      </offer>
+      <offer id="202734408422" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-prostaya-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/870/superset_futbolka.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка  простая</name>
+        <description>Футболка  простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408422</barcode>
+      </offer>
+      <offer id="202734408423" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-prostaya-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/870/superset_futbolka.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка  простая</name>
+        <description>Футболка  простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408423</barcode>
+      </offer>
+      <offer id="202734408424" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-prostaya-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/870/superset_futbolka.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка  простая</name>
+        <description>Футболка  простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408424</barcode>
+      </offer>
+      <offer id="202734408435" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-prostaya-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/870/superset_futbolka.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка  простая</name>
+        <description>Футболка  простая</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408435</barcode>
+      </offer>
+      <offer id="202734408401" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-bez-rukavov-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/723/superset_futbolka_sbr.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч без рукавов</name>
+        <description>Футболка стретч без рукавов</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408401</barcode>
+      </offer>
+      <offer id="202734408402" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-bez-rukavov-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/723/superset_futbolka_sbr.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч без рукавов</name>
+        <description>Футболка стретч без рукавов</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408402</barcode>
+      </offer>
+      <offer id="202734408403" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-bez-rukavov-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/723/superset_futbolka_sbr.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч без рукавов</name>
+        <description>Футболка стретч без рукавов</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408403</barcode>
+      </offer>
+      <offer id="202734408404" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-bez-rukavov-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/723/superset_futbolka_sbr.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч без рукавов</name>
+        <description>Футболка стретч без рукавов</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408404</barcode>
+      </offer>
+      <offer id="202734408405" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-bez-rukavov-superset-razmer-s/</url>
+        <price>482</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/723/superset_futbolka_sbr.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч без рукавов</name>
+        <description>Футболка стретч без рукавов</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408405</barcode>
+      </offer>
+      <offer id="202734408501" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/747/superset_futbolka_stretch.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч</name>
+        <description>Футболка стретч</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408501</barcode>
+      </offer>
+      <offer id="202734408502" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/747/superset_futbolka_stretch.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч</name>
+        <description>Футболка стретч</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408502</barcode>
+      </offer>
+      <offer id="202734408503" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/747/superset_futbolka_stretch.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч</name>
+        <description>Футболка стретч</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408503</barcode>
+      </offer>
+      <offer id="202734408504" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/747/superset_futbolka_stretch.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч</name>
+        <description>Футболка стретч</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408504</barcode>
+      </offer>
+      <offer id="202734408505" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/futbolki/futbolka-stretch-superset-razmer-s/</url>
+        <price>471</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>38</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/747/superset_futbolka_stretch.jpg</picture>
+        <delivery>true</delivery>
+        <name>Футболка стретч</name>
+        <description>Футболка стретч</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734408505</barcode>
+      </offer>
+      <offer id="202734406311" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-korotkie-superset-razmer-s/</url>
+        <price>386</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/664/superset_shorty_stretch_s.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч короткие</name>
+        <description>Шорты стретч короткие</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406311</barcode>
+      </offer>
+      <offer id="202734406312" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-korotkie-superset-razmer-s/</url>
+        <price>386</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/664/superset_shorty_stretch_s.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч короткие</name>
+        <description>Шорты стретч короткие</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406312</barcode>
+      </offer>
+      <offer id="202734406313" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-korotkie-superset-razmer-s/</url>
+        <price>386</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/664/superset_shorty_stretch_s.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч короткие</name>
+        <description>Шорты стретч короткие</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406313</barcode>
+      </offer>
+      <offer id="202734406314" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-korotkie-superset-razmer-s/</url>
+        <price>386</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/664/superset_shorty_stretch_s.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч короткие</name>
+        <description>Шорты стретч короткие</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406314</barcode>
+      </offer>
+      <offer id="202734406315" available="true">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-korotkie-superset-razmer-s/</url>
+        <price>386</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/664/superset_shorty_stretch_s.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч короткие</name>
+        <description>Шорты стретч короткие</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734406315</barcode>
+      </offer>
+      <offer id="202734407312" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-dlinnye-superset-razmer-xs/</url>
+        <price>422</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1969/superset_shorty_stretch_l.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1969/shorty-stretch-dlinnye-2-1-2-3-4-5.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1969/shorty-stretch-dlinnye-3-1-2-3-4-5.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч длинные</name>
+        <description>Шорты стретч длинные</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734407312</barcode>
+      </offer>
+      <offer id="202734407311" available="false">
+        <url>http://www.bodybuilding-shop.ru/odezhda/shorty/shorty-stretch-dlinnye-superset-razmer-xs/</url>
+        <price>422</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>39</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1969/superset_shorty_stretch_l.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1969/shorty-stretch-dlinnye-2-1-2-3-4-5.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1969/shorty-stretch-dlinnye-3-1-2-3-4-5.jpg</picture>
+        <delivery>true</delivery>
+        <name>Шорты стретч длинные</name>
+        <description>Шорты стретч длинные</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <vendor>СуперСет</vendor>
+        <model>1 шт.</model>
+        <barcode>202734407311</barcode>
       </offer>
       <offer id="208714800361" available="true">
         <url>http://www.bodybuilding-shop.ru/aksessuary/support/support-loktya/</url>
