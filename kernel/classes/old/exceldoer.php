@@ -231,7 +231,7 @@
 			$xls->setActiveSheetIndex(0);
 
 			$writer = PHPExcel_IOFactory::createWriter($xls, 'Excel5');
-			$writer->save('sportivnoe-pitanie-price.xls');
+			$writer->save(ROOT_PATH.'/public_html/data/sportivnoe-pitanie-price.xls');
 
 		}
 

@@ -603,7 +603,7 @@ Class Template {
 		}
 
 		private function F_prices_link($frompage = true){
-			$f = ROOT_PATH.'sportivnoe-pitanie-price.xls';
+			$f = ROOT_PATH.'/public_html/data/sportivnoe-pitanie-price.xls';
 			if(is_file($f)){
 				$size_bytes = filesize($f);
 
