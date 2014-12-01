@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2014-11-19 12:19">
+<yml_catalog date="2014-12-01 10:50">
   <shop>
     <name>http://www.bodybuilding-shop.ru/</name>
     <company>Бодибилдинг Магазин</company>
@@ -214,35 +214,9 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734431289</barcode>
       </offer>
-      <offer id="202734413100" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</url>
-        <price>944</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-69-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-1310-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey and Egg, нейтральный, 1310 гр.</name>
-        <description>Содержит высокоэффективный комплекс белков, состоящий из белков молочной сыворотки (лактальбумина и лактоглобулина) и белков куриных яиц (яичного альбумина).  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413100</barcode>
-      </offer>
-      <offer id="202734413109" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</url>
-        <price>944</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-69-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-1310-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey and Egg, кокосовый, 1310 гр.</name>
-        <description>Содержит высокоэффективный комплекс белков, состоящий из белков молочной сыворотки (лактальбумина и лактоглобулина) и белков куриных яиц (яичного альбумина).  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413109</barcode>
-      </offer>
       <offer id="202734435202" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</url>
-        <price>2299</price>
+        <price>2529</price>
         <currencyId>RUR</currencyId>
         <categoryId>5</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-69-g.jpg</picture>
@@ -370,35 +344,9 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734405522</barcode>
       </offer>
-      <offer id="202734413101" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</url>
-        <price>944</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-69-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-1310-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey and Egg, шоколадный, 1310 гр.</name>
-        <description>Содержит высокоэффективный комплекс белков, состоящий из белков молочной сыворотки (лактальбумина и лактоглобулина) и белков куриных яиц (яичного альбумина).  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413101</barcode>
-      </offer>
-      <offer id="202734413102" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</url>
-        <price>944</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-69-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-1310-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey and Egg, ванильный, 1310 гр.</name>
-        <description>Содержит высокоэффективный комплекс белков, состоящий из белков молочной сыворотки (лактальбумина и лактоглобулина) и белков куриных яиц (яичного альбумина).  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413102</barcode>
-      </offer>
       <offer id="202734400692" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</url>
-        <price>67</price>
+        <price>71</price>
         <currencyId>RUR</currencyId>
         <categoryId>5</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/792/whey-egg-69-g.jpg</picture>
@@ -434,72 +382,6 @@
         <description>Содержит высокоэффективный комплекс белков, состоящий из белков молочной сыворотки (лактальбумина и лактоглобулина) и белков куриных яиц (яичного альбумина).  </description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734400691</barcode>
-      </offer>
-      <offer id="202734405530" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/egg-pro-neytralnyy-1155gr/</url>
-        <price>602</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Egg Pro, нейтральный, 553 гр.</name>
-        <description>Содержит высококачественный яичный белок, который идеально подходит для пополнения запасов аминокислот, усиления роста мышц и создания положительного азотистого баланса.  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734405530</barcode>
-      </offer>
-      <offer id="202734405532" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/egg-pro-neytralnyy-1155gr/</url>
-        <price>602</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Egg Pro, ванильный, 553 гр.</name>
-        <description>Содержит высококачественный яичный белок, который идеально подходит для пополнения запасов аминокислот, усиления роста мышц и создания положительного азотистого баланса.  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734405532</barcode>
-      </offer>
-      <offer id="202734400330" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/egg-pro-neytralnyy-1155gr/</url>
-        <price>48</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Egg Pro, нейтральный, 33 гр.</name>
-        <description>Содержит высококачественный яичный белок, который идеально подходит для пополнения запасов аминокислот, усиления роста мышц и создания положительного азотистого баланса.  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400330</barcode>
-      </offer>
-      <offer id="202734400332" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/egg-pro-neytralnyy-1155gr/</url>
-        <price>48</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Egg Pro, ванильный, 33 гр.</name>
-        <description>Содержит высококачественный яичный белок, который идеально подходит для пополнения запасов аминокислот, усиления роста мышц и создания положительного азотистого баланса.  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400332</barcode>
-      </offer>
-      <offer id="202734411552" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/egg-pro-neytralnyy-1155gr/</url>
-        <price>1157</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Egg Pro, ванильный, 1155 гр.</name>
-        <description>Содержит высококачественный яичный белок, который идеально подходит для пополнения запасов аминокислот, усиления роста мышц и создания положительного азотистого баланса.  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734411552</barcode>
-      </offer>
-      <offer id="202734411550" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/egg-pro-neytralnyy-1155gr/</url>
-        <price>1157</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Egg Pro, нейтральный, 1155 гр.</name>
-        <description>Содержит высококачественный яичный белок, который идеально подходит для пополнения запасов аминокислот, усиления роста мышц и создания положительного азотистого баланса.  </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734411550</barcode>
       </offer>
       <offer id="202734400661" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
@@ -604,84 +486,6 @@
         <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734405945</barcode>
-      </offer>
-      <offer id="202734413202" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, ванильный, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413202</barcode>
-      </offer>
-      <offer id="202734413204" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, банановый, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413204</barcode>
-      </offer>
-      <offer id="202734413205" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, ананасовый, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413205</barcode>
-      </offer>
-      <offer id="202734413200" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, нейтральный, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413200</barcode>
-      </offer>
-      <offer id="202734413201" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, шоколадный, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413201</barcode>
-      </offer>
-      <offer id="202734413203" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, клубничный, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413203</barcode>
       </offer>
       <offer id="202734435603" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
@@ -825,19 +629,6 @@
         <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734435601</barcode>
-      </offer>
-      <offer id="202734413209" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
-        <price>729</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-66-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/20/whey-pro-1320-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Whey Pro, кокосовый, 1320 гр.</name>
-        <description>Вырабатывается из сывороточных белков, имеющих  исключительно высокую пищевую и биологическую ценность, а также  наивысшую скорость расщепления среди цельных белков. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734413209</barcode>
       </offer>
       <offer id="202734400663" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/whey-pro-neytralnyy-594gr/</url>
@@ -983,19 +774,6 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734412160</barcode>
       </offer>
-      <offer id="202734410809" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>1169</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Super Whey, кокосовый, 1080 гр.</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734410809</barcode>
-      </offer>
       <offer id="202734404682" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
         <price>584</price>
@@ -1021,32 +799,6 @@
         <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734404686</barcode>
-      </offer>
-      <offer id="202734410802" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>1169</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Super Whey, ванильный, 1080 гр.</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734410802</barcode>
-      </offer>
-      <offer id="202734410800" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>1169</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Super Whey, нейтральный, 1080 гр.</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734410800</barcode>
       </offer>
       <offer id="202734404680" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
@@ -1099,19 +851,6 @@
         <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734430242</barcode>
-      </offer>
-      <offer id="202734410806" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
-        <price>1169</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>5</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-36-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1471/super-whey-1080-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Super Whey, малиновый, 1080 гр.</name>
-        <description>Super Whey вырабатываются из концентрата сывороточных белков, полученного методом ультрафильтрации.  Белки молочной сыворотки обладают исключительно высокой пищевой и биологической ценностью, а также имеют наивысшую скорость расщепления среди цельных белков.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734410806</barcode>
       </offer>
       <offer id="202734400366" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/protein/super-whey-vanilnyy-1080gr/</url>
@@ -1321,58 +1060,6 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734407003</barcode>
       </offer>
-      <offer id="202734415402" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>546</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-1540-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». гейнер Mass Gain, ванильный, 1540 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415402</barcode>
-      </offer>
-      <offer id="202734415405" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>546</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-1540-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». гейнер Mass Gain, ананасовый, 1540 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415405</barcode>
-      </offer>
-      <offer id="202734415403" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>546</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-1540-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». гейнер Mass Gain, клубничный, 1540 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415403</barcode>
-      </offer>
-      <offer id="202734415404" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>546</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-1540-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». гейнер Mass Gain, банановый, 1540 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415404</barcode>
-      </offer>
       <offer id="202734442004" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
         <price>1248</price>
@@ -1412,19 +1099,6 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734442001</barcode>
       </offer>
-      <offer id="202734415409" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>546</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-1540-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». гейнер Mass Gain, кокосовый, 1540 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415409</barcode>
-      </offer>
       <offer id="202734442005" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
         <price>1248</price>
@@ -1450,19 +1124,6 @@
         <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734442002</barcode>
-      </offer>
-      <offer id="202734415401" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
-        <price>546</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-140-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/860/mass-gain-1540-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». гейнер Mass Gain, шоколадный, 1540 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415401</barcode>
       </offer>
       <offer id="202734484002" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</url>
@@ -1540,31 +1201,9 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734406751</barcode>
       </offer>
-      <offer id="202734414852" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>693</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Super Gain, ванильный, 1485 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734414852</barcode>
-      </offer>
-      <offer id="202734414851" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>693</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <delivery>true</delivery>
-        <name>«СуперСет». Super Gain, шоколадный, 1485 гр.</name>
-        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734414851</barcode>
-      </offer>
       <offer id="202734441852" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>1611</price>
+        <price>1690</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -1586,7 +1225,7 @@
       </offer>
       <offer id="202734401352" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>70</price>
+        <price>74</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -1597,7 +1236,7 @@
       </offer>
       <offer id="202734441851" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>1611</price>
+        <price>1690</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -1606,9 +1245,20 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734441851</barcode>
       </offer>
+      <offer id="202734483702" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
+        <price>3236</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>6</categoryId>
+        <delivery>true</delivery>
+        <name>«СуперСет». Super Gain, ванильный, 8370 гр.</name>
+        <description>Высококалорийная углеводно-белковая формула, предназначенная для наращивания мышечной массы и повышения калорийности рациона.  Cодержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <barcode>202734483702</barcode>
+      </offer>
       <offer id="202734401351" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>70</price>
+        <price>74</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -1619,7 +1269,7 @@
       </offer>
       <offer id="202734483701" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</url>
-        <price>2789</price>
+        <price>3236</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <delivery>true</delivery>
@@ -1628,22 +1278,22 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734483701</barcode>
       </offer>
-      <offer id="202734415602" available="true">
+      <offer id="202734442909" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>698</price>
+        <price>1859</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
         <delivery>true</delivery>
-        <name>«СуперСет». Weight Gain, ванильный, 1560 гр.</name>
+        <name>«СуперСет». Weight Gain, кокосовый, 4290 гр.</name>
         <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
         <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415602</barcode>
+        <barcode>202734442909</barcode>
       </offer>
       <offer id="202734442907" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>1613</price>
+        <price>1859</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
@@ -1654,48 +1304,9 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734442907</barcode>
       </offer>
-      <offer id="202734401307" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>67</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Weight Gain, капучино, 130 гр.</name>
-        <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734401307</barcode>
-      </offer>
-      <offer id="202734442902" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>1690</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Weight Gain, ванильный, 4290 гр.</name>
-        <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734442902</barcode>
-      </offer>
-      <offer id="202734415609" available="true">
-        <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>297</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>6</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Weight Gain, кокосовый, 650 гр.</name>
-        <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415609</barcode>
-      </offer>
       <offer id="202734485892" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>2910</price>
+        <price>3367</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
@@ -1708,7 +1319,7 @@
       </offer>
       <offer id="202734485897" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>2910</price>
+        <price>3367</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
@@ -1719,35 +1330,35 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734485897</barcode>
       </offer>
-      <offer id="202734401309" available="true">
+      <offer id="202734442902" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>67</price>
+        <price>1859</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
         <delivery>true</delivery>
-        <name>«СуперСет». Weight Gain, кокосовый, 130 гр.</name>
+        <name>«СуперСет». Weight Gain, ванильный, 4290 гр.</name>
         <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
         <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734401309</barcode>
+        <barcode>202734442902</barcode>
       </offer>
-      <offer id="202734415607" available="true">
+      <offer id="202734406509" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>698</price>
+        <price>360</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
         <delivery>true</delivery>
-        <name>«СуперСет». Weight Gain, капучино, 1560 гр.</name>
+        <name>«СуперСет». Weight Gain, кокосовый, 650 гр.</name>
         <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
         <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734415607</barcode>
+        <barcode>202734406509</barcode>
       </offer>
       <offer id="202734406507" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>297</price>
+        <price>360</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
@@ -1760,7 +1371,7 @@
       </offer>
       <offer id="202734406502" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
-        <price>297</price>
+        <price>360</price>
         <currencyId>RUR</currencyId>
         <categoryId>6</categoryId>
         <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
@@ -1783,6 +1394,45 @@
         <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734401302</barcode>
+      </offer>
+      <offer id="202734401307" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
+        <price>71</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>6</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>«СуперСет». Weight Gain, капучино, 130 гр.</name>
+        <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <barcode>202734401307</barcode>
+      </offer>
+      <offer id="202734401309" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
+        <price>71</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>6</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>«СуперСет». Weight Gain, кокосовый, 130 гр.</name>
+        <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <barcode>202734401309</barcode>
+      </offer>
+      <offer id="202734485899" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</url>
+        <price>3367</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>6</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-130-g.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1484/weight-gain-1560-g.jpg</picture>
+        <delivery>true</delivery>
+        <name>«СуперСет». Weight Gain, кокосовый, 8580 гр.</name>
+        <description>Weight Gain - высококалорийный продукт, предназначенный для наращивания мышечной массы.  Содержит высокоэффективный комплекс углеводов, состоящий из мальтодекстрина (полимеров глюкозы), глюкозы и кристаллической фруктозы.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <barcode>202734485899</barcode>
       </offer>
       <offer id="202734400035" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/gainer/milk-protein-shokoladnyy-3000gr/</url>
@@ -2556,19 +2206,6 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>003944204883</barcode>
       </offer>
-      <offer id="083426607620" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/bsn-syntha-6-isolate/</url>
-        <price>3388</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2584/BSN-Syntha-6-Isolate.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2584/BSN-Syntha-6-Isolate-ingredients.jpg</picture>
-        <delivery>true</delivery>
-        <name>«BSN». Syntha-6 Isolate, 1820 гр.</name>
-        <description>Уникальный продукт на основе двух молочных белков: (изолята сывороточного протеина и изолята молочного протеина). Обеспечивает организм плавным поступлением аминокислот в течение длительного периода времени.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>083426607620</barcode>
-      </offer>
       <offer id="074892702643" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</url>
         <price>2063</price>
@@ -2832,18 +2469,6 @@
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>404478231255</barcode>
       </offer>
-      <offer id="007434506186" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/gold-whey-protein/</url>
-        <price>1694</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2374/Weider_Gold_Whey_Protein_908gr.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Weider». Gold Whey Protein, 908 гр.</name>
-        <description>Родоначальники бодибилдинга и спортивного питания компания Weider расширила свою протеиновую линейку выпуском нового сывороточного белка под названием Gold Whey. Weider Whey Gold – это протеиновая добавка и источник дополнительного белка, получаемых посредством ультра-фильтрации молочной сыворотки.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>007434506186</barcode>
-      </offer>
       <offer id="404478231219" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/gold-whey-protein/</url>
         <price>3196</price>
@@ -2995,44 +2620,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>003944201564</barcode>
       </offer>
-      <offer id="002743405218" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/twinlab-100percent-whey-protein-fuel-908gr/</url>
-        <price>3272</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2161/Twinlab-100-Whey-Protein-Fuel-907-gr.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Twinlab». 100% Whey Protein Fuel, 2270 гр.</name>
-        <description>Сывороточный протеин 100% Whey Protein Fuel от Twinlab является высококачественной и одной из лучших форм протеина на сегодня.  Сыворотка дает организму необходимый материал для построения мышечной ткани.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>002743405218</barcode>
-      </offer>
-      <offer id="070501622455" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/Elite-Casein/</url>
-        <price>1732</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2669/Elite-Casein.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2669/Elite-Casein-DYMATIZE.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Dymatize». Elite Casein, 909 гр.</name>
-        <description>Elite Casein - протеин на основе специальной формы казеина. Служит прекрасным источником белка, длительно и равномерно снабжает вашу кровь аминокислотами.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>070501622455</barcode>
-      </offer>
-      <offer id="070501602697" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/dymatize-elite-whey-gourmet-908gr/</url>
-        <price>1348</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2192/Dymatize-Elite-Gourmet-908-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2192/Dymatize-Elite-Gourmet-908-gramm-supplement-facts.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Dymatize». Elite Whey Gourmet, 908 гр.</name>
-        <description>Elite Gourmet от Dymatize это протеиновая смесь из изолята и концентрата сывороточного протеина, сывороточных пептидов, казеинатов кальция и молочного протеина, содержащего натуральные мицеллярные казеины и казеинаты.  И конечно, Elite Gourmet гордится своим превосходным вкусом! Сочетая в себе такие различные источники качественного протеина, Elite Gourmet не только удовлетворяет самые изысканные вкусовые потребности, но и насыщает организм отличным протеином.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>070501602697</barcode>
-      </offer>
       <offer id="070501635020" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/dymatize-iso-100-whey-3632gr/</url>
         <price>2772</price>
@@ -3058,19 +2645,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>ISO 100 от Dymatize - это новый стандарт высочайшего качества и биологического потенциала в протеиновых продуктах.  В состав продукта включены: усиленный состав аминокислот с разветвленной цепью (BCAA) (L-лейцин, L-изолейцин , L-валин) и увеличенные пропорции глютамина и таурина, что в значительной степени повышает биологические характеристики данного продукта.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>070501601760</barcode>
-      </offer>
-      <offer id="009907106205" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/ultimate-nutrition-100percent-whey-prostar-908gr/</url>
-        <price>1617</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2253/Ultimate-Nutrition-100-Whey-ProStar-908-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2253/Ultimate-Nutrition-100-Whey-ProStar.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Ultimate Nutrition». 100% Whey ProStar, 908 гр.</name>
-        <description>Белок является, вероятно, наиболее важной добавкой для всех спортсменов, но он особенно необходим для тех, кто участвует в долгих, высокоинтенсивных тренировки, требующих выносливости.  Это топливо для наращивания массы и тонизирования мышц.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>009907106205</barcode>
       </offer>
       <offer id="009907100293" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/ultimate-nutrition-iso-sensation-93-910gr/</url>
@@ -3109,18 +2683,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>009907100170</barcode>
       </offer>
-      <offer id="009907108406" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/ultimate-nutrition-whey-supreme-908gr/</url>
-        <price>3272</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2260/Ultimate-Nutrition-Whey-Supreme-908-gramm.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Ultimate Nutrition». Whey Supreme, 2270 гр.</name>
-        <description>Ultimate Nutrition Supreme Whey это сывороточный протеин.  Сывороточный протеин считаемся лучшим средством для восстановления тканей и построения мышц.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>009907108406</barcode>
-      </offer>
       <offer id="083426600710" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/bsn-syntha-6-1320gr/</url>
         <price>4120</price>
@@ -3150,21 +2712,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>Syntha-6 - протеин ультра-премиум класса с превосходным вкусом.  В него входит мультифункциональный комплекс протеинов.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>083426600810</barcode>
-      </offer>
-      <offer id="083426600630" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/protein/bsn-syntha-6-1320gr/</url>
-        <price>1964</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>8</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2291/BSN-Syntha-6-1320-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2291/Syntha-6-BSN-4560-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2291/Syntha-6-BSN_ingredients.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2291/BSN-Syntha-6-nutrition-facts.gif</picture>
-        <delivery>true</delivery>
-        <name>«BSN». Syntha-6, 1320 гр.</name>
-        <description>Syntha-6 - протеин ультра-премиум класса с превосходным вкусом.  В него входит мультифункциональный комплекс протеинов.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>083426600630</barcode>
       </offer>
       <offer id="066622201135" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/protein/mhp-probolic-sr-908gr/</url>
@@ -3308,46 +2855,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>Самый современный и разнообразный состав тщательно подобранных углеводов + полный комплекс животных белков, синергичное действие которых практически заставит ваши мускулы взорваться от насыщенния питательными веществами. </description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>590133002502</barcode>
-      </offer>
-      <offer id="400664322071" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/weider-super-mega-mass-2000-3000gr/</url>
-        <price>1425</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/145/Weider-mega-mass-2000-3000-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/145/Weider-Super-Mega-Mass-ingredients.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Weider». Super Mega Mass 2000, 1500 гр.</name>
-        <description>2000 калорий в порции с натуральным вкусом - это то, что надо для создания мускулатуры поразительной массы и силы.  Надо быть серьезным спортсменом, чтобы справиться с такой калорийностью и превратить содержащийся в SUPER MEGA MASS белок в собственные мышцы! Формула обогащена глютамином!  Почему MEGA MASS 2000 наилучшая? С помощью MEGA MASS Вы получите необходимое количество белков, углеводов, микроэлементов и калорий, что поможет Вам быстро набрать вес.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>400664322071</barcode>
-      </offer>
-      <offer id="400664322141" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/weider-super-mega-mass-2000-3000gr/</url>
-        <price>2195</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/145/Weider-mega-mass-2000-3000-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/145/Weider-Super-Mega-Mass-ingredients.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Weider». Super Mega Mass 2000, 3000 гр.</name>
-        <description>2000 калорий в порции с натуральным вкусом - это то, что надо для создания мускулатуры поразительной массы и силы.  Надо быть серьезным спортсменом, чтобы справиться с такой калорийностью и превратить содержащийся в SUPER MEGA MASS белок в собственные мышцы! Формула обогащена глютамином!  Почему MEGA MASS 2000 наилучшая? С помощью MEGA MASS Вы получите необходимое количество белков, углеводов, микроэлементов и калорий, что поможет Вам быстро набрать вес.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>400664322141</barcode>
-      </offer>
-      <offer id="400664322151" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/weider-giant-mega-mass-4000-7000gr/</url>
-        <price>2195</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/143/Weider-mega-mass-4000-7kg.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/143/Weider-mega-mass-4000-7000-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/143/Weider-Super-Mega-Mass-ingredients-1.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Weider». Giant Mega Mass 4000, 3000 гр.</name>
-        <description>Это настоящий гигант среди всех препаратов для наращивания мышечной массы.  Предназначен для спортсменов, готовых "отработать" 4000 калорий после приема коктейля.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>400664322151</barcode>
       </offer>
       <offer id="007434505540" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/weider-crash-weight-gain-1500gr/</url>
@@ -3606,21 +3113,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>Протеиновая матрица Probolic в гейнере Up Your Mass является матрицей продолжительного действия, состоящей из соевого изолята, сывороточного концентрата и казеина.  Аминокислотный комплекс этой смеси содержит аминокислоты с различным временем усвоения, что помогает как быстрой так и замедленной задержке азота.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>066622209206</barcode>
-      </offer>
-      <offer id="066622273210" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/gainer/mhp-up-your-mass-2270gr/</url>
-        <price>2502</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>9</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2311/MHP-Up-Your-Mass-2270-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2311/mhp-up-your-mass.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2311/MHP-Up-Your-Mass-2270-gramm-nutrition-facts.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2311/MHP-Up-Your-Mass-2270-gramm-gainer.jpg</picture>
-        <delivery>true</delivery>
-        <name>«MHP». Up Your Mass, 2270 гр.</name>
-        <description>Протеиновая матрица Probolic в гейнере Up Your Mass является матрицей продолжительного действия, состоящей из соевого изолята, сывороточного концентрата и казеина.  Аминокислотный комплекс этой смеси содержит аминокислоты с различным временем усвоения, что помогает как быстрой так и замедленной задержке азота.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>066622273210</barcode>
       </offer>
       <offer id="404691800074" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/gainer/genetic-force-mass-gainer-pro-35/</url>
@@ -4340,20 +3832,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>003944204544</barcode>
       </offer>
-      <offer id="003944205153" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-bcaa-stack-250gr/</url>
-        <price>1201</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>11</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/794/Universal-Nutrition-BCAA-Stack-250gr.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/794/Universal-Nutrition-BCAA-Stack-250-gr.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/794/Universal-Nutrition-BCAA-Stack-Ingredients.gif</picture>
-        <delivery>true</delivery>
-        <name>«Universal Nutrition». BCAA Stack, 250 гр.</name>
-        <description>BCAA Stack способен быстро восстановить аминокислотный баланс и серьезно сократить время восстановления.  Клинические исследования показали, что BCAA и глютамин особенно важны для атлетов, которые придерживаются определенной диеты и интенсивно тренируются.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>003944205153</barcode>
-      </offer>
       <offer id="003944204665" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/universal-glutamine-powder-600gr/</url>
         <price>459</price>
@@ -4405,19 +3883,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>BCAA Complex 2200 от Dymatize дает 2,200 мг чистых аминокислот с разветвленной цепью (BCAA) в свободной форме на порцию.  Легко усваиваемая форма способствует максимально быстрому мышечному восстановлению.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>070501600975</barcode>
-      </offer>
-      <offer id="070501638301" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/dymatize-bcaa-complex-5050-300gr/</url>
-        <price>1425</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>11</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2181/Dymatize-BCAA-5050-300-gramm.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2181/Dymatize-BCAA-5050-300-gramm.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Dymatize». BCAA Complex 5050, 300 гр.</name>
-        <description>BCAA Complex 5050 от Dymatize дает 2,200 мг чистых аминокислот с разветвленной цепью (BCAA) в свободной форме на порцию.  Легко усваиваемая форма способствует максимально быстрому мышечному восстановлению.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>070501638301</barcode>
       </offer>
       <offer id="009907108300" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/ultimate-nutrition-amino-1500-gold-325tab/</url>
@@ -4605,18 +4070,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>590133002460</barcode>
       </offer>
-      <offer id="590133002319" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/creatine/olimp-creatine-mega-caps-400kap/</url>
-        <price>1309</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2411/OLIMP-Creatine-Mega-Caps-400capsules.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Olimp». Creatine Mega Caps, 400 кап.</name>
-        <description>Креатин - необходимый элемент для превращения энергии в организме! Это жизненно необходимое вещество содержится в мышечных клетках в форме креатинфосфата. Помимо увеличения выносливости на тренировках креатин способствует увеличению объема мускулатуры.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>590133002319</barcode>
-      </offer>
       <offer id="590133002234" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/olimp-creatine-mega-caps-400kap/</url>
         <price>639</price>
@@ -4740,18 +4193,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>Креатин участвует в синтезе и накоплении в мышечной ткани высокоэнергетического соединения аденозин-трифосфата (АТФ) - основного энергетического субстрата, который расщепляясь высвобождает энергию, обеспечивающую двигательную активность мышц.  Дополнительный прием креатина позволяет проводить тренировки с наивысшей интенсивностью, замедлить наступление усталости, повысить выносливость и увеличить работоспособность.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>003944204701</barcode>
-      </offer>
-      <offer id="003944204700" available="true">
-        <url>http://www.bodybuilding-shop.ru/importnoe/creatine/universal-creatine-powder-300gr/</url>
-        <price>677</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/249/Universal-Nutrition-Creatine-Powder-300gramm.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Universal Nutrition». Creatine Powder, 300 гр.</name>
-        <description>Креатин участвует в синтезе и накоплении в мышечной ткани высокоэнергетического соединения аденозин-трифосфата (АТФ) - основного энергетического субстрата, который расщепляясь высвобождает энергию, обеспечивающую двигательную активность мышц.  Дополнительный прием креатина позволяет проводить тренировки с наивысшей интенсивностью, замедлить наступление усталости, повысить выносливость и увеличить работоспособность.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>003944204700</barcode>
       </offer>
       <offer id="003944204687" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/creatine/universal-creatine-powder-300gr/</url>
@@ -5110,18 +4551,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>GLUCOSAMINE 1000 пищевая добавка, содержащая сульфат глюкозамина - важнейшее вещество для нормального функционирования суставов. Основная задача сульфата глюкозамина - построение хрящевой ткани и обеспечение надлежащей \"смазки\" элементов опорно-двигательного аппарата. </description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>590133001333</barcode>
-      </offer>
-      <offer id="590133001092" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/Olimp-glucosamine-1000/</url>
-        <price>524</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>14</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2381/OLIMP-Glucosamine-1000-60capsules.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Olimp». Glucosamine 1000, 60 кап.</name>
-        <description>GLUCOSAMINE 1000 пищевая добавка, содержащая сульфат глюкозамина - важнейшее вещество для нормального функционирования суставов. Основная задача сульфата глюкозамина - построение хрящевой ткани и обеспечение надлежащей \"смазки\" элементов опорно-двигательного аппарата. </description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>590133001092</barcode>
       </offer>
       <offer id="590133002435" available="true">
         <url>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/Olimp-taurine-mega-caps/</url>
@@ -5651,20 +5080,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>590133002323</barcode>
       </offer>
-      <offer id="074892705227" available="false">
-        <url>http://www.bodybuilding-shop.ru/importnoe/vitaminy/optimum-nutrition-opti-men-60tab/</url>
-        <price>2118</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>16</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/676/Optimum-Nutrition-Opti-Men-60capsules.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/676/Optimum-Nutrition-Opti-Men-60capsules-Ingredients.jpg</picture>
-        <delivery>true</delivery>
-        <name>«Optimum Nutrition». Opti-Men, 150 таб.</name>
-        <description>Продукт от компании «Optimum Nutrition» под названием «Opti-Men» представляет собой мультивитаминный комплекс, созданный специально для мужчин.  &#13;
-Продукт обладает общеукрепляющим действием, активизирует обмен веществ, повышает иммунитет, стимулирует умственные, физические и сексуальные возможности мужчины, улучшает качество его жизни.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>074892705227</barcode>
-      </offer>
       <offer id="003944204711" available="false">
         <url>http://www.bodybuilding-shop.ru/importnoe/vitaminy/universal-vitamin-c-100tab/</url>
         <price>454</price>
@@ -5834,67 +5249,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>400664300438</barcode>
       </offer>
-      <offer id="202734404845" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/binty-zapyastya-ekstra-30-sm/</url>
-        <price>314</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1897/bint_extra1.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1897/bint_extra2.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Бинты запястья экстра 30 см, 1 пара</name>
-        <description>Эти бинты в два раза жестче чем обычные</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734404845</barcode>
-      </offer>
-      <offer id="202734400102" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/poyas-kozhanyy-uzkiy-superset-razmer-s/</url>
-        <price>886</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/433/poyas-kozhanyy-uzkiy-superset.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Пояс кожаный узкий СуперСет, Размер L, 1 шт.</name>
-        <description>Использование тяжелоатлетического пояса позволяет избежать травм нижнего отдела позвоночника при работе с большими весами в упражнениях: приседания, становая тяга и т. п.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400102</barcode>
-      </offer>
-      <offer id="202734400103" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/poyas-kozhanyy-uzkiy-superset-razmer-s/</url>
-        <price>886</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/433/poyas-kozhanyy-uzkiy-superset.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Пояс кожаный узкий СуперСет, Размер XL, 1 шт.</name>
-        <description>Использование тяжелоатлетического пояса позволяет избежать травм нижнего отдела позвоночника при работе с большими весами в упражнениях: приседания, становая тяга и т. п.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400103</barcode>
-      </offer>
-      <offer id="202734400101" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/poyas-kozhanyy-uzkiy-superset-razmer-s/</url>
-        <price>886</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/433/poyas-kozhanyy-uzkiy-superset.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Пояс кожаный узкий СуперСет, Размер M, 1 шт.</name>
-        <description>Использование тяжелоатлетического пояса позволяет избежать травм нижнего отдела позвоночника при работе с большими весами в упражнениях: приседания, становая тяга и т. п.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400101</barcode>
-      </offer>
-      <offer id="202734400100" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/poyas-kozhanyy-uzkiy-superset-razmer-s/</url>
-        <price>886</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/433/poyas-kozhanyy-uzkiy-superset.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Пояс кожаный узкий СуперСет, Размер S, 1 шт.</name>
-        <description>Использование тяжелоатлетического пояса позволяет избежать травм нижнего отдела позвоночника при работе с большими весами в упражнениях: приседания, становая тяга и т. п.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400100</barcode>
-      </offer>
       <offer id="202734400634" available="false">
         <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/poyas-dlya-dopolnitelnyh-otyagoscheniy-kozhanyy/</url>
         <price>886</price>
@@ -5918,31 +5272,6 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>Позволяют работать с большими весами (без ослабления хвата) в упражнениях: становая тяга, тяга штанги (гантели) в наклоне, шраги (пожимания плечами) с гантелями, тяга вертикального блока перед собой (за голову) и др. </description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734407740</barcode>
-      </offer>
-      <offer id="202734405126" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/tyagi-s-kryukami-superset/</url>
-        <price>804</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/620/ss_tya_kruk.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Тяги с крюками, 1 пара</name>
-        <description>Удобные перчатки для выполнения таких упражнений, как подтягивания, тяга гантелей и штанги в наклоне и многих других.  В отличие от обычных тяг не требует продолжительного andquot;приматыванияandquot; запястий к снаряду, гриф быстро и удобно ложится в руку.</description>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734405126</barcode>
-      </offer>
-      <offer id="202734400530" available="true">
-        <url>http://www.bodybuilding-shop.ru/aksessuary/ekipirovka/binty-zapyastya-30-sm/</url>
-        <price>268</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>18</categoryId>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/907/ss_bint_ruka.jpg</picture>
-        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/907/ss_bint_ruka2.jpg</picture>
-        <delivery>true</delivery>
-        <name>«СуперСет». Бинты запястья, 30 см, 30 см, 1 пара</name>
-        <description/>
-        <sales_notes>Необходима предоплата</sales_notes>
-        <barcode>202734400530</barcode>
       </offer>
       <offer id="007434508014" available="true">
         <url>http://www.bodybuilding-shop.ru/aksessuary/raznoe/flyazhka-500-ml/</url>
@@ -6067,6 +5396,32 @@ NSP Nitro Stack Protein обладает положительными свойс
         <description>Высококачественный креатина моногидрат. Представлен не только в виде порошка, но и удобных к применению желатиновых капсулах фасовкой 750 мг в каждой. Высокая степень усвояемости и эффективности.</description>
         <sales_notes>Необходима предоплата</sales_notes>
         <barcode>202734420200</barcode>
+      </offer>
+      <offer id="202734420250" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/creatine/kreatin-creatine-750-mg-100kap/</url>
+        <price>241</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>28</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/1100/SUPERSET-Creatine-100.jpg</picture>
+        <delivery>true</delivery>
+        <name>«СуперСет». Креатин - Creatine, 250 гр.</name>
+        <description>Высококачественный креатина моногидрат. Представлен не только в виде порошка, но и удобных к применению желатиновых капсулах фасовкой 750 мг в каждой. Высокая степень усвояемости и эффективности.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <barcode>202734420250</barcode>
+      </offer>
+      <offer id="202734432000" available="true">
+        <url>http://www.bodybuilding-shop.ru/superset/aminokisloty/bcaa-powder/</url>
+        <price>442</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>29</categoryId>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2658/superset-BCAA-100-gramm.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2658/BCAA-Powder.jpg</picture>
+        <picture>http://www.bodybuilding-shop.ru/data/foto/goods/src/2658/superset-BCAA-400-gramm.jpg</picture>
+        <delivery>true</delivery>
+        <name>«СуперСет». BCAA Powder, 200 гр.</name>
+        <description>Высококачественный комплекс BCAA аминокислот в форме порошка. Препарат обогащен кристаллической фруктозой, янтарной кислотой и витаминами для лучшего усвоения.</description>
+        <sales_notes>Необходима предоплата</sales_notes>
+        <barcode>202734432000</barcode>
       </offer>
       <offer id="202734431000" available="true">
         <url>http://www.bodybuilding-shop.ru/superset/aminokisloty/bcaa-powder/</url>
