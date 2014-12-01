@@ -10,7 +10,7 @@
 
 		public function do_rss(){
 
-			$file = ROOT_PATH.'rss.xml';
+			$file = ROOT_PATH.'public_html/rss.xml';
 
 			$news = array();
 			$qLnk = mysql_query("
