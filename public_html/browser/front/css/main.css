@@ -297,7 +297,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 	.barcode_line.no_tastes .barcode_line_price{padding-top:3px;}
 	.barcode_line.no_tastes .g_order_button{margin-top:0;}
 
-#goods_social_share_1{float:right;margin:0 0 -20px;}
+#goods_social_share_1{float:right;}
 	#goods_social_share_1 .yashare_label{font-size:12px;float:left;color:#666;padding:7px 0 0;}
 
 #goods_social_share{padding:15px 0 0 12px;}
