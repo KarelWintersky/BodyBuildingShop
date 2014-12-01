@@ -15,4 +15,6 @@
 	define('THIS_URL','http://www.bodybuilding-shop.ru/',true);
 	
 	define('CLOSE_FRONTEND',true,true); //закрыть фронтенд от незалогиненных в админку
+	
+	define('HIDE_COUNTERS',false,true); //не выводить код счетчиков в шаблон
 ?>
