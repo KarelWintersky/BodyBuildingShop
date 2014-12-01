@@ -3,7 +3,11 @@
 		<?if($a['goods_full_name']=='Подарок на усмотрение администрации,'):?>
 			<?=rtrim($a['goods_full_name'],',')?>
 		<?else:?>
-			<a href="/<?=$a['parent_alias']?>/<?=$a['level_alias']?>/<?=$a['alias']?>/"><?=$a['goods_full_name'];?></a>
+			<?if(isset($a['parent_alias'])):?>
+				<a href="/<?=$a['parent_alias']?>/<?=$a['level_alias']?>/<?=$a['alias']?>/"><?=$a['goods_full_name'];?></a>
+			<?else:?>
+				<?=$a['goods_full_name'];?>
+			<?endif;?>	
 			
 			<?if($a['goods_feats_str']!=''):?>
 				<br>Цвет: <?=$a['goods_feats_str'];?><br>
