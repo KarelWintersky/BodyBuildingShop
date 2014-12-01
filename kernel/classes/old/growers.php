@@ -96,8 +96,8 @@
 							('".$name."',
 								'".$alias."',
 									'".$longtitle."',
-										'".mysql_real_escape_string($content)."',
-											'".mysql_real_escape_string($upper_content)."',
+										'".$content."',
+											'".$upper_content."',
 												'".$seo_kw."',
 													'".$seo_dsc."')							
 						");
@@ -132,8 +132,8 @@
 							growers.name = '".$name."',
 							growers.alias = '".$alias."',
 							growers.longtitle = '".$longtitle."',
-							growers.content = '".mysql_real_escape_string($content)."',
-							growers.upper_content = '".mysql_real_escape_string($upper_content)."',
+							growers.content = '".$content."',
+							growers.upper_content = '".$upper_content."',
 							growers.seo_kw = '".$seo_kw."',
 							growers.seo_dsc = '".$seo_dsc."',
 							growers.avatar = '".$avatar."'
