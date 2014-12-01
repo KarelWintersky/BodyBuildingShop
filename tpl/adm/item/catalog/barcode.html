@@ -1,6 +1,8 @@
 <tr>
 	<td class="td_barcode">
 		<input name="bc[<?=$a['id']?>][barcode]" type="text" value="<?=$a['barcode']?>">
+		
+		<input name="bc[<?=$a['id']?>][barcode_old]" type="hidden" value="<?=$a['barcode']?>">
 	</td>
 	<td class="td_packing">
 		<input name="bc[<?=$a['id']?>][packing]" type="text" value="<?=$a['packing']?>">

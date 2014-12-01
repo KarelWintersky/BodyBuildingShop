@@ -733,7 +733,7 @@ Class Catalog{
 
 	private function save_goods_barcodes($goods_id){
 		mysql_query(sprintf("DELETE FROM goods_barcodes WHERE goods_id = '%d'",$goods_id));
-
+		
 		if(isset($_POST['bc'])){
 			$q = array();
 
@@ -778,6 +778,9 @@ Class Catalog{
 
 		}
 
+		$Adm_Catalog_Goods_Barcodes_Replace = new Adm_Catalog_Goods_Barcodes_Replace($this->registry);
+		$Adm_Catalog_Goods_Barcodes_Replace->do_replace($_POST['bc']);		
+		
 	}
 
 	private function img_alt_upd($alt_first_img,$avatar_id){
