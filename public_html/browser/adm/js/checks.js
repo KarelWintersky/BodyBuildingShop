@@ -40,7 +40,7 @@ function goods_form_check(form){
 		$(price).parent().find('.errF').html('');
 	}
 
-	var barcode = $(form).find('input[name="barcode"]');
+	/*var barcode = $(form).find('input[name="barcode"]');
 	if($(barcode).val()=='' || !numCheck($(barcode).val())){
 		$(barcode).addClass('err');
 		$(barcode).parent().find('.errF').html('Необходимо указать корректный штрихкод');
@@ -50,7 +50,7 @@ function goods_form_check(form){
 		$(barcode).removeClass('err');
 		$(barcode).parent().find('.errF').html('');
 		barcode_err = false;
-	}
+	}*/
 
 	if(!barcode_err){
 		$.ajax({
