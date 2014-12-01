@@ -977,6 +977,7 @@ Class Catalog{
 						levels.avatar = '".$avatar."',
 						levels.published = '".$published."',
 						levels.content = '".mysql_real_escape_string($content)."',
+						levels.upper_content = '".mysql_real_escape_string($upper_content)."',
 						levels.seo_title = '".mysql_real_escape_string(htmlspecialchars_decode($seo_title))."',
 						levels.seo_kw = '".$seo_kw."',
 						levels.seo_dsc = '".$seo_dsc."'
@@ -1014,18 +1015,20 @@ Class Catalog{
 								parent_id,
 									published,
 										content,
-											seo_title,
-												seo_kw,
-													seo_dsc)
+											upper_content,
+												seo_title,
+													seo_kw,
+														seo_dsc)
 						VALUES
 						('".htmlspecialchars_decode($name)."',
 							'".$alias."',
 								'".$parent_id."',
 									'".$published."',
-										'".$content."',
-											'".htmlspecialchars_decode($seo_title)."',
-												'".$seo_kw."',
-													'".$seo_dsc."');
+										'".mysql_real_escape_string($content)."',
+											'".mysql_real_escape_string($upper_content)."',
+												'".htmlspecialchars_decode($seo_title)."',
+													'".$seo_kw."',
+														'".$seo_dsc."');
 					");
 
 		$rp = trim($rp,'/');

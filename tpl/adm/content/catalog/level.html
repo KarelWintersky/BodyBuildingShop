@@ -112,7 +112,12 @@
 		<div class="clr"></div>
 
 		<div class="form_l form_l_content">
-			<label>Текстовое описание</label>
+			<label>Описание НАВЕРХ</label>
+			<textarea name="upper_content" class="tinyMCE"><?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['upper_content']) : '';?></textarea>
+		</div>
+
+		<div class="form_l form_l_content">
+			<label>Описание ВНИЗ</label>
 			<textarea name="content" class="tinyMCE"><?= ($this->registry['action']==50) ? htmlspecialchars($this->registry['level']['content']) : '';?></textarea>
 		</div>
 

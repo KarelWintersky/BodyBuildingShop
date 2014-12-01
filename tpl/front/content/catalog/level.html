@@ -1,3 +1,10 @@
+<?if(!isset($_GET['page']) && $this->registry['level']['upper_content']):?>
+	<div class="texted" id="level_description_upper">
+		<?=$this->registry['level']['upper_content']?>
+	</div>
+<?endif;?>
+
+
 <?$this->registry['f_catalog']->goods_list($list_html,$list_params,$reqiure_file,0);?>
 
 <input type="hidden" name="cookie_type" value="<?=$this->registry['cookie_type'];?>">

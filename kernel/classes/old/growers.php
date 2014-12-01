@@ -89,15 +89,17 @@
 								growers.alias,
 									growers.longtitle,
 										growers.content,
-											growers.seo_kw,
-												growers.seo_dsc)
+											growers.upper_content,
+												growers.seo_kw,
+													growers.seo_dsc)
 							VALUES
 							('".$name."',
 								'".$alias."',
 									'".$longtitle."',
-										'".$content."',
-											'".$seo_kw."',
-												'".$seo_dsc."')							
+										'".mysql_real_escape_string($content)."',
+											'".mysql_real_escape_string($upper_content)."',
+												'".$seo_kw."',
+													'".$seo_dsc."')							
 						");
 
 			$grower_id = mysql_insert_id();
@@ -130,7 +132,8 @@
 							growers.name = '".$name."',
 							growers.alias = '".$alias."',
 							growers.longtitle = '".$longtitle."',
-							growers.content = '".$content."',
+							growers.content = '".mysql_real_escape_string($content)."',
+							growers.upper_content = '".mysql_real_escape_string($upper_content)."',
 							growers.seo_kw = '".$seo_kw."',
 							growers.seo_dsc = '".$seo_dsc."',
 							growers.avatar = '".$avatar."'
