@@ -388,6 +388,8 @@ Class Catalog{
 							LEFT OUTER JOIN growers ON growers.id = goods.grower_id
 							WHERE
 								goods.level_id = '".$level_id."'
+								AND
+								(goods.parent_barcode = '0' OR goods.parent_barcode = '') 
 							ORDER BY
 								goods.published DESC,
 								goods.sort ASC;
