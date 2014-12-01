@@ -82,24 +82,28 @@
 			
 			$longtitle = ($longtitle!='') ? $longtitle : $name;
 			
+			$h1 = ($h1) ? $h1 : sprintf('Товары производителя %s',$name);
+			
 			mysql_query("
 						INSERT INTO
 							growers
 							(growers.name,
-								growers.alias,
-									growers.longtitle,
-										growers.content,
-											growers.upper_content,
-												growers.seo_kw,
-													growers.seo_dsc)
+								growers.h1,
+									growers.alias,
+										growers.longtitle,
+											growers.content,
+												growers.upper_content,
+													growers.seo_kw,
+														growers.seo_dsc)
 							VALUES
 							('".$name."',
-								'".$alias."',
-									'".$longtitle."',
-										'".$content."',
-											'".$upper_content."',
-												'".$seo_kw."',
-													'".$seo_dsc."')							
+								'".$h1."',
+									'".$alias."',
+										'".$longtitle."',
+											'".$content."',
+												'".$upper_content."',
+													'".$seo_kw."',
+														'".$seo_dsc."')							
 						");
 
 			$grower_id = mysql_insert_id();
@@ -125,11 +129,14 @@
 			
 			$longtitle = ($longtitle!='') ? $longtitle : $name;
 			
+			$h1 = ($h1) ? $h1 : sprintf('Товары производителя %s',$name);
+			
 			mysql_query("
 						UPDATE
 							growers
 						SET
 							growers.name = '".$name."',
+							growers.h1 = '".$h1."',
 							growers.alias = '".$alias."',
 							growers.longtitle = '".$longtitle."',
 							growers.content = '".$content."',

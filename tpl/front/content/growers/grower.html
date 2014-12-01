@@ -1,4 +1,10 @@
-<h1 class="second_style">Товары производителя «<?=$this->registry['grower']['name'];?>»</h1>
+<h1 class="second_style">
+	<?if($this->registry['grower']['h1']):?>
+		<?=$this->registry['grower']['h1'];?>
+	<?else:?>
+		Товары производителя <?=$this->registry['grower']['name'];?>
+	<?endif;?>
+</h1>
 
 <?if(!isset($_GET['page']) && $this->registry['grower']['upper_content']):?>
 	<div class="texted" id="level_description_upper">

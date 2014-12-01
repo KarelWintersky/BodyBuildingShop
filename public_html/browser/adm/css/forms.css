@@ -277,6 +277,7 @@ form{}
 
 #form_GrowerInfo{}
 	#form_GrowerInfo .form_l_name input{width:858px;}
+	#form_GrowerInfo .form_l_h1 input{width:858px;}
 	#form_GrowerInfo .form_l_content textarea{width:858px;height:200px;}
 	#form_GrowerInfo .form_l_seo_title input{width:500px;margin-right:30px;}
 	#form_GrowerInfo .form_l_alias input{width:250px;}

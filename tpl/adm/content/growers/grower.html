@@ -23,6 +23,11 @@
 			<label>Текст ВНИЗ</label>
 			<textarea class="tinyMCE" name="content"><?= ($this->registry['action']==500) ? $this->registry['grower']['content'] : '';?></textarea>
 		</div>			
+
+		<div class="form_l form_l_h1">
+			<label>H1</label>
+			<input type="text" name="h1" value="<?= ($this->registry['action']==500) ? $this->registry['grower']['h1'] : '';?>">
+		</div>
 		
 		<div class="form_l form_l_seo_title lft">
 			<label>Тег TITLE</label>
