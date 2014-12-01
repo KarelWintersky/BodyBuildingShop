@@ -629,7 +629,7 @@ Class Catalog{
 
     	//if($packing!=''){$title_arr[] = $packing;}
 
-    	return implode(', ',$title_arr);
+    	return implode(' ',$title_arr);
     }
 
     private function mk_seo_dsc($content){
@@ -670,7 +670,7 @@ Class Catalog{
 		$alias = $this->urlGenerate($alias,$id,'goods',$level_id,'level_id');
 
 		$seo_title = ($seo_title=='') ? $this->mk_seo_title($level_id_arr[1],$grower_id,$name,$packing) : $seo_title;
-		$seo_h1 = ($seo_h1=='') ? $seo_title : $seo_h1;
+		$seo_h1 = ($seo_h1=='') ? $name : $seo_h1;
 		$seo_dsc = ($seo_dsc=='') ? $this->mk_seo_dsc($content) : $seo_dsc;
 		$seo_kw = ($seo_kw=='') ? $this->mk_seo_kw($seo_title,$level_id_arr[0]) : $seo_kw;
 
