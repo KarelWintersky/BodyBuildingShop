@@ -4,6 +4,8 @@ RewriteEngine on
 
 RewriteCond %{HTTP_HOST} ^bodybuilding-shop\.ru
 RewriteRule ^(.*)$ http://www.bodybuilding-shop.ru/$1 [R=permanent,L]
+RewriteRule ^public/foto/goods/(.*)$ /data/foto/goods/$1 [R=301,NC,L]
+RewriteRule ^public/foto/features/(.*)$ /data/foto/features/$1 [R=301,NC,L]
 
 Redirect 301 /importnoe/specialnye-dobavki/universal-zma-90kap/  http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/zma/
 
