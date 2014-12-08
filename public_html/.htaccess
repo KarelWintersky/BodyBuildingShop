@@ -2,13 +2,13 @@
 
 RewriteEngine on
 
+RewriteCond %{HTTP_HOST} ^bodybuilding-shop\.ru
+RewriteRule ^(.*)$ http://www.bodybuilding-shop.ru/$1 [R=permanent,L]
+
 Redirect 301 /importnoe/specialnye-dobavki/universal-zma-90kap/  http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/zma/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteCond %{HTTP_HOST} ^bodybuilding-shop\.ru
-RewriteRule ^(.*)$ http://www.bodybuilding-shop.ru/$1 [R=permanent,L]
 
 RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
 
