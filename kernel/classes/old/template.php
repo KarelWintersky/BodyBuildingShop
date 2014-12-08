@@ -881,6 +881,7 @@ Class Template {
 	    		$url = $url[0];
 	    		$url = trim(THIS_URL,'/').$url;
 	    		$url = trim($url,'/');
+	    		$url = $url.'/';
 
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'">';
