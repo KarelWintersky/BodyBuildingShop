@@ -19,7 +19,6 @@
 			$articles = new Articles($this->registry,false);
 			$orders = new Orders($this->registry,false);
 			$accountorders = new Accountorders($this->registry,false);
-			$exceldoer = new Exceldoer($registry);
 
 			if(isset($_POST['d_action'])){
 
@@ -149,7 +148,8 @@
 						$settings->mk_sitemap_xml();
 						break;
 					case 614:
-						$exceldoer->price_list();
+						$Adm_Prices_Excel = new Adm_Prices_Excel($this->registry);
+						$Adm_Prices_Excel->make_pricelist();
 						break;
 					case 615:
 						$settings->coupons_list_sav();
