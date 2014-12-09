@@ -423,6 +423,7 @@
 									AND
 									goods.weight > 0
 								ORDER BY
+									parent_levels.sort ASC, levels.sort ASC,
 									".$q_order.",
 									seo_h1 ASC
 								".$q_limit.";
