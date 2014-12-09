@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://www.bodybuilding-shop.ru/</loc>
-    <lastmod>2014-12-01</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>daily</changefreq>
   </url>
@@ -14,11 +14,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/superset/protein/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-12-01</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -30,11 +26,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/superset/protein/whey-and-egg-shokoladnyy-3520gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-12-01</lastmod>
-=======
-    <lastmod>2014-10-15</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -100,19 +92,19 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/superset/gainer/mass-gain-bananovyy-8400gr/</loc>
-    <lastmod>2014-11-27</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/superset/gainer/super-gain-shokoladnyy-1485gr/</loc>
-    <lastmod>2014-10-05</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/superset/gainer/weight-gain-vanilnyy-4290gr/</loc>
-    <lastmod>2014-11-19</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -244,11 +236,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-12-01</lastmod>
-=======
-    <lastmod>2014-10-31</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -278,21 +266,13 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/bsn-syntha-6-isolate/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-12-06</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-platinum-hydrobuilder-1040gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -304,11 +284,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/multipower-100percent-whey-protein-908gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -320,11 +296,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/olimp-mega-strong-protein/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-10-29</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -336,11 +308,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-egg-protein-908gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -358,11 +326,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/optimum-nutrition-100percent-whey-protein-gold-standard-2270gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
-    <lastmod>2014-11-30</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -434,11 +398,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/weider-protein-80-plus-500gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -558,21 +518,13 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/bsn-syntha-6-1320gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-21</lastmod>
-=======
-    <lastmod>2014-10-18</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/muscletech-nitro-tech-hardcore-908gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -662,11 +614,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/protein/protein-belok/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-06</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -1278,7 +1226,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/gainer/mhp-up-your-mass-2270gr/</loc>
-    <lastmod>2014-11-16</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -1986,11 +1934,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/creatine/optimum-nutrition-pre-load-creatine-complex-1816gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-09</lastmod>
-=======
-    <lastmod>2014-10-30</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -2374,11 +2318,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/bsn-amino-x-435gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-05</lastmod>
-=======
-    <lastmod>2014-10-30</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -2390,11 +2330,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/olimp-glutamine-xplode/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -2580,7 +2516,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/aminokisloty/optimum-nutrition-bcaa-1000-200kap/</loc>
-    <lastmod>2014-11-13</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -3306,11 +3242,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/anabolicheskie-formuly/universal-animal-pak-44pak/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-15</lastmod>
-=======
-    <lastmod>2014-10-25</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -3760,11 +3692,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/universal-animal-flex/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -5444,11 +5372,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/vitaminy/Olimp-Bio-Silica/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-06</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -5490,11 +5414,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/vitaminy/optimum-nutrition-vitamin-c-1000-mg-100kap/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-06</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -5674,11 +5594,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/vitaminy/ultimate-nutrition-vitamin-c-plus-calcium-60kap/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-06</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -6224,11 +6140,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/batonchiki/weider-fitness-bar-energy/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-08</lastmod>
-=======
-    <lastmod>2014-10-22</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -6258,11 +6170,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/importnoe/batonchiki/weider-mega-mass-bar-60gr/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-12-03</lastmod>
-=======
-    <lastmod>2014-10-22</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12232,11 +12140,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
-    <lastmod>2014-12-07</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12261,6 +12165,12 @@
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/vliyanie-sporta-na-serdechno-sosudistuyu-sistemu/</loc>
     <lastmod>2014-11-10</lastmod>
+    <priority>1</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://www.bodybuilding-shop.ru/articles/vred-sportivnogo-pitaniya/</loc>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12320,11 +12230,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/glutamine/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-12</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12408,11 +12314,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/lizin/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-10-30</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12430,11 +12332,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/mikrofiltraciya/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-10-30</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12458,7 +12356,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/pitanie/</loc>
-    <lastmod>2014-11-10</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12470,11 +12368,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/protein-gainer/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-15</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12510,11 +12404,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/sportivnoe-pitanie-svoimi-rukami/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12574,11 +12464,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/proteinovyj-kokteyl/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12620,11 +12506,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/sportivnoe-pitanie-dlya-detey/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-11-02</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12648,7 +12530,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/Taurine/</loc>
-    <lastmod>2014-11-10</lastmod>
+    <lastmod>2014-12-08</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12696,11 +12578,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/articles/ultrafiltraciya/</loc>
-<<<<<<< HEAD:public_html/sitemap.xml
     <lastmod>2014-11-10</lastmod>
-=======
-    <lastmod>2014-10-30</lastmod>
->>>>>>> 01999d8fe153565021c7e183e28a44d5fa10fb0b:sitemap.xml
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -12736,7 +12614,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/news/</loc>
-    <lastmod>2014-12-01</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -13137,6 +13015,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://www.bodybuilding-shop.ru/news/novyy-material-vozmoznyy-vred-i-pobochnye-deystviya-sportivnogo-pitaniya/</loc>
+    <lastmod>2014-12-09</lastmod>
+    <priority>1</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://www.bodybuilding-shop.ru/news/novyy-material-gidroliz-belkov/</loc>
     <lastmod>2014-03-16</lastmod>
     <priority>1</priority>
@@ -13498,7 +13382,7 @@
   </url>
   <url>
     <loc>http://www.bodybuilding-shop.ru/prices/</loc>
-    <lastmod>2014-11-10</lastmod>
+    <lastmod>2014-12-09</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>

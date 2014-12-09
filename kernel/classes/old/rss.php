@@ -121,6 +121,7 @@
 				'&aacute;' => '',
 				'&Aacute;' => '',
 				'&auml;' => '',
+				'&hellip;' => '',
 				'&Ccedil;' => '',
 				'&ccedil;' => '',
 				);
