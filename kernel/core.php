@@ -5,11 +5,11 @@ require(ROOT_PATH.'kernel/libs/tcpdf/tcpdf.php');
 
 define('PHOTO_DIM_STR','80x80,122x122',true);
 define('LEV_PHOTO_DIM_STR','160x160',true);
-define('GOODS_PHOTO_DIR',ROOT_PATH.'public/foto/goods'.DIRSEP,true);
-define('LEV_PHOTO_DIR',ROOT_PATH.'public/foto/levels'.DIRSEP,true);
-define('FEAT_PHOTO_DIR',ROOT_PATH.'public/foto/features'.DIRSEP,true);
-define('GROWER_PHOTO_DIR',ROOT_PATH.'public/foto/growers'.DIRSEP,true);
-define('ARTICLE_PHOTO_DIR',ROOT_PATH.'public/foto/articles'.DIRSEP,true);
+define('GOODS_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/goods'.DIRSEP,true);
+define('LEV_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/levels'.DIRSEP,true);
+define('FEAT_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/features'.DIRSEP,true);
+define('GROWER_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/growers'.DIRSEP,true);
+define('ARTICLE_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/articles'.DIRSEP,true);
 
 define('NEWS_PAGINATE',10,true);
 define('POPULAR_MAX',15,true);

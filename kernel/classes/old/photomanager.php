@@ -210,7 +210,7 @@ class Photomanager{
     		$name = $_FILES['avatar']['name'];
     		$name = $this->article_avatar_generate($name,$article_id);
     		$src_full_path = $_FILES['avatar']['tmp_name'];
-
+    		
 			$this->image_resize($src_full_path,ARTICLE_PHOTO_DIR.$name,66,66);
 
 			return $name;
