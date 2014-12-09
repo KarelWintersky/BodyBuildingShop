@@ -601,26 +601,30 @@
 
 					$a['type'] = 2;
 
-					ob_start();
-						$a['link_text'] = '»';
-						$a['class'] = 'next';
-						$a['link_param'] = $next;
-						$a['link_href'] = $page_link;
-						$this->item_rq('pagination',$a);
-						$next = ob_get_contents();
-						ob_end_clean();
+					if(isset($next)){
+						ob_start();
+							$a['link_text'] = '»';
+							$a['class'] = 'next';
+							$a['link_param'] = $next;
+							$a['link_href'] = $page_link;
+							$this->item_rq('pagination',$a);
+							$next = ob_get_contents();
+							ob_end_clean();
+					}else $next = false;
 
-					ob_start();
-						$a['link_text'] = '«';
-						$a['class'] = 'prev';
-						$a['link_param'] = $prev;
-						$a['link_href'] = $page_link;
-						$this->item_rq('pagination',$a);
-						$prev = ob_get_contents();
-						ob_end_clean();
+					if(isset($prev)){
+						ob_start();
+							$a['link_text'] = '«';
+							$a['class'] = 'prev';
+							$a['link_param'] = $prev;
+							$a['link_href'] = $page_link;
+							$this->item_rq('pagination',$a);
+							$prev = ob_get_contents();
+							ob_end_clean();
+					}else $prev = false;
 
-					echo '<ul id="level_pagination">'.$prev.$html.$next.'</ul>';
-
+					if($prev || $next) echo '<ul id="level_pagination">'.$prev.$html.$next.'</ul>';
+					
 				endif;
 
 			}
