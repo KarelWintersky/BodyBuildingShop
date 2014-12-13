@@ -25,7 +25,7 @@ Class Adm_Prices_Excel_Array{
 				
 				$output[$g['level_id']][] = array(
 						'name' => $this->goods_name($g,$b),
-						'url' => sprintf('%s/%s/%s/%s/',
+						'url' => sprintf('%s%s/%s/%s/',
 							THIS_URL,
 							$g['parent_alias'],
 							$g['level_alias'],
@@ -41,11 +41,6 @@ Class Adm_Prices_Excel_Array{
 				);
 			}
 		}	
-
-		echo '<pre>';
-		print_r($output);
-		echo '</pre>';
-		exit();
 		
 		return $output;
 	}
@@ -55,7 +50,7 @@ Class Adm_Prices_Excel_Array{
 		
 		foreach($goods as $g)
 			$parents[$g['parent_id']] = array(
-					'url' => sprintf('%s/%s/',THIS_URL,$g['parent_alias']), 
+					'url' => sprintf('%s%s/',THIS_URL,$g['parent_alias']), 
 					'name' => $g['parent_name'], 
 					);
 		
@@ -67,7 +62,7 @@ Class Adm_Prices_Excel_Array{
 	
 		foreach($goods as $g)
 			$levels[$g['parent_id']][$g['level_id']] = array(
-					'url' => sprintf('%s/%s/%s/',THIS_URL,$g['parent_alias'],$g['level_alias']),
+					'url' => sprintf('%s%s/%s/',THIS_URL,$g['parent_alias'],$g['level_alias']),
 					'name' => $g['level_name'],
 			);
 	
