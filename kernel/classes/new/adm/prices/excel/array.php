@@ -42,6 +42,11 @@ Class Adm_Prices_Excel_Array{
 			}
 		}	
 
+		echo '<pre>';
+		print_r($output);
+		echo '</pre>';
+		exit();
+		
 		return $output;
 	}
 	
