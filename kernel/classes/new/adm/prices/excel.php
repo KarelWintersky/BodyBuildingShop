@@ -150,7 +150,6 @@ Class Adm_Prices_Excel{
 		$this->XLS->setActiveSheetIndex(0);
 		
 		$file = ROOT_PATH.'/public_html/data/sportivnoe-pitanie-price.xls';
-		chmod($file, 0755);
 		if(is_file($file)) unlink($file);
 
 		$writer = PHPExcel_IOFactory::createWriter($this->XLS, 'Excel5');
