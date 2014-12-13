@@ -154,8 +154,6 @@ Class Adm_Prices_Excel{
 
 		$writer = PHPExcel_IOFactory::createWriter($this->XLS, 'Excel5');
 		$writer->save($file);
-
-		exit();
 	}	
 }
 ?>
