@@ -149,9 +149,12 @@ Class Adm_Prices_Excel{
 		
 		$this->XLS->setActiveSheetIndex(0);
 		
-		$writer = PHPExcel_IOFactory::createWriter($this->XLS, 'Excel5');
-		$writer->save(ROOT_PATH.'/public_html/data/sportivnoe-pitanie-price.xls');
+		$file = ROOT_PATH.'/public_html/data/sportivnoe-pitanie-price.xls';
+		if(is_file($file)) unlink($file);
 		exit();
+		$writer = PHPExcel_IOFactory::createWriter($this->XLS, 'Excel5');
+		$writer->save($file);
+		
 	}	
 }
 ?>
