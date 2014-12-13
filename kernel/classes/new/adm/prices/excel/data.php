@@ -63,12 +63,7 @@ Class Adm_Prices_Excel_Data{
 				implode(",",array_keys($goods))
 				));
 		while($b = mysql_fetch_assoc($qLnk)) $barcodes[$b['goods_id']][] = $b;
-		
-		echo '<pre>';
-		print_r($barcodes);
-		echo '</pre>';
-		exit();
-		
+				
 		return $barcodes;
 	}
 	
