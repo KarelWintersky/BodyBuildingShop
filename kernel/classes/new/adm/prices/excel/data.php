@@ -57,6 +57,8 @@ Class Adm_Prices_Excel_Data{
 					goods_barcodes
 				WHERE
 					goods_id IN (%s)
+				ORDER BY
+					sort ASC;
 				",
 				implode(",",array_keys($goods))
 				));
