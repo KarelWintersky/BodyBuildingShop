@@ -1285,30 +1285,6 @@ Class Catalog{
 
 	}
 
-	public function barcode_check($barcode,$this_id){
-		$qLnk = mysql_query("
-							SELECT
-								goods.id,
-								goods.level_id,
-								parent_tbl.id AS parent_id
-							FROM
-								goods
-							LEFT OUTER JOIN levels ON levels.id = goods.level_id
-							LEFT OUTER JOIN levels AS parent_tbl ON parent_tbl.id = levels.parent_id
-							WHERE
-								goods.barcode = '".$barcode."'
-								AND
-								goods.id <> '".$this_id."'
-							");
-		if(mysql_num_rows($qLnk)>0){
-			$g = mysql_fetch_assoc($qLnk);
-			$lnk = '/adm/catalog/'.$g['parent_id'].'/'.$g['level_id'].'/'.$g['id'].'/';
-			echo $lnk;
-		}else{
-			echo 0;
-		}
-	}
-
 	public function goods_in_orders(&$total_amount){
 
 		$Orders = new Orders($this->registry,false);

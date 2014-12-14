@@ -40,58 +40,6 @@ function goods_form_check(form){
 		$(price).parent().find('.errF').html('');
 	}
 
-	/*var barcode = $(form).find('input[name="barcode"]');
-	if($(barcode).val()=='' || !numCheck($(barcode).val())){
-		$(barcode).addClass('err');
-		$(barcode).parent().find('.errF').html('Необходимо указать корректный штрихкод');
-		fl = false;
-		barcode_err = true;
-	}else{
-		$(barcode).removeClass('err');
-		$(barcode).parent().find('.errF').html('');
-		barcode_err = false;
-	}*/
-
-	if(!barcode_err){
-		$.ajax({
-			url: '/ajax/',
-		    type:'POST',
-			dataType:'text',
-			data:  {method:'goods_barcode_check',barcode:$(barcode).val(),id:id},
-			async:false,
-			success:function(resp){
-				if(resp!=0){
-					$(barcode).addClass('err');
-					$(barcode).parent().find('.errF').html('Товар с таким штрихкодом уже существует: <a href="'+resp+'" target="_blank">посмотреть</a>');
-					fl = false;
-				}else{
-					$(barcode).removeClass('err');
-					$(barcode).parent().find('.errF').html('');
-				}
-			}
-		});
-	}
-
-	var packing = $(form).find('input[name="packing"]');
-	if($(packing).val()==''){
-		$(packing).addClass('err');
-		$(packing).parent().find('.errF').html('Необходимо указать упаковку');
-		fl = false;
-	}else{
-		$(packing).removeClass('err');
-		$(packing).parent().find('.errF').html('');
-	}
-
-	var weight = $(form).find('input[name="weight"]');
-	if($(weight).val()=='' || !numCheck($(weight).val())){
-		$(weight).addClass('err');
-		$(weight).parent().find('.errF').html('Необходимо указать корректный вес');
-		fl = false;
-	}else{
-		$(weight).removeClass('err');
-		$(weight).parent().find('.errF').html('');
-	}
-
 	var personal_discount = $(form).find('input[name="personal_discount"]');
 	if($(personal_discount).val()=='' || !numCheck_1($(personal_discount).val()) || $(personal_discount).val()>100){
 		$(personal_discount).addClass('err');
@@ -102,6 +50,8 @@ function goods_form_check(form){
 		$(personal_discount).parent().find('.errF').html('');
 	}
 
+	if(!barcodes_check()) fl = false;
+	
 	if(!fl){
 		$('#overall_err_msg').show();
 	}else{

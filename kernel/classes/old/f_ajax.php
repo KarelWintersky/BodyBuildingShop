@@ -39,8 +39,8 @@ Class f_Ajax{
 	}
 
 	private function goods_barcode_check(){
-		$catalog = new Catalog($this->registry,false);
-		$catalog->barcode_check($_POST['barcode'],$_POST['id']);
+		$Adm_Catalog_Goods_Barcodes_Check = new Adm_Catalog_Goods_Barcodes_Check($this->registry,false);
+		$Adm_Catalog_Goods_Barcodes_Check->barcode_check();
 	}
 
 	private function cart_construct(){

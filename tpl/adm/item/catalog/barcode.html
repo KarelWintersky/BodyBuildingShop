@@ -1,32 +1,28 @@
-<tr>
+<tr class="value_line">
 	<td class="td_barcode">
-		<input name="bc[<?=$a['id']?>][barcode]" type="text" value="<?=$a['barcode']?>">
+		<input name="bc[<?=$a['id']?>][barcode]" type="text" value="<?=$a['barcode']?>" class="val_barcode">
 		
-		<input name="bc[<?=$a['id']?>][barcode_old]" type="hidden" value="<?=$a['barcode']?>">
+		<input name="bc[<?=$a['id']?>][barcode_old]" type="hidden" value="<?=$a['barcode']?>" class="val_barcode_old">
 	</td>
 	<td class="td_packing">
-		<input name="bc[<?=$a['id']?>][packing]" type="text" value="<?=$a['packing']?>">
+		<input name="bc[<?=$a['id']?>][packing]" type="text" value="<?=$a['packing']?>" class="val_packing">
 	</td>
 	<td class="td_feature">
 		<input name="bc[<?=$a['id']?>][feature]" type="text" value="<?=$a['feature']?>">
 	</td>
 	<td class="td_weight">
-		<input name="bc[<?=$a['id']?>][weight]" type="text" value="<?=$a['weight']?>">
+		<input name="bc[<?=$a['id']?>][weight]" type="text" value="<?=$a['weight']?>" class="val_weight">
 	</td>
 	<td class="td_price">
-		<input name="bc[<?=$a['id']?>][price]" type="text" value="<?=$a['price']?>">
+		<input name="bc[<?=$a['id']?>][price]" type="text" value="<?=$a['price']?>" class="val_price">
 	</td>
 	<td class="td_present">
 		<input name="bc[<?=$a['id']?>][present]" type="checkbox" <?= ($a['present']==1) ? 'checked' : '';?>>
 	</td>
 	<td class="td_del">
-		<input name="bc[<?=$a['id']?>][del]" type="checkbox">
+		<input name="bc[<?=$a['id']?>][del]" type="checkbox" class="val_del">
 	</td>
-	<td class="td_link">
-		<?if(isset($a['former_goods_id']) && !is_null($a['former_goods_id'])):?>
-			<a href="/adm/catalog/<?=$this->registry['good']['level_parent_id'];?>/<?=$this->registry['good']['level_id'];?>/<?=$a['former_goods_id'];?>/" target="_blank">ред.</a>
-		<?endif;?>	
-	</td>	
+	<td class="td_err"></td>
 	
-	<input name="bc[<?=$a['id']?>][sort]" type="hidden" value="<?=$a['sort']?>" class="input_sort">
+	<input name="bc[<?=$a['id']?>][sort]" type="hidden" value="<?= (isset($a['sort'])) ? $a['sort'] : 0?>" class="input_sort">
 </tr>

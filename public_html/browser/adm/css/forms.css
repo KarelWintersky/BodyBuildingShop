@@ -124,7 +124,7 @@ form{}
 		.table_barcodes .td_feature input{width:90px;}
 	.table_barcodes .td_del{text-align:center;}
 	.table_barcodes .td_present{text-align:center;}
-	.table_barcodes .td_link{background:none;border:0;font-size:11px;}
+	.table_barcodes .td_err{background:none;border:0;font-size:11px;color:#ff0000;padding-top:8px;}
 
 #block_GoodFeatures{padding:15px 0;}
 	#block_GoodFeatures h3{padding:15px 0 10px;margin:0;}
