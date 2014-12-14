@@ -820,7 +820,7 @@
 			);
 
 			$level_id = $this->registry['goods']['level_id'];
-			$sort_key = (isset($_COOKIE['catalog']['sort'][$level_id])) ? $_COOKIE['catalog']['sort'][$level_id] : 'sort|ASC';
+			$sort_key = 'sort|ASC';
 				$sort_arr = $sort_items[$sort_key];
 
 			//next
