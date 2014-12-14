@@ -298,6 +298,13 @@
         	return "LIMIT ".$offset.", ".$PAGING;
 		}
 
+		private function trunc_active($arr){
+			foreach($arr as $id => $a){
+				$arr[$id]['active'] = 0;
+			}
+			return $arr;
+		}		
+		
 		private function get_display_type($from){
 
 			$type = ($from==0) ? 'level' : (($from==1) ? 'grower' : 'popular');
