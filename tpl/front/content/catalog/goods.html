@@ -49,7 +49,14 @@ $(document).ready(function(){
 	<div id="goods_info">
 
 		<div id="goods_info_upper_order"><div id="goods_info_upper_order_i">
-			<?$this->registry['CL_catalog_barcodes']->order_barcodes();?>
+			<?$BC = $this->registry['CL_catalog_barcodes']->order_barcodes();?>
+			
+			<?if($BC):?>
+				<?=$BC;?>
+			<?else:?>
+				<div id="goods_info_upper_none">Отсутствует в продаже</div>
+			<?endif;?>
+						
 		</div></div>
 
 		<?$this->registry['f_catalog']->print_ostatok();?>

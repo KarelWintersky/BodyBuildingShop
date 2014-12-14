@@ -65,19 +65,10 @@
 			$barcodes = array();
 			$qLnk = mysql_query(sprintf("SELECT * FROM goods_barcodes WHERE goods_id = '%d' ORDER BY sort ASC;",$this->registry['goods']['id']));
 			while($b = mysql_fetch_assoc($qLnk)){				
-				//$b['packing'] = str_replace('&nbsp;',' ',$b['packing']);
-				//$b['packing'] = html_entity_decode($b['packing']);				
-				
-				//var_dump(str_replace(' ','',$b['packing']));
-				//var_dump(str_replace('&nbsp;','',$b['packing']));
-				
 				$barcodes[$b['packing']][] = $b;
 			}
-
-			//echo '<pre>';
-			//print_r($barcodes);
-			//echo '</pre>';
 			
+			ob_start();
 			$count = count($barcodes);
 			$i = 1;
 			foreach($barcodes as $packing => $lines){
@@ -96,7 +87,9 @@
 
 				$i++;
 			}
-
+			$html = ob_get_clean();
+			
+			return $html;
 		}
 
 		private function implode_classes($i,$count,$a){

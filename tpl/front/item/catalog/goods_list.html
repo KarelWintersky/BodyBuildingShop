@@ -32,11 +32,15 @@
 		<ul class="goods_item_feats">
 			<li>
 				<?if($a['parent_level_id']==4):?>
-					<b>Цвет:</b>
-					<?=$a['colors_list'];?>	
+					<?if($a['colors_list']):?>
+						<b>Цвет:</b>
+						<?=$a['colors_list'];?>
+					<?endif;?>					
 				<?else:?>
-					<b>Упаковка:</b>
-					<?=$a['packs_list'];?>				
+					<?if($a['packs_list']):?>	
+						<b>Упаковка:</b>
+						<?=$a['packs_list'];?>
+					<?endif;?>				
 				<?endif;?>
 			</li>
 			<?if($a['features_list']!=''):?>
@@ -57,7 +61,11 @@
 
 		<ul class="goods_item_price">
 
-			<?=$a['min_price'];?>
+			<?if($a['min_price']):?>
+				<?=$a['min_price'];?>
+			<?else:?>
+				<li class="goods_item_none">Отсутствует в продаже</li>
+			<?endif;?>
 
 		</ul>
 
