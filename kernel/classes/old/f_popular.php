@@ -24,6 +24,9 @@
 				
 				$this->registry['popular'] = array('id' => 0);
 				
+				$Front_Catalog_Popular = new Front_Catalog_Popular($this->registry);
+				$Front_Catalog_Popular->do_vars();				
+				
 				return true;
 			}
 			

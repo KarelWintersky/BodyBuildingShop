@@ -7,11 +7,15 @@ Class Template {
         private $F_crumbs = array('/' => 'Главная');
         public $TF;
         public $front_path;
+        
+        public $Front_Template;
 
         function __construct($registry) {
           $this->registry = $registry;
           $this->vars['no_tpl'] = false;
 		  $this->TF = ROOT_PATH.'tpl/front/';
+		  
+		  $this->Front_Template = new Front_Template($this->registry);
         }
 
 		function set($varname, $value, $overwrite=false) {
@@ -32,20 +36,22 @@ Class Template {
           		header("HTTP/1.0 404 Not Found");
           		echo('PAGE NOT FOUND');
           }else{
-				if(!$this->vars['no_tpl']):
+				if($this->vars['no_tpl']) return false;
 				
-					$this->TF = ROOT_PATH.'tpl/'.$this->vars['tpl'].'/';
-					$this->front_path = '/browser/'.$this->vars['tpl'].'/';
+				$this->TF = ROOT_PATH.'tpl/'.$this->vars['tpl'].'/';
+				$this->front_path = '/browser/'.$this->vars['tpl'].'/';
 
-					$path = $this->TF.'main.html';
-								    
-					foreach ($this->vars as $key => $value) {
-				       $$key = $value;
-				    }
-				    
-				    include ($path);
-				    
-				endif;
+				$path = $this->TF.'main.html';
+							    
+				foreach ($this->vars as $key => $value) $$key = $value;
+			    
+				ob_start();
+			    include ($path);
+			    $html = ob_get_clean();
+			    
+			    if($this->vars['tpl']=='front') $html = $this->Front_Template->do_template($html);
+			    
+			    echo $html;
           }
           
 		}

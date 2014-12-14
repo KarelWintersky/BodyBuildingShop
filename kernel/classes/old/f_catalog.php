@@ -7,23 +7,14 @@
 		public $goods_display_type;
 
 		private $Front_Catalog_Barcodes;
+		private $Front_Catalog_Goods_List_Sort;
 
 		public function __construct($registry){
 			$this->registry = $registry;
 			$this->registry->set('CL_catalog',$this);
 
 			$this->Front_Catalog_Barcodes = new Front_Catalog_Barcodes($this->registry);
-
-			$this->goods_sort_values = array(
-				'sort|ASC' => array('name' => 'умолчанию', 'active' => 0),
-				'present|DESC' => array('name' => 'наличию', 'active' => 0),
-				'seo_h1|ASC' => array('name' => 'алфавиту А - Я', 'active' => 0),
-				'seo_h1|DESC' => array('name' => 'алфавиту Я - А', 'active' => 0),
-				'price_1|ASC' => array('name' => 'цене, сначала дешевые', 'active' => 0),
-				'price_1|DESC' => array('name' => 'цене, сначала дорогие', 'active' => 0),
-				'grower|ASC' => array('name' => 'производителю', 'active' => 0),
-				'popularity_index|DESC' => array('name' => 'популярности', 'active' => 0)
-			);
+			$this->Front_Catalog_Goods_List_Sort = new Front_Catalog_Goods_List_Sort($this->registry);
 
 			$this->goods_display_number = array(
 				'goods_list' => array(
@@ -91,6 +82,10 @@
 				return true;
 			}elseif(count($path_arr)==2 && $this->check_level($path_arr[0],$path_arr[1])){
 				$this->registry['template']->set('c','catalog/level');
+				
+				$Front_Catalog_Levels = new Front_Catalog_Levels($this->registry);
+				$Front_Catalog_Levels->do_vars();
+				
 				return true;
 			}elseif(count($path_arr)==3 && $this->check_level($path_arr[0],$path_arr[1]) && $this->check_goods($path_arr[2],$path_arr[0],$path_arr[1])){
 				$this->registry['template']->set('c','catalog/goods');
@@ -264,13 +259,6 @@
 			}
 		}
 
-		private function trunc_active($arr){
-			foreach($arr as $id => $a){
-				$arr[$id]['active'] = 0;
-			}
-			return $arr;
-		}
-
 		private function goods_list_pagination(&$list_params,$reqiure_file,$from){
 
 			$type = ($from==0) ? 'level' : (($from==1) ? 'grower' : 'popular');
@@ -308,27 +296,6 @@
         	$list_params['fin'] = $offset+$PAGING;
 
         	return "LIMIT ".$offset.", ".$PAGING;
-		}
-
-		private function goods_list_sort($from){
-
-			$type = ($from==0) ? 'level' : (($from==1) ? 'grower' : 'popular');
-
-			if(isset($_COOKIE[$this->registry['cookie_type']]['sort'][$this->registry[$type]['id']])){
-				$q_sort_str = $_COOKIE[$this->registry['cookie_type']]['sort'][$this->registry[$type]['id']];
-				if(in_array($q_sort_str,array_keys($this->registry['f_catalog']->goods_sort_values))){
-					$this->registry['f_catalog']->goods_sort_values = $this->trunc_active($this->registry['f_catalog']->goods_sort_values);
-					$this->registry['f_catalog']->goods_sort_values[$q_sort_str]['active'] = 1;
-
-					$q_sort_arr = explode('|',$q_sort_str);
-					return $q_sort_arr[0]." ".$q_sort_arr[1];
-				}
-			}
-
-			if($from==2){$this->registry['f_catalog']->goods_sort_values['popularity_index|DESC']['active'] = 1;}
-
-			return ($from==2) ? "goods.popularity_index DESC" : "goods.sort ASC";
-
 		}
 
 		private function get_display_type($from){
@@ -386,10 +353,7 @@
 			$result_ids = array();
 			$feats_arr = array();
 
-			$q_limit = $this->goods_list_pagination($list_params,$reqiure_file,$from);
-			$q_order = $this->goods_list_sort($from);
-
-			$qLnk = mysql_query("
+			$qLnk = mysql_query(sprintf("
 								SELECT SQL_CALC_FOUND_ROWS
 									goods.avatar_id,
 									goods.id AS id,
@@ -399,7 +363,7 @@
 									goods.packing AS packing,
 									goods.price_1,
 									goods.price_2,
-									(goods.personal_discount + ".OVERALL_DISCOUNT.") AS personal_discount,
+									(goods.personal_discount + %s) AS personal_discount,
 									goods.sort AS sort,
 									goods.new AS new,
 									goods.present AS present,
@@ -416,19 +380,25 @@
 								LEFT OUTER JOIN levels ON levels.id = goods.level_id
 								LEFT OUTER JOIN levels AS parent_levels ON parent_levels.id = levels.parent_id
 								WHERE
-									".$q_where."
+									%s
 									goods.published = 1
 									AND
 									goods.parent_barcode = 0
 									AND
 									goods.weight > 0
 								ORDER BY
-									parent_levels.sort ASC, levels.sort ASC,
-									".$q_order.",
+									parent_levels.sort ASC, 
+									levels.sort ASC,
+									%s,
 									seo_h1 ASC
-								".$q_limit.";
-								");
-
+								%s;
+								",
+								OVERALL_DISCOUNT,
+								$q_where,
+								$this->Front_Catalog_Goods_List_Sort->get_sort($from),
+								$this->goods_list_pagination($list_params,$reqiure_file,$from)
+								));
+			
        		$qAmount = mysql_query("SELECT FOUND_ROWS();");
        		$total_goods_amount = mysql_result($qAmount,0);
         	$list_params['total_goods_amount'] = ($from==2 && POPULAR_MAX<$total_goods_amount) ? POPULAR_MAX : $total_goods_amount;
@@ -480,7 +450,8 @@
 						$g['price_2_n'] = $g['price_2'] - $g['price_2']*$g['personal_discount']/100;
 					}
 
-					$g['grower_change'] =( $q_order=='grower ASC' && $grower_id_criteria!=$g['grower_id']) ? true : false;
+					//$g['grower_change'] =( $q_order=='grower ASC' && $grower_id_criteria!=$g['grower_id']) ? true : false;
+					$g['grower_change'] =($grower_id_criteria!=$g['grower_id']);
 
 					$g['barcodes_avialable_check'] = $this->Front_Catalog_Barcodes->barcodes_avialable_check($g['id']);
 					$g['packs_list'] = $this->Front_Catalog_Barcodes->packs_list($g);

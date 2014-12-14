@@ -23,6 +23,10 @@
 				return true;
 			}elseif(count($path_arr)==1 && $this->grower_exists($path_arr[0])){
 				$this->registry['template']->set('c','growers/grower');
+				
+				$Front_Growers = new Front_Growers($this->registry);
+				$Front_Growers->do_vars();				
+				
 				return true;
 			}
 
