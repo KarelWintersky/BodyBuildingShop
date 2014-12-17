@@ -38,6 +38,7 @@
 
 		public function redirect_check(){
 			$path_arr = $this->registry['route_path'];
+			
 			if(count($path_arr)==2 && $path_arr[0]=='shop'){
 				$code_arr = explode('.html',$path_arr[1]);
 				if(count($code_arr)==2 && $code_arr[1]==''){
@@ -172,13 +173,13 @@
 					",$parent_barcode));
 				$goods = mysql_fetch_assoc($qLnk);
 				if($goods){
+					if(!$goods['alias']) return false;
+					
 					$url = '/'.$goods['parent_alias'].'/'.$goods['level_alias'].'/'.$goods['alias'].'/';
-										
+					
 					header('HTTP/1.1 301 Moved Permanently');
 					header('Location: '.$url);
 					exit();					
-					
-					//return $url;
 				}
 			}
 
