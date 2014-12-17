@@ -90,13 +90,13 @@
 
 		<div class="clr"></div>
 
-		<div class="form_l form_l_barcode lft" style="display:none;">
+		<div class="form_l form_l_barcode lft">
 			<label>Штрихкод</label>
 			<input type="text" name="barcode" value="<?= ($this->registry['action']==100) ? $this->registry['good']['barcode'] : '';?>">
 			<div class="errF"></div>
 		</div>
 
-		<div class="form_l form_l_parent_barcode lft" style="display:none;">
+		<div class="form_l form_l_parent_barcode lft">
 			<label>Штрихкод родителя</label>
 			<input type="text" name="parent_barcode" value="<?= ($this->registry['action']==100) ? $this->registry['good']['parent_barcode'] : '';?>">
 			<div class="errF"></div>
