@@ -20,7 +20,7 @@
 		
 	$router = new Router($registry);
 		$registry->set ('router', $router);
-		$router->trailing_slash();
+		$router->url_low_register(); $router->trailing_slash();
 		$router->setPath(ROOT_PATH.'kernel/controllers');
 		$router->delegate();
 		

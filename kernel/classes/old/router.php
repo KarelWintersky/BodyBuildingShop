@@ -11,6 +11,22 @@ Class Router {
            $this->registry = $registry;
         }
 
+        public function url_low_register(){
+        	$path = $_SERVER['REQUEST_URI'];
+        		$path = explode('?',$path);
+        		
+        	$url_lower=mb_strtolower($path[0],'utf-8');
+        	if($url_lower==$path[0]) return false;
+        	
+        	$url = (isset($path[1])) 
+        		? sprintf('%s?%s',$url_lower,$path[1])
+        		: $url_lower;
+
+        	header('HTTP/1.1 301 Moved Permanently');
+        	header('Location: '.$url_lower);
+        	exit();        	
+        }
+        
         function trailing_slash(){
         	$path = explode('?',$_SERVER['REQUEST_URI']);
         	        	
