@@ -877,7 +877,7 @@ Class Template {
 	    	if(isset($this->registry['CL_catalog']) && isset($this->registry['goods'])){
 	    		$url = ($this->registry['goods']['canonical'])
 	    			? $this->registry['goods']['canonical']
-	    			: $_SERVER['REQUEST_URI'];
+	    			: mb_strtolower($_SERVER['REQUEST_URI'],'utf-8');
 	    		$url = trim(THIS_URL,'/').$url;
 
 	    		echo "\r\n";
@@ -888,6 +888,7 @@ Class Template {
 	    		$url = trim(THIS_URL,'/').$url;
 	    		$url = trim($url,'/');
 	    		$url = $url.'/';
+	    		$url = mb_strtolower($url,'utf-8');
 
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'">';
