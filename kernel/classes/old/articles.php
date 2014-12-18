@@ -111,6 +111,7 @@ Class Articles{
 		$longtitle = ($longtitle!='') ? $longtitle : $name;
 		$main_h2 = ($main_h2!='') ? $main_h2 : $name;
 		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id);
 
 		$qLnk = mysql_query("SELECT MAX(articles.sort)+1 FROM articles;");
@@ -175,6 +176,7 @@ Class Articles{
 		$longtitle = ($longtitle!='') ? $longtitle : $name;
 		$main_h2 = ($main_h2!='') ? $main_h2 : $name;
 		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id);
 
 		$img_alt = str_replace('"','',$img_alt);

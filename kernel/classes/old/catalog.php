@@ -665,6 +665,7 @@ Class Catalog{
 		$level_id_arr = explode('-',$level_id);
 
 		$alias = ($alias=='') ? $this->mk_goods_alias($name,$level_id_arr,$packing,$grower_id) : $alias;
+			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id,'goods',$level_id,'level_id');
 
 		$seo_title = ($seo_title=='') ? $this->mk_seo_title($level_id_arr[1],$grower_id,$name,$packing) : $seo_title;
@@ -843,6 +844,7 @@ Class Catalog{
 		$level_id_arr = explode('-',$level_id);
 
 		$alias = ($alias=='') ? $this->mk_goods_alias($name,$level_id_arr,$packing,$grower_id) : $alias;
+			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,0,'goods',$level_id,'level_id');
 
 		$seo_title = ($seo_title=='') ? $this->mk_seo_title($level_id_arr[1],$grower_id,$name,$packing) : $seo_title;

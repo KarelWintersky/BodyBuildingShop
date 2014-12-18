@@ -78,6 +78,7 @@ Class Pages{
 		$h2_title = ($h2_title!='') ? $h2_title : $name;
 
 		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id);
 
 		mysql_query("
@@ -129,6 +130,7 @@ Class Pages{
 		$h2_title = ($h2_title!='') ? $h2_title : $name;
 
 		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id);
 
 		$qLnk = mysql_query("

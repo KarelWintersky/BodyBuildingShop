@@ -75,6 +75,7 @@
 			$rss = (isset($rss) && $rss==1) ? 1 : 0;
 
 			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+				$alias = mb_strtolower($alias,'utf-8');
 			$alias = $this->urlGenerate($alias,$id);
 
 			mysql_query("
@@ -116,6 +117,7 @@
 			$published = (isset($published) && $published==1) ? 1 : 0;
 
 			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+				$alias = mb_strtolower($alias,'utf-8');
 			$alias = $this->urlGenerate($alias,$id);
 
 			$qLnk = mysql_query("

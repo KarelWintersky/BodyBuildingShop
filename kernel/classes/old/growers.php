@@ -78,6 +78,7 @@
 			foreach($_POST as $key => $val){$$key = (is_array($val)) ? $val : mysql_real_escape_string($val);}
 			
 			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+				$alias = mb_strtolower($alias,'utf-8');
 			$alias = $this->urlGenerate($alias,$id);				
 			
 			$longtitle = ($longtitle!='') ? $longtitle : $name;
@@ -125,6 +126,7 @@
 			$avatar = $photomanager->upload_grower_avatar($old_avatar);			
 			
 			$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
+				$alias = mb_strtolower($alias,'utf-8');
 			$alias = $this->urlGenerate($alias,$id);			
 			
 			$longtitle = ($longtitle!='') ? $longtitle : $name;

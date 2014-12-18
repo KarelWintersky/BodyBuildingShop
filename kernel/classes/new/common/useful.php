@@ -5,7 +5,7 @@ Class Common_Useful{
 		return number_format($price,0,'',' ');
 	}
 	
-	public static function rus2translit($s) {
+	public static function rus2translit($s) {		
 		$converter = array(
 				'а' => 'a',   'б' => 'b',   'в' => 'v',
 				'г' => 'g',   'д' => 'd',   'е' => 'e',
