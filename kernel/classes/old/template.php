@@ -395,6 +395,7 @@ Class Template {
 			$qLnk = mysql_query("
 								SELECT
 									growers.id,
+									growers.name,
 									growers.alias,
 									growers.avatar
 								FROM
