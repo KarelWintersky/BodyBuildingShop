@@ -145,7 +145,8 @@
 						$settings->yandex_market_xml();
 						break;
 					case 613:
-						$settings->mk_sitemap_xml();
+						$Adm_Settings_Sitemap = new Adm_Settings_Sitemap($this->registry);
+						$Adm_Settings_Sitemap->mk_files();
 						break;
 					case 614:
 						$Adm_Prices_Excel = new Adm_Prices_Excel($this->registry);
