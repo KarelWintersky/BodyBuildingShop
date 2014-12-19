@@ -1,22 +1,3 @@
-<script type="text/javascript" src="<?=$this->registry['template']->front_path;?>js/lib/jquery-ui.js"></script>
-<script type="text/javascript" src="<?=$this->registry['template']->front_path;?>js/lib/accordionImageMenu.js"></script>	
-<link rel="stylesheet" href="<?=$this->registry['template']->front_path;?>css/accordionImageMenu.css" type="text/css" />	
-
 <ul id="main_page_module">
 	<?$this->registry['template']->F_main_page_module_items();?>		
 </ul>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	$('#main_page_module').AccordionImageMenu({
-		'height': 319,
-		'openDim': 839,
-		'closeDim': 238,
-		'duration': 600,
-		'openItem': 0,
-		'border': 1,
-		'color': '#ffffff',
-		'effect': 'easeInOutSine'
-	});
-});
-</script>

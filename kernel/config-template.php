@@ -17,4 +17,6 @@
 	define('CLOSE_FRONTEND',true,true); //закрыть фронтенд от незалогиненных в админку
 	
 	define('HIDE_COUNTERS',false,true); //не выводить код счетчиков в шаблон
+	
+	define('OPTIMISE_FRONTEND',true,true); //включаем оптимизацию фронтенда (css, js, html)
 ?>

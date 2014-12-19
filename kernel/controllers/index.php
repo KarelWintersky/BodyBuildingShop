@@ -7,6 +7,17 @@ Class Controller_Index Extends Controller_Base {
 		$this->registry->set('route_path', $A);
     	
     	if(count($this->registry['route_path'])==0){
+    		$this->registry['CL_css']->set(array(
+    				'jcarousel',
+    				'accordionImageMenu',
+    				));
+    		$this->registry['CL_js']->set(array(
+    				'lib/jquery.jcarousel.min',
+    				'lib/jquery-ui.min',
+    				'lib/accordionImageMenu',
+    				'mainpage',
+    		));    		
+    		
     		$this->registry['mp_info'] = $this->registry['template']->get_main_page_content();
     		$this->registry['f_404'] = false;	
     		$this->registry['mainpage'] = true;

@@ -134,6 +134,14 @@
 			if(mysql_num_rows($qLnk)>0){
 				$g = mysql_fetch_assoc($qLnk);
 				
+				$this->registry['CL_css']->set(array(
+					'shadowbox'
+				));				
+				$this->registry['CL_js']->set(array(
+					'goods',
+					'lib/shadowbox'
+				));				
+				
 				$g['canonical'] = $this->get_canonical($g['parent_barcode'],$g['barcode']);
 
 				$g['price_1_n'] = $g['price_1'] - $g['price_1']*$g['personal_discount']/100;

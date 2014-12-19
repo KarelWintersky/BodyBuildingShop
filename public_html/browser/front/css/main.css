@@ -1,3 +1,12 @@
+*{margin:0;padding:0;}
+ul{list-style:none;}
+img{border:0;vertical-align:top;}
+.clr{clear:both;}
+a{text-decoration:underline;}
+	a:hover{text-decoration:none;}
+	
+.nomargin{width:1px;height:1px;margin:0;}	
+
 html, body{height:100%;}
 body{text-align:center;background:url(/browser/front/i/body.jpg) 50% 0 repeat-x;font-family:Verdana;}
 
