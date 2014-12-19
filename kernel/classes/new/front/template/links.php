@@ -29,7 +29,7 @@ Class Front_Template_Links{
 		if(!$link  || $link=='/') return THIS_URL;
 		
 		return sprintf('%s/%s',
-				THIS_URL,
+				rtrim(THIS_URL,'/'),
 				ltrim($link,'/')
 				);
 	}
