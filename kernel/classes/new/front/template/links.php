@@ -21,14 +21,17 @@ Class Front_Template_Links{
 				'http://bodybuilding-shop',
 				);
 
-		$is_outer = true;
-		foreach($domains as $d)
-			if(strpos('http://',$link)!==false && strpos($d,$link)!==false)
-				$is_outer = false;
+		$is_outer = false;
+		if(strpos('http://',$link)!==false){
+			$is_outer = true;
+			foreach($domains as $d)
+				if(strpos($d,$link)!==false)
+					$is_outer = false;			
+		}
 		if($is_outer) return $link;
 		
 		foreach($domains as $d)
-			$link = ltrim($link,$d);
+			$link = str_replace($d,'',$link);
 				
 		return sprintf('%s/%s',
 				rtrim(THIS_URL,'/'),
@@ -38,11 +41,12 @@ Class Front_Template_Links{
 	
 	private function do_replace($matches){
 		if($matches[1]=='/' || !$matches[1]) return $matches[0];
-		
+				
 		$link = $matches[1];
 		$link = $this->to_lowercase($link);
 		$link = $this->replace_domain($link);
-				
+
+		
 		return str_replace(
 				$matches[1],
 				$link,
