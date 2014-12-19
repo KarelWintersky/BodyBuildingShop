@@ -131,7 +131,7 @@ Class Front_Template_Js{
 				if(strpos($file,'http://')===false && strpos($file,'https://')===false && strpos($file,'//')===false)
 					$file_js = sprintf($file_js.'?ver=%s',$ver);
 
-				$output[] = sprintf('<script src="%s" type="text/javascript"></script>', //defer
+				$output[] = sprintf('<script async src="%s" type="text/javascript"></script>', //defer
 						$file_js
 						);
 			}
