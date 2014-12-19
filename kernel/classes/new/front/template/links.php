@@ -15,13 +15,17 @@ Class Front_Template_Links{
 	
 	private function replace_domain($link){
 		$domains = array(
-				'new2.bodybuilding-shop.ru',
-				'www.bodybuilding-shop.ru',
-				'bodybuilding-shop.ru',
-				'bodybuilding-shop',
+				'http://new2.bodybuilding-shop.ru',
+				'http://www.bodybuilding-shop.ru',
+				'http://bodybuilding-shop.ru',
+				'http://bodybuilding-shop',
 				);
-		
-		$link = str_replace('http://','',$link);
+
+		$is_outer = true;
+		foreach($domains as $d)
+			if(strpos('http://',$link)!==false && strpos($d,$link)!==false)
+				$is_outer = false;
+		if($is_outer) return $link;
 		
 		foreach($domains as $d)
 			$link = ltrim($link,$d);
