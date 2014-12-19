@@ -34,6 +34,10 @@
 				'goods_list_table' => array('name' => 'Списком', 'active' => 0)
 			);
 
+			$this->registry['CL_css']->set(array(
+					'catalog',
+			));			
+			
 		}
 
 		public function redirect_check(){

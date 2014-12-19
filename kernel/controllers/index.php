@@ -10,6 +10,7 @@ Class Controller_Index Extends Controller_Base {
     		$this->registry['CL_css']->set(array(
     				'jcarousel',
     				'accordionImageMenu',
+    				'mainpage',
     				));
     		$this->registry['CL_js']->set(array(
     				'lib/jquery.jcarousel.min',
