@@ -33,10 +33,6 @@
 				'goods_list' => array('name' => 'Подробно', 'active' => 1),
 				'goods_list_table' => array('name' => 'Списком', 'active' => 0)
 			);
-
-			$this->registry['CL_css']->set(array(
-					'catalog',
-			));			
 			
 		}
 
@@ -83,16 +79,29 @@
 			$path_arr = $this->registry['route_path'];
 
 			if(count($path_arr)==1 && $this->check_parent_level($path_arr[0])){
+				$this->registry['CL_css']->set(array(
+						'catalog',
+				));				
+				
 				$this->registry['template']->set('c','catalog/parent_level');
 				return true;
 			}elseif(count($path_arr)==2 && $this->check_level($path_arr[0],$path_arr[1])){
 				$this->registry['template']->set('c','catalog/level');
+				
+				$this->registry['CL_css']->set(array(
+						'catalog',
+				));				
 				
 				$Front_Catalog_Levels = new Front_Catalog_Levels($this->registry);
 				$Front_Catalog_Levels->do_vars();
 				
 				return true;
 			}elseif(count($path_arr)==3 && $this->check_level($path_arr[0],$path_arr[1]) && $this->check_goods($path_arr[2],$path_arr[0],$path_arr[1])){
+				
+				$this->registry['CL_css']->set(array(
+						'catalog',
+				));				
+				
 				$this->registry['template']->set('c','catalog/goods');
 				return true;
 			}
