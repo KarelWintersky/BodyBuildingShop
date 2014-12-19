@@ -454,6 +454,8 @@
 						AND
 						goods_barcodes.price >0
 						AND
+						(goods.parent_barcode = '' OR goods.parent_barcode = '0') 
+						AND
 						levels.published = 1
 						AND
 						levels.id NOT IN (19,22,21,20,23,2)
