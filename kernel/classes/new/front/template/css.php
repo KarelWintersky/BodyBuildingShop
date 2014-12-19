@@ -33,7 +33,7 @@ Class Front_Template_Css{
         			);
 
         	foreach($special as $file => $wrap)
-        		$output[] = sprintf('%s<link property="stylesheet" rel="stylesheet" href="%s.css" type="text/css" />%s',
+        		$output[] = sprintf('%s<link property="stylesheet" rel="stylesheet" href="%s.css" type="text/css">%s',
         				$wrap[0],
         				$this->path.$file,
         				$wrap[1]
@@ -104,14 +104,14 @@ Class Front_Template_Css{
 			foreach($this->data as $file => $file_css){
 				if(strpos($file,'http://')===false && strpos($file,'https://')===false && strpos($file,'//')===false){
 					$file_css = sprintf(
-						'<link property="stylesheet" rel="stylesheet" href="%s?ver=%s" type="text/css" />',
+						'<link property="stylesheet" rel="stylesheet" href="%s?ver=%s" type="text/css">',
 						$file_css,
 						$ver
 					);
 				}
 				else {
 					$file_css = sprintf(
-						'<link property="stylesheet" rel="stylesheet" href="%s" type="text/css" />',
+						'<link property="stylesheet" rel="stylesheet" href="%s" type="text/css">',
 						$file_css
 					);
 				}
