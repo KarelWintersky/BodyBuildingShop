@@ -1,6 +1,8 @@
 <div class="sb_popular_item <?=$a['class']?>">
 	<div class="sb_popular_img">
-		<a href="<?=$a['link'];?>"><img src="\data\foto\goods\80x80\<?=$a['photo_goods_id'];?>\<?=$a['avatar'];?>"></a>
+		<a href="<?=$a['link'];?>">
+			<img src="\data\foto\goods\80x80\<?=$a['photo_goods_id'];?>\<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['name']);?>">
+		</a>
 	</div>
 	<div class="sb_popular_r">
 		<a href="<?=$a['link'];?>"><?=$a['name'];?> «<?=$a['grower'];?>»</a>
