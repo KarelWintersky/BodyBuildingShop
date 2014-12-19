@@ -59,9 +59,9 @@ form{}
 #h_auth{width:235px;float:left;padding:20px 0 0 47px;}
 	#h_auth #form_h_auth{}
 		#h_auth #form_h_auth #h_auth_l{float:left;width:171px;}
-			#h_auth #form_h_auth #h_auth_l #h_auth_l_block{padding:0 0 8px 0;}
-				#h_auth #form_h_auth #h_auth_l #h_auth_l_block label{float:left;font-size:11px;color:#fff;padding:4px 0 0;}
-				#h_auth #form_h_auth #h_auth_l #h_auth_l_block input{float:right;padding:0 5px;height:21px;width:105px;border:0;background:#fff;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;outline:none;font-size:11px;color:#333;}
+			#h_auth #form_h_auth #h_auth_l .h_auth_l_block{padding:0 0 8px 0;}
+				#h_auth #form_h_auth #h_auth_l .h_auth_l_block label{float:left;font-size:11px;color:#fff;padding:4px 0 0;}
+				#h_auth #form_h_auth #h_auth_l .h_auth_l_block input{float:right;padding:0 5px;height:21px;width:105px;border:0;background:#fff;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;outline:none;font-size:11px;color:#333;}
 		#h_auth #form_h_auth #h_auth_r{float:right;padding:27px 0 0;}
 			#h_auth #form_h_auth #h_auth_r input{background:url(/browser/front/i/form_h_auth_sbm.png) 0 0 no-repeat;width:52px;height:24px;border:0;cursor:pointer;}
 	#h_auth #h_auth_links{font-size:11px;color:#fff;text-align:right;padding:2px 0 0;}
