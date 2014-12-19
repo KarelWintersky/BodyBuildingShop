@@ -29,9 +29,7 @@ Class Front_Template_Links{
 		
 		foreach($domains as $d)
 			$link = ltrim($link,$d);
-		
-		if(!$link  || $link=='/') return THIS_URL;
-		
+				
 		return sprintf('%s/%s',
 				rtrim(THIS_URL,'/'),
 				ltrim($link,'/')
@@ -39,10 +37,12 @@ Class Front_Template_Links{
 	}
 	
 	private function do_replace($matches){
+		if($matches[1]=='/' || !$matches[1]) return $matches[0];
+		
 		$link = $matches[1];
 		$link = $this->to_lowercase($link);
 		$link = $this->replace_domain($link);
-		
+				
 		return str_replace(
 				$matches[1],
 				$link,
