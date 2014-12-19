@@ -862,16 +862,16 @@ Class Template {
 
 	    public function F_meta_tags(){
 	    	if(isset($this->registry['noindex'])){
-				echo '<meta name="robots" content="noindex, nofollow">';
+				echo '<meta name="robots" content="noindex, nofollow" />';
 	    	}
 
 	    	if(isset($this->registry['seo_kw'])){
-				echo '<meta name="keywords" content="'.$this->registry['seo_kw'].'">';
+				echo '<meta name="keywords" content="'.$this->registry['seo_kw'].'" />';
 	    	}
 
 	    	if(isset($this->registry['seo_dsc'])){
 	    		echo "\r\n";
-				echo '<meta name="description" content="'.$this->registry['seo_dsc'].'">';
+				echo '<meta name="description" content="'.$this->registry['seo_dsc'].'" />';
 	    	}
 
 	    	if(isset($this->registry['CL_catalog']) && isset($this->registry['goods'])){
@@ -881,7 +881,7 @@ Class Template {
 	    		$url = trim(THIS_URL,'/').$url;
 
 	    		echo "\r\n";
-				echo '<link rel="canonical" href="'.$url.'">';
+				echo '<link rel="canonical" href="'.$url.'" />';
 	    	}else{
 	    		$url = explode('?',$_SERVER['REQUEST_URI']);
 	    		$url = $url[0];
@@ -891,7 +891,7 @@ Class Template {
 	    		$url = mb_strtolower($url,'utf-8');
 
 	    		echo "\r\n";
-				echo '<link rel="canonical" href="'.$url.'">';
+				echo '<link rel="canonical" href="'.$url.'" />';
 	    	}
 
 	    }
