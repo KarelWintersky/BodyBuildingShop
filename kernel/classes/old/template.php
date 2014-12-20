@@ -17,7 +17,7 @@ Class Template {
 		  
 		  $this->Front_Template = new Front_Template($this->registry);
         }
-
+        
 		function set($varname, $value, $overwrite=false) {
 		        $this->vars[$varname] = $value;
 		        return true;
@@ -317,46 +317,6 @@ Class Template {
 			}
 		}
 
-		public function F_dropdown($items_array,$input_name,$id_postfix='',$on_change='',$disabled = false){
-
-			if(count($items_array)>0){
-
-				$add_class = ($disabled) ? 'disabled' : '';
-
-				$id_postfix = ($id_postfix!='') ? $id_postfix : $input_name;
-
-				$items_html = '';
-
-				$i = 0;
-				foreach($items_array as $val => $arr){
-
-					if($i==0){
-						$active['name'] = $arr['name'];
-						$active['val'] = $val;
-					}
-
-					if($arr['active']==1){
-						$active['name'] = $arr['name'];
-						$active['val'] = $val;
-					}
-
-					$active_flag = ($arr['active']==1) ? 'active' : '';
-
-					$items_html.='<li class="'.$active_flag.'" val="'.$val.'">'.$arr['name'].'</li>';
-
-					$i++;
-
-				}
-				$items_html='<ul class="dropdown-list" id="dropdown_'.$id_postfix.'_list">'.$items_html.'</ul>';
-
-				$filed_name = '<input type="text" class="dropdown_name '.$add_class.'" value="'.$active['name'].'" name="'.$input_name.'_name" id="dropdown_'.$id_postfix.'" readonly="1">';
-				$filed_val = '<input type="hidden" value="'.$active['val'].'" name="'.$input_name.'_val" id="dropdown_'.$id_postfix.'_value" onchange="'.$on_change.'">';
-
-				echo '<div class="dropdown_container">'.$filed_name.$filed_val.$items_html.'</div>';
-			}
-
-		}
-
 		public function F_tooltip($string){
 			$a = explode('$$',$string);
 			$this->item_rq('tooltip',$a);
@@ -408,52 +368,6 @@ Class Template {
 			while($g = mysql_fetch_assoc($qLnk)){
 				$this->item_rq('growers_carousel_item',$g);
 			}
-		}
-
-		public function F_faq_select(){
-			$select_array = array(
-				0 => array('name' => 'FAQ / Ознакомьтесь', 'active' => 0),
-				'/faq/#how-buy' => array('name' => 'Как сделать заказ?', 'active' => 0),
-				'/faq/#how-send' => array('name' => 'Какие способы доставки есть?', 'active' => 0),
-				'/faq/#how-pay' => array('name' => 'Как оплатить заказ?', 'active' => 0),
-				'/faq/#how-money' => array('name' => 'Как быстро поступят деньги?', 'active' => 0),
-				'/faq/#how-send2' => array('name' => 'Когда Вы отправите заказ?', 'active' => 0),
-				'/faq/#how-send2_1' => array('name' => 'Когда я получу уведомление?', 'active' => 0),					
-				'/faq/#how-goods-done' => array('name' => 'Есть ли товар в наличии?', 'active' => 0),
-				'/faq/#how-shop' => array('name' => 'Есть ли у вас розничный магазин?', 'active' => 0),
-				'/faq/#how-self' => array('name' => 'Могу я забрать заказ сам?', 'active' => 0),
-				'/faq/#how-cost' => array('name' => 'Как формируются цены?', 'active' => 0),
-				'/faq/#how-courier' => array('name' => 'Вы можете отправить заказ EMS?', 'active' => 0),
-			);
-
-			$this->F_dropdown($select_array,'s_faq','','goto_faq(this);');
-		}
-
-		public function F_grower_select(){
-
-			$select_array = array(
-				0 => array('name' => 'Производители', 'active' => 0)
-			);
-
-			$qLnk = mysql_query("
-								SELECT
-									growers.id,
-									growers.name,
-									growers.alias
-								FROM
-									growers
-								WHERE
-									growers.goods_count > 0
-								ORDER BY
-									growers.name ASC;
-								");
-			while($g = mysql_fetch_assoc($qLnk)){
-				$active = (isset($this->registry['grower']) && $this->registry['grower']['id']==$g['id']) ? 1 : 0;
-				$select_array[$g['alias']] = array('name' => $g['name'], 'active' => $active);
-			}
-
-			$this->F_dropdown($select_array,'s_growers','','goto_grower(this);');
-
 		}
 
 		public function F_hot_goods(){

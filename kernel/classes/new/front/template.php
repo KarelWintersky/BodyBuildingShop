@@ -8,6 +8,7 @@ Class Front_Template{
 	private $Front_Template_Css;
 	private $Front_Template_Js;
 	private $Front_Template_Compress;
+	private $Front_Template_Blocks;
 		
 	public function __construct($registry){
 		$this->registry = $registry;
@@ -17,9 +18,12 @@ Class Front_Template{
 		$this->Front_Template_Css = new Front_Template_Css($this->registry);
 		$this->Front_Template_Js = new Front_Template_Js($this->registry);
 		$this->Front_Template_Compress = new Front_Template_Compress($this->registry);
+		$this->Front_Template_Blocks = new Front_Template_Blocks($this->registry);
 	}	
 	
 	public function do_template($html){
+		$this->Front_Template_Blocks->do_blocks();
+		
 		$this->Front_Template_Css->go();
 		$this->Front_Template_Js->go();
 		

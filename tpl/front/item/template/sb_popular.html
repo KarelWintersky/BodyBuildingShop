@@ -1,7 +1,7 @@
 <div class="sb_popular_item <?=$a['class']?>">
 	<div class="sb_popular_img">
 		<a href="<?=$a['link'];?>">
-			<img src="\data\foto\goods\80x80\<?=$a['photo_goods_id'];?>\<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['name']);?>">
+			<img src="<?=Front_Catalog_Helper_Image::goods_path($a['photo_goods_id'],$a['avatar'],'80x80');?>" alt="<?=htmlspecialchars($a['name']);?>">
 		</a>
 	</div>
 	<div class="sb_popular_r">
