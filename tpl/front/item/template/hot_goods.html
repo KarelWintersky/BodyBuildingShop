@@ -15,7 +15,7 @@
 	
 		<a href="<?=$a['link'];?>">
 			<?if($a['avatar']!=''):?>
-				<img src="/data/foto/goods/122x122/<?=$a['id'];?>/<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['alt']);?>">
+				<img src="<?=Front_Catalog_Helper_Image::goods_path($a['id'],$a['avatar'],'122x122');?>" alt="<?=htmlspecialchars($a['alt']);?>">
 			<?else:?>
 				<img src="/browser/front/i/noimg.jpg">
 			<?endif;?>

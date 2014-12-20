@@ -2,9 +2,6 @@
 	Class f_Catalog{
 
 		private $registry;
-		public $goods_sort_values;
-		public $goods_display_number;
-		public $goods_display_type;
 
 		private $Front_Catalog_Barcodes;
 		private $Front_Catalog_Goods_List_Sort;
@@ -14,26 +11,9 @@
 			$this->registry->set('CL_catalog',$this);
 
 			$this->Front_Catalog_Barcodes = new Front_Catalog_Barcodes($this->registry);
-			$this->Front_Catalog_Goods_List_Sort = new Front_Catalog_Goods_List_Sort($this->registry);
-
-			$this->goods_display_number = array(
-				'goods_list' => array(
-						'10' => array('name' => '10 на стр.', 'active' => 0),
-						'20' => array('name' => '20 на стр.', 'active' => 1),
-						'50' => array('name' => '50 на стр.', 'active' => 0),
-						'all' => array('name' => 'все', 'active' => 0),
-					),
-				'goods_list_table' => array(
-						'50' => array('name' => '50 на стр.', 'active' => 0),
-						'all' => array('name' => 'все', 'active' => 1),
-					)
-			);
-
-			$this->goods_display_type = array(
-				'goods_list' => array('name' => 'Подробно', 'active' => 1),
-				'goods_list_table' => array('name' => 'Списком', 'active' => 0)
-			);
-			
+			$this->Front_Catalog_Goods_List_Sort = new Front_Catalog_Goods_List_Sort($this->registry);			
+			$this->Front_Catalog_Goods_List_Display = new Front_Catalog_Goods_List_Display($this->registry);			
+			$this->Front_Catalog_Goods_List_Paginate = new Front_Catalog_Goods_List_Paginate($this->registry);			
 		}
 
 		public function redirect_check(){
@@ -273,31 +253,9 @@
 			return false;
 		}
 
-		public function print_goods_display_type(){
-			foreach($this->goods_display_type as $id => $arr){
-				$active = ($arr['active']==1) ? 'active' : '';
-				$onclick = ($arr['active']!=1) ? 'display_type_change(this);' : '';
-				echo '<li id="'.$id.'" class="'.$active.'" onclick="'.$onclick.'">'.$arr['name'].'</li>';
-			}
-		}
-
 		private function goods_list_pagination(&$list_params,$reqiure_file,$from){
 
-			$type = ($from==0) ? 'level' : (($from==1) ? 'grower' : 'popular');
-
-			foreach($this->goods_display_number[$reqiure_file] as $display => $arr){
-					if($arr['active']==1){$PAGING = $display;}
-				}
-
-			if(isset($_COOKIE[$this->registry['cookie_type']]['display_number'][$reqiure_file][$this->registry[$type]['id']])){
-				$display = $_COOKIE[$this->registry['cookie_type']]['display_number'][$reqiure_file][$this->registry[$type]['id']];
-				if(in_array($display,array_keys($this->registry['f_catalog']->goods_display_number[$reqiure_file]))){
-					$this->registry['f_catalog']->goods_display_number[$reqiure_file] = $this->trunc_active($this->registry['f_catalog']->goods_display_number[$reqiure_file]);
-					$this->registry['f_catalog']->goods_display_number[$reqiure_file][$display]['active'] = 1;
-
-					$PAGING = $display;
-				}
-			}
+			$PAGING = $this->registry['CL_catalog_paginate']->get_current_paging($from);	
 
 			$list_params['display'] = $PAGING;
 
@@ -327,23 +285,6 @@
 			return $arr;
 		}		
 		
-		private function get_display_type($from){
-
-			$type = ($from==0) ? 'level' : (($from==1) ? 'grower' : 'popular');
-
-			if(isset($_COOKIE[$this->registry['cookie_type']]['display_type'][$this->registry[$type]['id']])){
-				$display_type = $_COOKIE[$this->registry['cookie_type']]['display_type'][$this->registry[$type]['id']];
-				if(in_array($display_type,array_keys($this->registry['f_catalog']->goods_display_type))){
-					$this->registry['f_catalog']->goods_display_type = $this->trunc_active($this->registry['f_catalog']->goods_display_type);
-					$this->registry['f_catalog']->goods_display_type[$display_type]['active'] = 1;
-
-					return $display_type;
-				}
-			}
-
-			return 'goods_list';
-		}
-
 		private function mk_avatar($g){				
 			$qLnk = mysql_query(sprintf("
 					SELECT
@@ -358,9 +299,8 @@
 			$photo = mysql_fetch_assoc($qLnk);
 			if(!$photo) return false;
 			
-			return sprintf('<img src="/data/foto/goods/122x122/%d/%s" alt="%s">',
-					$photo['goods_id'],
-					$photo['alias'],
+			return sprintf('<img src="%s" alt="%s">',
+					Front_Catalog_Helper_Image::goods_path($photo['goods_id'],$photo['alias'],'122x122'),
 					htmlspecialchars($photo['alt'])
 					);
 		}
@@ -375,7 +315,7 @@
 				$q_where = "goods.price_1 > 100 AND";
 			}
 
-			$reqiure_file = $this->get_display_type($from);
+			$reqiure_file = $this->registry['CL_catalog_display']->get_display_type($from);
 
 			$result_arr = array();
 
@@ -745,11 +685,15 @@
 
 			}
 
-			if($req_file=='goods_photo' && count($this->registry['goods_photo_matrix'])<=1){return;}
+			if($req_file=='goods_photo' && count($this->registry['goods_photo_matrix'])<=1) return;
 
 			$i=1;
 			foreach($this->registry['goods_photo_matrix'] as $f){
 				$f['class'] = ($i%5==0) ? 'r' : '';
+				
+				$f['img'] = Front_Catalog_Helper_Image::goods_path($f['goods_id'],$f['alias'],'src');
+				$f['preview'] = Front_Catalog_Helper_Image::goods_path($f['goods_id'],$f['alias'],'80x80');
+				
 				$this->item_rq($req_file,$f);
 
 				$i++;

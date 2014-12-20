@@ -27,6 +27,10 @@
 				$Front_Growers = new Front_Growers($this->registry);
 				$Front_Growers->do_vars();				
 				
+				$this->registry['CL_css']->set(array(
+						'catalog',
+				));				
+				
 				return true;
 			}
 

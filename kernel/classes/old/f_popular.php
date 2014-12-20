@@ -27,6 +27,10 @@
 				$Front_Catalog_Popular = new Front_Catalog_Popular($this->registry);
 				$Front_Catalog_Popular->do_vars();				
 				
+				$this->registry['CL_css']->set(array(
+						'catalog',
+				));				
+				
 				return true;
 			}
 			

@@ -19,4 +19,6 @@
 	define('HIDE_COUNTERS',false,true); //не выводить код счетчиков в шаблон
 	
 	define('OPTIMISE_FRONTEND',true,true); //включаем оптимизацию фронтенда (css, js, html)
+	
+	define('IMAGE_FULL_PATH',true,true); //полный путь для картинок (чтобы смотрели на основной сайт)
 ?>

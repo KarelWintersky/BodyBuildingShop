@@ -19,11 +19,7 @@ Class Front_Catalog_Goods_List_Sort{
 				8 => array('name' => 'популярности', 'q' => 'popularity_index DESC')
 		);		
 	}
-	
-	private function get_type($from){
-		return ($from==0) ? 'level' : (($from==1) ? 'grower' : 'popular');
-	}
-	
+		
 	private function sort_from_cookie($type){
 		return (isset($_COOKIE[$this->registry['cookie_type']]['sort'][$this->registry[$type]['id']]))
 			? $_COOKIE[$this->registry['cookie_type']]['sort'][$this->registry[$type]['id']]
@@ -31,26 +27,19 @@ Class Front_Catalog_Goods_List_Sort{
 	}
 	
 	public function print_options($from){
-		$type = $this->get_type($from);
+		$type = Front_Catalog_Goods_List_Helper::get_type($from);
 		
 		$sort = $this->sort_from_cookie($type);	
 		
-		$options = array();
+		$data = array();
 		foreach($this->values as $key => $arr)
-			$options[$key] = array(
+			$data[] = array(
+					'val' => $key,
 					'name' => $arr['name'],
-					'active' => ($sort==$key),
+					'selected' => ($sort==$key),
 					);
 		
-		ob_start();
-		$this->registry['template']->F_dropdown(
-				$options,
-				'sort_by',
-				'',
-				'level_sort_change(this);'
-				);	
-
-		return ob_get_clean();
+		return Front_Template_Select::opts($data);
 	}
 	
 	private function make_sort_query($string,$type){
@@ -64,7 +53,7 @@ Class Front_Catalog_Goods_List_Sort{
 	}
 	
 	public function get_sort($from){
-		$type = $this->get_type($from);
+		$type = Front_Catalog_Goods_List_Helper::get_type($from);
 	
 		$sort = $this->sort_from_cookie($type);
 		

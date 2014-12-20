@@ -13,16 +13,20 @@
 	</div></div>
 	
 	<div id="lf_measure" class="lft"><div id="lf_measure_i">
-		<?$this->registry['template']->F_dropdown($this->registry['f_catalog']->goods_display_number[$reqiure_file],'display_number','','display_number_change(this);');?>
+		<select onchange="display_number_change(this);">
+			{{paginate_by}}
+		</select>
 	</div></div>
 	
 	<div id="lf_sort" class="lft">
 		<span>Сортировать по:</span>
-		{{sort_by}}
+		<select onchange="level_sort_change(this);">
+			{{sort_by}}
+		</select>
 	</div>
 	
 	<ul class="lft" id="lf_display_type">
-		<?$this->registry['f_catalog']->print_goods_display_type();?>
+		{{display_types}}
 	</ul>
 	
 	<div class="clr"></div>

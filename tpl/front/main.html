@@ -102,11 +102,15 @@
 								<div id="sidebar">
 
 									<div class="s_grower_select">
-										<?$this->F_grower_select();?>
+										<select onchange="goto_grower($this);">
+											{{sidebar_growers}}
+										</select>
 									</div>
 
 									<div class="s_grower_select">
-										<?$this->F_faq_select();?>
+										<select onchange="goto_faq($this);">
+											{{sidebar_faq}}
+										</select>
 									</div>
 
 									<?$this->registry['template']->F_sb_catalog();?>
