@@ -17,7 +17,9 @@
 		<div class="gift_line">
 			<div class="gift_line_l">Выберите свой подарок:</div>
 			<div class="gift_line_r">
-				<?$this->registry['f_cart']->gifts_list($active_gift_id);?>
+				<select name="gift" onchange="add_gift_2_cart(this)">
+					<?=$this->registry['f_cart']->gifts_list($active_gift_id,$active_gift_barcode,$active_gift_name);?>
+				</select>	
 			</div>
 			<div class="clr"></div>
 		</div>
@@ -29,10 +31,15 @@
 		
 			<?$gift_id = md5(time());?>
 			
-			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][id]" value="<?=$active_gift_id;?>">
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][goods_id]" value="<?=$active_gift_id;?>">
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][barcode]" value="<?=$active_gift_barcode;?>">
 			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][amount]" value="1">
 			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][is_gift]" value="1">
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][price]" value="0">	
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][name]" value="<?=$active_gift_name;?>">	
 			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][feats_str]" value="">	
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][feature]" value="">	
+			<input type="hidden" name="order_vals[goods_table][<?=$gift_id?>][packing]" value="">	
 		
 		<?endif;?>		
 		

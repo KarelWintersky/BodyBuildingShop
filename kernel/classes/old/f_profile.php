@@ -25,31 +25,61 @@
 				$this->registry['template']->set('c','profile/settings');
 				$this->registry['longtitle'] = 'Ваши установки';
 				$this->get_all_user_info();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='orders'){
 				$this->registry['template']->set('c','profile/orders');
 				$this->registry['longtitle'] = 'Ваши заказы';
 				$this->get_all_user_info();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='returnaccount'){
 				$this->registry['template']->set('c','profile/returnaccount');
 				$this->registry['longtitle'] = 'Забрать деньги';
 				$this->get_all_user_info();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='accountorder'){
 				$this->registry['template']->set('c','profile/accountorder');
 				$this->registry['longtitle'] = 'Пополнить личный счет';
 				$this->get_all_user_info();
 				$this->mk_account_order();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==2 && $path_arr[0]=='orders' && $this->order_check($path_arr[1])){
 				$this->registry['template']->set('c','profile/order');
 				$this->get_all_user_info();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==3 && $path_arr[0]=='orders' && $this->order_check($path_arr[1]) && $path_arr[2]=='pay' && $this->pay_check($path_arr[1])){
 				$this->registry['template']->set('c','profile/order_pay');
 				$this->get_all_user_info();
 				$this->mk_roboxchange_data($path_arr[1]);
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}
 

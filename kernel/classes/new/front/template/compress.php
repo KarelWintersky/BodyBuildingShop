@@ -38,7 +38,9 @@ Class Front_Template_Compress{
 	public function do_compress($html){
 		if(!OPTIMISE_FRONTEND) return $html;
 		
-		$html = $this->replace_spaces($html);
+		
+		if(!isset($_SESSION['user_id'])) $html = $this->replace_spaces($html);
+		
 		$html = $this->do_gzip($html);
 		
 		return $html;

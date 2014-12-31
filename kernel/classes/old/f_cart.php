@@ -115,12 +115,25 @@
 				if(count($path_arr)==0){
 					$this->registry['template']->set('c','cart/main');
 					$this->registry['longtitle'] = 'Корзина';
+					
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));					
+					
 					return true;
 				}elseif(count($path_arr)==1 && $path_arr[0]=='order'){
 					if(!isset($_COOKIE['thecart']) || $_COOKIE['thecart']==''){header('Location: /cart/');exit();}
 					$this->registry['template']->add2crumbs('order','Оформление заказа');
 					$this->registry['template']->set('c','cart/order');
 					$this->registry['longtitle'] = 'Оформление заказа';
+					
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));			
+					$this->registry['CL_js']->set(array(
+							'cart',
+					));							
+					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='check'){
 					if(!isset($_COOKIE['thecart']) || $_COOKIE['thecart']==''){header('Location: /cart/');exit();}
@@ -130,9 +143,17 @@
 					$this->check_if_spb();
 					$this->wishesphone_2_cookie();
 					$this->coupon_apply();
+					
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));				
+					$this->registry['CL_js']->set(array(
+							'cart',
+					));						
+					
 					return true;
-				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='done'){
-
+				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='done'){			
+					
 					if(!isset($_COOKIE['thecart']) || $_COOKIE['thecart']==''){
 						header('Location: /cart/');
 						exit();
@@ -151,6 +172,13 @@
 
 					}
 
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));		
+					$this->registry['CL_js']->set(array(
+							'cart',
+					));								
+					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='card-prepare' && $this->card_prepare_check()){
 
@@ -162,6 +190,13 @@
 					$this->registry['logic']->send_order($_GET['order_id'],true,true);
 					$this->registry['logic']->admins_notify($_GET['order_id']);
 
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));		
+					$this->registry['CL_js']->set(array(
+							'cart',
+					));								
+					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='card-done' && $this->check_roboxchange_success()){
 
@@ -169,6 +204,13 @@
 					$this->registry['template']->set('c','cart/card-done');
 					$this->registry['longtitle'] = 'Оплата прошла';
 
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));			
+					$this->registry['CL_js']->set(array(
+							'cart',
+					));							
+					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='card-error'){
 
@@ -176,6 +218,13 @@
 					$this->registry['template']->set('c','cart/card-error');
 					$this->registry['longtitle'] = 'Ошибка при проведении оплаты';
 
+					$this->registry['CL_css']->set(array(
+							'cart',
+					));				
+					$this->registry['CL_js']->set(array(
+							'cart',
+					));						
+					
 					return true;
 				}
 
@@ -656,9 +705,11 @@
 
 		}
 
-		public function gifts_list(&$active_gift_id){
+		public function gifts_list(&$active_gift_id,&$active_gift_barcode,&$active_gift_name){
 
 			$active_gift_barcode = 0;
+			$active_gift_id = 0;
+			$active_gift_name = '';
 			$gift_weight = 0;
 
 			if(isset($_COOKIE['cart_gift_id']) && $_COOKIE['cart_gift_id']!='' && $_COOKIE['cart_gift_id']!=0){
@@ -667,10 +718,15 @@
 
 			$gift_max_price = $this->registry['full_cart_arr']['overall_price']*GIFT_PERCENT/100;
 
-			$gifts_arr = array();
-
+			$data = array();
+			$data[] = array(
+					'val' => 0,
+					'name' => 'Подарок на усмотрение администрации',
+					);
+			
 			$qLnk = mysql_query(sprintf("
 					SELECT
+						goods.id,
 						goods.name,
 						goods_barcodes.barcode,					
 						goods_barcodes.packing,					
@@ -691,7 +747,6 @@
 						goods.level_id ASC,
 						goods.name ASC					
 					",$gift_max_price));
-			echo mysql_error();
 			while($g = mysql_fetch_assoc($qLnk)){
 				$name = array(
 						$g['name'],
@@ -699,22 +754,28 @@
 						$g['feature'],
 						);
 				foreach($name as $key => $val) if($val=='') unset($name[$key]);
-				
-				$gifts_arr[$g['barcode']]['name'] = implode(", ",$name);
-				
-				
-				$gifts_arr[$g['barcode']]['active'] = ($active_gift_barcode==$g['barcode']) ? 1 : 0;
+						
 				$gift_weight = ($active_gift_barcode==$g['barcode']) ? intval($g['weight']) : $gift_weight;
+				
+				if($active_gift_barcode==$g['barcode']) $active_gift_name = implode(", ",$name);
+				if($active_gift_barcode==$g['barcode']) $active_gift_id = $g['id'];
+				
+				$data[] = array(
+						'val' => $g['barcode'],
+						'name' => implode(", ",$name),
+						'selected' => ($active_gift_barcode==$g['barcode']),
+						);
 			}
 
 
 			$none_active = ($active_gift_barcode==0) ? 1 : 0;
-			$gifts_arr[0] = array('name' => 'Подарок на усмотрение администрации','active' => $none_active);
-
-			$this->registry['template']->F_dropdown($gifts_arr,'gift','','add_gift_2_cart(this);');
+			
+			//$gifts_arr[0] = array('name' => 'Подарок на усмотрение администрации','active' => $none_active);
+			//$this->registry['template']->F_dropdown($gifts_arr,'gift','','add_gift_2_cart(this);');
 
 			$this->registry['overall_weight'] = $this->registry['full_cart_arr']['overall_weight'] + $gift_weight;
-
+			
+			return Front_Template_Select::opts($data);
 		}
 
 		public function print_delivery_types(){
@@ -867,9 +928,10 @@
 
 				if(isset($line['goods_id'])) $gd = $goods_data[$line['goods_id']];
 
-				$line['name'] = (($gd['grower_id']!=0) ? '«'.$gd['grower'].'». ' : '').$gd['name'];
+				if(!$line['is_gift']) $line['name'] = (($gd['grower_id']!=0) ? '«'.$gd['grower'].'». ' : '').$gd['name'];
 				$line['link'] = '/'.$gd['parent_alias'].'/'.$gd['level_alias'].'/'.$gd['alias'].'/';
 
+				
 				//$line['amount'] = $this->ostatki_check($line['amount'],$line['goods_id'],$line['name']);
 				
 				//$total_goods_price+= $line['final_price']*$line['amount'];
@@ -883,9 +945,11 @@
 
 				$i++;
 				$total_goods_amount+=$line['amount'];
+				
+				if($line['is_gift']) $gift = true;
 			}
-
-			if(isset($_POST['gift_name']) && $_POST['gift_name']!='' && isset($_POST['gift_val']) && $_POST['gift_val']!=''){
+			
+			/*if(isset($_POST['gift_name']) && $_POST['gift_name']!='' && isset($_POST['gift_val']) && $_POST['gift_val']!=''){
 				$gn_arr = explode(',',$_POST['gift_name']);
 				$gn = trim($gn_arr[0]);
 				
@@ -907,7 +971,7 @@
 				$this->item_rq('check_goods_line',$a);
 				
 				$gift = true;
-			}
+			}*/
 			
 			if($total_goods_amount==0){
 				$this->registry->set('no_order_allowance',true);
@@ -919,6 +983,7 @@
 					'num' => $i,
 					'link' => false,
 					'name' => 'Подарок на усмотрение администрации',
+					'name_print' => 'Подарок на усмотрение администрации',
 					'discount' => 0,
 					'price' => 0,
 					'final_price' => 0,
