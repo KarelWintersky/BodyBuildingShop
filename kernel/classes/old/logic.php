@@ -542,7 +542,11 @@
 		public function admins_notify($order_id){
 			$order_data = $this->admins_tech_letter($order_id);
 
-			$order_num_subj_PM = (end(explode('/',$order_id))=='П') ? ' ПО ПРЕДОПЛАТЕ' : '';
+			
+			$order_num_subj_PM = (strpos($order_id,'П'!==false)) 
+				? ' ПО ПРЕДОПЛАТЕ' 
+				: '';
+			
 			$order_num_subj = $order_id.$order_num_subj_PM;
 
 			$emails = explode('::',ADMINS_EMAILS);

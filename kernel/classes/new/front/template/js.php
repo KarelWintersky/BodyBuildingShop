@@ -13,8 +13,6 @@ Class Front_Template_Js{
 					'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js',
 					'lib/chosen.jquery.min',
 					'lib/jquery.cookie',
-					'lib/jquery.tools_tooltip.min',
-					'dropdown-block',
 					'uses',
 				)
 			);
@@ -131,7 +129,7 @@ Class Front_Template_Js{
 				if(strpos($file,'http://')===false && strpos($file,'https://')===false && strpos($file,'//')===false)
 					$file_js = sprintf($file_js.'?ver=%s',$ver);
 
-				$output[] = sprintf('<script async src="%s" type="text/javascript"></script>', //defer
+				$output[] = sprintf('<script src="%s" type="text/javascript"></script>', //defer
 						$file_js
 						);
 			}
