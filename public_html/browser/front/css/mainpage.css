@@ -4,7 +4,7 @@
 	#main_page #main_page_c{float:left;width:491px;}
 		#main_page #main_page_c #mpc_hot_goods{padding:0 0 25px;}
 			#main_page #main_page_c #mpc_hot_goods h1{font-size:16px;color:#e38a25;line-height:20px;font-weight:normal;padding:0 0 10px;}
-			#main_page #main_page_c #mpc_hot_goods #mpc_hot_goods_list{padding:22px 20px 0;background:url(/browser/front/i/mpc_hot_goods_list.jpg) 0 0 repeat-x;}
+			#main_page #main_page_c #mpc_hot_goods #mpc_hot_goods_list{padding:22px 20px 0;}
 	#main_page #sidebar_r{float:right;width:190px;}
 
 .hot_goods_item{width:125px;float:left;margin:0 38px 11px 0;}
@@ -24,7 +24,7 @@
 .hot_goods_divider{border-top:1px dotted #b2b2b2;height:1px;width:100%;margin:0 0 25px;}
 
 #growers_carousel{padding:36px 0 0;}
-	#growers_carousel #growers_carousel_i{height:156px;background:url(/browser/front/i/growers_carousel_i.jpg) 0 0 repeat-x;}
+	#growers_carousel #growers_carousel_i{height:156px;}
 
 .sidebar_r_block{margin:0 0 45px;}
 	.sidebar_r_block .sidebar_r_block_h{font-size:19px;line-height:20px;color:#E38A25;padding:0 0 20px;}
