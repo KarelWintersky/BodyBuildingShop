@@ -453,7 +453,9 @@ Class Template {
 		public function F_contacts_form_mail(){
 			foreach($_POST as $key => $val){$$key = (is_array($val)) ? $val : mysql_real_escape_string($val);}
 
-			$qLnk = mysql_query("SELECT feedback_mail.email FROM feedback_mail WHERE feedback_mail.id = '".$topic_val."' LIMIT 1;");
+			$topic = ($topic) ? $topic : 1;
+			
+			$qLnk = mysql_query("SELECT feedback_mail.email FROM feedback_mail WHERE feedback_mail.id = '".$topic."' LIMIT 1;");
 			if(mysql_num_rows($qLnk)>0){
 				$mail_to = mysql_result($qLnk,0);
 
@@ -471,9 +473,8 @@ Class Template {
 		}
 
 		public function F_contacts_form_options(){
-			$opts = array(
-						0 => array('name' => 'Выберите тему', 'active' => 0)
-							);
+			$data = array();
+			
 			$qLnk = mysql_query("
 								SELECT
 									feedback_mail.id,
@@ -483,11 +484,13 @@ Class Template {
 								ORDER BY
 									feedback_mail.sort ASC;
 								");
-			while($m = mysql_fetch_assoc($qLnk)){
-				$opts[$m['id']] = array('name' => $m['name'], 'active' => 0);
-			}
+			while($m = mysql_fetch_assoc($qLnk))
+				$data[] = array(
+						'val' => $m['id'],
+						'name' => $m['name'],
+						);
 
-			$this->F_dropdown($opts,'topic');
+			echo Front_Template_Select::opts($data,'Выберите тему');
 		}
 
 		private function F_prices_link($frompage = true){

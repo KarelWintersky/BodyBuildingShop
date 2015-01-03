@@ -284,6 +284,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 	#form_Contacts #fc_succ{font-size:18px;color:#666;font-family:Verdana;text-align:center;background:#fbf1d3 url(/browser/front/i/fc_succ.png) 84px 50% no-repeat;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;padding:17px 0;margin:0 0 18px;}
 	#form_Contacts #fc_inner{background:#f2f2f2;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;padding:19px 19px 0;}
 		#form_Contacts #fc_inner label{font-size:12px;display:block;padding:0 0 6px;}
+		#form_Contacts #fc_inner select{width:330px;}
 		#form_Contacts #fc_inner input[type="text"]{width:300px;}
 		#form_Contacts #fc_inner input[type="submit"]{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;background:#eab000;
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );

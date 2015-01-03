@@ -19,7 +19,9 @@
 		
 		<div class="fc_line">
 			<label>Тема письма</label>
-			<?$this->registry['template']->F_contacts_form_options();?>
+                        <select name="topic">
+                            <?$this->registry['template']->F_contacts_form_options();?>
+                        </select>
 		</div>
 		
 		<div class="fc_line txt_fld">
