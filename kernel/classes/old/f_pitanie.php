@@ -78,7 +78,7 @@
 		}
 
 		private function page_content($content){
-			$reg = "/{{a:(.*)}}/i";
+			$reg = "/<p>{{a:(.*)}}<\/p>/i";
 			$content = preg_replace_callback($reg,array($this,'match_find'),$content);
 
 			return $content;

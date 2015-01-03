@@ -223,7 +223,7 @@ $(function() {
 		$('#goods_gallery_big a').removeClass('active');
 
 		$('#goods_gallery_big a').each(function(i,elem){
-			if($(elem).attr('id')==$(that).attr('rel')){
+			if($(elem).attr('id')==$(that).attr('data-rel')){
 
 				$(elem).addClass('active');
 

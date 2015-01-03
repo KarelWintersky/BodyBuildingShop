@@ -41,7 +41,7 @@
 
 #growers_carousel{padding:36px 0 0;}
 	#growers_carousel #growers_carousel_i{height:156px;}
-		#growers_carousel #growers_carousel_i #growers_carousel_body{}
+		#growers_carousel #growers_carousel_i #growers_carousel_body{height:156px;}
 			#growers_carousel #growers_carousel_i #growers_carousel_body li{float:left;text-align:center;}
 				#growers_carousel #growers_carousel_i #growers_carousel_body li div{display:table-cell;vertical-align:middle;height:92px;width:158px;}
 
