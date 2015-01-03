@@ -24,20 +24,40 @@
 			if(count($path_arr)==0){
 				$this->registry['template']->set('c','register/intro');
 				$this->registry['longtitle'] = 'Регистрация покупателя';
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='1'){
 				$this->registry['template']->set('c','register/step_1');
 				$this->registry['longtitle'] = 'Регистрация покупателя шаг 1';
 				$this->index_check();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='2'){
 				$this->registry['template']->set('c','register/step_2');
 				$this->registry['longtitle'] = 'Регистрация покупателя шаг 2';
 				$this->reg_data();
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='3'){
 				$this->registry['template']->set('c','register/step_3');
 				$this->registry['longtitle'] = 'Регистрация покупателя шаг 3';
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}
 			

@@ -9,7 +9,13 @@
 	<h2>Выберите способ доставки</h2>
 	
 	<?if(isset($this->registry['delivery_only_company']) && $this->registry['delivery_only_company']):?>
-		<div class="common_hint" id="delivery_only_company_hint"><b>Внимание!</b> В Вашей корзине находятся товары, доставка которых возможна только транспортной компанией.</div>
+		<div class="common_hint" id="delivery_only_company_hint">
+                    <div class="common_hint_ico"></div>
+                    <div class="common_hint_text">
+                        <b>Внимание!</b> В Вашей корзине находятся товары, доставка которых возможна только транспортной компанией.
+                    </div>
+                    <div class="clr"></div>
+                </div>
 	<?endif;?>
 	
 	<div class="radios_left">

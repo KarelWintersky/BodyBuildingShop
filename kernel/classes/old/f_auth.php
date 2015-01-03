@@ -23,6 +23,11 @@
 			if(count($path_arr)==0){
 				$this->registry['template']->set('c','auth/main');
 				$this->registry['longtitle'] = 'Авторизация';
+				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}
 			

@@ -2,9 +2,6 @@
 	<label>Купон на скидку</label>
 	<input type="text" name="order_vals[coupon]">
 
-	<b class="tooltip_trigger"></b>
-	<?=$this->registry['template']->F_tooltip(TOOLTIP_COUPON);?>
-
 	<div class="clr"></div>
 </div>
 
@@ -24,7 +21,11 @@
 			<div class="clr"></div>
 		</div>
 		<div class="common_hint">
+                    <div class="common_hint_ico"></div>
+                    <div class="common_hint_text">
 			В исключительных случаях администрация оставляет за собой право изменения выбранных подарков.
+                    </div>
+                    <div class="clr"></div>
 		</div>
 		
 		<?if($active_gift_id!=0):?>

@@ -7,21 +7,20 @@ Abstract Class Common_Rq{
 		
 		$folder = array_shift($path);
 		
-		$part = (!$loop) ? 'content' : 'item';
-		$dir = sprintf('%stpl/%s/%s/',
+		$dir = sprintf('%stpl/%s/rq/',
 				ROOT_PATH,
-				$folder,
-				$part
+				$folder
 		);
 			
-		$file = sprintf('%s%s/%s.html',
+		$file = sprintf('%s%s/%s%s.html',
 				$dir,
 				implode('/',$path),
+				($loop) ? '_' : '',
 				$name
 		);
-						
+		
 		ob_start();
-		if(is_file($file)) require($file);
+		require($file);
 		return ob_get_clean();
 	}	
 	

@@ -1,7 +1,11 @@
 <div class="sb_catalog_block <?=$a['class'];?>">
-	<div class="sb_catalog_block_h"><div class="sb_catalog_block_h_i <?=$a['visibility_class'];?>" onclick="sb_catalog_tog(this,'#sb_catalog_i_<?=$a['parent_info']['id'];?>',<?=$a['parent_info']['id'];?>);">
-		<?=$a['parent_info']['name'];?>
-	</div></div>
+	<div class="sb_catalog_block_h">
+		<div class="sb_catalog_block_h_i <?=$a['visibility_class'];?>" onclick="sb_catalog_tog(this,'#sb_catalog_i_<?=$a['parent_info']['id'];?>',<?=$a['parent_info']['id'];?>);">
+			<span><?=$a['parent_info']['name'];?></span>
+			<b></b>
+			<div class="clr"></div>
+		</div>
+	</div>
 	<div class="sb_catalog_block_i" id="sb_catalog_i_<?=$a['parent_info']['id'];?>" style="display:<?=$a['visibility_dispay'];?>;">
 		<?$this->registry['template']->F_sb_catalog_items($a['childs_arr']);?>
 	</div>

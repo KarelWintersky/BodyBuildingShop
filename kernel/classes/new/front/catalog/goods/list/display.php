@@ -1,5 +1,5 @@
 <?php
-Class Front_Catalog_Goods_List_Display{
+Class Front_Catalog_Goods_List_Display Extends Common_Rq{
 
 	private $registry;
 	private $values;
@@ -35,13 +35,17 @@ Class Front_Catalog_Goods_List_Display{
 		$html = array();
 		
 		$cur = $this->get_display_type($from);
-		foreach($this->values as $id => $name)
-			$html[] = sprintf('<li id="%s" class="%s" onclick="%s">%s</li>',
-					$id,
-					($cur==$id) ? 'active' : '',
-					($cur!=$id) ? 'display_type_change(this);' : '',					
-					$name
+		foreach($this->values as $id => $name){
+			
+			$a = array(
+					'id' => $id,
+					'class' => ($cur==$id) ? 'active' : '',
+					'onclick' => ($cur!=$id) ? 'display_type_change(this);' : '',
+					'name' => $name,
 					);
+			
+			$html[] = $this->do_rq('type',$a,true);
+		}
 		
 		return implode('',$html);
 	}

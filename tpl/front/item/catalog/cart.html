@@ -5,11 +5,11 @@
 
 <?if(isset($_SESSION['user_id'])):?>
 
-	<div class="basket_bill">
+	<div class="head_cart_bill">
 		На счету: <b><a href="/profile/accountorder/"><?=Common_Useful::price2read($this->registry['userdata']['my_account'])?> р.</a></b>
 	</div>
 
 <?endif;?>
 
-<a class="basket_go" href="/cart/order/">Посмотреть/заказать</a>
+<a class="head_cart_go" href="/cart/order/">Посмотреть/заказать</a>
 <div class="clr"></div>

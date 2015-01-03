@@ -55,6 +55,7 @@
 				<!--/noindex--></ul>
 				<div class="clr"></div>
 			</div></div></div>
+			<div id="h_stripe_border"></div>
 
 			<div class="iw"><div class="iw_2">
 
@@ -67,21 +68,21 @@
 						require($this->registry['template']->TF.'auth/not_authed.html');
 					endif;?>
 
-					<div id="basket"><div id="basket_f"><div id="basket_l"><div id="basket_r"><div id="basket_i">
-						<noscript>
-							<div id="basket_js_hint">Для работы с корзиной необходимо <a href="/how-to-enable-javascript/">включить Javascript</a>.</div>
-						</noscript>
-					</div></div></div></div></div>
+					<div id="head_cart">
+						<div id="head_cart_ico"></div>
+						<div id="head_cart_content">
+							<noscript>
+								<div id="head_cart_js_hint">Для работы с корзиной необходимо <a href="/how-to-enable-javascript/">включить Javascript</a>.</div>
+							</noscript>
+						</div>
+					</div>
 
 					<div class="clr"></div>
 				</div>
 
 				<div id="main_menu">
-					<ul>
+					{{main_menu}}
 
-						<?$this->F_main_menu();?>
-
-					</ul>
 					<div id="main_menu_srch">
 						<form onsubmit="" id="form_headSrch" action="/search/" method="GET">
 							<input type="text" name="q" value="Поиск" onfocus="this.value=(this.value=='Поиск')? '' : this.value;" onblur="this.value=(this.value=='')? 'Поиск' : this.value;">
@@ -100,13 +101,13 @@
 								<div id="sidebar">
 
 									<div class="s_grower_select">
-										<select onchange="goto_grower($this);">
+										<select id="goto_grower">
 											{{sidebar_growers}}
 										</select>
 									</div>
 
 									<div class="s_grower_select">
-										<select onchange="goto_faq($this);">
+										<select id="goto_faq">
 											{{sidebar_faq}}
 										</select>
 									</div>

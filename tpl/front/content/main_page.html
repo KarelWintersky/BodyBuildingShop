@@ -28,8 +28,18 @@
 			<div class="sidebar_r_block_h">Интересное</div>
 			<div class="sidebar_r_block_i">
 				<ul>
-					<li class="srb_interesting_1"><a href="/diplom/">Диплом Федерации бодибилдинга и фитнеса России</a></li>
-					<li class="srb_interesting_2 last"><a href="/prices/">Скачайте наш каталог одежды и прайс-лист</a><div></div></li>
+					<li class="srb_interesting_1">
+						<span class="srb_ico"></span>
+						<span class="srb_link">
+							<a href="/diplom/">Диплом Федерации бодибилдинга и фитнеса России</a>
+						</span>
+					</li>
+					<li class="srb_interesting_2">
+						<span class="srb_ico"></span>
+						<span class="srb_link">
+							<a href="/prices/">Скачайте наш каталог одежды и прайс-лист</a>
+						</span>	
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -42,7 +52,9 @@
 					<a href="/news/">Все новости</a>
 				</div>
 				<div class="srb_news_rss">
-					<a href="/rss.xml"></a>
+					<a href="/rss.xml">
+						Подписка на RSS
+					</a>
 				</div>
 				<div class="clr"></div>
 			</div>
@@ -60,7 +72,7 @@
 			<div class="sidebar_r_block_h">Галерея одежды</div>
 			<div class="sidebar_r_block_i">
 				<div class="srb_photogallery_img">
-					<a href="/photogallery/"></a>
+					<a href="/photogallery/" style="background-image:url(http://www.bodybuilding-shop.ru/data/foto/goods/122x122/1418/superset_bandana.jpg);"></a>
 				</div>
 				<div class="srb_photogallery_lnk">
 					<a href="/photogallery/">Посмотреть</a>
@@ -100,8 +112,9 @@
 		<div class="texted"><h2>Наши партнеры</h2></div>
 		<div id="growers_carousel_i">
 
-		  <ul id="growers_carousel_body" class="jcarousel-skin-tango">
+		  <ul id="growers_carousel_body">
 		  	<?$this->registry['template']->F_growers_list_main_page();?>
+		  	<div class="clr"></div>
 		  </ul>
 
 		</div>
