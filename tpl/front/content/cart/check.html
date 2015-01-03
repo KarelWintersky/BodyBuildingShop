@@ -4,7 +4,11 @@
 
 		<?if(!$this->registry['f_cart']->delivery_payment_match_check()):?>
 			<div id="deilvery_payment_fail" class="common_hint">
+                            <div class="common_hint_ico"></div>
+                            <div class="common_hint_text">
 				<b>Внимание!</b> Выбрано неверное сочетание способа доставки и способа оплаты.
+                            </div>    
+                            <div class="clr"></div>
 			</div>
 
 			<div class="cart_hint texted">
@@ -22,7 +26,11 @@
 			</div>
 
 			<div class="common_hint">
+                            <div class="common_hint_ico"></div>
+                            <div class="common_hint_text">
 				Если вы не можете выбрать корректный варинат оплаты по техническим причинам, <a href="/contacts/">свяжитесь с нами</a>, кратко описав проблему в письме, и мы поможем вам сделать заказ в течение 24 часов.
+                            </div>
+                            <div class="clr"></div>
 			</div>
 
 			<div class="cart_hint texted">
@@ -137,18 +145,25 @@
 
 				<?if(isset($_POST['order_vals']['delivery']) && $_POST['order_vals']['delivery']==1 && $this->registry['is_spb']==1):?>
 					<div class="common_hint margin_bot">
+                                            <div class="common_hint_ico"></div>
+                                            <div class="common_hint_text">
 						Вы находитесь в Санкт-Петербурге. Значительно удобнее будет воспользоваться доставкой курьером. Стоимость курьерской доставки для  заказов на сумму более <b><?=FREE_DELIVERY_SUM;?></b> бесплатна. Вы можете вернуться назад и <a href="/cart/order/">указать другие параметры заказа</a>.
+                                            </div>    
+                                            <div class="clr"></div>
 					</div>
 				<?endif;?>
 
 				<?if(isset($_POST['order_vals']['payment']) && $_POST['order_vals']['payment']==6 && $overall_price>$this->registry['userdata']['my_account']):?>
 					<div class="common_hint">
+                                            <div class="common_hint_ico"></div>
+                                            <div class="common_hint_text">
 						К сожалению, средств на вашем счету не хватает для оплаты заказа. Еще требуется <b><?=Common_Useful::price2read($overall_price-$this->registry['userdata']['my_account']);?></b> рублей. Выберите способ для оплаты их.
 
 						<input type="hidden" name="order_vals[from_account]" value="<?=$this->registry['userdata']['my_account'];?>">
 
 						<?$this->registry['f_cart']->print_payment_types_add();?>
-
+                                            </div>
+                                            <div class="clr"></div>
 					</div>
 				<?endif;?>
 

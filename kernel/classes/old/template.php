@@ -259,7 +259,7 @@ Class Template {
 					$class = ($i==1) ? 'first' : (($i==(count($this->F_crumbs)) && $i!=1) ? 'last' : '');
 
 					$crumb = '<li class="'.$class.'">'.$inner_html.'</li>';
-						if(!($i==(count($this->F_crumbs)))) $crumb.='<li class="divider"><img src="/browser/front/i/crumbs_li.png"></li>';
+						if(!($i==(count($this->F_crumbs)))) $crumb.='<li class="divider">/</li>';
 
 					$html[]=$crumb;
 					$i++;
@@ -317,40 +317,6 @@ Class Template {
 			}
 		}
 
-		public function F_tooltip($string){
-			$a = explode('$$',$string);
-			$this->item_rq('tooltip',$a);
-		}
-
-		public function F_main_menu(){
-			$menu_arr = array(
-				0 => array('','Главная'),
-				1 => array('/about/','О магазине'),
-				999 => (!isset($_SESSION['user_id'])) ? array('/register/','Регистрация') : array('/profile/','Профиль'),
-				7 => array('/pitanie/','Питание'),
-				41 => array('/training/','Тренировки'),
-				14 => array('/help/','Помощь'),
-				145 => array('/help/#send','Доставка'),
-				146 => array('/help/#pay','Оплата'),
-				6 => array('/contacts/','Контакты')
-			);
-
-			$i = 1;
-			foreach($menu_arr as $action => $arr){
-
-				$a['first'] = ($i==1) ? 'first' : '';
-				$a['active'] = ((isset($this->registry['page']['id']) && $action==$this->registry['page']['id']) || (isset($this->registry['mainpage']) && $i==1) || (isset($this->registry['register_page']) && $action==999)) ? 'active' : '';
-
-				$a['name'] = $arr[1];
-				$a['link'] = ($arr[0]=='') ? '/' : $arr[0];
-
-				$this->item_rq('main_menu_item',$a);
-
-				$i++;
-			}
-
-		}
-
 		public function F_growers_list_main_page(){
 			$qLnk = mysql_query("
 								SELECT
@@ -363,7 +329,8 @@ Class Template {
 								WHERE
 									growers.goods_count > 0
 								ORDER BY
-									growers.sort ASC;
+									growers.sort ASC
+								LIMIT 4;
 								");
 			while($g = mysql_fetch_assoc($qLnk)){
 				$this->item_rq('growers_carousel_item',$g);

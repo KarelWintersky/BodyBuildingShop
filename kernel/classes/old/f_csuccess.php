@@ -18,6 +18,11 @@ Class f_Csuccess{
 		if(count($path_arr)==0 && count($_POST)>0){
 			$this->mk_card_result();
 			$this->registry['f_404'] = false;
+			
+			$this->registry['CL_css']->set(array(
+					'cart',
+			));			
+			
 			return true;
 		}else{
 			header('Location: /');

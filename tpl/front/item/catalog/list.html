@@ -11,14 +11,14 @@
 	<div class="goods_item_i">
 
 		<?if($a['new']==1):?>
-			<div class="goods_item_new_big"></div>
+			<div class="goods_item_new_big">New</div>
 		<?endif;?>
 
 		<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">
 			<?if($a['avatar']!=''):?>
 				<?=$a['avatar'];?>
 			<?else:?>
-				<img src="/browser/front/i/noimg.jpg">
+                            <span class="goods_noimg"></span>
 			<?endif;?>
 		</a>
 	</div>

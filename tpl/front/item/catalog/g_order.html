@@ -3,24 +3,23 @@
 
 		<?if($this->registry['goods']['personal_discount']>0):?>
 
-			<li class="price_1"><i><?=Common_Useful::price2read($this->registry['goods']['price_1']);?></i> <span><?=Common_Useful::price2read($this->registry['goods']['price_1_n']);?></span> руб. <b class="tooltip_trigger"></b></li>
+			<li class="price_1"><i><?=Common_Useful::price2read($this->registry['goods']['price_1']);?></i> <span><?=Common_Useful::price2read($this->registry['goods']['price_1_n']);?></span> руб. </li>
 
-			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_1);?>
+			
 
-			<li class="price_2 new"><i><?=Common_Useful::price2read($this->registry['goods']['price_2']);?></i> <span><?=Common_Useful::price2read($this->registry['goods']['price_2_n']);?></span> руб. <b class="tooltip_trigger"></b></li>
+			<li class="price_2 new"><i><?=Common_Useful::price2read($this->registry['goods']['price_2']);?></i> <span><?=Common_Useful::price2read($this->registry['goods']['price_2_n']);?></span> руб. </li>
 
-			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_2);?>
+			
 
 		<?else:?>
 
-			<li class="price_1"><span><?=Common_Useful::price2read($this->registry['goods']['price_1']);?></span> руб. <b class="tooltip_trigger"></b></li>
+			<li class="price_1"><span><?=Common_Useful::price2read($this->registry['goods']['price_1']);?></span> руб. </li>
 
-			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_1);?>
+			
 
-			<li class="price_2"><span><?=Common_Useful::price2read($this->registry['goods']['price_2']);?></span> руб. <b class="tooltip_trigger"></b></li>
+			<li class="price_2"><span><?=Common_Useful::price2read($this->registry['goods']['price_2']);?></span> руб.</li>
 
-			<?=$this->registry['template']->F_tooltip(TOOLTIP_PRICE_2);?>
-
+			
 		<?endif;?>
 
 	</ul>

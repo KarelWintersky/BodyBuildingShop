@@ -46,18 +46,6 @@ var goods_tog_block = function(toggler,tog_block_id,goods_block_id){
 	return false;
 };
 
-function goto_faq(elem){
-	var alias = $(elem).val();
-	if(alias!=0) location.href = alias;
-}
-
-function goto_grower(elem){
-	var grower_alias = $(elem).val();
-	if(grower_alias!=0){
-		location.href = '/growers/'+grower_alias+'/';
-	}
-}
-
 function form_sbm(f){$(f).submit();return false;}
 
 function feat_change_list(elem){
@@ -168,13 +156,13 @@ function add2cart(trigger,packing){
 	var lnk_class = '.'+$(trigger).attr('class');
 	$(lnk_class).each(function(i,e){
 		var added_am = ($(e).find('.added').size()>0) ? true : false;
-		stored_am = (added_am) ? $(e).find('.added').html() : 0;
+		stored_am = (added_am) ? $(e).find('.added .added_i').html() : 0;
 		stored_am++;
 
 		if(added_am){
-			$(e).find('.added').html(stored_am);
+			$(e).find('.added .added_i').html(stored_am);
 		}else{
-			$(e).append('<div class="added">'+stored_am+'</div>');
+			$(e).append('<div class="added"><div class="added_i">'+stored_am+'</div></div>');
 		}
 
 	});
@@ -192,7 +180,7 @@ function cart_generate(){
 		data:  {method:'cart_construct'},
 		async:false,
 		success:function(html){
-			$('#basket_i').html(html);
+			$('#head_cart_content').html(html);
 		}
 	});
 }
@@ -262,6 +250,16 @@ $(function() {
 		e.preventDefault();
 	});
 
-	$('select.chzn').chosen({disable_search:true});
+	$('select#goto_faq').change(function(e){
+		var alias = $(this).val();
+		if(alias) location.href = alias;
+	});	
+	
+	$('select#goto_grower').change(function(e){
+		var alias = $(this).val();
+		if(alias) location.href = '/growers/'+alias+'/';
+	});
+	
+	$('select').chosen({disable_search:true});
 
 });

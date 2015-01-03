@@ -2,10 +2,26 @@
 	#register_page textarea, #register_page input[type="text"], #register_page input[type="password"]{width:287px;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font-family:Verdana;font-size:11px;outline:none;}
 	#register_page textarea{resize:none;padding:5px;height:63px;}
 	#register_page input[type="text"], #register_page input[type="password"]{height:23px;padding:0 5px;}
-	#register_page input[type="submit"]{border:1px solid #F49900;height:28px;background:url(/browser/front/i/register_sbm.jpg) 0 0 repeat-x;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;}
-	#register_page #register_crumbs{background:url(/browser/front/i/register_crumbs_line.jpg) 0 17px repeat-x;margin:0 0 23px;}
-		#register_page #register_crumbs li{float:left;width:34px;height:28px;padding:5px 0 0;background:url(/browser/front/i/register_crumbs_li.png) 0 0 no-repeat;font-size:18px;color:#ccc;text-align:center;}
-		#register_page #register_crumbs li.active{background-position:-34px 0;color:#fff;}
+	#register_page input[type="submit"]{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+	}
+	#register_page #register_crumbs{margin:0 0 23px;}
+		#register_page #register_crumbs li{float:left;width:33px;height:28px;padding:5px 0 0;border-radius:33px;border:1px solid #ccc;font-size:18px;color:#ccc;text-align:center;}
+		#register_page #register_crumbs li.active{color:#fff;border:1px solid #F49900;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);		
+		}
 		#register_page #register_crumbs li.last{float:right;}
 		#register_page #register_crumbs li.second{margin-left:305px;}
 	#register_page #register_left{float:left;width:340px;}
@@ -16,12 +32,12 @@
 				#register_page #register_left .register_left_gr .register_left_city li{padding:0 0 5px;}
 		#register_page #register_left .coloured{background:#fbf1d3;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font-size:12px;color:#333233;line-height:17px;padding:19px 23px;margin:0 0 20px;}
 			#register_page #register_left .coloured h2{font-size:14px;font-weight:normal;color:#e38a25;line-height:19px;padding:0 0 19px;}
-			#register_page #register_left .coloured ul{}
-				#register_page #register_left .coloured ul li{padding:0 0 12px 15px;background:url(/browser/front/i/register_coloured_li.png) 0 6px no-repeat;}
+			#register_page #register_left .coloured ul{padding:0 0 0 16px;}
+				#register_page #register_left .coloured ul li{padding:0 0 12px 0;list-style:outside disc;}
 	#register_page #register_right{float:right;width:340px;}
 		#register_page #register_right .register_form{background:#f2f2f2;padding:14px 0 21px;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
 		#register_page #register_right .register_form .rf_inner{padding:0 19px;}
-		#register_page #register_right .register_form .rf_divider{background:url(/browser/front/i/rf_divider.jpg) 0 7px repeat-x;margin:22px 0 19px;}
+		#register_page #register_right .register_form .rf_divider{margin:22px 0 19px;}
 			#register_page #register_right .register_form .rf_divider .rf_divider_i{font-size:12px;color:#e38a25;background:#f2f2f2;padding:0 8px;float:left;margin:0 0 0 11px;}
 		#register_page #register_right .register_form .rf_divider.rf_divider_2{background-position:0 0;height:1px;margin:12px 0 18px;}
 			#register_page #register_right .register_form h3{color:#f49a00;font-size:14px;font-weight:normal;padding:0 0 23px;}
@@ -64,7 +80,14 @@
 		#form_AccountOrder input[type="text"].err{border:1px solid #ff0000;}
 	#form_AccountOrder label{font-size:12px;display:block;padding:0 0 4px;}
 		#form_AccountOrder label span{color:#cc0000;}
-	#form_AccountOrder input[type="submit"]{border:1px solid #F49900;height:28px;background:url(/browser/front/i/register_sbm.jpg) 0 0 repeat-x;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;}
+	#form_AccountOrder input[type="submit"]{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
 	#form_AccountOrder #fao_l{float:left;}
 		#form_AccountOrder #fao_l .form_l_sum{margin:0 0 15px;}
 	#form_AccountOrder #fao_r{float:right;width:500px;font-size:11px;line-height:15px;color:#999;padding:15px 0 0;}
@@ -90,7 +113,7 @@
 
 #your_orders{padding:32px 0 0;}
 	#your_orders h2{color:#e38a25;font-size:18px;font-weight:normal;padding:0 0 23px;}
-	#your_orders .yo_post_hint{background:#fbf1d3 url(/browser/front/i/ico_hint_1.png) 13px 17px no-repeat;padding:13px 33px 9px 42px;font-size:11px;line-height:14px;margin:0 0 15px;}
+	#your_orders .yo_post_hint{background:#fbf1d3;padding:13px 33px 9px 15px;font-size:11px;line-height:14px;margin:0 0 15px;}
 	#your_orders .yo_table{font-size:14px;padding:0 0 28px;}
 		#your_orders .yo_table .yo_table_h{padding:0 0 8px;}
 		#your_orders .yo_table table{width:100%;border-collapse:collapse;}
@@ -101,8 +124,8 @@
 			#your_orders .yo_table table td.no_orders{color:#ccc;font-size:11px;font-style:italic;padding:15px 0;border:0;}
 			#your_orders .yo_table table td.td_bill{}
 				#your_orders .yo_table table td.td_bill a{text-decoration:none;display:block;outline:none;}
-				#your_orders .yo_table table td.td_bill a.td_bill_lnk{width:16px;height:16px;background:url(/browser/front/i/td_bill_link.jpg)}
-				#your_orders .yo_table table td.td_bill a.payment_lnk{width:23px;height:15px;background:url(/browser/front/i/payment_link.jpg);}
+				#your_orders .yo_table table td.td_bill a.td_bill_lnk{width:16px;height:16px;background:url(/browser/front/i/spr1.png) -180px -77px;}
+				#your_orders .yo_table table td.td_bill a.payment_lnk{width:23px;height:15px;background:url(/browser/front/i/spr1.png) -196px -77px;}
 					#your_orders .yo_table table td.td_bill a.payment_lnk:hover{text-decoration:none;}
 		#your_orders .yo_table table .cancelled td{border-bottom:0;}
 		#your_orders .yo_table table .cancelled_cause td{padding:0 0 10px 35px;text-align:left;}
@@ -111,13 +134,20 @@
 	#profile_info_form textarea, #profile_info_form input[type="text"], #profile_info_form input[type="password"]{width:287px;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font-family:Verdana;font-size:11px;outline:none;}
 	#profile_info_form textarea{resize:none;padding:5px;height:63px;}
 	#profile_info_form input[type="text"], #profile_info_form input[type="password"]{height:23px;padding:0 5px;}
-	#profile_info_form input[type="submit"]{border:1px solid #F49900;height:28px;background:url(/browser/front/i/register_sbm.jpg) 0 0 repeat-x;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;}
+	#profile_info_form input[type="submit"]{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
 	#profile_info_form input[type="submit"]:disabled{cursor:auto;background-position:0 -28px;border:1px solid #B9B9B9;}
 	#profile_info_form label{font-size:12px;display:block;padding:0 0 4px;}
 		#profile_info_form label span{color:#cc0000;}
 
 	#profile_info_form .zc_hint{font-size:11px;color:#999;line-height:15px;padding:0 0 9px;}
-	#profile_info_form .pif_divider{background:url(/browser/front/i/rf_divider.jpg) 0 7px repeat-x;margin:22px 0 19px;}
+	#profile_info_form .pif_divider{margin:22px 0 19px;}
 		#profile_info_form .pif_divider .pif_divider_i{font-size:12px;color:#e38a25;background:#f2f2f2;padding:0 8px;float:left;margin:0 0 0 11px;}
 	#profile_info_form .pif_divider.pif_divider_2{background-position:0 0;height:1px;margin:12px 0 18px;}
 	#profile_info_form .pif_lft{float:left;width:297px;}
@@ -152,10 +182,25 @@
 	.auth_page #auth_register{float:right;width:298px;padding:14px 20px 20px;border:1px solid #c8c8c8;background:#f2f2f2;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
 		.auth_page #auth_register h2{color:#e38a25;font-size:14px;font-weight:normal;padding:0 0 23px;}
 		.auth_page #auth_register #auth_register_hint{color:#333;font-size:12px;line-height:17px;margin:0 0 15px;}
-		.auth_page #auth_register a{display:block;border:1px solid #f49900;height:22px;padding:6px 0 0;width:99px;background:url(/browser/front/i/goods_item_order.jpg) 0 0 repeat-x;color:#fff;text-decoration:none;outline:none;font-size:12px;text-align:center;}
+		.auth_page #auth_register a{display:block;border:1px solid #f49900;height:22px;padding:6px 0 0;width:99px;color:#fff;text-decoration:none;outline:none;font-size:12px;text-align:center;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);		
+		}
 	.auth_page #auth_form{float:left;width:298px;padding:14px 20px 20px;border:1px solid #c8c8c8;background:#f2f2f2;font-size:12px;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
 		.auth_page #auth_form h2{color:#e38a25;font-size:14px;font-weight:normal;padding:0 0 23px;}
-		.auth_page #auth_form input[type="submit"]{border:1px solid #F49900;height:28px;background:url(/browser/front/i/register_sbm.jpg) 0 0 repeat-x;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;}
+		.auth_page #auth_form input[type="submit"]{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
 		.auth_page #auth_form input[type="text"], .auth_page #auth_form input[type="password"]{width:287px;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font-family:Verdana;font-size:11px;outline:none;height:23px;padding:0 5px;}
 		.auth_page #auth_form label{font-size:12px;padding:0 0 6px;display:block;}
 		.auth_page #auth_form .form_auth_l{padding:0 0 11px;}
@@ -169,7 +214,14 @@
 	.pwd_recover_page #pwd_recover_msg{font-weight:bold;}
 	.pwd_recover_page .pr_form{float:left;width:298px;padding:14px 20px 20px;border:1px solid #c8c8c8;background:#f2f2f2;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
 		.pwd_recover_page .pr_form h2{color:#e38a25;font-size:14px;font-weight:normal;padding:0 0 23px;}
-		.pwd_recover_page .pr_form input[type="submit"]{border:1px solid #F49900;height:28px;background:url(/browser/front/i/register_sbm.jpg) 0 0 repeat-x;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;}
+		.pwd_recover_page .pr_form input[type="submit"]{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 11px 1px;background:#eab000;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
 		.pwd_recover_page .pr_form input[type="text"]{width:287px;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font-family:Verdana;font-size:11px;outline:none;height:23px;padding:0 5px;}
 		.pwd_recover_page .pr_form label{font-size:12px;padding:0 0 6px;display:block;}
 		.pwd_recover_page .pr_form .pr_line{padding:0 0 22px;}

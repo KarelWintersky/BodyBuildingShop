@@ -71,6 +71,9 @@
 				$this->registry['CL_css']->set(array(
 						'catalog',
 				));				
+				$this->registry['CL_js']->set(array(
+						'goods'
+				));				
 				
 				$Front_Catalog_Levels = new Front_Catalog_Levels($this->registry);
 				$Front_Catalog_Levels->do_vars();
@@ -449,9 +452,9 @@
 				}
 				$list_html = ob_get_clean();				
 				
-				if($reqiure_file=='goods_list_table'){
+				if($reqiure_file=='table'){
 					ob_start();
-					$this->item_rq('goods_list_table_th',$g);
+					$this->item_rq('table_th',$g);
 					$th = ob_get_contents();
 					ob_end_clean();
 
@@ -740,7 +743,7 @@
 					if(in_array($goods_arr[0],$barcodes) && $packing==$goods_arr[1]) $counter+=$goods_arr[2];
 				}
 			}
-			echo ($counter>0) ? '<div class="added">'.$counter.'</div>' : '';
+			echo ($counter>0) ? '<div class="added"><div class="added_i">'.$counter.'</div></div>' : '';
 		}
 
 		public function cart_construct(){

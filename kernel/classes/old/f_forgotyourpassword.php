@@ -30,6 +30,10 @@
 					setcookie('recover_msg','',time()-900,'/');	
 				}				
 				
+				$this->registry['CL_css']->set(array(
+						'profile',
+				));				
+				
 				return true;
 			}
 									

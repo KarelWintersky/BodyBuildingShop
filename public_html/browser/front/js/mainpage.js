@@ -1,6 +1,4 @@
-jQuery(document).ready(function() {
-    jQuery('#growers_carousel_body').jcarousel();
-    
+jQuery(document).ready(function() {    
 	$('#main_page_module').AccordionImageMenu({
 		'height': 319,
 		'openDim': 839,

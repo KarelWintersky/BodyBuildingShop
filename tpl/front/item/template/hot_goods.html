@@ -10,14 +10,14 @@
 	<div class="hgi_img">
 	
 		<?if($a['new']==1):?>
-			<div class="new_big"></div>
+			<div class="new_big">New</div>
 		<?endif;?>	
 	
 		<a href="<?=$a['link'];?>">
 			<?if($a['avatar']!=''):?>
 				<img src="<?=Front_Catalog_Helper_Image::goods_path($a['id'],$a['avatar'],'122x122');?>" alt="<?=htmlspecialchars($a['alt']);?>">
 			<?else:?>
-				<img src="/browser/front/i/noimg.jpg">
+				<span class="goods_noimg"></span>
 			<?endif;?>
 		</a>
 	</div>
