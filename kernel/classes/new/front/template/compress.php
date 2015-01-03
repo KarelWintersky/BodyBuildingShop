@@ -37,8 +37,10 @@ Class Front_Template_Compress{
 	
 	public function do_compress($html){
 		if(!OPTIMISE_FRONTEND) return $html;
-				
-		if(!isset($this->registry['userdata']) || !$this->registry['userdata'] || $this->registry['userdata']['type']==1) $html = $this->replace_spaces($html);
+
+		if(!isset($this->registry['userdata']) || !$this->registry['userdata'] || $this->registry['userdata']['type']==1){
+			$html = $this->replace_spaces($html);			
+		}
 		
 		$html = $this->do_gzip($html);
 		
