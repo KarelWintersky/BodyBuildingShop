@@ -40,6 +40,8 @@ Class Front_Template_Links{
 	}
 	
 	private function do_replace($matches){
+		if(strpos($matches[1],'#')===0) return $matches[0]; 
+		
 		if($matches[1]=='/' || !$matches[1]) return $matches[0];
 				
 		$link = $matches[1];

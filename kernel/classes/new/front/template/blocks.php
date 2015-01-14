@@ -57,10 +57,17 @@ Class Front_Template_Blocks{
 		return Front_Template_Select::opts($data,'Производитель');
 	}	
 	
+	private function this_page_url(){
+		$url = trim($_SERVER['REQUEST_URI'],'/');
+		
+		return $url;
+	}	
+	
 	public function do_blocks(){
 		$blocks = array(
 			'sidebar_faq' => $this->sidebar_faq(),
 			'sidebar_growers' => $this->sidebar_growers(),
+			'this_page_url' => $this->this_page_url(),
 		);
 		
 		foreach($blocks as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

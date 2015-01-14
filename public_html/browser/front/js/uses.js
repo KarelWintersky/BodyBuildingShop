@@ -251,8 +251,21 @@ $(function() {
 	});
 
 	$('select#goto_faq').change(function(e){
+		var this_page_url = $('#this_page_url').val();
+		
 		var alias = $(this).val();
-		if(alias) location.href = alias;
+		
+		if(this_page_url!='faq') { if(alias) location.href = alias; }
+		else{
+			var hash = alias.split("#");
+			hash = hash[1];
+			
+			var elem = $('a[name="'+hash+'"]');
+				
+			$('html, body').animate({scrollTop:$(elem).offset().top}, 600);
+			
+			window.location.hash = hash;
+		}
 	});	
 	
 	$('select#goto_grower').change(function(e){
