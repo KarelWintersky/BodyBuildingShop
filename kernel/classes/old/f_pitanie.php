@@ -2,10 +2,14 @@
 	Class f_Pitanie{
 
 		private $registry;
+		
+		private $Front_Articles_Widget;
 
 		public function __construct($registry){
 			$this->registry = $registry;
 			$this->registry->set('f_articles',$this);
+			
+			$this->Front_Articles_Widget = new Front_Articles_Widget($this->registry);
 		}
 
 		public function path_check($alias){
@@ -39,7 +43,7 @@
 								");
 			if(mysql_num_rows($qLnk)>0){
 				$article = mysql_fetch_assoc($qLnk);
-				$article['content'] = $this->page_content($article['content']);
+				$article['content'] = $this->Front_Articles_Widget->do_articles($article['content']);
 
 				$this->registry['article'] = $article;
 
@@ -76,77 +80,6 @@
 				$this->item_rq('mainpage_item',$a);
 			}
 		}
-
-		private function page_content($content){
-			$reg = "/<p>{{a:(.*)}}<\/p>/i";
-			$content = preg_replace_callback($reg,array($this,'match_find'),$content);
-
-			return $content;
-		}
-
-        private function match_find($matches){
-        	$ids = explode(',',$matches[1]);
-        	return (count($ids)>0) ? $this->do_articles_list($ids) : $matches[0];
-        }
-
-        private function do_articles_list($ids){
-        	$data = array();
-			$qLnk = mysql_query(sprintf("
-				SELECT
-					name,
-					alias,
-					introtext,
-					avatar
-				FROM
-					articles
-				WHERE
-					id IN (%s)
-				ORDER BY
-					FIELD(id, %s)
-				",
-				implode(",",$ids),
-				implode(",",$ids)
-				));
-			while($a = mysql_fetch_assoc($qLnk)) $data[] = $a;
-
-			ob_start();
-			$count = count($data);
-			$i = 1;
-			foreach($data as $a){
-				$a['classes'] = $this->article_classes($count,$i);
-				$this->item_rq('article',$a);
-
-				$i++;
-			}
-
-			$a = array(
-				'list' => ob_get_clean(),
-				'class' => $this->container_class($count)
-				);
-
-			ob_start();
-			$this->item_rq('articles_container',$a);
-			return ob_get_clean();
-        }
-
-        private function container_class($count){
-			if($count==1){
-				return '';
-			}elseif($count%2==0){
-				return 'doubled';
-			}else{
-				return 'with_last';
-			}
-        }
-
-        private function article_classes($count,$i){
-			$classes = array();
-
-			if($i==$count) $classes[] = 'last';
-			if($i%2==0) $classes[] = 'even';
-
-			return implode(' ',$classes);
-        }
 
 	}
 ?>
