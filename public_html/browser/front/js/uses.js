@@ -21,7 +21,6 @@ var sb_catalog_tog = function(toggler,tog_block_id,level_id){
 	$(toggler).removeClass(v_rem_class).addClass(v_add_class);
 
 	$(block).slideToggle(1100);
-
 };
 
 var goods_tog_block = function(toggler,tog_block_id,goods_block_id){
