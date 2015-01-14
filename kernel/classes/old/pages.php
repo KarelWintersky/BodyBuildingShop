@@ -81,6 +81,8 @@ Class Pages{
 			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id);
 
+		$content = Adm_Helper_Content::delete_junk($content);
+		
 		mysql_query("
 					INSERT INTO
 						pages
@@ -133,6 +135,8 @@ Class Pages{
 			$alias = mb_strtolower($alias,'utf-8');
 		$alias = $this->urlGenerate($alias,$id);
 
+		$content = Adm_Helper_Content::delete_junk($content);
+		
 		$qLnk = mysql_query("
 							UPDATE
 								pages

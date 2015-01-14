@@ -119,6 +119,8 @@ Class Articles{
 
 		$img_alt = str_replace('"','',$img_alt);
 
+		$content = Adm_Helper_Content::delete_junk($content);
+		
 		mysql_query("
 					INSERT INTO
 						articles
@@ -181,6 +183,8 @@ Class Articles{
 
 		$img_alt = str_replace('"','',$img_alt);
 
+		$content = Adm_Helper_Content::delete_junk($content);
+		
 		mysql_query("
 					UPDATE
 						articles
