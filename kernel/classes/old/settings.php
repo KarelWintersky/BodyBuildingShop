@@ -616,6 +616,11 @@
 				$photo[$ph['goods_id']][] = $ph['alias'];
 			}
 
+			echo '<pre>';
+			print_r($photo);
+			echo '</pre>';
+			exit();
+			
 			foreach($photo as $goods_id => $items) $photo[$goods_id] = array_slice(0,10,$items);
 			
 			return $photo;
