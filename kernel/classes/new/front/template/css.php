@@ -27,7 +27,6 @@ Class Front_Template_Css{
         	$output = array();
         	
         	$special = array(
-        			'noscript' => array('<noscript>','</noscript>'),
         			'ie' => array('<!--[if lt IE 9]>','<![endif]-->'),
         			'ie6_ban' => array('<!--[if IE 6]>','<![endif]-->'),
         			);
