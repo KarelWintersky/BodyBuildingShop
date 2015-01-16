@@ -16,8 +16,9 @@ Class Adm_Catalog_Goods_Barcodes_Check{
 					COUNT(*) 
 				FROM
 					goods_barcodes
+				INNER JOIN goods ON goods.id = goods_barcodes.goods_id 
 				WHERE
-					barcode = '%s'
+					goods_barcodes.barcode = '%s'
 				",
 				mysql_real_escape_string($barcode)
 				));

@@ -615,7 +615,9 @@
 			while($ph = mysql_fetch_assoc($qLnk)){
 				$photo[$ph['goods_id']][] = $ph['alias'];
 			}
-
+			
+			foreach($photo as $goods_id => $items) $photo[$goods_id] = array_slice($items,0,10);
+			
 			return $photo;
 		}
 

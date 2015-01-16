@@ -39,11 +39,19 @@ Class Front_Template_Links{
 				);
 	}
 	
+	private function replace_index_slash($matches){
+		return str_replace(
+				'href="/"',
+				sprintf('href="%s"',THIS_URL),
+				$matches[0]
+				);
+	}
+	
 	private function do_replace($matches){
-		if(strpos($matches[1],'#')===0) return $matches[0]; 
+		if(strpos($matches[1],'#')===0) return $matches[0];
+		if(!$matches[1]) return $matches[0];
+		if($matches[1]=='/') return $this->replace_index_slash($matches);
 		
-		if($matches[1]=='/' || !$matches[1]) return $matches[0];
-				
 		$link = $matches[1];
 		$link = $this->to_lowercase($link);
 		$link = $this->replace_domain($link);
