@@ -21,11 +21,11 @@ Class Front_Catalog_Goods_List_Paginate{
 		);
 		
 	}
-	
+		
 	public function get_current_paging($from){
 		$type = Front_Catalog_Goods_List_Helper::get_type($from);
 		$display_type = $this->registry['CL_catalog_display']->get_display_type($from);
-		
+				
 		if(isset($_COOKIE[$this->registry['cookie_type']]['display_number'][$display_type][$this->registry[$type]['id']]))
 			return $_COOKIE[$this->registry['cookie_type']]['display_number'][$display_type][$this->registry[$type]['id']];
 		

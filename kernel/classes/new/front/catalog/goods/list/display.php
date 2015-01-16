@@ -23,10 +23,23 @@ Class Front_Catalog_Goods_List_Display Extends Common_Rq{
 		return $display;
 	}
 	
+	private function display_type_crutch($display_type){
+		/*
+		 * костыль для приведения старых названий к новым
+		* */
+	
+		if($display_type=='goods_list_table') return 'table';
+		if($display_type=='goods_list') return 'list';
+	
+		return $display_type;
+	}	
+	
 	public function get_display_type($from){
 		$type = Front_Catalog_Goods_List_Helper::get_type($from);
 
 		$display = $this->display_from_cookie($type);
+		
+		$display = $this->display_type_crutch($display);
 		
 		return $display;
 	}
