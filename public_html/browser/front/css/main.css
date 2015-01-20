@@ -15,6 +15,8 @@ a{color:#3366cc;}
 form{}
 	form input[type="text"]{outline:none;}
 
+select{display:none;}
+
 #not_footer{position:relative;min-height:100%;}
 	#not_footer #not_footer_i{padding-bottom:217px;}
 * html #not_footer{height:100%;}
