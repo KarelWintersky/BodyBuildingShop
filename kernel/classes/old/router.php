@@ -71,10 +71,10 @@ Class Router {
 			$route = trim($route, '/\\');
 			$parts = explode('/', $route);
 
-
 	        // Находим правильный контроллер
 
 	        $cmd_path = $this->path;
+	        
 	        foreach ($parts as $part) {
                 $fullpath = $cmd_path.$part;
 
@@ -94,7 +94,7 @@ Class Router {
                 }
 
 	        }
-
+	        
 	        if (empty($controller)) { $controller = 'index'; };
 
 			// Получаем действие

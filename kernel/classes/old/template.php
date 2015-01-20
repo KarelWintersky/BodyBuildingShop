@@ -57,9 +57,12 @@ Class Template {
 		}
 
 		function content(){
-			if(isset($this->vars['c'])){
-				require($this->TF.'content/'.$this->vars['c'].'.html');
-			}
+			if(!isset($this->vars['c'])) return false;
+			
+			$file = $this->TF.'content/'.$this->vars['c'].'.html';
+			
+			if(is_file($file)) require($file);
+			else Front_Template_Content::do_content($this->vars['c']);
 		}
 
 		private function item_rq($name,$a = NULL){
@@ -248,7 +251,7 @@ Class Template {
 		}
 
 		public function F_crumbs(){
-			if(!isset($this->registry['mainpage'])):
+			if(!isset($this->registry['mainpage']) && count($this->F_crumbs)>1):
 				$html = array();
 				$link = '';
 				$i = 1;
