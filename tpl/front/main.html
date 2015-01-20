@@ -1,6 +1,5 @@
 <?
-	if(CLOSE_FRONTEND && !isset($_SESSION['user_id'])){
-		echo 'Сайт закрыт на техническое обслуживание до 22:00 по московскому времени.'; 
+	if(CLOSE_FRONTEND && !isset($_SESSION['user_id'])){ 
 		exit(); 
 	}
 ?>
