@@ -22,7 +22,7 @@ Class Front_Articles_Widget Extends Common_Rq{
 	}
 	
 	public function do_articles($text){
-		
+		$text = $this->clear_code($text);
 		
 		$reg = "/<p>{{a:(.*)}}<\/p>/i";
 		$text = preg_replace_callback($reg,array($this,'match_find'),$text);
