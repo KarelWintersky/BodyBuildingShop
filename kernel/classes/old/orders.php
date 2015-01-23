@@ -333,6 +333,8 @@ Class Orders{
 				? $g['goods_name'] 
 				: $g['goods_full_name'];
 			
+			$g['final_price'] = $g['final_price']*$g['amount']; 
+			
 			$this->item_rq('goods_item',$g);
 		}
 	}
