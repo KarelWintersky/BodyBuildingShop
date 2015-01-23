@@ -11,7 +11,19 @@ Class Front_Articles_Widget Extends Common_Rq{
 		$this->Front_Articles_Widget_Data = new Front_Articles_Widget_Data($this->registry);
 	}	
 		
+	private function clear_code($text){
+		/*
+		 * очистка кода от символов, которые мешают распарсить синтаксис вставки статей
+		 * */
+		
+		$text = str_replace('&nbsp;</p>','</p>',$text);
+		
+		return $text;
+	}
+	
 	public function do_articles($text){
+		
+		
 		$reg = "/<p>{{a:(.*)}}<\/p>/i";
 		$text = preg_replace_callback($reg,array($this,'match_find'),$text);
 		
