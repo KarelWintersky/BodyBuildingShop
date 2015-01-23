@@ -8,7 +8,7 @@
 	<td class="git_name <?= ($a['new']==1) ? 'goods_item_new_small' : '' ;?> <?= ($a['no_tastes']) ? 'no_tastes' : '';?>">
 
 		<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">
-			<?=$a['name'];?></a>
+			<?=$a['name_print'];?></a>
 		<br>
 		
 		<?= ($a['grower_id']!=0) ? sprintf('<b>%s</b>',$a['grower']) : '';?>
