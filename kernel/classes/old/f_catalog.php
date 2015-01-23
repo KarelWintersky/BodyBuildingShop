@@ -329,6 +329,7 @@
 								SELECT SQL_CALC_FOUND_ROWS
 									goods.avatar_id,
 									goods.id AS id,
+									goods.seo_h1,
 									goods.name AS name,
 									goods.alias AS alias,
 									goods.introtext AS introtext,
@@ -415,6 +416,8 @@
 				$no_tastes = true;
 				foreach($result_arr as $key => $g){
 
+					$g['name_print'] = Front_Catalog_Helper_Goods::list_name($g);
+					
 					$g['avatar'] = $this->mk_avatar($g);
 					
 					if($g['personal_discount']>0){
