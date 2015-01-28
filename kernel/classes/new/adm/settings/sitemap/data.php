@@ -53,6 +53,8 @@ Class Adm_Settings_Sitemap_Data{
 					growers
 				WHERE
 					alias <> ''
+					AND
+					goods_count > 0
 				ORDER BY
 					name ASC;
 				");
