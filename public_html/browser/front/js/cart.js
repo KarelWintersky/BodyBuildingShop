@@ -24,13 +24,15 @@ function long_cart_generate(){
 			success:function(html){
                             
 				$('#long_cart_table_container').html(html);
-				//dropdown_blocks();
+				
 				$('#cart_preloader').hide();
 				delivery_payment_match();
 				
 				$('.radio_block').find('.radio_line').each(function(i,elem){
 					if($(elem).find('input[type="radio"]').is(':checked')){
 						$(elem).addClass('active');
+						
+						$('select[name="gift"]').chosen({disable_search:true});
 						
 						var thehint = $(elem).find('.thehint').val(); 
 						$(elem).parents('.radio_block').find('.radios_right').html(thehint);
