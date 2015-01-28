@@ -16,6 +16,15 @@ Class Front_Template_Links{
 	}	
 			
 	private function to_lowercase($link){
+		/*
+		 * проверяем, если ссылка на файл, а не на страницу, в lowercase не переводим
+		 * если в последней части урл есть точка, то файл
+		 * */
+		$link_trimmed = trim($link,'/');
+		$arr = explode('/',$link_trimmed);
+		$end = array_pop($arr);
+		if(strpos($end,'.')!==false) return $link;
+		
 		$link = mb_strtolower($link,'utf-8');
 		
 		return $link;
