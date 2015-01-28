@@ -768,12 +768,14 @@ Class Template {
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'" />';
 	    	}else{
-	    		$url = explode('?',$_SERVER['REQUEST_URI']);
+	    		$url = mb_strtolower($_SERVER['REQUEST_URI'],'utf-8');
+	    		
+	    		/*$url = explode('?',$_SERVER['REQUEST_URI']);
 	    		$url = $url[0];
 	    		$url = trim(THIS_URL,'/').$url;
 	    		$url = trim($url,'/');
 	    		$url = $url.'/';
-	    		$url = mb_strtolower($url,'utf-8');
+	    		$url = mb_strtolower($url,'utf-8');*/
 
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'" />';
