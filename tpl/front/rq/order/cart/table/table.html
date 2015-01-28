@@ -1,0 +1,40 @@
+<div id="order_goods">
+	<table id="order_goods_table">
+		<tr>
+			<th>Наименование</th>
+			<th>Цена за шт.</th>
+			<th>Количество</th>
+			<th>Удалить</th>
+		</tr>
+		<?=$a['lines'];?>
+	</table>
+	
+	<div id="order_goods_refresh">
+		<a href="#">Пересчитать</a>
+	</div>
+	
+	<ul id="order_goods_values">
+		<li>
+			<div class="ogv_label">Общая стоимость без учета персональной скидки:</div>
+			<div class="ogv_val">
+				<b>244</b> руб.
+			</div>
+			<div class="clr"></div>
+		</li>
+		<li>
+			<div class="ogv_label">Ваша скидка (1.50 %):</div>
+			<div class="ogv_val">
+				<b>4</b> руб.
+			</div>
+			<div class="clr"></div>
+		</li>
+		<li>
+			<div class="ogv_label">Итоговая стоимость вашего заказа (без учета доставки):</div>
+			<div class="ogv_val">
+				<b>240</b> руб.
+			</div>
+			<div class="clr"></div>
+		</li>				
+	</ul>
+	
+</div>

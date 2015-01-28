@@ -657,31 +657,6 @@
 
 		}
 
-		private function mk_overall_weight($full_array){
-			$weight = 0;
-			foreach($full_array as $item){
-				$goods_weight = intval($item['weight']);
-				$weight+= $item['amount']*$goods_weight;
-			}
-
-			return $weight;
-		}
-
-		private function mk_overall_price($full_array){
-			$price = 0;
-			foreach($full_array as $item){
-				$goods_price = intval($item['price']);
-				$price+= $item['amount']*$goods_price;
-			}
-
-			if(($price + $price*PREPAY_DISCOUNT/100)>$this->registry['userdata']['max_nalog']){
-				$this->registry['no_nalog'] = true;
-			}
-
-			return $price;
-
-		}
-
 		private function mk_cart_array($cart_arr){
 			$new_arr = array();
 

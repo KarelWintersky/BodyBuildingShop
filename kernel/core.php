@@ -52,4 +52,12 @@ function __autoload($className){
 	}
 }
 
+function p($arr,$exit = false){
+	echo '<pre>';
+	print_r($arr);
+	echo '</pre>';
+	
+	if($exit) exit();
+}
+
 ?>
