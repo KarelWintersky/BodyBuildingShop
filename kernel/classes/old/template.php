@@ -598,6 +598,10 @@ Class Template {
 									growers.alias
 								FROM
 									growers
+								WHERE
+									alias <> ''
+									AND
+									goods_count > 0
 								ORDER BY
 									growers.name ASC;
 								");
