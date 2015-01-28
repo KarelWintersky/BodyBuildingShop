@@ -27,7 +27,6 @@ function long_cart_generate(){
 				//dropdown_blocks();
 				$('#cart_preloader').hide();
 				delivery_payment_match();
-				tooltip_trigger_attach();
 				
 				$('.radio_block').find('.radio_line').each(function(i,elem){
 					if($(elem).find('input[type="radio"]').is(':checked')){
