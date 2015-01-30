@@ -10,7 +10,7 @@ Class Adm_Catalog_Goods_List Extends Common_Rq{
 	private function get_goods($level_id){
 		$goods = array();
 		$qLnk = mysql_query(sprintf("
-				SELECT
+				SELECT DISTINCT
 					goods.id,
 					goods.name,
 					goods.parent_barcode,
