@@ -366,49 +366,12 @@ Class Catalog{
 
 	}
 
-	private function print_goods_list($level_id){
-		$qLnk = mysql_query("
-							SELECT
-								goods.id,
-								goods.name,
-								goods.parent_barcode,
-								goods.barcode,
-								goods.published,
-								goods.present,
-								goods.hot,
-								goods.new,
-								goods.price_1,
-								goods.price_2,
-								goods.personal_discount,
-								goods.packing,
-								goods.alias,
-								growers.name AS grower
-							FROM
-								goods
-							LEFT OUTER JOIN growers ON growers.id = goods.grower_id
-							WHERE
-								goods.level_id = '".$level_id."' 
-							ORDER BY
-								goods.published DESC,
-								goods.sort ASC;
-							");
-		$i = 1;
-		ob_start();
-		while($l = mysql_fetch_assoc($qLnk)){
-			$l['sort'] = $i;
-			$this->item_rq('goods_list',$l);
-			$i++;
-		}
-		$html = ob_get_contents();
-		ob_end_clean();
-
-		return $html;
-	}
-
 	public function print_level_list($parent,&$level_html=''){
 
 		if($this->registry['level']['parent_parent_id']!=''){
-			$level_html = $this->print_goods_list($this->registry['level']['id']);
+			$Adm_Catalog_Goods_List = new Adm_Catalog_Goods_List($this->registry);
+			$level_html = $Adm_Catalog_Goods_List->print_list($this->registry['level']['id']);
+
 			return;
 		}
 
