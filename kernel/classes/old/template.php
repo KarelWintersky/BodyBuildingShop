@@ -443,6 +443,11 @@ Class Template {
 		}
 
 		private function F_map(){
+			$this->registry['CL_js']->set(array(
+					'http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU',
+					'map',
+			));			
+			
 			$this->item_rq('map');
 		}
 
