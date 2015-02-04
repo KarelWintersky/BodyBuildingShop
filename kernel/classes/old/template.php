@@ -460,18 +460,18 @@ Class Template {
 
 			$topic = ($topic) ? $topic : 1;
 			
-			$qLnk = mysql_query("SELECT feedback_mail.email FROM feedback_mail WHERE feedback_mail.id = '".$topic."' LIMIT 1;");
+			$qLnk = mysql_query("SELECT feedback_mail.email, feedback_mail.name FROM feedback_mail WHERE feedback_mail.id = '".$topic."' LIMIT 1;");
 			if(mysql_num_rows($qLnk)>0){
-				$mail_to = mysql_result($qLnk,0);
+				$M = mysql_fetch_assoc($qLnk);
 
 				$replace_arr = array(
-					'F_TOPIC' => $topic_name,
+					'F_TOPIC' => $M['name'],
 					'F_NAME' => $name,
 					'F_EMAIL' => $email,
 					'F_MSG' => str_replace('\r\n','<br>',$msg)
 				);
 
-				$mailer = new Mailer($this->registry,3,$replace_arr,$mail_to);
+				$mailer = new Mailer($this->registry,3,$replace_arr,$M['email']);
 
 			}
 
