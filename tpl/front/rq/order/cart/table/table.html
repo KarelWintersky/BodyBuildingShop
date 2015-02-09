@@ -1,38 +1,42 @@
 <div id="order_goods">
-	<table id="order_goods_table">
+	<table id="order_goods_table" cellspacing="0" cellpadding="0">
 		<tr>
-			<th>Наименование</th>
-			<th>Цена за шт.</th>
-			<th>Количество</th>
-			<th>Удалить</th>
+			<th class="td_name">Наименование</th>
+			<th class="td_price">Цена за шт.</th>
+			<th class="td_amount">Количество</th>
+			<th class="td_del">Удалить</th>
 		</tr>
 		<?=$a['lines'];?>
 	</table>
 	
 	<div id="order_goods_refresh">
-		<a href="#">Пересчитать</a>
+		<div id="order_goods_refresh_ico"></div>
+		<div id="order_goods_refresh_link">
+			<a href="#">Пересчитать</a>
+		</div>
+		<div class="clr"></div>
 	</div>
 	
 	<ul id="order_goods_values">
 		<li>
-			<div class="ogv_label">Общая стоимость без учета персональной скидки:</div>
 			<div class="ogv_val">
 				<b>244</b> руб.
 			</div>
+			<div class="ogv_label">Общая стоимость без учета персональной скидки:</div>
 			<div class="clr"></div>
 		</li>
 		<li>
-			<div class="ogv_label">Ваша скидка (1.50 %):</div>
 			<div class="ogv_val">
 				<b>4</b> руб.
 			</div>
+			<div class="ogv_label">Ваша скидка (1.50 %):</div>
 			<div class="clr"></div>
 		</li>
-		<li>
-			<div class="ogv_label">Итоговая стоимость вашего заказа (без учета доставки):</div>
+		<li id="ogv_3">
 			<div class="ogv_val">
 				<b>240</b> руб.
 			</div>
+			<div class="ogv_label">Итоговая стоимость вашего заказа<br>(без учета доставки):</div>
 			<div class="clr"></div>
 		</li>				
 	</ul>

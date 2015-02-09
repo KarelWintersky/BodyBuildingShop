@@ -1,25 +1,23 @@
 <tr>
-	<td>
-		<div>
+	<td class="td_name">
+		<div class="td_name_link">
 			<a href="/"><?=$a['name'];?></a>
 		</div>
-		<div>
-			упаковка	
-		</div>
-		<div>
-			признак (вкус/...)	
-		</div>
-		<div>
-			цвет	
-		</div>										
+		<ul class="td_name_features">
+			<li>упаковка</li>
+			<li>признак (вкус/...)</li>
+			<li>цвет</li>
+		</ul>									
 	</td>
-	<td>
-		<?=$a['price'];?>
+	<td class="td_price">
+		<b><?=$a['price'];?></b> 
+		<span>руб.</span>
 	</td>
-	<td>
+	<td class="td_amount">
 		<input type="text" value="<?=$a['amount'];?>">
+		<span>шт.</span>
 	</td>
-	<td>
-		
+	<td class="td_del">
+		<a href="#">x</a>
 	</td>		
 </tr>

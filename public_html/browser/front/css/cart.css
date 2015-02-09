@@ -72,12 +72,11 @@
 	#page_cart #nalog_hint{border-radius:2px;font-size:11px;color:#333;margin:10px 0 0;padding:11px 15px 12px 15px;background:#fbf1d3;}
 		#page_cart #nalog_hint #nh_l{width:134px;float:left;font-weight:bold;padding:1px 0 0;}
 		#page_cart #nalog_hint #nh_r{width:507px;float:right;line-height:15px;}
-	#page_cart #cart_sum{padding:15px 0 0;}
-		#page_cart #cart_sum .cart_sum_val{float:right;font-size:18px;color:#ccc;width:200px;text-align:right;margin:0 0 20px;}
-			#page_cart #cart_sum .cart_sum_val b{font-size:30px;color:#333;font-weight:normal;}
+	#page_cart #cart_sum{}
+
 		#page_cart #cart_sum .cart_sum_val.cart_sum_val_1{font-size:12px;padding-top:4px;}
-			#page_cart #cart_sum .cart_sum_val.cart_sum_val_1 b{font-size:14px;font-weight:bold;}
-		#page_cart #cart_sum .cart_sum_label{float:right;width:225px;color:#666;font-size:11px;line-height:14px;text-align:right;margin:6px 21px 20px 0;}
+			#page_cart #cart_sum .cart_sum_val.cart_sum_val_1 b{font-weight:bold;}
+		#page_cart #cart_sum .cart_sum_label{}
 		#page_cart #cart_sum .cart_sum_label.cart_sum_label_1{width:300px;}
 	#page_cart #cart_err{font-size:12px;padding:46px 0 0;color:#ff0000;display:none;}
 	#page_cart #cart_go{padding:46px 0 0;}
@@ -120,36 +119,6 @@
 		.cart_2_table td.ct_price span{font-size:11px;color:#999;margin-right:10px;}
 	.cart_2_table td.ct_amount{text-align:center;font-size:11px;color:#333;}
 
-#cart_table_refresh{height:18px;margin:9px 0 0 507px;}
-	#cart_table_refresh #cart_table_refresh_ico{float:left;width:15px;height:15px;background:url(/browser/front/i/spr1.png) -82px -86px;margin:5px 10px 0 0;}
-	#cart_table_refresh #cart_table_refresh_link{float:left;}
-		#cart_table_refresh #cart_table_refresh_link a{font-size:12px;}
-.cart_table{width:100%;border-collapse:collapse;}
-	.cart_table th{background:#f3f3f3;border-bottom:1px solid #e0e0e0;height:30px;font-weight:normal;color:#666;font-size:11px;}
-		.cart_table th#ct_name{width:317px;padding:0 0 0 9px;}
-		.cart_table th#ct_price{width:146px;padding:0 35px 0 0;text-align:left;}
-		.cart_table th#ct_amount{width:113px;}
-		.cart_table th#ct_del{text-align:center;}
-	.cart_table td{border-bottom:1px dotted #b2b2b2;padding:12px 0 14px;}
-		.cart_table td.ct_name{font-size:12px;line-height:17px;padding:0 30px 0 9px;}
-			.cart_table td.ct_name span{font-size:11px;color:#999;display:block;}
-			.cart_table td.ct_name b{width:42px;height:16px;margin:2px 0 0 5px;display:inline-block;font-size:11px;color:#fff;text-align:center;font-weight:normal;}
-		.cart_table td.ct_amount{}
-			.cart_table td.ct_amount input[type="text"]{width:26px;padding:0 5px;text-align:right;border:1px solid #c7c7c7;height:24px;border-radius:2px;color:#333;font-size:11px;font-family:Verdana;outline:none;float:left;}
-			.cart_table td.ct_amount span{font-size:12px;color:#666;float:left;padding:4px 0 0 11px;}
-			.cart_table td.ct_amount a{float:left;background:url(/browser/front/i/ico_cart_refresh.png) 0 0 no-repeat;width:15px;height:15px;outline:none;text-decoration:none;margin:5px 0 0 10px;}
-		.cart_table td.ct_del{text-align:center;}
-			.cart_table td.ct_del a{text-decoration:none;font-size:16px;color:#ff0000;font-weight:bold;font-family:Verdana;}
-			.cart_table td.ct_del a:hover{color:#e00000;}
-		.cart_table td.ct_price{}
-			.cart_table td.ct_price .ct_price_block{font-size:14px;color:#ccc;padding:0 0 10px;}
-				.cart_table td.ct_price .ct_price_block span{font-size:11px;color:#999;float:left;padding:2px 5px 0 0;}
-				.cart_table td.ct_price .ct_price_block b{color:#333;float:left;padding:0 4px 0 0;}
-					.cart_table td.ct_price .ct_price_block b s{display:block;}
-				.cart_table td.ct_price .ct_price_block div{float:left;}
-			.cart_table td.ct_price .ct_price_block_2{font-size:12px;padding:0;}
-				.cart_table td.ct_price .ct_price_block_2 span{padding-top:1px;}
-				.cart_table td.ct_price .ct_price_block_2 b{font-weight:normal;}
 	.cart_table .not_present{}
 		.cart_table .not_present a{color:#999;}
 		.cart_table .not_present .ct_price b{color:#999 !important;}
