@@ -38,8 +38,8 @@
 				#order_goods #order_goods_values li#ogv_3 .ogv_val b{font-size:30px;font-weight:normal;}	
 				
 				
-#login_authed{text-align:center;padding:50px 0 0;}					
-	#login_authed a{text-decoration:none;border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:7px 18px;background:#eab000;
+#order_main_go{text-align:center;padding:50px 0 0;}					
+	#order_main_go a{text-decoration:none;border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:7px 18px;background:#eab000;
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
 		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
 		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
@@ -48,12 +48,12 @@
 		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
 		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
 		
-#login_not_authed{padding:50px 0 0;}		
-	#login_not_authed .lna_item{border:1px solid #ccc;background:#f9f9f9;margin:0 0 20px;border-radius:2px;}		
-		#login_not_authed .lna_item .lna_item_h{font-size:16px;color:#333;padding:8px 0 0 12px;}		
-		#login_not_authed .lna_item .lna_item_c{padding:20px 12px 14px;}		
-			#login_not_authed .lna_item .lna_item_c .lna_item_c_hint{font-size:11px;color:#999;padding:0 0 14px;}		
-			#login_not_authed .lna_item .lna_item_c .lna_item_c_link{font-size:13px;}		
+#cart_login{}		
+	#cart_login .cl_item{border:1px solid #ccc;background:#f9f9f9;margin:0 0 20px;border-radius:2px;}		
+		#cart_login .cl_item .cl_item_h{font-size:16px;color:#333;padding:8px 0 0 12px;}		
+		#cart_login .cl_item .cl_item_c{padding:20px 12px 14px;}		
+			#cart_login .cl_item .cl_item_c .cl_item_c_hint{font-size:11px;color:#999;padding:0 0 14px;}		
+			#cart_login .cl_item .cl_item_c .cl_item_c_link{font-size:13px;}		
 #form_CartAuth{}		
 	#form_CartAuth .fl{float:left;padding:0 20px 0 0;}		
 		#form_CartAuth .fl label{font-size:12px;color:#666;float:left;padding:6px 8px 0 0;}		

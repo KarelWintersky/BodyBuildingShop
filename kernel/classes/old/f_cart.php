@@ -2,94 +2,12 @@
 	Class f_Cart{
 
 		private $registry;
-		public $payment_types;
-		public $delivery_types;
 
 		public function pgc(){}
 
 		public function __construct($registry){
 			$this->registry = $registry;
 			$this->registry->set('f_cart',$this);
-
-			$this->payment_types = array(
-				1 => array(
-					'name' => 'Заказать наложенным платежом',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_nalog'	
-				),
-				2 => array(
-					'name' => 'Получить счет на предоплату через банк',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_bill'
-				),
-				3 => array(
-					'name' => 'Оплата через WebMoney, Яндекс-деньги',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_webmoney'
-				),
-				4 => array(
-					'name' => 'Оплата банковской картой',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_card'
-				),
-				5 => array(
-					'name' => 'Наличными курьеру или в магазине',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_nal'
-				),
-				6 => array(
-					'name' => 'Оплата c лицевого счета в нашем магазине',
-					'add_txt' => '(<span><a href="/profile/accountorder/">пополнить счет</a></span>)',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_account'
-				),
-				7 => array(
-					'name' => 'Другие платежные системы',
-					'add_txt' => '(QIWI, RBK Money, моб. телефон, Альфа-банк...)',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'pay_other'
-				)
-			);
-
-			$this->delivery_types = array(
-				1 => array(
-					'name' => 'Доставка по почте',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'delivery_mail'
-				),
-				2 => array(
-					'name' => 'Доставка курьером',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'delivery_courier'
-				),
-				/*3 => array(
-					'name' => 'Доставка транспортной компанией',
-					'active' => '0',
-					'disabled' => '0',
-				),*/
-				4 => array(
-					'name' => 'Самовывоз',
-					'active' => '0',
-					'disabled' => '0',
-					'var' => 'delivery_self'
-				),
-			);
-
-			$this->delivery_payment_match = array(
-				1 => array(1,2,3,4,6,7),
-				2 => array(2,3,4,5,6,7),
-				3 => array(2,3,4,6,7),
-				4 => array(2,3,4,5,6,7)
-			);
 			
 			$this->store_params();
 		}
@@ -109,30 +27,11 @@
 				$this->registry['f_404'] = false;
 				$path_arr = $this->registry['route_path'];
 
-				$this->registry['template']->add2crumbs('cart','Корзина');
 				$this->registry['noindex'] = true;
 
-				if(count($path_arr)==0){
-					$this->registry['template']->set('c','cart/main');
-					$this->registry['longtitle'] = 'Корзина';
-					
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));					
-					
-					return true;
-				}elseif(count($path_arr)==1 && $path_arr[0]=='order'){
+				if(count($path_arr)==1 && $path_arr[0]=='order'){
 					if(!isset($_COOKIE['thecart']) || $_COOKIE['thecart']==''){header('Location: /cart/');exit();}
-					$this->registry['template']->add2crumbs('order','Оформление заказа');
-					$this->registry['template']->set('c','cart/order');
-					$this->registry['longtitle'] = 'Оформление заказа';
-					
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));			
-					$this->registry['CL_js']->set(array(
-							'cart',
-					));							
+					$this->registry['template']->set('c','cart/order');			
 					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='check'){
@@ -142,14 +41,7 @@
 					$this->registry['longtitle'] = 'Проверка заказа';
 					$this->check_if_spb();
 					$this->wishesphone_2_cookie();
-					$this->coupon_apply();
-					
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));				
-					$this->registry['CL_js']->set(array(
-							'cart',
-					));						
+					$this->coupon_apply();		
 					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='done'){			
@@ -171,13 +63,7 @@
 						}
 
 					}
-
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));		
-					$this->registry['CL_js']->set(array(
-							'cart',
-					));								
+					
 					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='card-prepare' && $this->card_prepare_check()){
@@ -188,42 +74,21 @@
 
 					$this->mk_roboxchange_data($_GET['order_id']);
 					$this->registry['logic']->send_order($_GET['order_id'],true,true);
-					$this->registry['logic']->admins_notify($_GET['order_id']);
-
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));		
-					$this->registry['CL_js']->set(array(
-							'cart',
-					));								
+					$this->registry['logic']->admins_notify($_GET['order_id']);				
 					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='card-done' && $this->check_roboxchange_success()){
 
 					$this->registry['template']->add2crumbs('order','Оформление заказа');
 					$this->registry['template']->set('c','cart/card-done');
-					$this->registry['longtitle'] = 'Оплата прошла';
-
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));			
-					$this->registry['CL_js']->set(array(
-							'cart',
-					));							
+					$this->registry['longtitle'] = 'Оплата прошла';					
 					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='card-error'){
 
 					$this->registry['template']->add2crumbs('order','Оформление заказа');
 					$this->registry['template']->set('c','cart/card-error');
-					$this->registry['longtitle'] = 'Ошибка при проведении оплаты';
-
-					$this->registry['CL_css']->set(array(
-							'cart',
-					));				
-					$this->registry['CL_js']->set(array(
-							'cart',
-					));						
+					$this->registry['longtitle'] = 'Ошибка при проведении оплаты';				
 					
 					return true;
 				}
@@ -237,107 +102,6 @@
 			return false;
 		}
 
-		public function item_rq($name,$a = NULL){
-			require($this->registry['template']->TF.'item/cart/'.$name.'.html');
-		}
-
-		private function check_roboxchange_success(){
-			if(isset($_POST['SignatureValue'])){
-				$qLnk = mysql_query("
-									SELECT
-										orders.*
-									FROM
-										orders
-									WHERE
-										orders.ai = '".$_POST['InvId']."'
-									LIMIT 1;
-									");
-				if(mysql_num_rows($qLnk)>0){
-					$order = mysql_fetch_assoc($qLnk);
-
-					$login = ROBOKASSA_LG; //$mrh_login
-					$pwd = ROBOKASSA_PW; //$mrh_pass1
-					$unique_id = $_POST['InvId'];; //$inv_id
-					$sum = $_POST['OutSum']; //$out_summ
-					$code = $_POST['Shp_item'];	//$shp_item
-
-					$crc  = strtoupper(md5("$sum:$unique_id:$pwd:Shp_item=$code"));
-
-					if($crc==strtoupper($_POST['SignatureValue']) && $order['status']==3){
-						$order_id = $order['id'].'/'.$order['user_num'].'/'.$order['payment_method'];
-
-						$this->registry['order_info'] = $order;
-
-						return true;
-					}
-				}
-			}
-			header('Location: /cart/order/card-error/');
-			exit();
-		}
-
-		private function card_prepare_check(){
-
-			if(isset($_GET['order_id']) && isset($this->registry['userdata']['id'])){
-				$order_arr = explode('/',$_GET['order_id']);
-				if(count($order_arr)==3){
-					$qLnk = mysql_query("
-										SELECT
-											orders.*
-										FROM
-											orders
-										WHERE
-											orders.user_id = '".$this->registry['userdata']['id']."'
-											AND
-											orders.id = '".$order_arr[0]."'
-											AND
-											orders.user_num	= '".$order_arr[1]."'
-											AND
-											orders.payment_method = '".$order_arr[2]."'
-											AND
-											orders.by_card = 1
-											AND
-											orders.status = 1
-										LIMIT 1;
-										");
-					if(mysql_num_rows($qLnk)>0){
-						$this->registry['order_data'] = mysql_fetch_assoc($qLnk);
-
-						setcookie('thecart','',time()-3600,'/');
-						setcookie('cart_gift_id','',time()-3600,'/');
-						setcookie('delivery_type','',time()-3600,'/');
-
-						return true;
-					}
-				}
-			}
-
-			return false;
-		}
-
-		private function mk_roboxchange_data($order_id){
-
-			$login = ROBOKASSA_LG; //$mrh_login
-			$pwd = ROBOKASSA_PW; //$mrh_pass1
-			$unique_id = $this->registry['order_data']['ai'];; //$inv_id
-			$desc = 'Оплата заказа № '.$order_id.' в Бодибилдинг-Магазине'; //$inv_desc
-			$sum = $this->registry['order_data']['overall_price'] - $this->registry['order_data']['from_account']; //$out_summ
-			$code = 1;	//$shp_item
-			
-			$crc  = md5("$login:$sum:$unique_id:$pwd:Shp_item=$code");
-
-			$this->registry['RD'] = array(
-				'login' => $login,
-				'sum' => $sum,
-				'unique_id' => $unique_id,
-				'desc' => $desc,
-				'signature' => $crc,
-				'code' => $code,
-				'curr' => ROBOKASSA_CURR,
-				'lang' => ROBOKASSA_LANG,
-			);
-
-		}
 
 		public function print_table_line_feats($feats_arr){
 			$fa = array();
@@ -528,16 +292,6 @@
 				$goods_ids[] = $goods['goods_id'];
 			}
 			
-			/*
-			(goods.personal_discount + ".OVERALL_DISCOUNT.") AS personal_discount,
-			goods.price_1,
-			goods.price_2,
-			(goods.price_1 - goods.price_1*(goods.personal_discount + ".OVERALL_DISCOUNT.")/100) AS price_1_final,
-			(goods.price_1 - goods.price_1*".OVERALL_DISCOUNT."/100) AS price_1_final_wout_disc,
-			(goods.price_2 - goods.price_2*(goods.personal_discount + ".OVERALL_DISCOUNT.")/100) AS price_2_final,
-			(goods.price_2 - goods.price_2*".OVERALL_DISCOUNT."/100) AS price_2_final_wout_disc,
-			*/
-
 			$qLnk = mysql_query("
 								SELECT
 									goods.id,
@@ -586,50 +340,7 @@
 				$cart_arr[$key]['ostatok_value'] = $goods_arr[$g['goods_id']]['ostatok_value'];
 			}
 
-			/*$qLnk = mysql_query("
-								SELECT
-									features.id,
-									features.name,
-									features.group_id,
-									feature_groups.name AS group_name
-								FROM
-									features
-								INNER JOIN feature_groups ON feature_groups.id = features.group_id
-								WHERE
-									features.id IN (".implode(",",$feats_ids).")
-								ORDER BY
-									features.group_id ASC,
-									features.id ASC;
-								");
-			while($f = mysql_fetch_assoc($qLnk)){
-				$feats_arr[$f['group_id']]['name'] = $f['group_name'];
-				$feats_arr[$f['group_id']]['feats'][$f['id']] = $f['name'];
-			}*/
-
-			/*foreach($cart_arr as $arr){
-
-				$feats = array();
-				$feats_4_cookiestring = array();
-
-				foreach($arr['feats'] as $feat_id){
-					foreach($feats_arr as $group_id => $fts){
-						if(in_array($feat_id,array_keys($fts['feats']))){
-							$feats[$group_id] = $feat_id;
-						}
-					}
-				}
-
-				$cookie_feats = (count($feats)>0) ? implode(',',$feats) : '0';
-				$cookie_string = $arr['id'].'|'.$cookie_feats;
-
-				$full_array[] = array(
-					'amount' => $arr['amount'],
-					'goods_info' => $goods_arr[$arr['id']],
-					'feats' => $feats,
-					'cookie_string' => $cookie_string
-				);
-			}*/
-
+	
 			$ostatki = array();
 			$qLnk = mysql_query("
 								SELECT
@@ -649,7 +360,7 @@
 
 			$A['goods_arr'] = $goods_arr;
 			$A['goods'] = $cart_arr;
-			//$A['feats'] = $feats_arr;
+			
 			$A['overall_price'] = $this->mk_overall_price($cart_arr);
 			$A['overall_weight'] = $this->mk_overall_weight($cart_arr);
 
@@ -744,10 +455,7 @@
 
 
 			$none_active = ($active_gift_barcode==0) ? 1 : 0;
-			
-			//$gifts_arr[0] = array('name' => 'Подарок на усмотрение администрации','active' => $none_active);
-			//$this->registry['template']->F_dropdown($gifts_arr,'gift','','add_gift_2_cart(this);');
-
+		
 			$this->registry['overall_weight'] = $this->registry['full_cart_arr']['overall_weight'] + $gift_weight;
 			
 			return Front_Template_Select::opts($data);
@@ -758,25 +466,10 @@
 			$dt = $this->registry['delivery_type'];
 			$this->delivery_types[$dt]['active'] = 1;
 
-			/*if(isset($this->registry['delivery_only_company']) && $this->registry['delivery_only_company']){
-				$this->delivery_types[1]['disabled'] = 1;
-				$this->delivery_types[2]['disabled'] = 1;
-				$this->delivery_types[3]['active'] = 1;
-			}elseif($this->registry['full_cart_arr']['overall_price']<MIN_TRANSPORT_COMPANY){
-				$this->delivery_types[3]['disabled'] = 1;
-			}*/
-
-			//$this->delivery_types[2]['disabled'] = 1;
-
 			if(isset($this->registry['false_index'])){
 				$this->delivery_types[1]['disabled'] = 1;
 				$this->delivery_types[2]['active'] = 1;
 			}
-
-			/*if($this->registry['delivery_cost_array']['is_spb']==0){
-				$this->delivery_types[4]['disabled'] = 1;
-				$this->delivery_types[1]['active'] = 1;
-			}*/
 			
 			foreach($this->delivery_types as $id => $arr){
 				$a['id'] = $id;
@@ -805,7 +498,7 @@
 				$a['type'] = 'payment_method';
 				$a['onchange'] = '';
 				$a['class'] = '';
-				//$a['var'] = $this->registry['dp_params'][$arr['var']];
+
 				$this->item_rq('radio_line',$a);
 			}
 
@@ -825,18 +518,9 @@
 				$this->payment_types[1]['disabled'] = 1;
 			}
 
-			if($this->registry['delivery_cost_array']['is_spb']==0){
-				//$this->payment_types[5]['disabled'] = 1;
-			}
-
 			if($this->registry['userdata']['my_account']==0){
 				$this->payment_types[6]['disabled'] = 1;
 			}
-
-			/*if($this->registry['userdata']['id']!=32099 && $this->registry['userdata']['id']!=93 && isset($this->payment_types[4])){
-				unset($this->payment_types[4]);
-			}*/
-
 			foreach($this->payment_types as $id => $arr){
 				$a['id'] = $id;
 				$a['arr'] = $arr;
@@ -857,11 +541,6 @@
 			$total_goods_price = 0;
 						
 			foreach($goods_table as $key => $line){
-				/*if((isset($line['present']) && $line['present']==1) || $line['is_gift']==1){
-					$goods_ids[] = $line['goods_id'];
-				}else{
-					unset($goods_table[$key]);
-				}*/
 
 				if(isset($line['goods_id'])) $goods_ids[] = $line['goods_id'];
 			}
@@ -906,10 +585,6 @@
 				if(!$line['is_gift']) $line['name'] = (($gd['grower_id']!=0) ? '«'.$gd['grower'].'». ' : '').$gd['name'];
 				$line['link'] = '/'.$gd['parent_alias'].'/'.$gd['level_alias'].'/'.$gd['alias'].'/';
 
-				
-				//$line['amount'] = $this->ostatki_check($line['amount'],$line['goods_id'],$line['name']);
-				
-				//$total_goods_price+= $line['final_price']*$line['amount'];
 				$total_goods_price+= $line['price']*$line['amount'];
 
 				$line['feature_color_string'] = $this->feature_color_string($line,$goods_data);					
@@ -923,30 +598,6 @@
 				
 				if($line['is_gift']) $gift = true;
 			}
-			
-			/*if(isset($_POST['gift_name']) && $_POST['gift_name']!='' && isset($_POST['gift_val']) && $_POST['gift_val']!=''){
-				$gn_arr = explode(',',$_POST['gift_name']);
-				$gn = trim($gn_arr[0]);
-				
-				$a = array(
-						'num' => $i,
-						'link' => false,
-						'name' => $gn,
-						'name_print' => $_POST['gift_name'],
-						'discount' => 0,
-						'price' => 0,
-						'final_price' => 0,
-						'amount' => 1,
-						'barcode' => $_POST['gift_val'],
-						'packing' => '',
-						'feats_str' => '',
-						'color' => '',
-						);
-				
-				$this->item_rq('check_goods_line',$a);
-				
-				$gift = true;
-			}*/
 			
 			if($total_goods_amount==0){
 				$this->registry->set('no_order_allowance',true);

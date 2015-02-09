@@ -2,24 +2,22 @@
 Class Front_Order_Login Extends Common_Rq{
 
 	private $registry;
+	
+	private $Front_Order_Crumbs;
 			
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Front_Order_Crumbs = new Front_Order_Crumbs($this->registry);
 	}	
 		
-	private function is_authed(){
-		/*
-		 * проверка, авторизован ли покупатель
-		 * */
-		
-		return ($this->registry['userdata']) ? true : false;
-	}
+	public function do_vars(){
+		$vars = array(
+				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(1)
+		);
 	
-	public function do_form(){
-		if($this->is_authed()) return $this->do_rq('authed',NULL); 
-		
-		return $this->do_rq('not_authed',NULL);
+		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
 	}
-	
+			
 }
 ?>

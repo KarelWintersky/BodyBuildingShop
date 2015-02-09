@@ -1,0 +1,52 @@
+{{crumbs}}
+
+<div id="order_main">
+
+	<h2>Авторизация</h2>
+
+	<div id="cart_login">
+		
+		<div class="cl_item">
+			<div class="cl_item_h">Я зарегистрирован</div>	
+			<div class="cl_item_c">
+				<form id="form_CartAuth" method="POST" action="/auth/">
+					<div class="fl">
+						<label>Логин</label>
+						<input type="text" name="login">
+					</div>
+					<div class="fl">
+						<label>Пароль</label>
+						<input type="password" name="pass">
+					</div>
+					<div class="fl">
+						<input type="submit" value="Войти">
+					</div>	
+					<div class="clr"></div>										
+				</form>
+			</div>	
+		</div>
+		<div class="cl_item">
+			<div class="cl_item_h">Зарегистрироваться</div>
+			<div class="cl_item_c">
+				<div class="cl_item_c_hint">
+					У зарегистрированных пользователей куча разных бонусов - наложка, курьер, скидки. Регистрируйтесь!
+				</div>
+				<div class="cl_item_c_link">
+					<a href="/register/?from=cart">Перейти к регистрации</a>
+				</div>
+			</div>
+		</div>
+		<div class="cl_item">
+			<div class="cl_item_h">Продолжить без регистрации</div>
+			<div class="cl_item_c">
+				<div class="cl_item_c_hint">
+					Без наложки, без накопления скидки, но продолжить можно.<br>
+					Когда запрашиваем данные? На шаге "проверка"?
+				</div>		
+				<div class="cl_item_c_link">
+					<a href="/order/delivery/">Продолжить</a>
+				</div>
+			</div>	
+		</div>			
+	</div>
+</div>
