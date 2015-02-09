@@ -120,6 +120,8 @@
 				$alias = mb_strtolower($alias,'utf-8');
 			$alias = $this->urlGenerate($alias,$id);
 
+			$rss = (isset($rss) && $rss==1) ? 1 : 0;
+			
 			$qLnk = mysql_query("
 								UPDATE
 									news

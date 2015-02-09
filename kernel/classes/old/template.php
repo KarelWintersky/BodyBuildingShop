@@ -446,6 +446,11 @@ Class Template {
 		}
 
 		private function F_map(){
+			$this->registry['CL_js']->set(array(
+					'http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU',
+					'map',
+			));			
+			
 			$this->item_rq('map');
 		}
 
@@ -458,18 +463,18 @@ Class Template {
 
 			$topic = ($topic) ? $topic : 1;
 			
-			$qLnk = mysql_query("SELECT feedback_mail.email FROM feedback_mail WHERE feedback_mail.id = '".$topic."' LIMIT 1;");
+			$qLnk = mysql_query("SELECT feedback_mail.email, feedback_mail.name FROM feedback_mail WHERE feedback_mail.id = '".$topic."' LIMIT 1;");
 			if(mysql_num_rows($qLnk)>0){
-				$mail_to = mysql_result($qLnk,0);
+				$M = mysql_fetch_assoc($qLnk);
 
 				$replace_arr = array(
-					'F_TOPIC' => $topic_name,
+					'F_TOPIC' => $M['name'],
 					'F_NAME' => $name,
 					'F_EMAIL' => $email,
 					'F_MSG' => str_replace('\r\n','<br>',$msg)
 				);
 
-				$mailer = new Mailer($this->registry,3,$replace_arr,$mail_to);
+				$mailer = new Mailer($this->registry,3,$replace_arr,$M['email']);
 
 			}
 
@@ -601,6 +606,10 @@ Class Template {
 									growers.alias
 								FROM
 									growers
+								WHERE
+									alias <> ''
+									AND
+									goods_count > 0
 								ORDER BY
 									growers.name ASC;
 								");
@@ -771,12 +780,14 @@ Class Template {
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'" />';
 	    	}else{
-	    		$url = explode('?',$_SERVER['REQUEST_URI']);
+	    		$url = mb_strtolower($_SERVER['REQUEST_URI'],'utf-8');
+	    		
+	    		/*$url = explode('?',$_SERVER['REQUEST_URI']);
 	    		$url = $url[0];
 	    		$url = trim(THIS_URL,'/').$url;
 	    		$url = trim($url,'/');
 	    		$url = $url.'/';
-	    		$url = mb_strtolower($url,'utf-8');
+	    		$url = mb_strtolower($url,'utf-8');*/
 
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'" />';

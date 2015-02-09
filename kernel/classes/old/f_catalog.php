@@ -329,6 +329,7 @@
 								SELECT SQL_CALC_FOUND_ROWS
 									goods.avatar_id,
 									goods.id AS id,
+									goods.seo_h1,
 									goods.name AS name,
 									goods.alias AS alias,
 									goods.introtext AS introtext,
@@ -415,6 +416,8 @@
 				$no_tastes = true;
 				foreach($result_arr as $key => $g){
 
+					$g['name_print'] = Front_Catalog_Helper_Goods::list_name($g);
+					
 					$g['avatar'] = $this->mk_avatar($g);
 					
 					if($g['personal_discount']>0){
@@ -484,7 +487,7 @@
 			$new_colors = array_slice($colors,0,4);
 			$string = implode(', ',$new_colors);
 			
-			if(count($new_colors)!=count($colors)) $string.=sprintf('<a href="/%s/%s/%s/"><img src="/browser/front/i/goods_list_more.jpg"></a>',
+			if(count($new_colors)!=count($colors)) $string.=sprintf('<a href="/%s/%s/%s/" class="feats_list_more">...</a>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']

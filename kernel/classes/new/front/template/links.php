@@ -2,35 +2,47 @@
 Class Front_Template_Links{
 
 	private $registry;
+	private $domains;
 		
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->domains = array(
+				'http://new2.bodybuilding-shop.ru',
+				'http://www.bodybuilding-shop.ru',
+				'http://bodybuilding-shop.ru',
+				'http://bodybuilding-shop',
+				);
 	}	
 			
 	private function to_lowercase($link){
+		/*
+		 * проверяем, если ссылка на файл, а не на страницу, в lowercase не переводим
+		 * если в последней части урл есть точка, то файл
+		 * */
+		$link_trimmed = trim($link,'/');
+		$arr = explode('/',$link_trimmed);
+		$end = array_pop($arr);
+		if(strpos($end,'.')!==false) return $link;
+		
 		$link = mb_strtolower($link,'utf-8');
 		
 		return $link;
 	}
 	
 	private function replace_domain($link){
-		$domains = array(
-				'http://new2.bodybuilding-shop.ru',
-				'http://www.bodybuilding-shop.ru',
-				'http://bodybuilding-shop.ru',
-				'http://bodybuilding-shop',
-				);
-
 		$is_outer = false;
-		if(strpos('http://',$link)!==false){
+		if(strpos($link,'http://')!==false || strpos($link,'https://')!==false){
 			$is_outer = true;
-			foreach($domains as $d)
-				if(strpos($d,$link)!==false)
-					$is_outer = false;			
-		}
+			foreach($this->domains as $d){
+				if(strpos($d,$link)!==false){
+					$is_outer = false;		
+				}
+			}	
+		}		
 		if($is_outer) return $link;
 		
-		foreach($domains as $d)
+		foreach($this->domains as $d)
 			$link = str_replace($d,'',$link);
 				
 		return sprintf('%s/%s',
@@ -46,7 +58,7 @@ Class Front_Template_Links{
 				$matches[0]
 				);
 	}
-	
+		
 	private function do_replace($matches){
 		if(strpos($matches[1],'#')===0) return $matches[0];
 		if(!$matches[1]) return $matches[0];
@@ -64,7 +76,7 @@ Class Front_Template_Links{
 				);
 	}
 	
-	public function do_links($html){
+	public function do_links($html){		
 		$reg = '/<a href=\"([^\"]*)\">.*<\/a>/iU';
 		$html = preg_replace_callback(
 				$reg,

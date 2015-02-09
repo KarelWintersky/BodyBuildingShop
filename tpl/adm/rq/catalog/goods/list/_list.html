@@ -9,15 +9,15 @@
 		<?endif;?>	
 	</td>
 	<td class="td_name">
-		<a href="/adm/<?=$this->registry['aias_path'][0]?>/<?=$this->registry['level']['parent_id']?>/<?=$this->registry['level']['id']?>/<?=$a['id']?>/"><?=$a['name']?></a>
+		<a href="<?=$a['id']?>/"><?=$a['name']?></a>
 	</td>
 	<td class="td_grower"><?=$a['grower']?></td>
 	<td class="td_packing"><?=$a['packing']?></td>
 	<td class="td_present"><?= ($a['present']==1) ? 'да' : '<b>нет</b>';?></td>
 	<td class="td_hot"><?= ($a['hot']==1) ? '<b>да</b>' : 'нет';?></td>
 	<td class="td_new"><?= ($a['new']==1) ? '<b>да</b>' : 'нет';?></td>
-	<td class="td_price"><?=$a['price_1']?> руб. / <?=$a['price_2']?> руб.</td>
-	<td class="td_personal_discount"><?=$a['personal_discount']?> %</td>
+	<td class="td_price"><?=$a['price_1'];?></td>
+	<td class="td_personal_discount"><?=$a['personal_discount']?></td>
 	<td class="td_operation">
 		<input type="checkbox" name="op[<?=$a['id']?>]">
 	</td>

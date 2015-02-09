@@ -1,7 +1,7 @@
 <div class="goods_item goods_parent">
 	<h2>
 		<a href="/<?=$a['parent_level_alias'].'/'.$a['level_alias'].'/'.$a['alias'];?>/">
-			<?= ($a['grower_id']!=0) ? '«'.$a['grower'].'». ' : '';?><?=$a['name'];?></a>
+			<?=$a['name_print'];?></a>
 
 		<?if($a['personal_discount']>0):?>
 			<span>-<?=$a['personal_discount'];?>%</span>
