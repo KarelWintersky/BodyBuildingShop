@@ -3,7 +3,39 @@
 <div id="order_main">
 	<h2>Оформление заказа</h2>
 		
-	{{table}}
+	<div id="order_goods">	
+		
+		{{table}}
+		
+		{{coupon}}
+		
+		<ul id="order_goods_values">
+			<li>
+				<div class="ogv_val">
+					<b>244</b> руб.
+				</div>
+				<div class="ogv_label">Общая стоимость без учета персональной скидки:</div>
+				<div class="clr"></div>
+			</li>
+			<li>
+				<div class="ogv_val">
+					<b>4</b> руб.
+				</div>
+				<div class="ogv_label">Ваша скидка (1.50 %):</div>
+				<div class="clr"></div>
+			</li>
+			<li id="ogv_3">
+				<div class="ogv_val">
+					<b>240</b> руб.
+				</div>
+				<div class="ogv_label">Итоговая стоимость вашего заказа<br>(без учета доставки):</div>
+				<div class="clr"></div>
+			</li>				
+		</ul>
+		
+		{{gift}}	
+	
+	</div>
 	
 	<form id="form_CartProceed" method="POST" action="/order/login/check/">
 	

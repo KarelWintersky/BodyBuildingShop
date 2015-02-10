@@ -1,7 +1,5 @@
 #page_cart{}
-	#page_cart #coupon_area{border:1px solid #c8c8c8;background:#f2f2f2;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;margin:50px 0 0;padding:18px 20px 17px;}
-		#page_cart #coupon_area label{font-size:12px;float:left;padding:5px 20px 0 0;color:#333;}
-		#page_cart #coupon_area input{float:left;border:1px solid #c8c8c8;padding:0 5px;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;color:#333;font-family:Verdana;font-size:11px;width:228px;height:23px;margin:0 20px 0 0;}
+	
 	#page_cart #cart_submit{background:#f2f2f2;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;text-align:center;padding:24px;margin:44px 0 0;float:left;}
 		#page_cart #cart_submit input{border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 13px;background:#eab000;
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
@@ -65,10 +63,7 @@
 	#page_cart #percent_hint{margin:28px 0 0;background:#fbf1d3;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font-size:11px;color:#333;padding:6px 12px 7px;}
 	#page_cart .margin_bot{margin-bottom:20px;}
 		#page_cart #percent_hint span{font-size:14px;color:#cc0000;padding:0 5px 0 0;}
-	#page_cart .common_hint{background:#fbf1d3;border-radius:2px;font-size:11px;line-height:15px;color:#333;padding:9px 35px 8px 15px;}
-		#page_cart .common_hint .common_hint_ico{float:left;width:16px;height:8px;background:url(/browser/front/i/spr1.png) -82px -77px no-repeat;margin:3px 0 0;}
-		#page_cart .common_hint .common_hint_text{float:right;width:620px;}
-		#page_cart .common_hint .radio_line{padding:8px 0 0;}
+
 	#page_cart #nalog_hint{border-radius:2px;font-size:11px;color:#333;margin:10px 0 0;padding:11px 15px 12px 15px;background:#fbf1d3;}
 		#page_cart #nalog_hint #nh_l{width:134px;float:left;font-weight:bold;padding:1px 0 0;}
 		#page_cart #nalog_hint #nh_r{width:507px;float:right;line-height:15px;}

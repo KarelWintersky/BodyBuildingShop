@@ -1,3 +1,7 @@
+.common_hint{background:#fbf1d3;border-radius:2px;font-size:11px;line-height:15px;color:#333;padding:9px 35px 8px 15px;}
+	.common_hint .common_hint_ico{float:left;width:16px;height:8px;background:url(/browser/front/i/spr1.png) -82px -77px no-repeat;margin:3px 0 0;}
+	.common_hint .common_hint_text{float:right;width:620px;}
+
 #order_crumbs{width:100%;border-collapse:collapse;table-layout:fixed;margin:0 0 30px;}
 	#order_crumbs td{border:1px solid #ccc;font-size:12px;padding:8px 0 8px 15px;}
 	#order_crumbs td.active{background:#ccc;}
@@ -48,6 +52,15 @@
 			#order_goods #order_goods_values li#ogv_3 .ogv_val{font-size:18px;}		
 				#order_goods #order_goods_values li#ogv_3 .ogv_val b{font-size:30px;font-weight:normal;}	
 				
+	#order_goods #coupon_block{border:1px solid #c8c8c8;background:#f2f2f2;border-radius:2px;padding:18px 20px 17px;margin:40px 0 0;}
+		#order_goods #coupon_block label{font-size:12px;float:left;padding:5px 20px 0 0;color:#333;}				
+		#order_goods #coupon_block input{float:left;border:1px solid #c8c8c8;padding:0 5px;border-radius:2px;color:#333;font-family:Verdana;font-size:11px;width:228px;height:23px;margin:0 20px 0 0;}				
+				
+	#order_goods #cart_gift{padding:20px 0 0;}			
+		#order_goods #cart_gift #cart_gift_area{padding:20px 0;}			
+			#order_goods #cart_gift #cart_gift_area label{float:left;font-size:12px;color:#333;padding:6px 0 0;}			
+			#order_goods #cart_gift #cart_gift_area #cart_gift_select{float:right;}			
+				#order_goods #cart_gift #cart_gift_area #cart_gift_select select{width:500px;}			
 					
 #cart_login{}		
 	#cart_login .cl_item{border:1px solid #ccc;background:#f9f9f9;margin:0 0 20px;border-radius:2px;}		
