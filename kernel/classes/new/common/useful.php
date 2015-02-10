@@ -1,6 +1,16 @@
 <?php
 Class Common_Useful{
 
+	public static function objectToArray($object) {
+		if( !is_object( $object ) && !is_array( $object ) ) {
+			return $object;
+		}
+		if( is_object( $object ) ) {
+			$object = (array) $object;
+		}
+		return array_map(array('self', 'objectToArray'), $object );
+	}	
+	
 	public static function price2read($price){
 		return number_format($price,0,'',' ');
 	}

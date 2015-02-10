@@ -8,7 +8,7 @@ Class Front_Order_Crumbs Extends Common_Rq{
 		$this->registry = $registry;
 		
 		$this->items = array(
-				1 => array('Оформление заказа','order'),
+				1 => array('Корзина','order'),
 				2 => array('Выбор доставки','order/delivery'),
 				3 => array('Выбор оплаты','order/payment'),
 				4 => array('Проверка','order/check'),

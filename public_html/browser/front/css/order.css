@@ -4,6 +4,17 @@
 
 #order_main{}
 	#order_main h2{color:#e38a25;font-size:19px;font-weight:normal;padding:0 0 22px;}
+	#order_main #order_form_stripe{background:#eee;padding:10px 20px;border-radius:2px;margin:50px 0 0;}
+		#order_main #order_form_stripe #ofs_back{float:left;font-size:12px;padding:6px 0 0;}
+		#order_main #order_form_stripe #ofs_proceed{float:right;padding:1px 0 0;}
+			#order_main #order_form_stripe #ofs_proceed input, #order_main #order_form_stripe #ofs_proceed a{text-decoration:none;outline:none;border:1px solid #F49900;height:26px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 18px;background:#eab000;margin:0 0 0 20px;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
 	
 #order_goods{}	
 	#order_goods #order_goods_table{width:100%;border-collapse:collapse;}	
@@ -37,17 +48,7 @@
 			#order_goods #order_goods_values li#ogv_3 .ogv_val{font-size:18px;}		
 				#order_goods #order_goods_values li#ogv_3 .ogv_val b{font-size:30px;font-weight:normal;}	
 				
-				
-#order_main_go{text-align:center;padding:50px 0 0;}					
-	#order_main_go a{text-decoration:none;border:1px solid #F49900;height:28px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:7px 18px;background:#eab000;
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
-		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
-		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
-		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
-		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
-		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
-		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}
-		
+					
 #cart_login{}		
 	#cart_login .cl_item{border:1px solid #ccc;background:#f9f9f9;margin:0 0 20px;border-radius:2px;}		
 		#cart_login .cl_item .cl_item_h{font-size:16px;color:#333;padding:8px 0 0 12px;}		

@@ -1,3 +1,27 @@
 {{crumbs}}
 
-<a href="/order/check/">Проверка</a>
+<div id="order_main">
+
+	<h2>Выбор оплаты</h2>
+
+	<form id="form_OrderPayment" method="POST" action="/order/payment/write/">
+		
+		<div id="fop_items">
+			
+			{{items}}
+			
+		</div>
+
+		<div id="order_form_stripe">
+			<div id="ofs_back">
+				&larr; <a href="/order/delivery/">Назад к выбору доставки</a>
+			</div>
+			<div id="ofs_proceed">
+				<input type="submit" value="Продолжить">
+			</div>
+			<div class="clr"></div>	
+		</div>
+					
+	</form>	
+
+</div>

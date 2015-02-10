@@ -2,45 +2,42 @@
 Class Front_Order_Payment Extends Common_Rq{
 
 	private $registry;
-	private $methods;
 	
 	private $Front_Order_Crumbs;
+	private $Front_Order_Storage;
 			
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Crumbs = new Front_Order_Crumbs($this->registry);
-		
-		$this->methods = array(
-				1 => array(
-					'name' => 'Заказать наложенным платежом',
-				),
-				2 => array(
-					'name' => 'Получить счет на предоплату через банк',
-				),
-				3 => array(
-					'name' => 'Оплата через WebMoney, Яндекс-деньги',
-				),
-				4 => array(
-					'name' => 'Оплата банковской картой',
-				),
-				5 => array(
-					'name' => 'Наличными курьеру или в магазине',
-				),
-				6 => array(
-					'name' => 'Оплата c лицевого счета в нашем магазине',
-					'add_txt' => '(<span><a href="/profile/accountorder/">пополнить счет</a></span>)',
-				),
-				7 => array(
-					'name' => 'Другие платежные системы',
-					'add_txt' => '(QIWI, RBK Money, моб. телефон, Альфа-банк...)',
-				)				
-			);
+		$this->Front_Order_Storage = new Front_Order_Storage($this->registry);
 	}	
 		
+	private function print_items(){
+		$active = $this->Front_Order_Storage->get_storage('payment');
+			$active = ($active) ? $active : 1;		
+		
+		$methods = Front_Order_Data_Payment::get_methods();
+		
+		$html = array();
+		foreach($methods as $method_id => $data){
+				
+			$a = array(
+					'name' => $data['name'],
+					'id' => $method_id,
+					'checked' => ($method_id==$active) ? 'checked' : ''
+			);
+				
+			$html[] = $this->do_rq('item',$a,true);
+		}
+	
+		return implode('',$html);
+	}	
+	
 	public function do_vars(){
 		$vars = array(
-				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(3)
+				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(3),
+				'items' => $this->print_items()
 		);
 	
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

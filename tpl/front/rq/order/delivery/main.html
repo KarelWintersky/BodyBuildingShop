@@ -1,3 +1,27 @@
 {{crumbs}}
 
-<a href="/order/payment/">Выбор оплаты</a>
+<div id="order_main">
+
+	<h2>Выбор доставки</h2>
+
+	<form id="form_OrderDelivery" method="POST" action="/order/delivery/write/">
+		
+		<div id="fod_items">
+			
+			{{items}}
+			
+		</div>
+
+		<div id="order_form_stripe">
+			<div id="ofs_back">
+				&larr; <a href="/order/">Назад к корзине</a>
+			</div>
+			<div id="ofs_proceed">
+				<input type="submit" value="Продолжить">
+			</div>
+			<div class="clr"></div>	
+		</div>
+					
+	</form>	
+
+</div>
