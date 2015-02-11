@@ -26,6 +26,14 @@
 		#order_goods #order_goods_table td{border-bottom:1px dotted #b2b2b2;padding:12px 0 14px;}
 		#order_goods #order_goods_table .td_name{width:317px;padding-left:9px;padding-right:30px;}	
 			#order_goods #order_goods_table .td_name .td_name_link{font-size:12px;line-height:17px;}		
+				#order_goods #order_goods_table .td_name .td_name_link b{width:42px;height:17px;display:inline-block;margin:0 0 0 5px;font-size:11px;color:#fff;text-align:center;background:#118d00;border-radius:2px;
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ecc00', endColorstr='#0e7d00', GradientType=0 );
+			background-image: -webkit-gradient(top, #1ecc00 0%, #16a600 50%, #0e7d00 100%);
+			background-image: -webkit-linear-gradient(top, #1ecc00 0%, #16a600 50%, #0e7d00 100%);
+			background-image: -moz-linear-gradient(top, #1ecc00 0%, #16a600 50%, #0e7d00 100%);
+			background-image: -o-linear-gradient(top, #1ecc00 0%, #16a600 50%, #0e7d00 100%);
+			background-image: linear-gradient(top, #1ecc00 0%, #16a600 50%, #0e7d00 100%);
+			background-image: -ms-linear-gradient(top, #1ecc00 0%, #16a600 50%, #0e7d00 100%);}		
 			#order_goods #order_goods_table .td_name .td_name_features{font-size:11px;color:#999;}		
 		#order_goods #order_goods_table .td_price{width:146px;}	
 			#order_goods #order_goods_table .td_price b{font-size:14px;color:#333;float:left;padding:0 5px 0 0;}	

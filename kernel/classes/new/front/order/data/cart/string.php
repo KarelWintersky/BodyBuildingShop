@@ -19,10 +19,15 @@ Class Front_Order_Data_Cart_String{
 			$line = explode(':',$line);
 			if(count($line)!=3 && count($line)!=4) continue;
 					
-			$cart[$line[0]] = array(
+			$color = (isset($line[3])) ? $line[3] : false;
+			
+			$key = $line[0].':'.$color;
+			
+			$cart[$key] = array(
+				'barcode' => $line[0], 	
 				'packing' => $line[1],
 				'amount' => $line[2],
-				'color' => (isset($line[3])) ? $line[3] : false
+				'color' => $color
 			);
 		}
 		

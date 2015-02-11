@@ -9,7 +9,11 @@ Class Front_Order_Data_Cart_Goods{
 		
 	private function get_goods($cart){
 		$barcodes = array();
-		foreach($cart as $key => $val) $barcodes[] = sprintf("'%s'",$key);
+		foreach($cart as $key => $val){
+			$key = explode(':',$key);
+			
+			$barcodes[] = sprintf("'%s'",$key[0]);
+		}
 		
 		$goods = array();
 		
@@ -43,14 +47,45 @@ Class Front_Order_Data_Cart_Goods{
 				",
 				implode(",",$barcodes)
 				));
-		while($g = mysql_fetch_assoc($qLnk)){
-			$g['amount'] = $cart[$g['barcode']]['amount'];
-			$g['color'] = $cart[$g['barcode']]['color'];
+		while($g = mysql_fetch_assoc($qLnk)){			
+			$g = $this->price_discount($g);
 			
 			$goods[$g['barcode']] = $g;
 		}
-				
+
 		return $goods;
+	}
+	
+	private function price_discount($g){
+		$g['price'] = round($g['price']); //на всякий случай округляем, чтобы точно не было копеек
+		
+		$g['old_price'] = $g['price'];
+		
+		if($g['personal_discount']) $g['price'] = $g['price'] - $g['price']*$g['personal_discount']/100;
+		$g['price'] = round($g['price']);
+		
+		return $g;
+	}
+	
+	private function make_array($goods,$cart){
+		/*
+		 * для того, чтобы можно было добавить несколько строк товаров с одним штрихкодом
+		 * одежда разных цветов, например
+		 * */
+		
+		$output = array();
+		foreach($cart as $key => $val){
+			$arr = explode(':',$key);
+				
+			$g = $goods[$arr[0]];
+				
+			$g['amount'] = $val['amount'];
+			$g['color'] = $val['color'];
+				
+			$output[$key] = $g;
+		}
+		
+		return $output;		
 	}
 	
 	private function get_colors($cart,$goods){
@@ -79,9 +114,10 @@ Class Front_Order_Data_Cart_Goods{
 	public function get_data($cart){
 		if(!$cart) return false;
 		
-		$goods = $this->get_colors($cart,
-				$this->get_goods($cart)
-				);
+		$goods = $this->get_goods($cart);
+			$goods = $this->make_array($goods,$cart);
+		
+		$goods = $this->get_colors($cart,$goods);
 		
 		return $goods;		
 	}

@@ -137,11 +137,6 @@
 						
 						if($cart_line['color']!==false) $cart_line['cookie_string'] = sprintf('%s:%s',$cart_line['cookie_string'],$cart_line['color']);
 						
-						$cart_line['feature_color_string'] = $this->feature_color_string($cart_line,$this->registry['full_cart_arr']['goods_arr']);
-						
-						$cart_line['old_price'] = $cart_line['price'];
-						$cart_line['price'] = $cart_line['price']-$cart_line['price']*$cart_line['personal_discount']/100; 
-						
 						$this->item_rq('table_line',$cart_line);
 
 						$overall_price+=$cart_line['price']*$cart_line['amount'];
@@ -586,8 +581,7 @@
 				$line['link'] = '/'.$gd['parent_alias'].'/'.$gd['level_alias'].'/'.$gd['alias'].'/';
 
 				$total_goods_price+= $line['price']*$line['amount'];
-
-				$line['feature_color_string'] = $this->feature_color_string($line,$goods_data);					
+				
 								
 				if($line['amount']>0){
 					$this->item_rq('check_goods_line',$line);
@@ -622,17 +616,6 @@
 				$this->item_rq('check_goods_line',$line);
 			}
 
-		}
-
-		private function feature_color_string($line,$goods_data){
-			$root_id = ($goods_data[$line['goods_id']]['root_id']);
-			$label = ($root_id==4) ? 'Размер' : 'Вкус';
-			
-			if($line['feature']=='') return '';
-			
-			return ($line['color']>0)
-				? sprintf('%s: %s, цвет: %s',$label,$line['feature'],$line['color_name'])
-				: sprintf('%s: %s',$label,$line['feature']);			
 		}
 		
 		private function ostatki_check($amount,$id,$name){
