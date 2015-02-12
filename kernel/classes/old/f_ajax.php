@@ -48,11 +48,6 @@ Class f_Ajax{
 		$catalog->cart_construct();
 	}
 
-	private function long_cart_construct(){
-		$cart = new f_Cart($this->registry);
-		$cart->long_cart_construct($_POST['this_page_url'],$_POST['cart_courier_phone']);
-	}
-
 	private function goods_ostatok_check(){
 		$catalog = new f_Catalog($this->registry);
 		$catalog->goods_ostatok_check($_POST['goods_id'],$_POST['cookie_stored_data']);
@@ -63,5 +58,15 @@ Class f_Ajax{
 		$stat->stat_goods_table_item($_POST['goods_id']);
 	}
 
+	private function cart_restruct(){
+		$Front_Cart_Manage = new Front_Cart_Manage($this->registry);
+		$Front_Cart_Manage->restruct($_POST['goods']);
+	}
+	
+	private function apply_coupon(){
+		$Front_Order_Cart_Coupon = new Front_Order_Cart_Coupon($this->registry);
+		$Front_Order_Cart_Coupon->apply_coupon($_POST['coupon']);
+	}
+	
 }
 ?>

@@ -10,7 +10,8 @@ Class Front_Template_Js{
 
 			$this->set(
 				array(
-					'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js',
+					//'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js',
+					'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js',
 					'lib/chosen.jquery.min',
 					'lib/jquery.cookie',
 					'uses',

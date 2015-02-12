@@ -40,8 +40,7 @@
 					$this->registry['template']->set('c','cart/check');
 					$this->registry['longtitle'] = 'Проверка заказа';
 					$this->check_if_spb();
-					$this->wishesphone_2_cookie();
-					$this->coupon_apply();		
+					$this->wishesphone_2_cookie();		
 					
 					return true;
 				}elseif(count($path_arr)==2 && $path_arr[0]=='order' && $path_arr[1]=='done'){			
@@ -384,76 +383,6 @@
 
 			return $new_arr;
 
-		}
-
-		public function gifts_list(&$active_gift_id,&$active_gift_barcode,&$active_gift_name){
-
-			$active_gift_barcode = 0;
-			$active_gift_id = 0;
-			$active_gift_name = '';
-			$gift_weight = 0;
-
-			if(isset($_COOKIE['cart_gift_id']) && $_COOKIE['cart_gift_id']!='' && $_COOKIE['cart_gift_id']!=0){
-				$active_gift_barcode = $_COOKIE['cart_gift_id'];
-			}
-
-			$gift_max_price = $this->registry['full_cart_arr']['overall_price']*GIFT_PERCENT/100;
-
-			$data = array();
-			$data[] = array(
-					'val' => 0,
-					'name' => 'Подарок на усмотрение администрации',
-					);
-			
-			$qLnk = mysql_query(sprintf("
-					SELECT
-						goods.id,
-						goods.name,
-						goods_barcodes.barcode,					
-						goods_barcodes.packing,					
-						goods_barcodes.feature,
-						goods_barcodes.weight
-					FROM
-						goods_barcodes
-					INNER JOIN goods ON goods.id = goods_barcodes.goods_id 
-					WHERE	
-						goods.published = 1
-						AND
-						goods_barcodes.weight > 0
-						AND
-						goods_barcodes.present = 1
-						AND
-						goods_barcodes.price <= '%s'
-					ORDER BY
-						goods.level_id ASC,
-						goods.name ASC					
-					",$gift_max_price));
-			while($g = mysql_fetch_assoc($qLnk)){
-				$name = array(
-						$g['name'],
-						$g['packing'],
-						$g['feature'],
-						);
-				foreach($name as $key => $val) if($val=='') unset($name[$key]);
-						
-				$gift_weight = ($active_gift_barcode==$g['barcode']) ? intval($g['weight']) : $gift_weight;
-				
-				if($active_gift_barcode==$g['barcode']) $active_gift_name = implode(", ",$name);
-				if($active_gift_barcode==$g['barcode']) $active_gift_id = $g['id'];
-				
-				$data[] = array(
-						'val' => $g['barcode'],
-						'name' => implode(", ",$name),
-						'selected' => ($active_gift_barcode==$g['barcode']),
-						);
-			}
-
-
-			$none_active = ($active_gift_barcode==0) ? 1 : 0;
-		
-			$this->registry['overall_weight'] = $this->registry['full_cart_arr']['overall_weight'] + $gift_weight;
-			
-			return Front_Template_Select::opts($data);
 		}
 
 		public function print_delivery_types(){
@@ -1028,32 +957,6 @@
 				$mailer = new Mailer($this->registry,$tpl_id,$replace_arr,$this->registry['userdata']['email']);
 			}
 
-		}
-
-		private function coupon_apply(){
-			if(isset($_POST['order_vals']['coupon']) && $_POST['order_vals']['coupon']!='' && mb_strlen($_POST['order_vals']['coupon'],'utf-8')==5){
-				$qLnk = mysql_query("
-									SELECT
-										coupons.percent
-									FROM
-										coupons
-									WHERE
-										coupons.hash = '".$_POST['order_vals']['coupon']."'
-										AND
-										coupons.status = 1
-									LIMIT 1;
-									");
-				if(mysql_num_rows($qLnk)>0){
-					$UD = $this->registry['userdata'];
-					$UD['personal_discount'] = mysql_result($qLnk,0);
-
-					$this->registry['userdata'] = $UD;
-					$this->registry->set('coupon_discount',$UD['personal_discount']);
-					return true;
-				}
-			}
-
-			$this->registry->set('coupon_discount',0);
 		}
 
 		private function wishesphone_2_cookie(){

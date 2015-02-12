@@ -12,6 +12,7 @@ Class Front_Order_Storage{
 				
 	public function __construct($registry){
 		$this->registry = $registry;
+		$this->registry->set('CL_storage',$this);
 	}	
 		
 	public function write_to_storage($key,$val){
@@ -25,7 +26,8 @@ Class Front_Order_Storage{
 	}
 	
 	public function get_storage($key = false){
-		if(!isset($_SESSION[$this->session_array_key])) return array();
+		if(!isset($_SESSION[$this->session_array_key])) 
+			return ($key) ? false : array();
 		
 		$storage = $_SESSION[$this->session_array_key];
 		$storage = json_decode($storage);

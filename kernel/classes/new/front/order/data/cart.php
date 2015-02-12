@@ -46,8 +46,14 @@ Class Front_Order_Data_Cart{
 		return $sum;
 	}	
 	
-	public function get_data(){
-		$cart = $this->Front_Order_Data_Cart_String->get_cart_from_string();
+	public function get_data($cart){
+		/*
+		 * иногда на входе у нас уже есть готовая корзина
+		* тогда мы сразу передаем ее в работу и не парсим куки почем зря
+		* */		
+		
+		$cart = (!$cart) ? $this->Front_Order_Data_Cart_String->get_cart_from_string() : $cart;
+		if(!$cart) return false;
 		
 		$goods = $this->Front_Order_Data_Cart_Goods->get_data($cart);
 		

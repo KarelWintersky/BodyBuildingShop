@@ -2,27 +2,44 @@
 	<h2>Подарок</h2>
 	
 	<div class="texted">
-		Как и записано в правилах нашего магазина, при заказах свыше 800 рублей каждый покупатель получает бесплатный подарок. Чем крупнее заказ, тем дороже можно выбрать подарок.
+		Как и записано в правилах нашего магазина, при заказах свыше <?=$a['deadline'];?> руб. каждый покупатель получает бесплатный подарок. Чем крупнее заказ, тем дороже можно выбрать подарок.
 	</div>
 	
-	<div id="cart_gift_area">
-		<label>Выберите свой подарок</label>
-		
-		<div id="cart_gift_select">
-			<select>
-				<option>Подарок на усмотрение администрации</option>
-			</select>
-		</div>
-		
-		<div class="clr"></div>
-	</div>
+	<?if($a['list']):?>
 	
-	<div class="common_hint">
-		<div class="common_hint_ico"></div>
-		<div class="common_hint_text">
-			В исключительных случаях администрация оставляет за собой право изменения выбранных подарков.
+		<div id="cart_gift_area">
+			<label>Выберите свой подарок</label>
+			
+			<div id="cart_gift_select">
+				<select name="gift">
+					<?=$a['list'];?>
+				</select>
+			</div>
+			
+			<div class="clr"></div>
 		</div>
-		<div class="clr"></div>
-	</div>
+		
+		<div class="common_hint">
+			<div class="common_hint_ico"></div>
+			<div class="common_hint_text">
+				В исключительных случаях администрация оставляет за собой право изменения выбранных подарков.
+			</div>
+			<div class="clr"></div>
+		</div>
+	
+	<?else:?>
+	
+		<div id="no_gift">
+			<div class="common_hint">
+				<div class="common_hint_ico"></div>
+				<div class="common_hint_text">
+					Чтобы получить подарок, вам нужно сделать заказ на минимум <?=$a['deadline'];?> руб. Осталось - <b><?=$a['extra_sum'];?> руб.</b>
+				</div>
+				<div class="clr"></div>
+			</div>		
+			
+		</div>
+	
+	<?endif;?>
 	
 </div>

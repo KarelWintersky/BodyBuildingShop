@@ -6,11 +6,14 @@ Class Controller_Index Extends Controller_Base{
     	
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
-    	$this->registry['template']->set('c','order/cart');
 
     	$this->registry['CL_css']->set(array(
     		'order',
-    	));  
+    	));
+    	$this->registry['CL_js']->set(array(
+    			'order',
+    			'order/table',
+    	));    	  
 
     	$Front_Order_Data = new Front_Order_Data($this->registry);
     	

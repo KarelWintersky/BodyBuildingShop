@@ -5,12 +5,13 @@ Class Front_Order_Data_Cart_String{
 	
 	public function __construct($registry){
 		$this->registry = $registry;
+		$this->registry->set('CL_cart_string',$this);
 	}	
 		
 	public function get_cart_from_string(){
 		$cart = array();
 		$string = (isset($_COOKIE['thecart'])) ? $_COOKIE['thecart'] : false;
-		
+				
 		if(!$string) return false; 
 		
 		$string = explode('|',$string);

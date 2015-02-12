@@ -65,7 +65,7 @@ function goods_ostatok_check(goods_id,cookie_stored_data){
 	    type:'POST',
 		dataType:'text',
 		data:  {method:'goods_ostatok_check',goods_id:goods_id,cookie_stored_data:cookie_stored_data},
-		async:false,
+		async:true,
 		success:function(resp){
 			reply = (resp==1) ? true : false;
 		}
@@ -177,7 +177,7 @@ function cart_generate(){
 	    type:'POST',
 		dataType:'text',
 		data:  {method:'cart_construct'},
-		async:false,
+		async:true,
 		success:function(html){
 			$('#head_cart_content').html(html);
 		}

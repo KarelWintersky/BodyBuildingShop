@@ -45,9 +45,8 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 		return implode(', ',$string);
 	}
 	
-	public function do_table(){
-		$data = $this->registry['CL_data']->get_data();		
-		
+	public function do_table($data){
+
 		$a = array(
 				'lines' => $this->print_lines($data['goods'])
 				);

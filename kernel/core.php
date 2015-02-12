@@ -52,6 +52,14 @@ function __autoload($className){
 	}
 }
 
+function w($arr){
+	ob_start();
+	p($arr);
+	$html = ob_get_clean();
+	
+	file_put_contents(ROOT_PATH.'public_html/1.html',$html);
+}
+
 function p($arr,$exit = false){
 	echo '<pre>';
 	print_r($arr);
