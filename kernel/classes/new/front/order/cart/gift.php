@@ -53,6 +53,8 @@ Class Front_Order_Cart_Gift Extends Common_Rq{
 	}
 	
 	private function gifts_list($sum){
+		$active = $this->registry['CL_storage']->get_storage('gift');
+		
 		$goods = $this->get_data($sum);
 		
 		$data = array();
@@ -65,7 +67,7 @@ Class Front_Order_Cart_Gift Extends Common_Rq{
 			$data[] = array(
 					'val' => $barcode,
 					'name' => $name,
-					'selected' => false,
+					'selected' => ($active==$barcode),
 			);
 		
 		return Front_Template_Select::opts($data);

@@ -96,4 +96,15 @@
 		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
 		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}		
 		
+		
+#form_OrderDelivery{}		
+	#form_OrderDelivery #fod_items{}		
+		#form_OrderDelivery #fod_items .fod_item{border:1px solid #ccc;margin:0 0 20px;border-radius:2px;padding:10px 15px;}
+		#form_OrderDelivery #fod_items .fod_item.disabled{opacity:.3;}
+			#form_OrderDelivery #fod_items .fod_item .fod_item_head{font-size:13px;}		
+					#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input{float:left;padding:4px 15px 0 0;}		
+						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input input{float:left;margin:1px 10px 0 0;}		
+						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input span{float:left;}		
+					#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_price{float:left;font-size:18px;}		
+			#form_OrderDelivery #fod_items .fod_item .fod_item_fields{padding:20px 0;font-size:10px;color:#999;}		
 							

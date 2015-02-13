@@ -20,7 +20,12 @@ Class Controller_Index Extends Controller_Base{
     	$Front_Order_Cart = new Front_Order_Cart($this->registry);
     	$Front_Order_Cart->do_vars();
     }
-                        
+
+    function go($path = NULL){
+    	$Front_Order_Cart_Go = new Front_Order_Cart_Go($this->registry);
+    	$Front_Order_Cart_Go->cart_go();
+    }
+    
     function check(){
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;

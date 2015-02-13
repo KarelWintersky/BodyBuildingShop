@@ -5,27 +5,43 @@ Class Front_Order_Delivery Extends Common_Rq{
 	
 	private $Front_Order_Crumbs;
 	private $Front_Order_Storage;
-			
+	private $Front_Order_Delivery_Methods;
+				
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Crumbs = new Front_Order_Crumbs($this->registry);
 		$this->Front_Order_Storage = new Front_Order_Storage($this->registry);
+		$this->Front_Order_Delivery_Methods = new Front_Order_Delivery_Methods($this->registry);
 	}	
 		
-	private function print_items(){
-		$active = $this->Front_Order_Storage->get_storage('delivery');
-			$active = ($active) ? $active : 1;
+	private function print_classes($data){
+		$classes = array();
 		
-		$methods = Front_Order_Data_Delivery::get_methods();
+		$classes[] = 'fod_item';
+		if($data['disabled']) $classes[] = 'disabled';
+		
+		return implode(' ',$classes);
+	}
+	
+	private function print_items(){		
+		$methods = $this->Front_Order_Delivery_Methods->get_actual_list();
 		
 		$html = array();
 		foreach($methods as $method_id => $data){
 			
+			$classname = __CLASS__.'_'.$data['class_alias'];
+			$CL = new $classname($this->registry); 
+			
 			$a = array(
 					'name' => $data['name'],
 					'id' => $method_id,
-					'checked' => ($method_id==$active) ? 'checked' : ''
+					'checked' => ($data['active']) ? 'checked' : '',
+					'disabled' => ($data['disabled']) ? 'disabled' : '',
+					'classes' => $this->print_classes($data),
+					'price' => '300 руб.',
+					'text' => $data['text'],
+					'fields' => $CL->extra_fields()
 					);
 			
 			$html[] = $this->do_rq('item',$a,true);

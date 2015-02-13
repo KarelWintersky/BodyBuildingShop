@@ -37,7 +37,7 @@ Class Front_Order_Cart_Coupon Extends Common_Rq{
 		return $discount['percent'];
 	}
 	
-	public function apply_coupon($coupon){
+	public function apply_coupon($coupon,$only_apply = false){
 		$Front_Order_Storage = new Front_Order_Storage($this->registry);
 		$Front_Order_Data = new Front_Order_Data($this->registry);
 		$Front_Order_Cart_Values = new Front_Order_Cart_Values($this->registry);
@@ -47,9 +47,11 @@ Class Front_Order_Cart_Coupon Extends Common_Rq{
 		$Front_Order_Storage->write_to_storage('coupon',$coupon);
 		$Front_Order_Storage->write_to_storage('coupon_discount',$discount);
 		
-		$data = $Front_Order_Data->get_data();
+		if(!$only_apply){
+			$data = $Front_Order_Data->get_data();
 		
-		echo $Front_Order_Cart_Values->do_block($data);
+			echo $Front_Order_Cart_Values->do_block($data);
+		}
 	}
 	
 }

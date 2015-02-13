@@ -1,26 +1,27 @@
 {{crumbs}}
 
 <div id="order_main">
-	<h2>Оформление заказа</h2>
+
+	<form id="form_CartProceed" method="POST" action="/order/go/">
+
+		<h2>Оформление заказа</h2>
+			
+		<div id="order_goods">	
+			
+			{{table}}
+			
+			{{coupon}}
+			
+			<div id="order_goods_values_container">
+				{{values}}
+			</div>	
+			
+			<div id="order_goods_gift_container">
+				{{gift}}	
+			</div>
 		
-	<div id="order_goods">	
-		
-		{{table}}
-		
-		{{coupon}}
-		
-		<div id="order_goods_values_container">
-			{{values}}
-		</div>	
-		
-		<div id="order_goods_gift_container">
-			{{gift}}	
 		</div>
-	
-	</div>
-	
-	<form id="form_CartProceed" method="POST" action="/order/login/check/">
-	
+		
 		<div id="order_form_stripe">
 			<div id="ofs_proceed">
 				<input type="submit" value="Продолжить">
