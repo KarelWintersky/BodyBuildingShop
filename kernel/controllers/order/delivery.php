@@ -10,6 +10,8 @@ Class Controller_Delivery Extends Controller_Base{
     			'order',
     	));    	
     	
+    	$Front_Order_Data = new Front_Order_Data($this->registry);
+    	
     	$Front_Order_Delivery = new Front_Order_Delivery($this->registry);
     	$Front_Order_Delivery->do_vars();	
 	}

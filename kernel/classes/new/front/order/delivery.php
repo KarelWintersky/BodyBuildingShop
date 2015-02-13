@@ -24,23 +24,23 @@ Class Front_Order_Delivery Extends Common_Rq{
 		return implode(' ',$classes);
 	}
 	
-	private function print_items(){		
+	private function print_items($data){		
 		$methods = $this->Front_Order_Delivery_Methods->get_actual_list();
 		
 		$html = array();
-		foreach($methods as $method_id => $data){
+		foreach($methods as $method_id => $arr){
 			
-			$classname = __CLASS__.'_'.$data['class_alias'];
+			$classname = __CLASS__.'_'.$arr['class_alias'];
 			$CL = new $classname($this->registry); 
 			
 			$a = array(
-					'name' => $data['name'],
+					'name' => $arr['name'],
 					'id' => $method_id,
-					'checked' => ($data['active']) ? 'checked' : '',
-					'disabled' => ($data['disabled']) ? 'disabled' : '',
-					'classes' => $this->print_classes($data),
-					'price' => '300 руб.',
-					'text' => $data['text'],
+					'checked' => ($arr['active']) ? 'checked' : '',
+					'disabled' => ($arr['disabled']) ? 'disabled' : '',
+					'classes' => $this->print_classes($arr),
+					'cost' => $CL->calculate_cost($data),
+					'text' => $arr['text'],
 					'fields' => $CL->extra_fields()
 					);
 			
@@ -51,9 +51,11 @@ Class Front_Order_Delivery Extends Common_Rq{
 	}
 		
 	public function do_vars(){
+		$data = $this->registry['CL_data']->get_data();
+		
 		$vars = array(
 				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(2),
-				'items' => $this->print_items()
+				'items' => $this->print_items($data)
 		);
 	
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
