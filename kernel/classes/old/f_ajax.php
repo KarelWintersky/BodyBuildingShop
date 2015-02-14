@@ -68,5 +68,9 @@ Class f_Ajax{
 		$Front_Order_Cart_Coupon->apply_coupon($_POST['coupon']);
 	}
 	
+	private function delivery_courier(){
+		$Front_Order_Delivery_Courier = new Front_Order_Delivery_Courier($this->registry);
+		$Front_Order_Delivery_Courier->recalculate();
+	}
 }
 ?>

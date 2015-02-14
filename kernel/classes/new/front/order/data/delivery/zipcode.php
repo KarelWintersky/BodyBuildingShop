@@ -7,9 +7,31 @@ Class Front_Order_Data_Delivery_Zipcode{
 		$this->registry = $registry;
 	}	
 				
-	public static function get_zipcode_data($zip_code){
-		$zip_code = trim($zip_code);
-		if(!$zip_code) return false;
+	private function get_input_value(){
+		$courier_zipcode = $this->registry['CL_storage']->get_storage('courier_zipcode');
+		if($courier_zipcode) return $courier_zipcode;
+		
+		return ($this->registry['userdata']) 
+			? $this->registry['userdata']['zip_code']
+			: false;
+	}
+	
+	public function get_zipcode_data($data){
+		$zipcode = $this->get_input_value();
+		
+		$zipcode_data = $this->get_query($zipcode);
+		
+		$data['zipcode_data'] = array(
+				'arr' => $zipcode_data,
+				'is_zipcode' => ($zipcode) ? true : false 
+				); 
+				
+		return $data;
+	}
+	
+	public function get_query($zipcode){	
+		$zip_code = trim($zipcode);
+		if(!$zipcode) return false;
 		
 		$qLnk = mysql_query(sprintf("
 				SELECT
@@ -41,8 +63,8 @@ Class Front_Order_Data_Delivery_Zipcode{
 						AND
 DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),'.',1)))
 				",
-				mysql_real_escape_string($zip_code), 
-				mysql_real_escape_string($zip_code)
+				mysql_real_escape_string($zipcode), 
+				mysql_real_escape_string($zipcode)
 				));
 		$data = mysql_fetch_assoc($qLnk);
 	

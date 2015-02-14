@@ -1,37 +1,39 @@
-<div id="courier_fields">
+<div id="courier_fields" class="address_catch_parent">
 
 	<div class="fl fl_name">
 		<label>Имя покупателя <span>*</span></label>
-		<input type="text" name="name">
+		<input type="text" name="name" value="<?=$a['name'];?>">
 	</div>
 	
 	<div class="fl fl_phone">
 		<label>Номер телефона <span>*</span></label>
-		<input type="text" name="phone">
+		<input type="text" name="phone" value="<?=$a['phone'];?>">
 	</div>
 	
 	<div class="clr"></div>
 	
 	<div class="fl fl_zipcode">
 		<label>Индекс</label>
-		<input type="text" name="zipcode">
+		<input type="text" name="zipcode" class="address_catch" value="<?=$a['zipcode'];?>">
 	</div>
 	
 	<div class="fl fl_city">
 		<label>Город <span>*</span></label>
-		<input type="text" name="city">
+		<input type="text" name="city" class="address_catch" value="<?=$a['city'];?>">
 	</div>
 		
 	<div class="fl fl_street">
 		<label>Улица</label>
-		<input type="text" name="street">
+		<input type="text" name="street" value="<?=$a['street'];?>">
 	</div>
 	
 	<div class="fl fl_house">
 		<label>Дом</label>
-		<input type="text" name="house">
+		<input type="text" name="house" value="<?=$a['house'];?>">
 	</div>
 	
 	<div class="clr"></div>
+
+	<div class="errF">Пожалуйста, заполните все отмеченные звездочкой поля!</div>
 
 </div>

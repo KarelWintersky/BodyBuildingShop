@@ -18,6 +18,8 @@ Class Front_Order_Delivery_Write{
 		$methods = Front_Order_Data_Delivery::get_methods();
 		if(!isset($methods[$method_id])) return false;
 		
+		p($_POST,true);
+		
 		$this->Front_Order_Storage->write_to_storage('delivery',$method_id);
 	}
 			

@@ -106,6 +106,7 @@
 						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input input{float:left;margin:1px 10px 0 0;}		
 						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input span{float:left;}				
 			#form_OrderDelivery #fod_items .fod_item .fod_item_fields{padding:20px 20px 5px;background:#f2f2f2;}		
+				#form_OrderDelivery #fod_items .fod_item .fod_item_fields .errF{font-size:11px;color:#ff0000;padding:0 0 5px;display:none;}		
 				#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl{float:left;padding:0 0 15px;}		
 					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl label{font-size:12px;color:#333;display:block;padding:0 0 1px;}		
 						#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl label span{color:#ff0000;font-weight:bold;font-size:11px;}		
