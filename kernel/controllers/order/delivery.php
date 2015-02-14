@@ -9,6 +9,9 @@ Class Controller_Delivery Extends Controller_Base{
     	$this->registry['CL_css']->set(array(
     			'order',
     	));    	
+    	$this->registry['CL_js']->set(array(
+    			'order/delivery',
+    	));    	
     	
     	$Front_Order_Data = new Front_Order_Data($this->registry);
     	

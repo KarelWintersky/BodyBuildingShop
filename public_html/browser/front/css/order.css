@@ -105,18 +105,22 @@
 					#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input{float:left;padding:4px 15px 0 0;}		
 						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input input{float:left;margin:1px 10px 0 0;}		
 						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input span{float:left;}				
-			#form_OrderDelivery #fod_items .fod_item .fod_item_fields{padding:20px 20px;background:#f2f2f2;}		
+			#form_OrderDelivery #fod_items .fod_item .fod_item_fields{padding:20px 20px 5px;background:#f2f2f2;}		
 				#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl{float:left;padding:0 0 15px;}		
-					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl label{font-size:12px;color:#333;display:block;}		
+					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl label{font-size:12px;color:#333;display:block;padding:0 0 1px;}		
+						#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl label span{color:#ff0000;font-weight:bold;font-size:11px;}		
 					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl input{border:1px solid #c8c8c8;padding:0 5px;border-radius:2px;color:#333;font-family:Verdana;font-size:11px;height:23px;}		
+					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl input.err{border-color:#ff0000;}		
 			#form_OrderDelivery #fod_items .fod_item .fod_item_cost{}		
 			
 #self_fields{}			
-	#self_fields .fl_name input{width:180px;}			
-	#self_fields .fl_phone{float:right !important;}			
-		#self_fields .fl_phone input{width:170px;}			
+	#self_fields .fl_name input{width:250px;margin-right:30px;}						
+	#self_fields .fl_phone input{width:200px;}			
 					
 #courier_fields{}				
-	#courier_fields .fl_name input{width:180px;}			
-	#courier_fields .fl_phone{float:right !important;}			
-		#courier_fields .fl_phone input{width:170px;}				
+	#courier_fields .fl_name input{width:250px;margin-right:30px;}						
+	#courier_fields .fl_phone input{width:200px;}				
+	#courier_fields .fl_zipcode input{width:50px;margin-right:30px;}				
+	#courier_fields .fl_city input{width:160px;margin-right:30px;}				
+	#courier_fields .fl_street input{width:200px;margin-right:30px;}				
+	#courier_fields .fl_house input{width:100px;}				
