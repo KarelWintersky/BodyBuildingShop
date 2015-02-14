@@ -1,24 +1,33 @@
 <div id="courier_cost">
 
-	<?if($a['is_spb']):?>
-	
-		<div id="courier_cost_price">
-			<?if($a['price']):?>
-				<?=$a['price'];?> руб.
-			<?else:?>
-				Бесплатно	
-			<?endif;?>	
-		</div>
+	<?if(!$a['no_zip_code']):?>
+
+		<?if($a['is_spb']):?>
 		
-		<?if($a['price']):?>
-			<div id="courier_cost_hint">
-				Бесплатная доставка курьером начинается от <?=$a['free_delivery_sum'];?> руб. Вам осталось купить товаров на <?=$a['free_delivery_diff'];?> руб.
+			<div id="courier_cost_price">
+				<?if($a['price']):?>
+					<?=$a['price'];?> руб.
+				<?else:?>
+					Бесплатно	
+				<?endif;?>	
+			</div>
+			
+			<?if($a['price']):?>
+				<div id="courier_cost_hint">
+					Бесплатная доставка курьером начинается от <?=$a['free_delivery_sum'];?> руб. Вам осталось купить товаров на <?=$a['free_delivery_diff'];?> руб.
+				</div>
+			<?endif;?>
+		
+		<?else:?>
+			<div id="courier_cost_no_spb">
+				Вы не из Санкт-Петербурга, судя по индексу. Доставка курьером - по запросу.
 			</div>
 		<?endif;?>
 	
 	<?else:?>
-		<div id="courier_cost_no_spb">
-			Вы не из Санкт-Петербурга, судя по индексу. Доставка курьером - по запросу.
+		<div id="courier_cost_noindex">
+			Введите индекс для расчета доставки.
 		</div>
 	<?endif;?>
+	
 </div>

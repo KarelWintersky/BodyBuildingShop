@@ -19,6 +19,7 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 				'free_delivery_sum' => Common_Useful::price2read(FREE_DELIVERY_SUM),
 				'free_delivery_diff' => Common_Useful::price2read(FREE_DELIVERY_SUM - $data['sum']),
 				'is_spb' => $arr['is_spb'],
+				'no_zip_code' => $arr['no_zip_code']
 				);
 		
 		return $this->do_rq('cost',$a);

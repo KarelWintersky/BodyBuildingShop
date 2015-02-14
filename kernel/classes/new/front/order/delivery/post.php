@@ -7,11 +7,11 @@ Class Front_Order_Delivery_Post Extends Common_Rq{
 		$this->registry = $registry;
 	}	
 			
-	public function extra_fields(){
-		
-	}
+	public function extra_fields(){ return false; }
 	
 	public function calculate_cost($data){
+		if(!$this->registry['userdata']) return $this->do_rq('closed',NULL);
+		
 		$arr = $data['costs']['post'];
 		
 		$a = array(

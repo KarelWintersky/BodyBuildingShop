@@ -6,9 +6,11 @@ Class Front_Order_Data_Delivery_Post{
 	}
 	
 	public function calculate_costs($data){
-		$zipcode_data = Front_Order_Data_Delivery_Zipcode::get_zipcode_data(
-				$this->registry['userdata']['zip_code']
-		);
+		$zipcode_data = ($this->registry['userdata'])
+			? Front_Order_Data_Delivery_Zipcode::get_zipcode_data(
+					$this->registry['userdata']['zip_code']
+			)
+			: false;
 	
 		if($zipcode_data){
 	
@@ -32,7 +34,8 @@ Class Front_Order_Data_Delivery_Post{
 				'hard_cost' => $hard_cost,
 				'cost' => $hard_cost+$total_cost,
 				'is_spb' => $zipcode_data['is_spb'],
-				'no_nalog' => ($hard_cost>0)
+				'no_nalog' => ($hard_cost>0),
+				'no_zip_code' => false
 			);
 	
 		}else{	
@@ -41,7 +44,8 @@ Class Front_Order_Data_Delivery_Post{
 				'hard_cost' => false,
 				'cost' => false,
 				'is_spb' => false,
-				'no_nalog' => true
+				'no_nalog' => true,
+				'no_zip_code' => ($this->registry['userdata'] && $this->registry['userdata']['zip_code']) ? false : true	
 			);
 		}
 	

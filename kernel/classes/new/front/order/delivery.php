@@ -24,6 +24,12 @@ Class Front_Order_Delivery Extends Common_Rq{
 		return implode(' ',$classes);
 	}
 	
+	private function do_text($method_id,$arr){
+		if($method_id==1 && !$this->registry['userdata']) return false;
+		
+		return $arr['text'];
+	}
+	
 	private function print_items($data){		
 		$methods = $this->Front_Order_Delivery_Methods->get_actual_list();
 		
@@ -40,7 +46,7 @@ Class Front_Order_Delivery Extends Common_Rq{
 					'disabled' => ($arr['disabled']) ? 'disabled' : '',
 					'classes' => $this->print_classes($arr),
 					'cost' => $CL->calculate_cost($data),
-					'text' => $arr['text'],
+					'text' => $this->do_text($method_id,$arr),
 					'fields' => $CL->extra_fields()
 					);
 			

@@ -14,9 +14,13 @@
 	<div class="fod_item_cost">
 		<?=$a['cost'];?>
 	</div>
-	<div class="fod_item_fields">
-		<?=$a['fields'];?>
-	</div>
+	
+	<?if($a['fields']):?>
+		<div class="fod_item_fields">
+			<?=$a['fields'];?>
+		</div>
+	<?endif;?>
+	
 	<div class="fod_item_text texted">
 		<?=$a['text'];?>
 	</div>
