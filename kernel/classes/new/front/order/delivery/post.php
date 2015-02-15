@@ -16,9 +16,9 @@ Class Front_Order_Delivery_Post Extends Common_Rq{
 		
 		$a = array(
 				'price' => Common_Useful::price2read($arr['cost']),
-				'total_cost' => Common_Useful::price2read($arr['total_cost']),
-				'hard_cost' => Common_Useful::price2read($arr['hard_cost']),
 				'is_spb' => $arr['is_spb'],
+				'no_zip_code' => $arr['no_zip_code'],
+				'post_available' => $arr['post_available']
 				);
 		
 		return $this->do_rq('cost',$a);

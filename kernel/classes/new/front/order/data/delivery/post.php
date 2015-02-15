@@ -26,6 +26,7 @@ Class Front_Order_Data_Delivery_Post{
 			$hard_cost = ceil($hard_cost);
 	
 			$output = array(
+				'post_available' => ($zipcode_data['type_dost']>0),	
 				'total_cost' => $total_cost,
 				'hard_cost' => $hard_cost,
 				'cost' => $hard_cost+$total_cost,
@@ -36,6 +37,7 @@ Class Front_Order_Data_Delivery_Post{
 	
 		}else{	
 			$output = array(
+				'post_available' => true,
 				'total_cost' => false,
 				'hard_cost' => false,
 				'cost' => false,

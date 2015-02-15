@@ -12,18 +12,19 @@ Class Front_Order_Delivery_Methods{
 		$this->registry = $registry;
 	}		
 	
-	private function correct_list($list){
-		if($this->registry['userdata']) return $list;
-		
+	private function correct_list($list,$data){
 		//закрываем доставку по почте для незарегистрированных
-		$list[1]['disabled'] = true; $list[1]['active'] = false;
+		if(!$this->registry['userdata']) $list[1]['disabled'] = true; $list[1]['active'] = false;
+		
+		//закрываем доставку по почте если стоит соответствующее ограничение на индекс
+		if(!$data['costs']['post']['post_available']) $list[1]['disabled'] = true; $list[1]['active'] = false;
 		
 		if(!$list[2]['active'] && !$list[4]['active']) $list[2]['active'] = true;
 		
 		return $list;
 	}
 	
-	public function get_actual_list(){
+	public function get_actual_list($data){
 		$active = $this->registry['CL_storage']->get_storage('delivery');
 			$active = ($active) ? $active : 1;
 		
@@ -43,7 +44,7 @@ Class Front_Order_Delivery_Methods{
 					); 
 		}
 		
-		$list = $this->correct_list($list);
+		$list = $this->correct_list($list,$data);
 		
 		return $list;
 	}

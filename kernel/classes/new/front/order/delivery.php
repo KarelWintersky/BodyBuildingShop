@@ -31,7 +31,7 @@ Class Front_Order_Delivery Extends Common_Rq{
 	}
 	
 	private function print_items($data){		
-		$methods = $this->Front_Order_Delivery_Methods->get_actual_list();
+		$methods = $this->Front_Order_Delivery_Methods->get_actual_list($data);
 		
 		$html = array();
 		foreach($methods as $method_id => $arr){

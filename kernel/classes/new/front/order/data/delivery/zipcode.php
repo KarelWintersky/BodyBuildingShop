@@ -40,6 +40,7 @@ Class Front_Order_Data_Delivery_Zipcode{
 					region,
 					city,
 					type_ogr,
+					type_dost,
 					tarif_pos_basic,
 					tarif_pos_add,
 					tarif_band_basic,
@@ -54,10 +55,10 @@ Class Front_Order_Data_Delivery_Zipcode{
 				FROM
 					indexes
 				WHERE
-					ind = '%s'
+					(ind = '%s'
 					OR
-					ind_old = '%s'
-				AND
+					ind_old = '%s')
+					AND
 					DATE(NOW())
 						BETWEEN
 						DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',1),'.',1)))
@@ -68,7 +69,7 @@ DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),
 				mysql_real_escape_string($zipcode)
 				));
 		$data = mysql_fetch_assoc($qLnk);
-	
+			
 		return $data;
 	}
 				
