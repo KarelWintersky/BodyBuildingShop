@@ -46,7 +46,8 @@ Class Front_Order_Payment Extends Common_Rq{
 					'checked' => ($arr['active']) ? 'checked' : '',
 					'classes' => $this->print_classes($arr),
 					'text' => $arr['text'],
-					'extra' => $this->print_extra($method_id,$data)
+					'extra' => $this->print_extra($method_id,$data),
+					'disabled' => ($arr['disabled']) ? 'disabled' : ''
 			);
 				
 			$html[] = $this->do_rq('item',$a,true);
