@@ -31,7 +31,6 @@ class User{
     	    	
         $this->registry = $registry;
         $this->registry->set('userdata',$this->getAuth());
-               
     }
     		    
 	private function getAuth(){
@@ -104,7 +103,8 @@ class User{
 	}
 		
 	private function setPassAuth(){
-		if(isset($_POST['login']) && isset($_POST['pass'])){
+				
+		if(isset($_POST['login']) && isset($_POST['pass'])){			
 			
 			$l=trim(mysql_real_escape_string($_POST['login']));
 			$p=md5($_POST['pass']);
@@ -125,9 +125,15 @@ class User{
 						
 			if(!$this->userInfoArray){
 				header('Location: /auth/?failed=1');
-				return false;
+				exit();
 			}else{
 				if(!isset($_POST['remember'])){$this->setAuthCookie();}
+
+				if(isset($_POST['after']) && $_POST['after']){
+					header('Location: '.$_POST['after']);
+					exit();
+				}
+				
 				return true;
 			}
 		}			

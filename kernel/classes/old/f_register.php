@@ -176,11 +176,17 @@
 				$this->mk_register();
 				
 				$cookie_timer = time()-1800;
+								
 				$this->registry['doer']->set_rp('/register/3/');
 			}
 			
 			setcookie('err_array',json_encode($err_array),$cookie_timer,'/');
-			setcookie('reg_data',json_encode($_POST),$cookie_timer,'/');							
+			setcookie('reg_data',json_encode($_POST),$cookie_timer,'/');
+
+			if(isset($_POST['after'])){
+				header('Location: '.$_POST['after']);
+				exit();
+			}			
 		}
 		
 		private function mk_register(){

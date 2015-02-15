@@ -28,6 +28,10 @@
 			
 			<form id="form_Register_Intro" action="/register/1/" method="GET">
 			
+				<?if($_GET['after']):?>
+					<input type="hidden" name="after" value="<?=$_GET['after'];?>">
+				<?endif;?>
+			
 				<div class="rf_inner">
 			
 					<h3>Регистрация. Шаг №1</h3>

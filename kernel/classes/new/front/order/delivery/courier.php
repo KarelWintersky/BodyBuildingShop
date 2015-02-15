@@ -18,7 +18,7 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 					: '',
 				'zipcode' => ($this->registry['CL_storage']->get_storage('courier_zipcode'))
 					? $this->registry['CL_storage']->get_storage('courier_zipcode')
-					: (($this->registry['userdata']) ? $this->registry['userdata']['zipcode'] : ''),
+					: (($this->registry['userdata']) ? $this->registry['userdata']['zip_code'] : ''),
 				'city' => ($this->registry['CL_storage']->get_storage('courier_city'))
 					? $this->registry['CL_storage']->get_storage('courier_city')
 					: (($this->registry['userdata']) ? $this->registry['userdata']['city'] : ''),

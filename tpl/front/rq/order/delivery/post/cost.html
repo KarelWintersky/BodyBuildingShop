@@ -3,7 +3,14 @@
 	<?if($a['price']):?>
 		<div id="post_cost_price">
 			<?=$a['price'];?> руб.
-		</div>	
+		</div>
+		
+		<?if($a['hard_cost']):?>
+			<div id="post_cost_price_explain">
+				<?=$a['total_cost'];?> руб. + <?=$a['hard_cost'];?> руб. (оплата за доставку в труднодоступный регион) 
+			</div>	
+		<?endif;?>
+		
 	<?else:?>
 		<div id="post_cost_no_index">
 			Ваш индекс не найден в справочнике. Неясно, сколько будет стоить доставка.

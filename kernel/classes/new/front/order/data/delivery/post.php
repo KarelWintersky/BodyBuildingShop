@@ -7,7 +7,7 @@ Class Front_Order_Data_Delivery_Post{
 	
 	public function calculate_costs($data){
 		$zipcode_data = $data['zipcode_data']['arr'];
-	
+			
 		if($zipcode_data){
 	
 			$post_500s = ceil($data['weight']/500);

@@ -80,7 +80,9 @@
 						<input type="hidden" name="old_zip_code" value="<?=$this->registry['full_ui']['zip_code']?>">
 					</div>					
 				
-					<?$this->registry['logic']->zip_code_find($this->registry['userdata']['zip_code'],$zc_flag);?>
+					<?
+					$Front_Profile_Zipcode = new Front_Profile_Zipcode($this->registry);
+					$Front_Profile_Zipcode->zip_code_find($this->registry['userdata']['zip_code'],$zc_flag);?>
 					
 					<?if(!$zc_flag):?>
 						<div class="zc_hint">Ваш индекс не найден в Эталонном Справочнике. Доставка невозможна до тех пор, пока не будет указан корректный индекс.</div>
@@ -185,6 +187,6 @@
 	
 	<h2>Информация по тарифам на доставку</h2>
 	
-	<?$this->registry['logic']->zip_code_data($this->registry['userdata']['zip_code']);?>
+	<?$Front_Profile_Zipcode->zip_code_data($this->registry['userdata']['zip_code']);?>
 	
 </div>
