@@ -1,36 +1,13 @@
 <?php
 Class Front_Order_Data_Delivery_Zipcode{
-	
-	private $registry;
-					
-	public function __construct($registry){
-		$this->registry = $registry;
-	}	
-				
-	private function get_input_value(){
-		$courier_zipcode = $this->registry['CL_storage']->get_storage('courier_zipcode');
-		if($courier_zipcode) return $courier_zipcode;
-		
-		return ($this->registry['userdata']) 
-			? $this->registry['userdata']['zip_code']
-			: false;
+						
+	public static function get_zipcode_data($zipcode){
+		$zipcode_data = self::get_query($zipcode);
+						
+		return $zipcode_data;
 	}
 	
-	public function get_zipcode_data($data){
-		
-		$zipcode = $this->get_input_value();
-		
-		$zipcode_data = $this->get_query($zipcode);
-		
-		$data['zipcode_data'] = array(
-				'arr' => $zipcode_data,
-				'is_zipcode' => ($zipcode) ? true : false 
-				); 
-				
-		return $data;
-	}
-	
-	public function get_query($zipcode){	
+	public static function get_query($zipcode){	
 		$zip_code = trim($zipcode);
 		if(!$zipcode) return false;
 		

@@ -26,7 +26,6 @@ Class Front_Order_Data{
 		$data = $this->Front_Order_Data_Cart->get_data($cart);
 		if(!$data) return false;
 		
-		$data = $this->Front_Order_Data_Delivery_Zipcode->get_zipcode_data($data);
 		$data = $this->Front_Order_Data_Delivery_Post->calculate_costs($data);
 		$data = $this->Front_Order_Data_Delivery_Courier->calculate_costs($data);
 		

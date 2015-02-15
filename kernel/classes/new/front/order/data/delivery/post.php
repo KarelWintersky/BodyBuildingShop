@@ -6,7 +6,10 @@ Class Front_Order_Data_Delivery_Post{
 	}
 	
 	public function calculate_costs($data){
-		$zipcode_data = $data['zipcode_data']['arr'];
+		//$zipcode_data = $data['zipcode_data']['arr'];
+		$zipcode_data = Front_Order_Data_Delivery_Zipcode::get_zipcode_data(
+				($this->registry['userdata']) ? $this->registry['userdata']['zip_code'] : false
+				);
 			
 		if($zipcode_data){
 	
