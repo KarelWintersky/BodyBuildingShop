@@ -3,15 +3,21 @@
 		<th class="td_name">Наименование</th>
 		<th class="td_price">Цена за шт.</th>
 		<th class="td_amount">Количество</th>
-		<th class="td_del">Удалить</th>
+		
+		<?if(!$a['readonly']):?>
+			<th class="td_del">Удалить</th>
+		<?endif;?>
+		
 	</tr>
 	<?=$a['lines'];?>
 </table>
 
-<div id="order_goods_refresh">
-	<div id="order_goods_refresh_ico"></div>
-	<div id="order_goods_refresh_link">
-		<a href="#">Пересчитать</a>
+<?if(!$a['readonly']):?>
+	<div id="order_goods_refresh">
+		<div id="order_goods_refresh_ico"></div>
+		<div id="order_goods_refresh_link">
+			<a href="#">Пересчитать</a>
+		</div>
+		<div class="clr"></div>
 	</div>
-	<div class="clr"></div>
-</div>
+<?endif;?>

@@ -12,7 +12,17 @@ Class Front_Order_Delivery_Self Extends Common_Rq{
 	}
 	
 	public function extra_fields(){
-		return $this->do_rq('fields',NULL);
+		
+		$a = array(
+				'name' => ($this->registry['CL_storage']->get_storage('self_name'))
+					? $this->registry['CL_storage']->get_storage('self_name')
+					: (($this->registry['userdata']) ? $this->registry['userdata']['name'] : ''),
+				'phone' => ($this->registry['CL_storage']->get_storage('self_phone'))
+					? $this->registry['CL_storage']->get_storage('self_phone')
+					: '',				
+				);
+		
+		return $this->do_rq('fields',$a);
 	}	
 			
 }

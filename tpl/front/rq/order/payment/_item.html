@@ -1,6 +1,15 @@
-<div class="pod_item">
-	<label>
-		<input type="radio" name="payment" value="<?=$a['id'];?>" <?=$a['checked'];?>>
-		<?=$a['name'];?>
-	</label>
+<div class="<?=$a['classes'];?>">
+	<div class="fop_item_head">
+		<div class="fop_item_head_input">
+			<label>
+				<input type="radio" name="payment" value="<?=$a['id'];?>" <?=$a['checked'];?>>
+				<?=$a['name'];?>
+			</label>
+		</div>
+		<div class="clr"></div>
+	</div>
+		
+	<div class="fop_item_text texted">
+		<?=$a['text'];?>
+	</div>
 </div>

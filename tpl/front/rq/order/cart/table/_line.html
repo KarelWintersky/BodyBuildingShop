@@ -29,12 +29,21 @@
 		<span>руб.</span>
 	</td>
 	<td class="td_amount">
-		<input type="text" value="<?=$a['amount'];?>" autocomplete="off" class="goods_amount">
+	
+		<?if(!$a['readonly']):?>
+			<input type="text" value="<?=$a['amount'];?>" autocomplete="off" class="goods_amount">
+		<?else:?>
+			<b><?=$a['amount'];?></b>	
+		<?endif;?>
+		
 		<span>шт.</span>
 	</td>
-	<td class="td_del">
-		<a href="#">x</a>
-	</td>
+	
+	<?if(!$a['readonly']):?>
+		<td class="td_del">
+			<a href="#">x</a>
+		</td>
+	<?endif;?>
 	
 	<input type="hidden" class="line_key" value="<?=$a['key'];?>">		
 </tr>

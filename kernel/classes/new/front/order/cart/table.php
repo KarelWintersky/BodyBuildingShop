@@ -7,7 +7,7 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 		$this->registry = $registry;
 	}	
 		
-	private function print_lines($goods){
+	private function print_lines($goods,$readonly){
 		$html = array();
 				
 		foreach($goods as $key => $g){
@@ -23,6 +23,8 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 			$g['features_colors'] = $this->features_colors($g);
 			
 			$g['key'] = $key;
+			
+			$g['readonly'] = $readonly;
 						
 			$html[] = $this->do_rq('line',$g,true);
 		}
@@ -45,10 +47,11 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 		return implode(', ',$string);
 	}
 	
-	public function do_table($data){
+	public function do_table($data,$readonly = false){
 
 		$a = array(
-				'lines' => $this->print_lines($data['goods'])
+				'lines' => $this->print_lines($data['goods'],$readonly),
+				'readonly' => $readonly
 				);
 		
 		return $this->do_rq('table',$a);
