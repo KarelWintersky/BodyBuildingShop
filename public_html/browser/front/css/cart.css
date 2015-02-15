@@ -35,10 +35,7 @@
 				#page_cart .radio_block .radio_phone input{border:1px solid #c8c8c8;padding:0 5px;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;color:#333;font-family:Verdana;font-size:11px;width:198px;height:23px;}
 		#page_cart .radio_block .radio_line.disabled_line{color:#999;}
 	#page_cart .cart_hint{font-size:12px;color:#333;line-height:17px;}
-	#page_cart #user_data{}
-		#page_cart #user_data #wishes{border:1px solid #c8c8c8;background:#f2f2f2;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;margin:20px 0 0;padding:18px 20px 17px;}
-			#page_cart #user_data #wishes label{font-size:12px;display:block;padding:0 0 14px;}
-			#page_cart #user_data #wishes textarea{padding:5px;resize:none;border:1px solid #c8c8c8;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;width:656px;height:63px;outline:none;color:#333;font-family:Verdana;font-size:11px;}
+	
 		#page_cart #user_data .ud_hint{margin:13px 0 0;}
 		#page_cart #user_data h2{color:#e38a25;font-size:18px;font-weight:normal;padding:0 0 15px;}
 		#page_cart #user_data #user_data_table{background:#f2f2f2;font-size:12px;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;padding:19px 30px 8px;margin:8px 0 21px;}
@@ -91,9 +88,7 @@
 		#cart_2_total_goods_price li .c2tgp_val{float:right;margin:0 0 0 15px;color:#ccc;font-size:14px;width:115px;}
 			#cart_2_total_goods_price li .c2tgp_val b{color:#333;}
 		#cart_2_total_goods_price li .c2tgp_hint{float:right;font-size:11px;color:#999;padding:2px 0 0;}
-#cart_2_overall{background:#f2f2f2;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;float:left;font-size:12px;color:#343434;padding:16px 18px 15px;margin:30px 0 30px;}
-	#cart_2_overall span{font-size:18px;color:#ccc;}
-		#cart_2_overall span b{color:#000;font-weight:normal;}
+
 #ostatki_amount_hint{font-size:11px;background:#FADAD3;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;line-height:18px;padding:9px 12px;margin:0 0 20px;}
 #ostatki_data{font-size:11px;background:#FADAD3;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;line-height:18px;padding:9px 12px;margin:0 0 20px;}
 
@@ -118,14 +113,6 @@
 		.cart_table .not_present a{color:#999;}
 		.cart_table .not_present .ct_price b{color:#999 !important;}
 
-#page_cart #cart_2_params{}
-	#page_cart #cart_2_params h2{color:#e38a25;font-size:18px;font-weight:normal;padding:0 0 15px;}
-	#page_cart #cart_2_params .cart_2_params_hint{font-size:12px;line-height:17px;color:#333;margin:0 0 1px;}
-	#page_cart #cart_2_params .cart_2_params_block{background:#f2f2f2;font-size:12px;-moz-border-radius:2px; -khtml-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;padding:19px 30px 8px;margin:8px 0 17px;}
-		#page_cart #cart_2_params .cart_2_params_block li{padding:0 0 10px;line-height:17px;}
-			#page_cart #cart_2_params .cart_2_params_block li b{float:left;text-align:right;width:303px;color:#333;}
-			#page_cart #cart_2_params .cart_2_params_block li span{float:right;width:325px;color:#999;}
-#page_cart #cart_alternative{float:left;font-size:12px;padding:76px 0 0 20px;}
 
 #cart_social{background:#edf2f5;-moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;padding:18px 20px 22px;margin:40px 0 0;}
 	#cart_social ul{padding:5px 0 0;}

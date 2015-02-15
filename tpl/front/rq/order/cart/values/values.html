@@ -1,10 +1,15 @@
 <ul id="order_goods_values">	
 	<?=$a['discount'];?>
-	<li id="ogv_3">
+	<li id="<?=$a['final_sum_id'];?>">
 		<div class="ogv_val">
 			<b><?=$a['final_sum'];?></b> руб.
 		</div>
-		<div class="ogv_label">Итоговая стоимость вашего заказа<br>(без учета доставки):</div>
+		<div class="ogv_label"><?=$a['final_sum_label'];?>:</div>
 		<div class="clr"></div>
-	</li>				
+	</li>
+	
+	<?=$a['extra'];?>
+								
 </ul>
+
+<?=$a['overall'];?>

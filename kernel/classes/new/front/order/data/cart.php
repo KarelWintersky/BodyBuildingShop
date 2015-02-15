@@ -23,10 +23,7 @@ Class Front_Order_Data_Cart{
 		$sum_nalog = $sum*PREPAY_DISCOUNT/100;
 		$sum_nalog = intval($sum_nalog);
 		
-		return array(
-				'costs' => $sum_nalog,
-				'sum' => $sum_nalog + $sum,
-				);
+		return $sum_nalog;
 	}
 	
 	private function calculate_sum($goods){

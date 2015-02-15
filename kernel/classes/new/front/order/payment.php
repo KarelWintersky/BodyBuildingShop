@@ -28,10 +28,10 @@ Class Front_Order_Payment Extends Common_Rq{
 		if($method_id!=1) return false;
 		
 		$a = array(
-				'costs' => Common_Useful::price2read($data['nalog']['costs'])
+				'costs' => Common_Useful::price2read($data['nalog'])
 				);
 		
-		return $this->do_rq('nalog',$data['nalog']);
+		return $this->do_rq('nalog',$a);
 	}
 	
 	private function print_items($data){
