@@ -37,11 +37,6 @@ Class Front_Order_Data_Delivery_Post{
 	
 		}else{	
 			$output = array(
-				'post_available' => true,
-				'total_cost' => false,
-				'hard_cost' => false,
-				'cost' => false,
-				'is_spb' => false,
 				'no_nalog' => true,
 				'no_zip_code' => ($this->registry['userdata'] && $this->registry['userdata']['zip_code']) ? false : true	
 			);

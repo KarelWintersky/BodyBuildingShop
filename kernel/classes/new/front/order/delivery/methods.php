@@ -16,8 +16,13 @@ Class Front_Order_Delivery_Methods{
 		//закрываем доставку по почте для незарегистрированных
 		if(!$this->registry['userdata']) $list[1]['disabled'] = true; $list[1]['active'] = false;
 		
-		//закрываем доставку по почте если стоит соответствующее ограничение на индекс
-		if(!$data['costs']['post']['post_available']) $list[1]['disabled'] = true; $list[1]['active'] = false;
+		//закрываем доставку по почте если нет индекса илистоит соответствующее ограничение на индекс
+		if(
+				!isset($data['costs']['post']['post_available']) 
+				||
+				!$data['costs']['post']['post_available']
+				)
+					$list[1]['disabled'] = true; $list[1]['active'] = false;
 		
 		if(!$list[2]['active'] && !$list[4]['active']) $list[2]['active'] = true;
 		
