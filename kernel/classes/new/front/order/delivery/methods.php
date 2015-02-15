@@ -14,18 +14,18 @@ Class Front_Order_Delivery_Methods{
 	
 	private function correct_list($list,$data){
 		//закрываем доставку по почте для незарегистрированных
-		if(!$this->registry['userdata']) $list[1]['disabled'] = true; $list[1]['active'] = false;
+		if(!$this->registry['userdata']){ $list[1]['disabled'] = true; $list[1]['active'] = false; }
 		
 		//закрываем доставку по почте если нет индекса илистоит соответствующее ограничение на индекс
 		if(
 				!isset($data['costs']['post']['post_available']) 
 				||
 				!$data['costs']['post']['post_available']
-				)
-					$list[1]['disabled'] = true; $list[1]['active'] = false;
+				){
+					$list[1]['disabled'] = true; $list[1]['active'] = false; }
 		
-		if(!$list[2]['active'] && !$list[4]['active']) $list[2]['active'] = true;
-		
+		if(!$list[1]['active'] && !$list[2]['active'] && !$list[4]['active']){ $list[2]['active'] = true; }
+				
 		return $list;
 	}
 	

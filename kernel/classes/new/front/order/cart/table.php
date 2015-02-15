@@ -49,6 +49,8 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 	
 	public function do_table($data,$readonly = false){
 
+		//p($data);
+		
 		$a = array(
 				'lines' => $this->print_lines($data['goods'],$readonly),
 				'readonly' => $readonly
