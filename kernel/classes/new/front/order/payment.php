@@ -22,8 +22,20 @@ Class Front_Order_Payment Extends Common_Rq{
 		return implode(' ',$classes);
 	}	
 	
-	private function print_items(){
-		$methods = $this->Front_Order_Payment_Methods->get_actual_list();
+	private function print_extra($method_id,$data){
+		//дополнительные расходы на доставку наложенным платежом
+		
+		if($method_id!=1) return false;
+		
+		$a = array(
+				'costs' => Common_Useful::price2read($data['nalog']['costs'])
+				);
+		
+		return $this->do_rq('nalog',$data['nalog']);
+	}
+	
+	private function print_items($data){
+		$methods = $this->Front_Order_Payment_Methods->get_actual_list($data);
 		
 		$html = array();
 		foreach($methods as $method_id => $arr){
@@ -33,7 +45,8 @@ Class Front_Order_Payment Extends Common_Rq{
 					'id' => $method_id,
 					'checked' => ($arr['active']) ? 'checked' : '',
 					'classes' => $this->print_classes($arr),
-					'text' => $arr['text']
+					'text' => $arr['text'],
+					'extra' => $this->print_extra($method_id,$data)
 			);
 				
 			$html[] = $this->do_rq('item',$a,true);
@@ -43,9 +56,11 @@ Class Front_Order_Payment Extends Common_Rq{
 	}	
 	
 	public function do_vars(){
+		$data = $this->registry['CL_data']->get_data();
+		
 		$vars = array(
 				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(3),
-				'items' => $this->print_items()
+				'items' => $this->print_items($data)
 		);
 	
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

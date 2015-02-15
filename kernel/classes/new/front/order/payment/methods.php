@@ -24,8 +24,11 @@ Class Front_Order_Payment_Methods{
 		return $delivery['payment'];
 	}
 	
-	private function correct_list($list){
+	private function correct_list($list,$data){
 		foreach($list as $id => $arr) if($arr['disabled']) $list[$id]['active'] = false;		
+		
+		//закрываем наложку, если есть соответствующий параметр
+		if(!$data['nalog_payment_available']) $list[1]['disabled'] = true; $list[1]['active'] = false;
 		
 		$is_active = false;
 		foreach($list as $l) if($l['active']) $is_active = true;
@@ -41,7 +44,7 @@ Class Front_Order_Payment_Methods{
 		return $list;
 	}	
 	
-	public function get_actual_list(){
+	public function get_actual_list($data){
 		$active = $this->Front_Order_Storage->get_storage('payment');
 			$active = ($active) ? $active : 1;
 		
@@ -62,7 +65,7 @@ Class Front_Order_Payment_Methods{
 			);
 		}
 		
-		$list = $this->correct_list($list);		
+		$list = $this->correct_list($list,$data);		
 				
 		return $list;
 	}

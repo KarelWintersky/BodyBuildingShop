@@ -10,6 +10,8 @@ Class Controller_Payment Extends Controller_Base{
     			'order',
     	));
     	 
+    	$Front_Order_Data = new Front_Order_Data($this->registry);
+    	
     	$Front_Order_Payment = new Front_Order_Payment($this->registry);
     	$Front_Order_Payment->do_vars();	
 	}

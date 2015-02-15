@@ -13,15 +13,18 @@ Class Front_Order_Data_Cart{
 		$this->Front_Order_Data_Cart_Goods = new Front_Order_Data_Cart_Goods($this->registry);
 	}	
 			
-	private function sum_nalog($sum){
+	private function calculate_nalog($sum){
 		/*
 		 * сумма заказа при оплате наложенным платежом
 		 * */
 		
-		$sum_nalog = $sum + $sum*PREPAY_DISCOUNT/100;
+		$sum_nalog = $sum*PREPAY_DISCOUNT/100;
 		$sum_nalog = intval($sum_nalog);
 		
-		return $sum_nalog;
+		return array(
+				'costs' => $sum_nalog,
+				'sum' => $sum_nalog + $sum,
+				);
 	}
 	
 	private function calculate_sum($goods){
@@ -63,7 +66,7 @@ Class Front_Order_Data_Cart{
 				'cart' => $cart,
 				'goods' => $goods,
 				'sum' => $sum,
-				'sum_nalog' => $this->sum_nalog($sum),
+				'nalog' => $this->calculate_nalog($sum),
 				'weight' => $this->calculate_weight($goods),
 				);
 		
