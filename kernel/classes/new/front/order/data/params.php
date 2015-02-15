@@ -28,7 +28,7 @@ Class Front_Order_Data_Params{
 		
 		$flag = true;
 		
-		if($data['sum_nalog']>$this->registry['userdata']['max_nalog']) $flag = false;
+		if($data['nalog']['sum']>$this->registry['userdata']['max_nalog']) $flag = false;
 		if($data['costs']['post']['no_nalog']) $flag = false;
 		
 		return $flag;
