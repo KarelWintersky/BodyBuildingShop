@@ -7,16 +7,22 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 		$this->registry = $registry;
 	}	
 		
-	private function print_lines($goods,$readonly){
+	private function print_lines($data,$readonly){
 		$html = array();
 				
+		$goods = $data['goods'];
+		
+		if($readonly && $data['gift']) $goods[] = $data['gift'];
+			
 		foreach($goods as $key => $g){
-			$g['url'] = sprintf('/%s/%s/%s/',
-					$g['parent_alias'],
-					$g['level_alias'],
-					$g['alias']
-					);
-			$g['name_print'] = ($g['grower_id'])
+			$g['url'] = (isset($g['parent_alias']))
+				? sprintf('/%s/%s/%s/',
+						$g['parent_alias'],
+						$g['level_alias'],
+						$g['alias']
+						)
+				: false;
+			$g['name_print'] = (isset($g['grower_id']) && $g['grower_id'])
 				? sprintf('«%s». %s',$g['grower_name'],$g['name'])
 				: $g['name'];
 			
@@ -28,11 +34,12 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 						
 			$html[] = $this->do_rq('line',$g,true);
 		}
-		
+				
 		return implode('',$html);
 	}
 	
 	private function features_colors($g){
+		if(!isset($g['feature']) && !isset($g['color'])) return false;
 		if(!$g['feature'] && !$g['color']) return false;
 		
 		$label = ($g['root_id']==4) ? 'Размер' : 'Вкус';
@@ -48,11 +55,9 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 	}
 	
 	public function do_table($data,$readonly = false){
-
-		//p($data);
 		
 		$a = array(
-				'lines' => $this->print_lines($data['goods'],$readonly),
+				'lines' => $this->print_lines($data,$readonly),
 				'readonly' => $readonly
 				);
 		

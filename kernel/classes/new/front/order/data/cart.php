@@ -5,12 +5,14 @@ Class Front_Order_Data_Cart{
 	
 	private $Front_Order_Data_Cart_String;
 	private $Front_Order_Data_Cart_Goods;
+	private $Front_Order_Data_Cart_Gift;
 	
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Data_Cart_String = new Front_Order_Data_Cart_String($this->registry);
 		$this->Front_Order_Data_Cart_Goods = new Front_Order_Data_Cart_Goods($this->registry);
+		$this->Front_Order_Data_Cart_Gift = new Front_Order_Data_Cart_Gift($this->registry);
 	}	
 			
 	private function calculate_nalog($sum){
@@ -68,6 +70,7 @@ Class Front_Order_Data_Cart{
 				'sum' => $sum,
 				'nalog' => $this->calculate_nalog($sum),
 				'weight' => $this->calculate_weight($goods),
+				'gift' => $this->Front_Order_Data_Cart_Gift->get_data()
 				);
 		
 		return $output;		

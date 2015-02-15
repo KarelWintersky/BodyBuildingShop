@@ -1,15 +1,22 @@
 <tr class="goods_line">
 	<td class="td_name">
 		<div class="td_name_link">
-			<a href="<?=$a['url'];?>"><?=$a['name_print'];?></a>
 			
-			<?if($a['personal_discount']):?>
+			<?if($a['url']):?>
+				<a href="<?=$a['url'];?>"><?=$a['name_print'];?></a>
+			<?else:?>
+				<?=$a['name_print'];?>
+			<?endif;?>
+			
+			<?if(!isset($a['gift']) && $a['personal_discount']):?>
 				<b>-<?=$a['personal_discount'];?>%</b>
 			<?endif;?>			
 			
 		</div>
 		<ul class="td_name_features">
-			<li><?=$a['packing'];?></li>
+			<?if(isset($a['packing'])):?>
+				<li><?=$a['packing'];?></li>
+			<?endif;?>
 			
 			<?if($a['features_colors']):?>
 				<li><?=$a['features_colors'];?></li>
@@ -18,22 +25,26 @@
 		</ul>									
 	</td>
 	<td class="td_price">
-		<b>
-			<?if($a['personal_discount']):?>
-				<s><?=Common_Useful::price2read($a['old_price']);?></s>
-				<i><?=Common_Useful::price2read($a['price']);?></i>
-			<?else:?>
-				<?=Common_Useful::price2read($a['price']);?>
-			<?endif;?>		
-		</b> 
-		<span>руб.</span>
+		<?if(!isset($a['gift'])):?>
+			<b>
+				<?if($a['personal_discount']):?>
+					<s><?=Common_Useful::price2read($a['old_price']);?></s>
+					<i><?=Common_Useful::price2read($a['price']);?></i>
+				<?else:?>
+					<?=Common_Useful::price2read($a['price']);?>
+				<?endif;?>		
+			</b> 
+			<span>руб.</span>
+		<?else:?>
+			-
+		<?endif;?>
 	</td>
 	<td class="td_amount">
 	
 		<?if(!$a['readonly']):?>
 			<input type="text" value="<?=$a['amount'];?>" autocomplete="off" class="goods_amount">
 		<?else:?>
-			<b><?=$a['amount'];?></b>	
+			<b><?= (!isset($a['gift'])) ? $a['amount'] : '1';?></b>	
 		<?endif;?>
 		
 		<span>шт.</span>
