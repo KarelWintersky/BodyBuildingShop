@@ -2,7 +2,8 @@
 Class Controller_Submit Extends Controller_Base{
 		
 	function submit($path = NULL){
-		die('Запись заказа в базу. Теперь можно вернуться назад.');	
+		$Front_Order_Write = new Front_Order_Write($this->registry);
+		$Front_Order_Write->do_write();
 	}
 	
     function index($path = NULL) {

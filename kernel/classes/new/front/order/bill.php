@@ -1,29 +1,12 @@
-<?
-	Class f_Openbill{
-		
-		private $registry;
+<?php
+Class Front_Order_Bill Extends Common_Rq{
 
-		public function pgc(){}
-		
-		public function __construct($registry){
-			$this->registry = $registry;						
-			$this->registry->set('f_openbill',$this);
-		}
-
-		public function path_check(){
-			$this->registry['template']->set('no_tpl',true);			
-			$this->registry['f_404'] = false;
-			$path_arr = $this->registry['route_path'];
-						
-			if(count($path_arr)==0){
-				$this->print_bill($_GET['o']);
-				return true;
-			}
-			
-			$this->registry['f_404'] = true;
-			return false;
-		}
-						
+	private $registry;
+				
+	public function __construct($registry){
+		$this->registry = $registry;
+	}	
+				
 		private function print_bill($num){		
 			$order_num = explode('/',$num);
 
@@ -107,6 +90,6 @@
 			header('Location: /');
 			
 		}
-		
-	}
+			
+}
 ?>

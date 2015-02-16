@@ -40,6 +40,11 @@ Class Front_Order_Storage{
 			? $storage[$key]
 			: false;
 	}
+	
+	public function truncate_storage(){
+		if(isset($_SESSION[$this->session_array_key]))
+			unset($_SESSION[$this->session_array_key]);
+	}
 
 			
 }

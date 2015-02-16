@@ -26,6 +26,10 @@ Class Controller_Index Extends Controller_Base{
     	$Front_Order_Cart_Go->cart_go();
     }
     
+    function bill(){
+    	$Front_Order_Bill = new Front_Order_Bill($this->registry);
+    }
+    
     function check(){
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
