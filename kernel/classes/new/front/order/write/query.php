@@ -12,65 +12,34 @@ Class Front_Order_Write_Query{
 				INSERT INTO
 					orders
 						(
-						id,
-						status,
-						user_num,
-						made_on,
-						payed_on,
-						delivery_costs,
-						sum,
-						overall_price,
-						payment_method,
-						user_id,
-						discount,
-						wishes,
-						delivery_type,
-						from_account,
+						id, status, user_num, payment_method,
+						made_on, payed_on,
+						delivery_costs, sum, overall_price, discount, from_account, coupon_discount,
+						user_id, wishes, delivery_type,
 						pay2courier,
 						phone_number,
-						by_card,
-						coupon_discount
+						by_card
 						)
 					VALUES
 						(
-						'%d',
-						'%d',
-						'%d',
-						NOW(),
-						%s,
+						'%s', '%s', '%s', '%s',
+						 %s, %s,
+						'%s', '%s', '%s', '%s', '%s',
+						'%s', '%s', '%s', '%s',
 						'%s',
 						'%s',
-						'%s',
-						'%s',
-						'%d',
-						'%s',
-						'%s',
-						'%d',
-						'%s',
-						'%d',
-						'%s',
-						'%d,
 						'%s'
 						);
 				",
-				$data['payment_number'],
-				$data['order_status'],
-				$data['user_num'],
-				$data['payed_on'],
-				$data['delivery_costs'],
-				$data['sum_with_discount'],
-				$data['overall_price'],
-				$data['payment_method_code'],
-				$data['user_id'],
-				$data['wishes'],
-				$data['overall_discount'],
-				$data['delivery_type'],
-				$data['from-account'],
+				$data['payment_number'], $data['order_status'], $data['user_num'], $data['payment_method_code'],
+				"NOW()", $data['payed_on'],
+				$data['delivery_costs'], $data['sum_with_discount'], $data['overall_price'], $data['overall_discount'], $data['from_account'], $data['coupon_discount'],
+				$data['user_id'], $data['wishes'], $data['delivery_type'],
 				$data['pay2courier'],
 				$data['phone'],
-				($data['by_card']) ? 1 : 0,
-				$data['coupon_discount']
-				));		
+				($data['by_card']) ? 1 : 0
+				));	
+
 	}
 }
 ?>

@@ -143,11 +143,15 @@ Class Front_Order_Write{
 		exit();
 	}
 	
+	private function overall_discount($input){
+		$personal_discount = ($this->registry['userdata']) ? $this->registry['userdata']['personal_discount'] : 0;
+		
+		return $personal_discount + $input['coupon_discount'];
+	}
+	
 	public function do_write(){
 		$input = $this->Front_Order_Write_Input->make_data();
-		
-		$numbers = $this->Front_Order_Write_Numbers->manage_numbers();
-		
+				
 		$data = array(
 				'user_num' => $this->user_num(),
 				'payment_method_code' => $this->payment_method_code($input['payment_method']),
@@ -158,15 +162,18 @@ Class Front_Order_Write{
 				'phone' => $input['phone'],
 				'by_card' => ($input['payment_method']==4 || $input['payment_method']==7),
 				'wishes' => $input['wishes'],
-				'overall_discount' => ($this->registry['userdata']) ? $this->registry['userdata']['personal_discount'] : 0,
+				'overall_discount' => $this->overall_discount($input),
 				'delivery_type' => $input['delivery_type'],
 				'from_account' => 0, //доделать
 				'pay2courier' => ($input['payment_method']==5),
-				'sum_with_discount' => $input['sum_with_discount']
+				'sum_with_discount' => $input['sum_with_discount'],
+				'delivery_costs' => $input['delivery_costs'],
+				'overall_price' => $input['overall_price'],
+				'coupon_discount' => $input['coupon_discount'],
 				);
 		
 		$this->Front_Order_Write_Query->do_query($data);
-
+exit();
 		$order_num = sprintf('%d/%d/%s',
 				$data['payment_number'],
 				$data['user_num'],

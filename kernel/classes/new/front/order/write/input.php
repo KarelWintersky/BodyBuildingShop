@@ -26,22 +26,27 @@ Class Front_Order_Write_Input{
 		
 		return false;
 	}
-	
+		
 	public function make_data(){
 		$data = $this->Front_Order_Data->get_data();
-				
+			
 		$deilvery = $this->Front_Order_Storage->get_storage('payment');
+		$payment = $this->Front_Order_Storage->get_storage('payment');
 		
 		$input = array(
 				'wishes' => $_POST['wishes'],
-				'payment_method' => $this->Front_Order_Storage->get_storage('payment'),
+				'payment_method' => $payment,
 				'delivery_type' => $deilvery,
 				'coupon' => $this->Front_Order_Storage->get_storage('coupon'),
 				'phone' => $this->get_phone($deilvery),
 				'sum_with_discount' => $data['sum_with_discount'],
-				'coupon_discount' => '',
-				'delivery_costs' => '',
-				'overall_price' => '',
+				'coupon_discount' => $this->Front_Order_Storage->get_storage('coupon_discount'),
+				'delivery_costs' => ($deilvery==1 && $payment==1) 
+					? $data['nalog'] + $data['delivery_sum']
+					: $data['delivery_sum'],
+				'overall_price' => ($deilvery==1 && $payment==1) 
+					? $data['sum_with_discount'] + $data['nalog'] + $data['delivery_sum']
+					: $data['sum_with_discount'] + $data['delivery_sum'],
 				);
 		
 		return $input;
