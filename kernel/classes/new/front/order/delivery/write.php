@@ -37,6 +37,8 @@ Class Front_Order_Delivery_Write{
 		$this->write_courier(); $this->write_self();
 		
 		$this->Front_Order_Storage->write_to_storage('delivery',$method_id);
+		
+		Front_Order_Steps::write_submit(2);
 	}
 			
 }

@@ -150,6 +150,22 @@
 	#order_check_wishes textarea{padding:5px;resize:none;border:1px solid #c8c8c8;border-radius:2px;width:656px;height:63px;outline:none;color:#333;font-family:Verdana;font-size:11px;}
 		
 		
+#order_done{}
+	#order_done .hint_1{background:#f2f2f2;padding:19px 24px 10px 19px;margin:0 0 20px;border-radius:4px;}
+		#order_done .hint_1 ul{border-bottom:1px dotted #b2b2b2;padding:0 0 8px;margin:0 0 15px;}
+			#order_done .hint_1 ul li{background:0;padding-left:0;list-style:none;}
+				#order_done .hint_1 ul li strong{width:172px;display:inline-block;text-align:right;padding-right:10px;vertical-align:top;}
+				#order_done .hint_1 ul li em{display:inline-block;font-style:normal;width:450px;}
+		#order_done .hint_1 ul.noborder{border:0;margin:0;padding:0;}
+	#order_done .hint_2{background:#FBF1D3;border-radius:4px;padding:9px 20px 11px 43px;margin:0 0 15px;}
+		#order_done .hint_2 h2{font-size:14px;color:#e38a25;font-weight:normal;margin:0;padding:0 0 6px;}		
 		
+		
+#order_social{background:#edf2f5;border-radius:4px;padding:18px 20px 22px;margin:40px 0 0;}
+	#order_social ul{padding:5px 0 0;}
+		#order_social ul li{float:left;background:none;padding:0;margin:0 24px 0 0;list-style:none;}
+			#order_social ul li span{float:left;width:16px;height:16px;background-image:url(/browser/front/i/spr1.png);background-repeat:no-repeat;margin:0 8px 0 0;}
+			#order_social ul li.os_tw span{background-position:-16px -77px;}
+			#order_social ul li.os_fb span{background-position:-32px -77px;}		
 		
 		

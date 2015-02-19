@@ -2,6 +2,8 @@
 Class Controller_Payment Extends Controller_Base{
 		
 	function payment($path = NULL){
+		Front_Order_Steps::check_step(3);
+		
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
     	$this->registry['template']->set('c','order/payment');
@@ -17,6 +19,8 @@ Class Controller_Payment Extends Controller_Base{
 	}
 	
 	function write($path = NULL){
+		Front_Order_Steps::check_step(3);
+		
 		$Front_Order_Payment_Write = new Front_Order_Payment_Write($this->registry);
 		$Front_Order_Payment_Write->do_write();
 		

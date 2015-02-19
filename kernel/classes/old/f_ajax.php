@@ -59,16 +59,22 @@ Class f_Ajax{
 	}
 
 	private function cart_restruct(){
+		Front_Order_Steps::write_submit(1,true);
+		
 		$Front_Cart_Manage = new Front_Cart_Manage($this->registry);
 		$Front_Cart_Manage->restruct($_POST['goods']);
 	}
 	
 	private function apply_coupon(){
+		Front_Order_Steps::write_submit(1,true);
+		
 		$Front_Order_Cart_Coupon = new Front_Order_Cart_Coupon($this->registry);
 		$Front_Order_Cart_Coupon->apply_coupon($_POST['coupon']);
 	}
 	
 	private function delivery_courier(){
+		Front_Order_Steps::write_submit(2,true);
+		
 		$Front_Order_Delivery_Courier = new Front_Order_Delivery_Courier($this->registry);
 		$Front_Order_Delivery_Courier->recalculate();
 	}

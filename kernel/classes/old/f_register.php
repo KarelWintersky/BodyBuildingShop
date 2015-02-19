@@ -242,6 +242,7 @@
 			$_SESSION['user_id'] = $new_user_id;
 			$_SESSION['allow_reg_page'] = true;
 			
+			Front_Order_Steps::write_submit(2,true);
 		}
 		
 		private function admins_mail_register($data,$new_user_id){

@@ -7,41 +7,90 @@ Class Front_Order_Done_Data{
 		$this->registry = $registry;
 	}	
 		
-	private function get_message(){
-		if($order_vals['payment_method']==2 && $order_vals['delivery_type']==1){ //квитанция
-			$msg_id = 1;
-		}elseif($order_vals['payment_method']==3 && $order_vals['delivery_type']==1){ //WM
-			$msg_id = 2;
-		}elseif($order_vals['payment_method']==6 && $order_vals['delivery_type']==1){ //личный счет
-			$msg_id = 3;
-			$replace_arr['OVERALL_SUM'] = $this->registry['from_account'];
-		}elseif($order_vals['payment_method']==1 && $order_vals['delivery_type']==1){ //наложка
-			$msg_id = 4;
-		}elseif($order_vals['payment_method']==5 && $order_vals['delivery_type']==2){ //оплата курьеру
-			$msg_id = 5;
-		}elseif($order_vals['payment_method']==2 && $order_vals['delivery_type']==2){ //квитанция курьер
-			$msg_id = 6;
-		}elseif($order_vals['payment_method']==3 && $order_vals['delivery_type']==2){ //WM курьер
-			$msg_id = 7;
-		}elseif($order_vals['payment_method']==6 && $order_vals['delivery_type']==2){ //личный счет курьер
-			$msg_id = 8;
-			$replace_arr['OVERALL_SUM'] = $this->registry['from_account'];
-		}elseif($order_vals['delivery_type']==3){ //транспортная компания
-			$msg_id = 9;
-		}elseif($order_vals['delivery_type']==4){ //самовывоз
-			$msg_id = 10;
-		}
+	private function get_message($order){
 		
-		$qLnk = mysql_query("SELECT order_msgs.text FROM order_msgs WHERE order_msgs.id = '".$msg_id."';");
-		$cart_done_msg = (mysql_num_rows($qLnk)>0) ? mysql_result($qLnk,0) : '';		
+		//квитанция
+		if($order['payment_method_id']==2 && $order['delivery_type']==1) 
+			$msg_id = 1;
+		
+		//WM
+		elseif($order['payment_method_id']==3 && $order['delivery_type']==1) 
+			$msg_id = 2;
+		
+		//личный счет
+		elseif($order['payment_method_id']==6 && $order['delivery_type']==1) 
+			$msg_id = 3;
+			
+		//наложка
+		elseif($order['payment_method_id']==1 && $order['delivery_type']==1) 
+			$msg_id = 4;
+		
+		//оплата курьеру
+		elseif($order['payment_method_id']==5 && $order['delivery_type']==2) 
+			$msg_id = 5;
+		
+		//квитанция курьер
+		elseif($order['payment_method_id']==2 && $order['delivery_type']==2) 
+			$msg_id = 6;
+		
+		//WM курьер
+		elseif($order['payment_method_id']==3 && $order['delivery_type']==2) 
+			$msg_id = 7;
+		
+		//личный счет курьер
+		elseif($order['payment_method_id']==6 && $order['delivery_type']==2) 
+			$msg_id = 8;
+		
+		//транспортная компания
+		elseif($order['delivery_type']==3) 
+			$msg_id = 9;
+		
+		//самовывоз
+		elseif($order['delivery_type']==4) 
+			$msg_id = 10;
+		
+		$qLnk = mysql_query(sprintf("SELECT IFNULL(text,'') FROM order_msgs WHERE id = '%d';",$msg_id));
+		$message = mysql_result($qLnk,0);
+		
+		return $message;
+	}
+	
+	private function get_order($order_num){
+		$num = explode('/',$order_num);
+		if(count($num)!=3) return false;
+		
+		$qLnk = mysql_query(sprintf("
+				SELECT
+					*
+				FROM
+					orders
+				WHERE
+					id = '%d'
+					AND
+					user_num = '%d'
+					AND
+					payment_method = '%s'					
+				",
+				$num[0],
+				$num[1],
+				mysql_real_escape_string($num[2])
+				));
+		$order = mysql_fetch_assoc($qLnk);
+		
+		return $order;
 	}
 	
 	public function get_data(){
 		$order_num = (isset($_SESSION['done_order_num'])) ? $_SESSION['done_order_num'] : false;
 		if(!$order_num) return false;
 		
-		var_dump($order_num);
-		exit();
+		$order = $this->get_order($order_num);
+		if(!$order) return false;
+		
+		$order['num'] = $order_num;
+		$order['message'] = $this->get_message($order);
+		
+		return $order;
 	}			
 }
 ?>

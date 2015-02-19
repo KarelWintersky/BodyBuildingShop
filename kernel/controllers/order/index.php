@@ -27,10 +27,16 @@ Class Controller_Index Extends Controller_Base{
     }
     
     function bill(){
+    	$this->registry['f_404'] = false;
+    	
     	$Front_Order_Bill = new Front_Order_Bill($this->registry);
+    	$Front_Order_Bill->print_bill();
+    	exit();
     }
     
     function check(){
+    	Front_Order_Steps::check_step(4);
+    	
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
     	$this->registry['template']->set('c','order/check');

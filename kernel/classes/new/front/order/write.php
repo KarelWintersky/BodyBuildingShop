@@ -126,6 +126,8 @@ Class Front_Order_Write{
 		setcookie('thecart','',time()-3600,'/');
 		
 		$this->registry['CL_storage']->truncate_storage();
+		
+		Front_Order_Steps::write_submit(1,true);
 	}
 	
 	private function go_further($by_card,$order_num){
@@ -158,6 +160,7 @@ Class Front_Order_Write{
 		$query = array(
 				'user_num' => $this->user_num(),
 				'payment_method_code' => $this->payment_method_code($input['payment_method']),
+				'payment_method' => $input['payment_method'],
 				'payment_number' => $this->get_payment_number($input['payment_method']),
 				'order_status' => ($input['payment_method']==6) ? 3 : 1,
 				'payed_on' => ($input['payment_method']==6) ? "NOW()" : "0000-00-00",
@@ -189,7 +192,7 @@ Class Front_Order_Write{
 
 		//$this->dissmiss_from_account($user_id);
 				
-		//$this->truncate_cart_and_storage();
+		$this->truncate_cart_and_storage();
 
 		$this->go_further($query['by_card'],$order_num);
 	}

@@ -19,6 +19,8 @@ Class Front_Order_Payment_Write{
 		if(!isset($methods[$method_id])) return false;
 		
 		$this->Front_Order_Storage->write_to_storage('payment',$method_id);
+		
+		Front_Order_Steps::write_submit(3);
 	}
 			
 }

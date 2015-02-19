@@ -53,7 +53,9 @@ class User{
 	private function authLogout(){
 		unset($_SESSION['user_id']);
 		setCookie('user_id','',time()-3600,'/'); 
-		setCookie('hash','',time()-3600,'/'); 
+		setCookie('hash','',time()-3600,'/');
+
+		Front_Order_Steps::write_submit(1,true);
 	}
 
 	private function getSessionAuth(){
@@ -127,6 +129,8 @@ class User{
 				header('Location: /auth/?failed=1');
 				exit();
 			}else{
+				Front_Order_Steps::write_submit(2,true);
+				
 				if(!isset($_POST['remember'])){$this->setAuthCookie();}
 
 				if(isset($_POST['after']) && $_POST['after']){

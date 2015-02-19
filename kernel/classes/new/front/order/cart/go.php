@@ -24,6 +24,8 @@ Class Front_Order_Cart_Go{
 		
 		$this->Front_Order_Cart_Coupon->apply_coupon($_POST['coupon'],true);
 		
+		Front_Order_Steps::write_submit(1);
+		
 		header('Location: /order/login/check/');
 		exit();
 	}

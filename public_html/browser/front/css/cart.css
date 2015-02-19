@@ -113,24 +113,6 @@
 		.cart_table .not_present a{color:#999;}
 		.cart_table .not_present .ct_price b{color:#999 !important;}
 
-
-#cart_social{background:#edf2f5;-moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;padding:18px 20px 22px;margin:40px 0 0;}
-	#cart_social ul{padding:5px 0 0;}
-		#cart_social ul li{float:left;background:none;padding:0;margin:0 24px 0 0;}
-			#cart_social ul li span{float:left;width:16px;height:16px;background-image:url(/browser/front/i/spr1.png);background-repeat:no-repeat;margin:0 8px 0 0;}
-			#cart_social ul li.cs_tw span{background-position:-16px -77px;}
-			#cart_social ul li.cs_fb span{background-position:-32px -77px;}
-
-#cart_done_msg{}
-	#cart_done_msg .hint_1{background:#f2f2f2;padding:19px 24px 10px 19px;margin:0 0 20px;-moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;}
-		#cart_done_msg .hint_1 ul{border-bottom:1px dotted #b2b2b2;padding:0 0 8px;margin:0 0 15px;}
-			#cart_done_msg .hint_1 ul li{background:0;padding-left:0;}
-				#cart_done_msg .hint_1 ul li strong{width:172px;display:inline-block;text-align:right;padding-right:10px;vertical-align:top;}
-				#cart_done_msg .hint_1 ul li em{display:inline-block;font-style:normal;width:450px;}
-		#cart_done_msg .hint_1 ul.noborder{border:0;margin:0;padding:0;}
-	#cart_done_msg .hint_2{background:#FBF1D3;border-radius:4px;padding:9px 20px 11px 43px;margin:0 0 15px;}
-		#cart_done_msg .hint_2 h2{font-size:14px;color:#e38a25;font-weight:normal;margin:0;padding:0 0 6px;}
-
 #deilvery_payment_fail{margin:0 0 20px;}
 
 #delivery_block{position:relative;}
