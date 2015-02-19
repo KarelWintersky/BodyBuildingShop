@@ -35,7 +35,7 @@ Class Front_Order_Mail_Bill{
 					");
 			if(mysql_num_rows($qLnk)>0){
 				$order = mysql_fetch_assoc($qLnk);
-				$order['address'] = $this->implode_address($order);
+				$order['address'] = Common_Address::implode_address($order);
 				$order['num'] = $num;
 		
 				ob_start();

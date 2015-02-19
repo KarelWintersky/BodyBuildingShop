@@ -18,7 +18,8 @@ Class Front_Order_Write_Query{
 						user_id, wishes, delivery_type,
 						pay2courier,
 						phone_number,
-						by_card
+						by_card,
+						courier_data, self_data
 						)
 					VALUES
 						(
@@ -28,7 +29,8 @@ Class Front_Order_Write_Query{
 						'%s', '%s', '%s', '%s',
 						'%s',
 						'%s',
-						'%s'
+						'%s',
+						'%s', '%s'
 						);
 				",
 				$data['payment_number'], $data['order_status'], $data['user_num'], $data['payment_method_code'], $data['payment_method'],
@@ -37,7 +39,8 @@ Class Front_Order_Write_Query{
 				$data['user_id'], $data['wishes'], $data['delivery_type'],
 				$data['pay2courier'],
 				$data['phone'],
-				($data['by_card']) ? 1 : 0
+				($data['by_card']) ? 1 : 0,
+				$data['courier_data'], $data['self_data']
 				));	
 
 	}

@@ -176,6 +176,8 @@ Class Front_Order_Write{
 				'delivery_costs' => $input['delivery_costs'],
 				'overall_price' => $input['overall_price'],
 				'coupon_discount' => $input['coupon_discount'],
+				'courier_data' => $input['courier_data'],
+				'self_data' => $input['self_data'],
 				);
 
 		$this->Front_Order_Write_Query->do_query($query);

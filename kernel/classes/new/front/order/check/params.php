@@ -94,7 +94,7 @@ Class Front_Order_Check_Params Extends Common_Rq{
 		if($phone){		
 			$list[] = array(
 					'label' => 'Телефон',
-					'text' => '',				
+					'text' => $phone,				
 			);		
 		}
 		

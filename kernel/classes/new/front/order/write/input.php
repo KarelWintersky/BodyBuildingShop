@@ -25,6 +25,36 @@ Class Front_Order_Write_Input{
 		return false;
 	}
 		
+	private function courier_data($deilvery){
+		if($deilvery!=2) return false;
+		
+		$arr = array(
+				$this->Front_Order_Storage->get_storage('courier_name'),
+				$this->Front_Order_Storage->get_storage('courier_phone'),
+				$this->Front_Order_Storage->get_storage('courier_zipcode'),
+				$this->Front_Order_Storage->get_storage('courier_city'),
+				$this->Front_Order_Storage->get_storage('courier_street'),
+				$this->Front_Order_Storage->get_storage('courier_house')
+				);
+		
+		foreach($arr as $key => $val) $arr[$key] = str_replace('::','',$val);
+		
+		return implode('::',$arr);
+	}
+
+	private function self_data($deilvery){
+		if($deilvery!=4) return false;
+		
+		$arr = array(
+				$this->Front_Order_Storage->get_storage('self_name'),
+				$this->Front_Order_Storage->get_storage('self_phone'),
+				);
+		
+		foreach($arr as $key => $val) $arr[$key] = str_replace('::','',$val);
+		
+		return implode('::',$arr);		
+	}	
+	
 	public function make_data($data){	
 		$deilvery = $this->Front_Order_Storage->get_storage('payment');
 		$payment = $this->Front_Order_Storage->get_storage('payment');
@@ -43,8 +73,10 @@ Class Front_Order_Write_Input{
 				'overall_price' => ($deilvery==1 && $payment==1) 
 					? $data['sum_with_discount'] + $data['nalog'] + $data['delivery_sum']
 					: $data['sum_with_discount'] + $data['delivery_sum'],
+				'courier_data' => $this->courier_data($deilvery),
+				'self_data' => $this->self_data($deilvery),
 				);
-		
+				
 		return $input;
 	}
 }

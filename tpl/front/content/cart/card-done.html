@@ -13,7 +13,7 @@
 		<div class="hint_1">
 		<ul class="noborder">
 		<li><strong>Получатель:</strong> <em><?=$this->registry['userdata']['name']?></em></li>
-		<li><strong>Почтовый адрес:</strong>&nbsp;<em><?=$this->registry['logic']->implode_address($this->registry['userdata']);?></em></li>
+		<li><strong>Почтовый адрес:</strong>&nbsp;<em><?=Common_Address::implode_address($this->registry['userdata']);?></em></li>
 		</ul>
 		</div>
 		<p>На адрес&nbsp;<strong><?=$this->registry['userdata']['email']?></strong>&nbsp;будет выслано подтверждение о формировании заказа. Если Вы его не получите, то обязательно свяжитесь с нами!</p>

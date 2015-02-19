@@ -30,11 +30,18 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td>Плательщик: <?=$a['user_name'];?></td>
+				<td>Плательщик: <?=$a['name'];?></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td>Адрес плательщика: <?=$a['address']?></td>
+				<td>
+					Адрес плательщика:
+					<?if($a['address']):?> 
+						<?=$a['address'];?>
+					<?else:?>
+						____________________________________________________
+					<?endif;?>	
+				</td>
 			</tr>							
 			<tr>
 				<td></td>
@@ -48,7 +55,7 @@
 						
 		<table cellspacing="0" cellpadding="0" class="bankbill_inner bankbill_inner_1">
 			<tr>
-				<td style="padding:0 110px 0 0;">Сумма: <?= ($a['overall_price'] - $a['from_account']);?> руб.</td>
+				<td style="padding:0 110px 0 0;">Сумма: <?=$a['price'];?> руб.</td>
 				<td>Сумма оплаты услуг банка:</td>
 			</tr>
 		</table>

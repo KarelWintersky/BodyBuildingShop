@@ -7,42 +7,73 @@ Class Front_Order_Bill_Cart{
 		$this->registry = $registry;
 	}	
 				
-	public function get_data(){
-		$qLnk = mysql_query("
+	private function auth_check($order){
+		/*
+		 * проверяем, что пользователь запрашивает квитанцию, выставленную именно на него
+		 * чтобы никто не мог смотреть чужие квитанции
+		 * правда, только для зарегистринованных, ибо для незарегистрированных мы не можем проверить
+		 * */
+		
+		return ($order['user_id'])
+			? ($this->registry['userdata'] && $this->registry['userdata']['id']==$order['user_id'])
+			: !($this->registry['userdata']);
+	}
+	
+	private function make_address($order){
+		if($order['delivery_type']==1 && $order['user_id']) return Common_Address::implode_address($order); 
+		elseif($order['delivery_type']==2) return Common_Address::from_courier($order['courier_data']);
+		else return false;
+	}
+	
+	private function get_name($order){
+		if($order['delivery_type']==1) return $order['user_name'];
+		elseif($order['delivery_type']==2){
+			$arr = explode('::',$order['courier_data']);
+			return $arr[0];
+		}elseif($order['delivery_type']==4){
+			$arr = explode('::',$order['self_data']);
+			return $arr[0];			
+		}
+	}
+	
+	public function get_data($num){
+		$qLnk = mysql_query(sprintf("
 				SELECT
-				orders.*,
-				users.name AS user_name,
-				users.email AS user_email,
-				users.zip_code AS zip_code,
-				users.region AS region,
-				users.city AS city,
-				users.street AS street,
-				users.house AS house,
-				users.corpus AS corpus,
-				users.flat AS flat
+					orders.*,
+					users.name AS user_name,
+					users.email AS user_email,
+					users.zip_code AS zip_code,
+					users.region AS region,
+					users.city AS city,
+					users.street AS street,
+					users.house AS house,
+					users.corpus AS corpus,
+					users.flat AS flat
 				FROM
-				orders
+					orders
 				LEFT OUTER JOIN users ON users.id = orders.user_id
 				WHERE
-				orders.id = '".$order_num[0]."'
-				AND
-				orders.user_num	= '".$order_num[1]."'
-				AND
-				orders.payment_method = '".$order_num[2]."'
-				LIMIT 1;
-				");
-		if(mysql_num_rows($qLnk)>0){
-			$order = mysql_fetch_assoc($qLnk);
-			if($_SESSION['user_id']==$order['user_id']){
+					orders.id = '%d'
+					AND
+					orders.user_num	= '%d'
+					AND
+					orders.payment_method = '%s'
+				",
+				$num[0],
+				$num[1],
+				mysql_real_escape_string($num[2])
+				));
+		$order = mysql_fetch_assoc($qLnk);
+		if(!$order || !$this->auth_check($order)) return false;
+				
+		$output = array(
+				'num' => implode('/',$num),
+				'name' => $this->get_name($order),
+				'address' => $this->make_address($order),
+				'price' => Common_Useful::price2read($order['overall_price'] - $order['from_account']),
+				);
 		
-				$order['address'] = $this->registry['logic']->implode_address($order);
-				$order['num'] = $num;
-		
-				$this->registry['logic']->item_rq('bill_show',$order);
-		
-				return true;
-			}
-		}		
+		return $output;
 	}			
 }
 ?>

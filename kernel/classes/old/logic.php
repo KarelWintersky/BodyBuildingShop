@@ -41,7 +41,7 @@
 			if(mysql_num_rows($qLnk)>0){
 				$order = mysql_fetch_assoc($qLnk);
 
-				$order['address'] = $this->registry['logic']->implode_address($order);
+				$order['address'] = Common_Address::implode_address($order);
 				$order['num'] = $order_id.'/'.$order['user_num'].'/A';
 				$order['overall_price'] = $order['sum'];
 				$order['from_account'] = 0;
@@ -62,13 +62,6 @@
 				$mailer = new Mailer($this->registry,25,$replace_arr,$order['user_email'],$attach_string);
 
 			}
-		}
-
-		public function implode_address($a){
-			$address = $a['zip_code'].', Россия, '.$a['city'].', '.$a['street'].', д. '.$a['house'];
-			if($a['corpus']!=''){$address.= ', корп. '.$a['corpus'];}
-			if($a['flat']!=''){$address.= ', кв. '.$a['flat'];}
-			return $address;
 		}
 
 	}
