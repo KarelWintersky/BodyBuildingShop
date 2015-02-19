@@ -19,12 +19,13 @@ Class Front_Order_Write_Coupon{
 					coupons
 				SET
 					usedon = NOW(),
-					usedby = '".$user_id."',
+					usedby = '%d',
 					order_id = '%s',
 					status = 4
 				WHERE
 					hash = '%s'
 				",
+				($this->registry['userdata']) ? $this->registry['userdata']['id'] : 0,
 				$order_num,
 				mysql_real_escape_string($hash)
 				));

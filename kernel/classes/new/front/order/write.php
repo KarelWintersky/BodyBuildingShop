@@ -7,6 +7,7 @@ Class Front_Order_Write{
 	
 	private $registry;
 	
+	private $Front_Order_Data;
 	private $Front_Order_Write_Input;
 	private $Front_Order_Write_Query;
 	private $Front_Order_Write_Coupon;
@@ -17,6 +18,7 @@ Class Front_Order_Write{
 	public function __construct($registry){
 		$this->registry = $registry;
 		
+		$this->Front_Order_Data = new Front_Order_Data($this->registry);
 		$this->Front_Order_Write_Input = new Front_Order_Write_Input($this->registry);
 		$this->Front_Order_Write_Query = new Front_Order_Write_Query($this->registry);
 		$this->Front_Order_Write_Coupon = new Front_Order_Write_Coupon($this->registry);
@@ -128,16 +130,16 @@ Class Front_Order_Write{
 	
 	private function go_further($by_card,$order_num){
 		if(!$by_card){
-			$this->Front_Order_Mail_Notify->send_letter();
+			//$this->Front_Order_Mail_Notify->send_letter();
 			
-			if($order_vals['payment_method']==2) $this->Front_Order_Mail_Bill->send_letter();
+			//if($order_vals['payment_method']==2) $this->Front_Order_Mail_Bill->send_letter();
 			
-			$this->Front_Order_Mail_Tech->send_letter($order_id);			
+			//$this->Front_Order_Mail_Tech->send_letter($order_id);			
 		}		
 		
 		$url = ($by_card)
 			? sprintf('/order/card/prepare/?id=%s',$order_num)
-			: '/order/done/';
+			: Front_Order_Helper::done_link($order_num);
 				
 		header(sprintf('Location: %s',$url));
 		exit();
@@ -150,9 +152,10 @@ Class Front_Order_Write{
 	}
 	
 	public function do_write(){
-		$input = $this->Front_Order_Write_Input->make_data();
+		$data = $this->Front_Order_Data->get_data();
+		$input = $this->Front_Order_Write_Input->make_data($data);
 				
-		$data = array(
+		$query = array(
 				'user_num' => $this->user_num(),
 				'payment_method_code' => $this->payment_method_code($input['payment_method']),
 				'payment_number' => $this->get_payment_number($input['payment_method']),
@@ -171,24 +174,24 @@ Class Front_Order_Write{
 				'overall_price' => $input['overall_price'],
 				'coupon_discount' => $input['coupon_discount'],
 				);
-		
-		$this->Front_Order_Write_Query->do_query($data);
-exit();
+
+		$this->Front_Order_Write_Query->do_query($query);
+
 		$order_num = sprintf('%d/%d/%s',
-				$data['payment_number'],
-				$data['user_num'],
-				$data['payment_method_code']
+				$query['payment_number'],
+				$query['user_num'],
+				$query['payment_method_code']
 				);
 
+		$this->Front_Order_Write_Goods->do_write($order_num,$data);
+		
 		$this->Front_Order_Write_Coupon->truncate_coupon($input['coupon'],$order_num);
 
-		$this->Front_Order_Write_Goods->do_write();
-
-		$this->dissmiss_from_account($user_id);
+		//$this->dissmiss_from_account($user_id);
 				
-		$this->truncate_cart_and_storage();
+		//$this->truncate_cart_and_storage();
 
-		$this->go_further($data['by_card'],$order_num);
+		$this->go_further($query['by_card'],$order_num);
 	}
 
 	/*private function mail_user_data_change($mail_nalog,$mail_discount){

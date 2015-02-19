@@ -8,13 +8,11 @@ Class Front_Order_Write_Input{
 	private $registry;
 	
 	private $Front_Order_Storage;
-	private $Front_Order_Data;
 	
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Storage = new Front_Order_Storage($this->registry);
-		$this->Front_Order_Data = new Front_Order_Data($this->registry);
 	}	
 			
 	private function get_phone($deilvery){
@@ -27,9 +25,7 @@ Class Front_Order_Write_Input{
 		return false;
 	}
 		
-	public function make_data(){
-		$data = $this->Front_Order_Data->get_data();
-			
+	public function make_data($data){	
 		$deilvery = $this->Front_Order_Storage->get_storage('payment');
 		$payment = $this->Front_Order_Storage->get_storage('payment');
 		
