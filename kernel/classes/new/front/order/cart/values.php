@@ -14,10 +14,10 @@ Class Front_Order_Cart_Values Extends Common_Rq{
 	private function discounts_string($discounts){
 		$string = array();
 		
-		if($discounts['personal']) $string[] = sprintf('%s %%',$discounts['personal']);
-		if($discounts['coupon']) $string[] = sprintf('%s %%',$discounts['coupon']);
+		if($discounts['coupon']) return sprintf('%s %%',$discounts['coupon']);
+		if($discounts['personal']) return sprintf('%s %%',$discounts['personal']);
 		
-		return implode(' + ',$string);
+		return false;
 	}
 	
 	private function discount_block($data){

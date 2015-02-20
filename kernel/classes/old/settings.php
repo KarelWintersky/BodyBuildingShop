@@ -675,7 +675,7 @@
 
 		public function coupons_list(){
 			$qLnk = mysql_query("
-								SELECT
+								SELECT DISTINCT
 									coupons.*,
 									users_cr.name AS created_user,
 									users_us.name AS used_user

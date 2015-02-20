@@ -14,10 +14,14 @@ Class Front_Order_Data_Discount{
 	
 		$coupon = $this->registry['CL_storage']->get_storage('coupon_discount');
 	
+		/*
+		 * скидка по купону всегда перебивает персональную, даже если меньше
+		 * */
+		
 		return array(
 				'personal' => $personal,
 				'coupon' => $coupon,
-				'sum' => $personal + $coupon
+				'sum' => ($coupon) ? $coupon : $personal 
 		);
 	}	
 	
