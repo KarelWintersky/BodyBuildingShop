@@ -63,6 +63,7 @@ Class Users{
 					SET
 						users.name = '".$name."',
 						users.email = '".$email."',
+						users.phone = '".$phone."',
 						users.zip_code = '".$zip_code."',
 						users.region = '".$region."',
 						users.district = '".$district."',

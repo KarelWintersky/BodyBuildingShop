@@ -34,12 +34,18 @@
 			<div class="errF"></div>
 		</div>
 
-		<div class="form_l form_l_pass lft">
-			<label>Пароль <i>(оставьте пустым, если не нужно менять)</i></label>
-			<input type="text" name="new_pass" value="">
+		<div class="form_l form_l_email lft">
+			<label>Телефон</label>
+			<input type="text" name="phone" value="<?=$this->registry['user_info']['phone'];?>">
+			<div class="errF"></div>
 		</div>
 
 		<div class="clr"></div>
+
+		<div class="form_l form_l_pass">
+			<label>Пароль <i>(оставьте пустым, если не нужно менять)</i></label>
+			<input type="text" name="new_pass" value="">
+		</div>
 
 		<h3>Адрес</h3>
 

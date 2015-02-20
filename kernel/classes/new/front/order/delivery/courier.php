@@ -15,7 +15,7 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 					: (($this->registry['userdata']) ? $this->registry['userdata']['name'] : ''),
 				'phone' => ($this->registry['CL_storage']->get_storage('courier_phone'))
 					? $this->registry['CL_storage']->get_storage('courier_phone')
-					: '',
+					: (($this->registry['userdata']) ? $this->registry['userdata']['phone'] : ''),
 				'email' => ($this->registry['CL_storage']->get_storage('courier_email'))
 					? $this->registry['CL_storage']->get_storage('courier_email')
 					: (($this->registry['userdata']) ? $this->registry['userdata']['email'] : ''),

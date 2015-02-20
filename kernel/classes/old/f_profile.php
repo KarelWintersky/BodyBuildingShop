@@ -349,6 +349,7 @@
 						SET
 							users.name = '".$_POST['name']."',
 							".$q_pass."
+							users.phone = '".$_POST['phone']."',
 							users.email = '".$_POST['email']."',
 							users.zip_code = '".trim($_POST['zip_code'])."',
 							users.region = '".$_POST['region']."',

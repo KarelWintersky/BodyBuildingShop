@@ -124,6 +124,7 @@
 			$reg_arr['lgn'] = (isset($cookie_reg_data->lgn)) ? $cookie_reg_data->lgn : '';
 			$reg_arr['fio'] = (isset($cookie_reg_data->fio)) ? $cookie_reg_data->fio : '';
 			$reg_arr['email'] = (isset($cookie_reg_data->email)) ? $cookie_reg_data->email : '';
+			$reg_arr['phone'] = (isset($cookie_reg_data->phone)) ? $cookie_reg_data->phone : '';
 			$reg_arr['index'] = (isset($cookie_reg_data->index)) ? $cookie_reg_data->index : ((isset($_GET['index'])) ? $_GET['index'] : '');
 			$reg_arr['region'] = (isset($cookie_reg_data->region)) ? $cookie_reg_data->region : ((isset($_GET['region'])) ? $_GET['region'] : '');
 			$reg_arr['city'] = (isset($cookie_reg_data->city)) ? $cookie_reg_data->city : ((isset($_GET['city'])) ? $_GET['city'] : '');
@@ -196,42 +197,44 @@
 							(type,
 								login,
 									email,
-										name,
-											pass,
-												hash,
-													zip_code,
-														country,
-															region,
-																city,
-																	street,
-																		house,
-																			corpus,
-																				flat,
-																					wishes,
-																						registred_on,
-																							personal_discount,
-																								max_nalog,
-																									my_account)
+										phone,
+											name,
+												pass,
+													hash,
+														zip_code,
+															country,
+																region,
+																	city,
+																		street,
+																			house,
+																				corpus,
+																					flat,
+																						wishes,
+																							registred_on,
+																								personal_discount,
+																									max_nalog,
+																										my_account)
 							VALUES
 							('0',
 								'".$_POST['lgn']."',
 									'".$_POST['email']."',
-										'".$_POST['fio']."',
-											'".md5($_POST['pwd'])."',
-												'".md5($_POST['lgn'].time())."',
-													'".trim($_POST['index'])."',
-														'Россия',
-															'".$_POST['region']."',
-																'".$_POST['city']."',
-																	'".$_POST['street']."',
-																		'".$_POST['house']."',
-																			'".$_POST['corp']."',
-																				'".$_POST['flat']."',
-																					'".$_POST['wishes']."',
-																						NOW(),
-																							0,
-																								'".MIN_NALOG."',
-																									0)	
+										'".$_POST['phone']."',
+											'".$_POST['fio']."',
+												'".md5($_POST['pwd'])."',
+													'".md5($_POST['lgn'].time())."',
+														'".trim($_POST['index'])."',
+															'Россия',
+																'".$_POST['region']."',
+																	'".$_POST['city']."',
+																		'".$_POST['street']."',
+																			'".$_POST['house']."',
+																				'".$_POST['corp']."',
+																					'".$_POST['flat']."',
+																						'".$_POST['wishes']."',
+																							NOW(),
+																								0,
+																									'".MIN_NALOG."',
+																										0)	
 						");
 			
 			$new_user_id = mysql_insert_id();
