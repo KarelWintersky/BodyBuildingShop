@@ -28,7 +28,14 @@ Class Front_Order_Payment_Methods{
 		foreach($list as $id => $arr) if($arr['disabled']) $list[$id]['active'] = false;		
 		
 		//закрываем наложку, если есть соответствующий параметр
-		if(!$data['nalog_payment_available']) $list[1]['disabled'] = true; $list[1]['active'] = false;
+		if(!$data['nalog_payment_available']){ 
+			$list[1]['disabled'] = true; $list[1]['active'] = false; 
+		}
+		
+		//закрываем оплату курьеру наличными, если человек не из спб
+		if($this->Front_Order_Storage->get_storage('delivery')==2 && !$data['costs']['courier']['is_spb']){
+			$list[5]['disabled'] = true; $list[5]['active'] = false;
+		}
 		
 		$is_active = false;
 		foreach($list as $l) if($l['active']) $is_active = true;

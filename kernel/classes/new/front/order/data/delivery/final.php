@@ -14,7 +14,7 @@ Class Front_Order_Data_Delivery_Final{
 		if(!$delivery) return $data;
 		
 		if($delivery==1){
-			$sum = $data['costs']['post']['cost'];
+			$sum = (isset($data['costs']['post']['cost'])) ? $data['costs']['post']['cost'] : 0;
 		}elseif($delivery==2){
 			$sum = $data['costs']['courier']['sum'];
 		}elseif($delivery==4){
