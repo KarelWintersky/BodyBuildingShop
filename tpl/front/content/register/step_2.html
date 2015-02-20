@@ -38,7 +38,7 @@
 			
 				<input type="hidden" name="rp" value="<?=$_SERVER['REQUEST_URI']?>">
 				<input type="hidden" name="d_action" value="6000">
-				<?if($_GET['after']):?>
+				<?if(isset($_GET['after'])):?>
 					<input type="hidden" name="after" value="<?=$_GET['after'];?>">
 				<?endif;?>					
 			

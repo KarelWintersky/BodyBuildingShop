@@ -58,7 +58,7 @@
 			<input type="hidden" name="region" value="<?= (!isset($this->registry['index_not_found'])) ? $this->registry['r_region_data']['region'] : ''?>">
 			<input type="hidden" name="city" value="<?= (!isset($this->registry['index_not_found'])) ? $this->registry['r_region_data']['city'] : ''?>">
 		
-				<?if($_GET['after']):?>
+				<?if(isset($_GET['after'])):?>
 					<input type="hidden" name="after" value="<?=$_GET['after'];?>">
 				<?endif;?>		
 		
