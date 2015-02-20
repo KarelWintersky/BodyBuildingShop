@@ -30,7 +30,7 @@ Class Controller_Index Extends Controller_Base{
     	$this->registry['f_404'] = false;
     	
     	$Front_Order_Bill = new Front_Order_Bill($this->registry);
-    	$Front_Order_Bill->print_bill();
+    	$Front_Order_Bill->to_screen();
     	exit();
     }
     

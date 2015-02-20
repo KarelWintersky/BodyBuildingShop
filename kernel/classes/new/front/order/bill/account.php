@@ -7,7 +7,7 @@ Class Front_Order_Bill_Account{
 		$this->registry = $registry;
 	}	
 				
-	public function get_data($num){
+	public function get_data($num,$skip_user_match){
 		if(!$this->registry['userdata']) return false;
 		
 		$qLnk = mysql_query(sprintf("

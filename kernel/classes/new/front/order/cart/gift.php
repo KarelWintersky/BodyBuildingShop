@@ -75,8 +75,8 @@ Class Front_Order_Cart_Gift Extends Common_Rq{
 	
 	public function do_block($data){
 		$a = array(
-				'list' => ($data['sum']>=$this->deadline) ? $this->gifts_list($data['sum']) : false,
-				'extra_sum' => $this->deadline-$data['sum'],
+				'list' => ($data['sum_with_discount']>=$this->deadline) ? $this->gifts_list($data['sum_with_discount']) : false,
+				'extra_sum' => $this->deadline-$data['sum_with_discount'],
 				'deadline' => $this->deadline
 				);
 		

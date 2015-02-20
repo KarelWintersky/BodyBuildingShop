@@ -7,7 +7,7 @@ Class Front_Order_Mail_Tech{
 		$this->registry = $registry;
 	}	
 
-	public function admins_notify($order_id){
+	public function admins_notify($order){
 		$order_data = $this->admins_tech_letter($order_id);
 	
 			

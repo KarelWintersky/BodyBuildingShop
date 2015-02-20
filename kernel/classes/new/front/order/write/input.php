@@ -56,7 +56,7 @@ Class Front_Order_Write_Input{
 	}	
 	
 	public function make_data($data){	
-		$deilvery = $this->Front_Order_Storage->get_storage('payment');
+		$deilvery = $this->Front_Order_Storage->get_storage('delivery');
 		$payment = $this->Front_Order_Storage->get_storage('payment');
 		
 		$input = array(

@@ -13,29 +13,41 @@ Class Front_Order_Bill Extends Common_Rq{
 		$this->Front_Order_Bill_Account = new Front_Order_Bill_Account($this->registry);
 	}	
 				
-	private function get_data(){
-		$num = (isset($_GET['o'])) ? $_GET['o'] : false;
-		if(!$num) return false;
-		
+	private function get_data($num,$skip_user_match){
 		$num = explode('/',$num);
 		if(count($num)!=3) return false;
 		
 		return ($num[2]=='A' || $num[2]=='А') 
-			? $this->Front_Order_Bill_Account->get_data($num)
-			: $this->Front_Order_Bill_Cart->get_data($num); 
+			? $this->Front_Order_Bill_Account->get_data($num,$skip_user_match)
+			: $this->Front_Order_Bill_Cart->get_data($num,$skip_user_match); 
 	}
 	
-	public function print_bill(){
-		$data = $this->get_data();
-		if(!$data){
-			header('Location: /');
-			exit();
-		}
-
+	public function print_bill($num,$skip_user_match = false){
+		$data = $this->get_data($num,$skip_user_match);
+		if(!$data) return false;
+		
 		$line = $this->do_rq('screen',$data,true);
 		$line.=$line;
 		
-		echo $this->do_rq('screen',$line);	
+		return $this->do_rq('screen',$line);	
+	}
+	
+	public function to_screen(){
+		$num = (isset($_GET['o'])) ? $_GET['o'] : false;
+		if($num){
+			$html = $this->print_bill($num);
+			if($html){
+				echo $html;
+				exit();
+			}
+		}
+		
+		header('Location: /');
+		exit();		
+	}
+	
+	public function to_letter($num){
+		return $this->print_bill($num,true);
 	}
 			
 }

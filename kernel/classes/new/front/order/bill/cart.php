@@ -7,12 +7,13 @@ Class Front_Order_Bill_Cart{
 		$this->registry = $registry;
 	}	
 				
-	private function auth_check($order){
+	private function auth_check($order,$skip_user_match){
 		/*
 		 * проверяем, что пользователь запрашивает квитанцию, выставленную именно на него
 		 * чтобы никто не мог смотреть чужие квитанции
 		 * правда, только для зарегистринованных, ибо для незарегистрированных мы не можем проверить
 		 * */
+		if($skip_user_match) return true;
 		
 		return ($order['user_id'])
 			? ($this->registry['userdata'] && $this->registry['userdata']['id']==$order['user_id'])
@@ -36,7 +37,7 @@ Class Front_Order_Bill_Cart{
 		}
 	}
 	
-	public function get_data($num){
+	public function get_data($num,$skip_user_match){
 		$qLnk = mysql_query(sprintf("
 				SELECT
 					orders.*,
@@ -64,7 +65,7 @@ Class Front_Order_Bill_Cart{
 				mysql_real_escape_string($num[2])
 				));
 		$order = mysql_fetch_assoc($qLnk);
-		if(!$order || !$this->auth_check($order)) return false;
+		if(!$order || !$this->auth_check($order,$skip_user_match)) return false;
 				
 		$output = array(
 				'num' => implode('/',$num),

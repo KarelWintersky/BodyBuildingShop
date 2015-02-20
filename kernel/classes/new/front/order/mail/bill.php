@@ -3,57 +3,27 @@ Class Front_Order_Mail_Bill{
 	
 	private $registry;
 	
+	private $Front_Order_Bill;
+	
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Front_Order_Bill = new Front_Order_Bill($this->registry);
 	}	
 			
-	public function send_letter(){
-			$order_num = explode('/',$num);
+	public function send_letter($order){
+		if($order['payment_method_id']!=2) return false;
+				
+		$html = $this->Front_Order_Bill->to_letter($order['num']);
 		
-			$qLnk = mysql_query("
-					SELECT
-					orders.*,
-					users.name AS user_name,
-					users.email AS user_email,
-					users.zip_code AS zip_code,
-					users.region AS region,
-					users.city AS city,
-					users.street AS street,
-					users.house AS house,
-					users.corpus AS corpus,
-					users.flat AS flat
-					FROM
-					orders
-					LEFT OUTER JOIN users ON users.id = orders.user_id
-					WHERE
-					orders.id = '".$order_num[0]."'
-					AND
-					orders.user_num	= '".$order_num[1]."'
-					AND
-					orders.payment_method = '".$order_num[2]."'
-					LIMIT 1;
-					");
-			if(mysql_num_rows($qLnk)>0){
-				$order = mysql_fetch_assoc($qLnk);
-				$order['address'] = Common_Address::implode_address($order);
-				$order['num'] = $num;
+		$pdfmanager = new Pdfmanager($this->registry);
+		$attach = $pdfmanager->fileCompose($html);
 		
-				ob_start();
-				$this->item_rq('bill',$order);
-				$bill = ob_get_contents();
-				ob_end_clean();
+		$replace = array(
+			'ORDER_NUM' => $order['num']
+		);
 		
-				$pdfmanager = new Pdfmanager($this->registry);
-				$attach_string = $pdfmanager->fileCompose($bill);
-		
-				$replace_arr = array(
-						'ORDER_NUM' => $num
-				);
-		
-				$mailer = new Mailer($this->registry,13,$replace_arr,$order['user_email'],$attach_string);
-		
-			}
-		
+		$mailer = new Mailer($this->registry,13,$replace,$order['user_email'],$attach);		
 	}
 }
 ?>
