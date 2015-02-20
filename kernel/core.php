@@ -21,7 +21,6 @@ define('ROBOKASSA_PW_2','sdfsd2323423ss',true);
 define('ROBOKASSA_CURR','BANKOCEAN2R',true); //валюта
 define('ROBOKASSA_LANG','ru',true); //язык
 
-
 function __autoload($className){
 
 	if(substr($className, 0, 3) == 'ezc') ezcBase::autoload($className);
