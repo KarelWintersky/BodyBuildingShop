@@ -28,7 +28,7 @@ Class Front_Order_Delivery_Write{
 	}	
 	
 	public function do_write(){
-		if(!isset($_POST['delivery'])) return false;
+		Front_Order_Post::do_check(2);
 		$method_id = $_POST['delivery'];
 		
 		$methods = Front_Order_Data_Delivery::get_methods();

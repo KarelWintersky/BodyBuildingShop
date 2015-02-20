@@ -153,7 +153,7 @@ Class Front_Order_Write{
 		return $personal_discount + $input['coupon_discount'];
 	}
 	
-	public function do_write(){
+	public function do_write(){		
 		$data = $this->Front_Order_Data->get_data();
 		$input = $this->Front_Order_Write_Input->make_data($data);
 				

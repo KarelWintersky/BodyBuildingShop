@@ -20,6 +20,8 @@ Class Front_Order_Cart_Go{
 	}
 	
 	public function cart_go(){
+		Front_Order_Post::do_check(1);
+		
 		$this->write_gift();
 		
 		$this->Front_Order_Cart_Coupon->apply_coupon($_POST['coupon'],true);

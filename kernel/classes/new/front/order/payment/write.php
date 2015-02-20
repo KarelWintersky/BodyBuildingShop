@@ -12,7 +12,7 @@ Class Front_Order_Payment_Write{
 	}	
 		
 	public function do_write(){
-		if(!isset($_POST['payment'])) return false;
+		Front_Order_Post::do_check(3);
 		$method_id = $_POST['payment'];
 		
 		$methods = Front_Order_Data_Payment::get_methods();

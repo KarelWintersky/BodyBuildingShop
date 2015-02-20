@@ -60,7 +60,7 @@ Class Front_Order_Write_Input{
 		$payment = $this->Front_Order_Storage->get_storage('payment');
 		
 		$input = array(
-				'wishes' => $_POST['wishes'],
+				'wishes' => (isset($_POST['wishes'])) ? $_POST['wishes'] : false,
 				'payment_method' => $payment,
 				'delivery_type' => $deilvery,
 				'coupon' => $this->Front_Order_Storage->get_storage('coupon'),
