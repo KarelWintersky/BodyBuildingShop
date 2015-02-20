@@ -49,7 +49,7 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 				? sprintf('%s: %s',$label,$g['feature'])
 				: $g['feature'];
 				
-			if($g['color']) $string[] = sprintf('цвет: %s',$g['color_name']);
+			if(isset($g['color']) && $g['color']) $string[] = sprintf('цвет: %s',$g['color_name']);
 		
 		return implode(', ',$string);
 	}

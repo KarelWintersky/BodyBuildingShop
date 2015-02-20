@@ -14,9 +14,9 @@ Class Front_Order_Cart_Go{
 	}	
 		
 	private function write_gift(){
-		if(!isset($_POST['gift'])) return false;
-		
-		$this->Front_Order_Storage->write_to_storage('gift',$_POST['gift']);
+		$this->Front_Order_Storage->write_to_storage('gift',
+				(isset($_POST['gift'])) ? $_POST['gift'] : false
+				);
 	}
 	
 	public function cart_go(){
