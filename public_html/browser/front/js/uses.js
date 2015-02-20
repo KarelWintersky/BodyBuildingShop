@@ -237,14 +237,14 @@ $(function() {
 
 	$('.td_bill a.td_bill_lnk').click(function(e){
 		var order_id = $(this).attr('rel');
-		window.open('/openbill/?o='+order_id,'mywindow','width=700,height=600');
+		window.open('/order/bill/?o='+order_id,'mywindow','width=700,height=600');
 
 		e.preventDefault();
 	});
 
 	$('.order_bill_link').click(function(e){
 		var order_id = $(this).attr('rel');
-		window.open('/openbill/?o='+order_id,'mywindow','width=700,height=600');
+		window.open('/order/bill/?o='+order_id,'mywindow','width=700,height=600');
 
 		e.preventDefault();
 	});

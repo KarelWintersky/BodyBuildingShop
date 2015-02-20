@@ -8,7 +8,7 @@
 	<?if(isset($this->registry['do_bill'])):?>
 		<script>
 			$(function() {
-				 window.open('/openbill/?o=<?=$this->registry['order_id'];?>','mywindow','width=700,height=600');
+				 window.open('/order/bill/?o=<?=$this->registry['order_id'];?>','mywindow','width=700,height=600');
 			});			
 		</script>
 	<?endif;?>

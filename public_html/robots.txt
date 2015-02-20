@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /openbill
+Disallow: /order/bill
 Disallow: /i.html
 Disallow: /board/
 Disallow: /forum/
