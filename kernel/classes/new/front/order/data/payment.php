@@ -16,7 +16,7 @@ Class Front_Order_Data_Payment{
 					'field' => 'pay_webmoney'
 				),
 				4 => array(
-					'name' => 'Оплата банковской картой',
+					'name' => 'Оплата банковской картой или другие платежные системы',
 					'field' => 'pay_card'
 				),
 				5 => array(
@@ -27,10 +27,10 @@ Class Front_Order_Data_Payment{
 					'name' => 'Оплата c лицевого счета в нашем магазине',
 					'field' => 'pay_account'
 				),
-				7 => array(
+				/*7 => array(
 					'name' => 'Другие платежные системы',
 					'field' => 'pay_other'
-				)				
+				)*/				
 			);
 
 		return (!$method_id)
