@@ -8,7 +8,9 @@ Class Front_Order_Bill_Account{
 	}	
 				
 	public function get_data($num){
-		$qLnk = mysql_query("
+		if(!$this->registry['userdata']) return false;
+		
+		$qLnk = mysql_query(sprintf("
 				SELECT
 					account_orders.*,
 					users.name AS user_name,
@@ -21,27 +23,27 @@ Class Front_Order_Bill_Account{
 					users.corpus AS corpus,
 					users.flat AS flat
 				FROM
-				account_orders
+					account_orders
 				LEFT OUTER JOIN users ON users.id = account_orders.user_id
 				WHERE
-				account_orders.id = '".$data[0]."'
-				LIMIT 1;
-				");
-		if(mysql_num_rows($qLnk)>0){
-			$order = mysql_fetch_assoc($qLnk);
-			if($_SESSION['user_id']==$order['user_id']){
+					account_orders.id = '%d'
+					AND
+					users.id = '%d'
+				",
+				$num[0],
+				$this->registry['userdata']['id']
+				));
+		$order = mysql_fetch_assoc($qLnk);
+		if(!$order) return false;
+
+		$output = array(
+				'num' => implode('/',$num),
+				'name' => $order['user_name'],
+				'address' => Common_Address::implode_address($order),
+				'price' => Common_Useful::price2read($order['sum']),
+		);
 		
-				$order['address'] = Common_Address::implode_address($order);
-				$order['num'] = $num;
-				$order['overall_price'] = $order['sum'];
-				$order['from_account'] = 0;
-		
-				$this->registry['logic']->item_rq('bill_show',$order);
-		
-				return true;
-			}
-		}
-		return true;		
+		return $output;		
 	}			
 }
 ?>
