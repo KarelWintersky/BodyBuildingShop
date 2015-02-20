@@ -13,8 +13,10 @@ Class Front_Order_Write{
 	private $Front_Order_Write_Coupon;
 	private $Front_Order_Write_Goods;
 	
-	private $Front_Order_Mail_Notify;
+	private $Front_Catalog_Goods_Rate;
 	
+	private $Front_Order_Mail;
+		
 	public function __construct($registry){
 		$this->registry = $registry;
 		
@@ -26,9 +28,7 @@ Class Front_Order_Write{
 		
 		$this->Front_Catalog_Goods_Rate = new Front_Catalog_Goods_Rate($this->registry);
 		
-		$this->Front_Order_Mail_Notify = new Front_Order_Mail_Notify($this->registry);
-		$this->Front_Order_Mail_Bill = new Front_Order_Mail_Bill($this->registry);
-		$this->Front_Order_Mail_Tech = new Front_Order_Mail_Tech($this->registry);
+		$this->Front_Order_Mail = new Front_Order_Mail($this->registry);
 	}	
 			
 	private function user_num(){
@@ -131,13 +131,7 @@ Class Front_Order_Write{
 	}
 	
 	private function go_further($by_card,$order_num){
-		if(!$by_card){
-			//$this->Front_Order_Mail_Notify->send_letter();
-			
-			//if($order_vals['payment_method']==2) $this->Front_Order_Mail_Bill->send_letter();
-			
-			//$this->Front_Order_Mail_Tech->send_letter($order_id);			
-		}		
+		if(!$by_card) $this->Front_Order_Mail->send_mail($order_num);
 		
 		$url = ($by_card)
 			? sprintf('/order/card/prepare/?id=%s',$order_num)
