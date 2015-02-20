@@ -79,10 +79,16 @@ Class Front_Order_Check_Params Extends Common_Rq{
 					);
 		}
 
-		if($this->registry['userdata']){
+		$email = false;
+		if($delivery==2)
+			$email = $this->registry['CL_storage']->get_storage('courier_email');		
+		elseif($this->registry['userdata'])
+			$email = $this->registry['userdata']['email'];
+		
+		if($email){
 			$list[] = array(
 					'label' => 'Email',
-					'text' => $this->registry['userdata']['email'],
+					'text' => $email,
 					);
 		}
 

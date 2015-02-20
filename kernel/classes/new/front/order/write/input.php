@@ -34,7 +34,8 @@ Class Front_Order_Write_Input{
 				$this->Front_Order_Storage->get_storage('courier_zipcode'),
 				$this->Front_Order_Storage->get_storage('courier_city'),
 				$this->Front_Order_Storage->get_storage('courier_street'),
-				$this->Front_Order_Storage->get_storage('courier_house')
+				$this->Front_Order_Storage->get_storage('courier_house'),
+				$this->Front_Order_Storage->get_storage('courier_email'),
 				);
 		
 		foreach($arr as $key => $val) $arr[$key] = str_replace('::','',$val);

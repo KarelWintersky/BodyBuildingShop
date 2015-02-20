@@ -8,7 +8,7 @@ Class Front_Order_Data_Cart_Query{
 					goods.name,
 					goods.alias,
 					goods.grower_id,
-					goods.personal_discount,
+					goods.personal_discount + %s AS personal_discount,
 					goods.delivery_way_id,
 					levels.alias AS level_alias,
 					parent_tbl.alias AS parent_alias,
@@ -30,6 +30,7 @@ Class Front_Order_Data_Cart_Query{
 					AND
 					goods.published = 1
 				",
+				OVERALL_DISCOUNT,
 				implode(",",$barcodes)
 				));
 

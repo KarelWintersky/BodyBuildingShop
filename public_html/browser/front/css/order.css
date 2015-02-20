@@ -123,8 +123,9 @@
 	#self_fields .fl_phone input{width:200px;}			
 					
 #courier_fields{}				
-	#courier_fields .fl_name input{width:250px;margin-right:30px;}						
-	#courier_fields .fl_phone input{width:200px;}				
+	#courier_fields .fl_name input{width:185px;margin-right:30px;}						
+	#courier_fields .fl_phone input{width:185px;margin-right:30px;}				
+	#courier_fields .fl_email input{width:182px;}				
 	#courier_fields .fl_zipcode input{width:50px;margin-right:30px;}				
 	#courier_fields .fl_city input{width:160px;margin-right:30px;}				
 	#courier_fields .fl_street input{width:200px;margin-right:30px;}				
