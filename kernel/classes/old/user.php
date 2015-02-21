@@ -12,6 +12,7 @@ class User{
 					SELECT 
 						users.id AS id,
 						users.login AS login, 
+						users.phone AS phone, 
 						users.email AS email, 
 						users.hash AS hash, 
 						users.name AS name,									 

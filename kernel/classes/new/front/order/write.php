@@ -188,7 +188,7 @@ Class Front_Order_Write{
 
 		//$this->dissmiss_from_account($user_id);
 				
-		//$this->truncate_cart_and_storage();
+		$this->truncate_cart_and_storage();
 
 		$this->go_further($query['by_card'],$order_num);
 	}
