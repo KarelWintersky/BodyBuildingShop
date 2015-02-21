@@ -37,6 +37,11 @@ Class Front_Order_Payment_Methods{
 			$list[5]['disabled'] = true; $list[5]['active'] = false;
 		}
 		
+		//закрываем оплату с личного счета, если нужно
+		if(!$data['account_payment_available']){
+			$list[6]['disabled'] = true; $list[6]['active'] = false;
+		}
+		
 		$is_active = false;
 		foreach($list as $l) if($l['active']) $is_active = true;
 	
