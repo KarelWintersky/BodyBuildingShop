@@ -1,0 +1,27 @@
+<div id="order_links">
+
+	<div class="ol_block">
+		<form id="form_Order_Send_1" action="/doer/" method="POST">
+
+			<input type="hidden" name="d_action" value="1001">
+			<input type="hidden" name="num" value="<?=$a['num'];?>">
+
+			<a href="#" onclick="return form_sbm('#form_Order_Send_1');">Послать письмо о заказе</a>
+		</form>
+	</div>
+
+	<?if($a['payment_method_id']==2 || $a['account_extra_payment']==2):?>
+		<div class="ol_block">
+			<form id="form_Order_Send_2" action="/doer/" method="POST">
+	
+				<input type="hidden" name="d_action" value="1002">
+				<input type="hidden" name="num" value="<?=$a['num'];?>">
+	
+				<a href="#" onclick="return form_sbm('#form_Order_Send_2');">Послать квитанцию</a>
+			</form>
+		</div>
+	<?endif;?>
+
+	<div class="clr"></div>
+
+</div>

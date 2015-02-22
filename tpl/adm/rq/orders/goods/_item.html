@@ -1,20 +1,17 @@
 <tr>
 	<td>
-		<?if(!($a['goods_barcode']) && ($a['goods_id']==0 || $a['goods_full_name']=='Подарок на усмотрение администрации')):?>
-			0
-		<?elseif($a['goods_barcode'] && !$a['goods_id']):?>
+		<?if($a['goods_barcode'] && !$a['goods_id']):?>
 			-	
 		<?else:?>
 			<?=$a['goods_id']?>
 		<?endif;?>
 	</td>
 	<td class="td_goods">
-		<?if(!($a['goods_barcode']) && ($a['goods_id']==0 || $a['goods_full_name']=='Подарок на усмотрение администрации')):?>
-			Подарок на усмотрение администрации
-		<?elseif($a['goods_barcode'] && !$a['goods_id']):?>
+		<?if($a['goods_barcode'] && !$a['goods_id']):?>
 			Штрихкод не найден	
 		<?else:?>
-			<a href="/adm/catalog/<?=$a['parent_id']?>/<?=$a['level_id']?>/<?=$a['goods_id']?>/"><?=$a['goods_full_name']?></a>
+			<a href="/adm/catalog/<?=$a['parent_id']?>/<?=$a['level_id']?>/<?=$a['goods_id']?>/">
+				<?=$a['name']?></a>
 			
 			<?if(isset($a['packing']) && $a['packing']!=''):?>
 				<br><span><?=$a['packing']?></span>
