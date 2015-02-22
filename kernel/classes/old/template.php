@@ -9,6 +9,7 @@ Class Template {
         public $front_path;
         
         public $Front_Template;
+        public $Adm_Template;
 
         function __construct($registry) {
           $this->registry = $registry;
@@ -16,6 +17,7 @@ Class Template {
 		  $this->TF = ROOT_PATH.'tpl/front/';
 		  
 		  $this->Front_Template = new Front_Template($this->registry);
+		  $this->Adm_Template = new Adm_Template($this->registry);
         }
         
 		function set($varname, $value, $overwrite=false) {
@@ -50,6 +52,7 @@ Class Template {
 			    $html = ob_get_clean();
 			    
 			    if($this->vars['tpl']=='front') $html = $this->Front_Template->do_template($html);
+			    else $html = $this->Adm_Template->do_template($html);
 			    
 			    echo $html;
           }
@@ -62,7 +65,10 @@ Class Template {
 			$file = $this->TF.'content/'.$this->vars['c'].'.html';
 			
 			if(is_file($file)) require($file);
-			else Front_Template_Content::do_content($this->vars['c']);
+			else Front_Template_Content::do_content(
+					$this->vars['c'],
+					(isset($this->vars['tpl'])) ? $this->vars['tpl'] : 'front'
+					);
 		}
 
 		private function item_rq($name,$a = NULL){
@@ -498,7 +504,7 @@ Class Template {
 						'name' => $m['name'],
 						);
 
-			echo Front_Template_Select::opts($data,'Выберите тему');
+			echo Common_Template_Select::opts($data,'Выберите тему');
 		}
 
 		private function F_prices_link($frompage = true){

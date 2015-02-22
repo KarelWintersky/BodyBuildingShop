@@ -41,6 +41,8 @@ Class Front_Order_Data_Params{
 		 * */
 		
 		if(!$this->registry['userdata'] || !$this->registry['userdata']['my_account']) return false;
+		
+		return true;
 	}
 	
 	public function get_params($data){

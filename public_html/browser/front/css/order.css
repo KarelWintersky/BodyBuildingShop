@@ -140,6 +140,12 @@
 					#form_OrderPayment #fop_items .fop_item .fop_item_head .fop_item_head_input{float:left;padding:4px 15px 0 0;}		
 						#form_OrderPayment #fop_items .fop_item .fop_item_head .fop_item_head_input input{float:left;margin:1px 10px 0 0;}		
 						#form_OrderPayment #fop_items .fop_item .fop_item_head .fop_item_head_input span{float:left;}				
+			
+#extra_payment{margin:0 0 30px;}			
+	#extra_payment #extra_payment_methods{padding:15px 0 0;}			
+		#extra_payment #extra_payment_methods .method_item{padding:0 0 14px;}			
+			#extra_payment #extra_payment_methods .method_item input{float:left;margin:1px 7px 0 0;}			
+			#extra_payment #extra_payment_methods .method_item span{float:left;font-size:14px;color:#333;}			
 						
 #order_check_params{}						
 	#order_check_params .params_block{background:#f2f2f2;font-size:12px;border-radius:2px;padding:19px 30px 8px;margin:8px 0 17px;}						
@@ -160,6 +166,18 @@
 		#order_done .hint_1 ul.noborder{border:0;margin:0;padding:0;}
 	#order_done .hint_2{background:#FBF1D3;border-radius:4px;padding:9px 20px 11px 43px;margin:0 0 15px;}
 		#order_done .hint_2 h2{font-size:14px;color:#e38a25;font-weight:normal;margin:0;padding:0 0 6px;}		
+		
+		
+#form_RobocassaGo{}		
+	#form_RobocassaGo .fl_sbm{text-align:center;padding:30px 0 0;}		
+		#form_RobocassaGo .fl_sbm input{text-decoration:none;outline:none;border:1px solid #F49900;height:26px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 18px;background:#eab000;margin:0 0 0 20px;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}		
 		
 		
 #order_social{background:#edf2f5;border-radius:4px;padding:18px 20px 22px;margin:40px 0 0;}

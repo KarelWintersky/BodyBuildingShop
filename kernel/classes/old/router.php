@@ -81,10 +81,11 @@ Class Router {
                 // Есть ли папка с таким путём?
                 if (is_dir($fullpath)) {
                    $cmd_path.=$part.DIRSEP;
+                   
                     array_shift($parts);
                     continue;
                 }
-
+                
                 // Находим файл
                 if (is_file($fullpath.'.php')) {
 					$controller = $part;
@@ -96,12 +97,14 @@ Class Router {
 	        }
 	        
 	        if (empty($controller)) { $controller = 'index'; };
-
+	        
 			// Получаем действие
 			$action = array_shift($parts);
+			
 			if (empty($action)) { $action = 'index'; }
 
 			$file = $cmd_path.$controller.'.php';
+			
 			$args = $parts;
 		}
 
@@ -110,13 +113,12 @@ Class Router {
 
 			// Анализируем путь
 			$this->getController($file, $controller, $action, $args);
-
+			
 			// Файл доступен?
 			if(!is_readable($file)) {
 		        $this->registry['f_404'] = true;
 		        return false;
 			}
-
 
 			// Подключаем файл
 			include ($file);

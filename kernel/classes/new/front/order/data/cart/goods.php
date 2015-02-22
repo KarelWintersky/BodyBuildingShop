@@ -18,12 +18,12 @@ Class Front_Order_Data_Cart_Goods{
 		$goods = array();
 		
 		$qLnk = Front_Order_Data_Cart_Query::do_query($barcodes);
-		while($g = mysql_fetch_assoc($qLnk)){			
+		while($g = mysql_fetch_assoc($qLnk)){	
 			$g = $this->price_discount($g);
 			
 			$goods[$g['barcode']] = $g;
 		}
-
+		
 		return $goods;
 	}
 	

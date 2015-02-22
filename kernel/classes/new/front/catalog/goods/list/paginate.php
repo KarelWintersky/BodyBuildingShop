@@ -45,7 +45,7 @@ Class Front_Catalog_Goods_List_Paginate{
 					'selected' => ($key==$cur)
 					);
 		
-		return Front_Template_Select::opts($data);
+		return Common_Template_Select::opts($data);
 	}
 	
 		

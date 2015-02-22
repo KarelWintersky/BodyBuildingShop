@@ -1,0 +1,23 @@
+<h1>Заказы</h1>
+
+{{search}}
+
+<table cellpadding="0" cellspacing="0" id="table_OrdersList">
+	<tr>
+		<th class="td_num" rowspan="2">Номер</th>
+		<th class="td_date" rowspan="2">Дата</th>
+		<th class="td_status" rowspan="2">Статус</th>
+		<th class="td_deliverypayment" rowspan="2">Доставка<br>Оплата</th>
+		<th class="td_money" colspan="4">Деньги, руб.</th>
+	</tr>
+	<tr>
+		<th class="td_money_col">Сумма</th>
+		<th class="td_money_col">Доставка</th>
+		<th class="td_money_col">Наложка</th>
+		<th class="td_money_col">Всего</th>	
+	</tr>
+	{{list}}
+	
+</table>
+
+{{pages}}

@@ -30,7 +30,7 @@ Class Front_Template_Blocks{
 					'name' => $name
 					);
 		
-		return Front_Template_Select::opts($data);
+		return Common_Template_Select::opts($data);
 	}	
 	
 	public function sidebar_growers(){	
@@ -54,7 +54,7 @@ Class Front_Template_Blocks{
 					'selected' => (isset($this->registry['grower']) && $this->registry['grower']['id']==$g['id']),
 					);
 			
-		return Front_Template_Select::opts($data,'Производитель');
+		return Common_Template_Select::opts($data,'Производитель');
 	}	
 	
 	private function this_page_url(){

@@ -29,7 +29,7 @@ Class Front_Order_Data_Delivery{
 
 		return (!$method_id)
 			? $methods
-			: $methods[$method_id];
+			: ((isset($methods[$method_id])) ? $methods[$method_id] : false);
 	}
 	
 }

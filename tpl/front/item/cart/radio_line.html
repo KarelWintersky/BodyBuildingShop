@@ -1,8 +1,0 @@
-<div class="radio_line radio_line_<?=$a['id'];?> <?= ($a['arr']['disabled']==1) ? 'disabled_line' : '';?>"><div class="radio_line_i">
-	<input class="<?=$a['class'];?>" type="radio" name="order_vals[<?=$a['type'];?>]" value="<?=$a['id'];?>" id="delivery_<?=$a['id'];?>" <?= ($a['arr']['active']==1) ? 'checked' : '';?> onclick="<?=$a['onchange'];?>" <?= ($a['arr']['disabled']==1) ? 'disabled' : '';?>>
-	<label><?=$a['arr']['name'];?> <?= (isset($a['arr']['add_txt'])) ? $a['arr']['add_txt'] : '';?></label>
-
-	<input type="hidden" class="thehint" value="<?=htmlspecialchars($a['var']);?>">
-
-	<div class="clr"></div>
-</div></div>

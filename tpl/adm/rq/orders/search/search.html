@@ -1,0 +1,37 @@
+<form id="form_orderSrch" method="GET" action="/adm/orders/">
+
+	<div class="form_1">
+
+		<h3>Поиск</h3>
+		
+		<div class="form_l form_l_num">
+			<label>Номер</label>
+			<input type="text" name="num" value="<?=$a['num'];?>">
+		</div>
+	
+		<div class="form_l form_l_type">
+			<label>Тип</label>
+			<select name="status">
+				<?=$a['statuses'];?>	
+			</select>	
+		</div>	
+		
+		<div class="form_l form_l_date">
+			<label>С</label>
+			<input type="text" name="date_from" value="<?=$a['date_from'];?>" class="datepicker" readonly="1">
+		</div>		
+		
+		<div class="form_l form_l_date">
+			<label>По</label>
+			<input type="text" name="date_to" value="<?=$a['date_to'];?>" class="datepicker" readonly="1">
+		</div>			
+		
+		<div class="form_l form_l_sbm">
+			<input type="submit" value="Поиск">
+		</div>	
+		
+		<div class="clr"></div>
+		
+	</div>
+
+</form>

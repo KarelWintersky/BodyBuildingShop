@@ -31,7 +31,7 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 			$g['key'] = $key;
 			
 			$g['readonly'] = $readonly;
-						
+			
 			$html[] = $this->do_rq('line',$g,true);
 		}
 				

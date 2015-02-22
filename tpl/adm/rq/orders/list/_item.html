@@ -1,0 +1,29 @@
+<tr>
+	<td class="td_num">
+		<a href="/adm/orders/<?=$a['lnk']?>/"><?=$a['num']?></a>
+	</td>
+	<td class="td_date">
+		<?=date('d.m',strtotime($a['made_on']))?>
+		<span><?=date('H:i',strtotime($a['made_on']))?></span>
+	</td>
+	<td class="td_status">
+		<?=$a['status_name']?>
+	</td>
+	<td class="td_deliverypayment">
+		<?=$a['delivery_name']?>
+		<br>
+		<?=$a['payment_string']?>
+	</td>
+	<td class="td_money_col">
+		<?= ($a['sum_to_print']) ? Common_Useful::price2read($a['sum_to_print']) : '-';?>
+	</td>
+	<td class="td_money_col">
+		<?= ($a['delivery_costs']) ? Common_Useful::price2read($a['delivery_costs']) : '-';?>
+	</td>
+	<td class="td_money_col">
+		<?= ($a['nalog_costs']) ? Common_Useful::price2read($a['nalog_costs']) : '-';?>
+	</td>
+	<td class="td_money_col">
+		<?= ($a['overall_to_print']) ? Common_Useful::price2read($a['overall_to_print']) : '-';?>
+	</td>	
+</tr>

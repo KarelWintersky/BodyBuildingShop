@@ -14,7 +14,7 @@ Class Front_Template{
 	public function __construct($registry){
 		$this->registry = $registry;
 		
-		$this->Front_Template_Vars = new Front_Template_Vars($this->registry);
+		$this->Template_Vars = new Common_Template_Vars($this->registry);
 		$this->Front_Template_Links = new Front_Template_Links($this->registry);
 		$this->Front_Template_Css = new Front_Template_Css($this->registry);
 		$this->Front_Template_Js = new Front_Template_Js($this->registry);
@@ -31,7 +31,7 @@ Class Front_Template{
 		$this->Front_Template_Css->go();
 		$this->Front_Template_Js->go();
 		
-		$html = $this->Front_Template_Vars->vars_replace($html);
+		$html = $this->Template_Vars->vars_replace($html);
 		$html = $this->Front_Template_Links->do_links($html);
 		
 		$html = $this->Front_Template_Compress->do_compress($html);

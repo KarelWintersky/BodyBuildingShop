@@ -1,9 +1,12 @@
 <?php
 Class Front_Template_Content{
 
-	public static function do_content($alias){
+	public static function do_content($alias,$space){
 		
-		$folder = ROOT_PATH.'tpl/front/rq/';
+		$folder = sprintf('%stpl/%s/rq/',
+				ROOT_PATH,
+				$space
+				);
 		$file = sprintf('%s%s%s',
 				$folder,
 				str_replace('_','',$alias),

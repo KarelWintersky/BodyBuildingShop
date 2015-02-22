@@ -39,7 +39,7 @@ Class Front_Catalog_Goods_List_Sort{
 					'selected' => ($sort==$key),
 					);
 		
-		return Front_Template_Select::opts($data);
+		return Common_Template_Select::opts($data);
 	}
 	
 	private function make_sort_query($string,$type){

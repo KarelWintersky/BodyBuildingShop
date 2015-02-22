@@ -38,6 +38,8 @@ Class Front_Order_Write_Goods{
 		foreach($data['cart'] as $key => $arr){
 			$goods = $data['goods'][$key];
 			
+			$discount = $goods['personal_discount'];
+			
 			$q[] = sprintf("
 						(
 							'%s',
@@ -56,9 +58,9 @@ Class Front_Order_Write_Goods{
 					$goods['name'],
 					$arr['packing'],
 					$arr['amount'],
-					$goods['price'],
+					$goods['old_price'],
 					$goods['personal_discount'],
-					ceil($goods['price'] - $goods['price']*$goods['personal_discount']/100),
+					$goods['price'],
 					$arr['color']
 					);
 		}

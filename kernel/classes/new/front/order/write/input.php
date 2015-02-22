@@ -59,25 +59,27 @@ Class Front_Order_Write_Input{
 	public function make_data($data){	
 		$deilvery = $this->Front_Order_Storage->get_storage('delivery');
 		$payment = $this->Front_Order_Storage->get_storage('payment');
+				
+		$nalog_costs = ($deilvery==1 && $payment==1) ? $data['nalog'] : 0;
 		
 		$input = array(
+				'account_extra_payment' => (isset($_POST['extrapayment'])) ? $_POST['extrapayment'] : false,
 				'wishes' => (isset($_POST['wishes'])) ? $_POST['wishes'] : false,
 				'payment_method' => $payment,
 				'delivery_type' => $deilvery,
 				'coupon' => $this->Front_Order_Storage->get_storage('coupon'),
 				'phone' => $this->get_phone($deilvery),
-				'sum_with_discount' => $data['sum_with_discount'],
 				'coupon_discount' => $this->Front_Order_Storage->get_storage('coupon_discount'),
-				'delivery_costs' => ($deilvery==1 && $payment==1) 
-					? $data['nalog'] + $data['delivery_sum']
-					: $data['delivery_sum'],
-				'overall_price' => ($deilvery==1 && $payment==1) 
-					? $data['sum_with_discount'] + $data['nalog'] + $data['delivery_sum']
-					: $data['sum_with_discount'] + $data['delivery_sum'],
 				'courier_data' => $this->courier_data($deilvery),
 				'self_data' => $this->self_data($deilvery),
-				);
 				
+				'sum' => $data['sum'],
+				'sum_with_discount' => $data['sum_with_discount'],		
+				'delivery_costs' => $data['delivery_sum'],
+				'nalog_costs' => $nalog_costs,
+				'overall_sum' => $data['sum_with_discount'] + $data['delivery_sum'] + $nalog_costs
+				);
+		
 		return $input;
 	}
 }

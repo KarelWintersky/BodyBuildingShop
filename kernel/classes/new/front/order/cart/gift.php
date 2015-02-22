@@ -70,7 +70,7 @@ Class Front_Order_Cart_Gift Extends Common_Rq{
 					'selected' => ($active==$barcode),
 			);
 		
-		return Front_Template_Select::opts($data);
+		return Common_Template_Select::opts($data);
 	}
 	
 	public function do_block($data){

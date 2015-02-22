@@ -89,11 +89,11 @@ Class Front_Order_Write{
 		return $id;
 	}	
 	
-	private function dissmiss_from_account($user_id){
+	private function dissmiss_from_account($query){
 		/*
 		 * списываем средства со счета юзера
 		 * */
-		if(!$user_id) return false;
+		if(!$this->registry['userdata']) return false;
 		
 		mysql_query(sprintf("
 				UPDATE 
@@ -102,8 +102,8 @@ Class Front_Order_Write{
 					my_account = (my_account - %s) 
 				WHERE 
 					id = '%d'",
-				$user_id,
-				$from_account
+				$query['from_account'],
+				$this->registry['userdata']['id']
 				));
 	}
 	
@@ -141,39 +141,56 @@ Class Front_Order_Write{
 		exit();
 	}
 	
-	private function overall_discount($input){
+	private function discount_percent($input){
 		$personal_discount = ($this->registry['userdata']) ? $this->registry['userdata']['personal_discount'] : 0;
 		
-		return $personal_discount + $input['coupon_discount'];
+		return ($input['coupon_discount']) ? $input['coupon_discount'] : $personal_discount;
+	}
+	
+	private function from_account($input){
+		/*
+		 * рассчитываем сумму оплаты со счета
+		 * - если выбран другой способ оплаты - 0
+		 * - если суммы на счету хватает на заказ - сумма заказа
+		 * - если суммы на счету не хватает на заказ - сумма на счету
+		 * */
+		
+		if($input['payment_method']!=6 || !$this->registry['userdata']) return 0;
+		
+		return ($input['overall_sum']<=$this->registry['userdata']['my_account']) 
+			? $input['overall_sum']
+			: $this->registry['userdata']['my_account'];
+	}
+	
+	private function order_status($input){
+		/*
+		 * статус заказа при записи
+		 * если оплата с личного счета и ЦЕЛИКОМ - 3 (оплачен)
+		 * в любом другом случае - 1 (сформирован)
+		 * */
+		
+		if(!$this->registry['userdata']) return 1;
+		
+		return ($input['payment_method']==6 && $input['overall_sum']<=$this->registry['userdata']['my_account']) ? 3 : 1;
 	}
 	
 	public function do_write(){		
 		$data = $this->Front_Order_Data->get_data();
 		$input = $this->Front_Order_Write_Input->make_data($data);
 				
-		$query = array(
-				'user_num' => $this->user_num(),
-				'payment_method_code' => $this->payment_method_code($input['payment_method']),
-				'payment_method' => $input['payment_method'],
-				'payment_number' => $this->get_payment_number($input['payment_method']),
-				'order_status' => ($input['payment_method']==6) ? 3 : 1,
-				'payed_on' => ($input['payment_method']==6) ? "NOW()" : "0000-00-00",
-				'user_id' => ($this->registry['userdata']) ? $this->registry['userdata']['id'] : 0,
-				'phone' => $input['phone'],
-				'by_card' => ($input['payment_method']==4 || $input['payment_method']==7),
-				'wishes' => $input['wishes'],
-				'overall_discount' => $this->overall_discount($input),
-				'delivery_type' => $input['delivery_type'],
-				'from_account' => 0, //доделать
-				'pay2courier' => ($input['payment_method']==5),
-				'sum_with_discount' => $input['sum_with_discount'],
-				'delivery_costs' => $input['delivery_costs'],
-				'overall_price' => $input['overall_price'],
-				'coupon_discount' => $input['coupon_discount'],
-				'courier_data' => $input['courier_data'],
-				'self_data' => $input['self_data'],
+		$query = $input + array(
+			'user_num' => $this->user_num(),
+			'payment_method_code' => $this->payment_method_code($input['payment_method']),
+			'payment_number' => $this->get_payment_number($input['payment_method']),
+			'order_status' => $this->order_status($input),
+			'payed_on' => ($input['payment_method']==6) ? "NOW()" : "0000-00-00",
+			'user_id' => ($this->registry['userdata']) ? $this->registry['userdata']['id'] : 0,
+			'by_card' => ($input['payment_method']==4 || $input['account_extra_payment']==4),
+			'discount_percent' => $this->discount_percent($input),
+			'from_account' => $this->from_account($input),
+			'pay2courier' => ($input['payment_method']==5), 
 				);
-
+		
 		$this->Front_Order_Write_Query->do_query($query);
 
 		$order_num = sprintf('%d/%d/%s',
@@ -186,7 +203,7 @@ Class Front_Order_Write{
 		
 		$this->Front_Order_Write_Coupon->truncate_coupon($input['coupon'],$order_num);
 
-		//$this->dissmiss_from_account($user_id);
+		$this->dissmiss_from_account($query);
 				
 		$this->truncate_cart_and_storage();
 
