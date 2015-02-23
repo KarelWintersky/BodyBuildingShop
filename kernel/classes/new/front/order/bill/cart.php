@@ -67,11 +67,13 @@ Class Front_Order_Bill_Cart{
 		$order = mysql_fetch_assoc($qLnk);
 		if(!$order || !$this->auth_check($order,$skip_user_match)) return false;
 				
+		$sum = ($order['payment_method_id']) ? $order['overall_sum'] : $order['overall_price'];
+		
 		$output = array(
 				'num' => implode('/',$num),
 				'name' => $this->get_name($order),
 				'address' => $this->make_address($order),
-				'price' => Common_Useful::price2read($order['overall_price'] - $order['from_account']),
+				'price' => Common_Useful::price2read($sum - $order['from_account']),
 				);
 		
 		return $output;

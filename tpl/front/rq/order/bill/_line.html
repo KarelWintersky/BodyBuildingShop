@@ -1,0 +1,90 @@
+<tr>
+	<td width="125" height="180" valign="top" align="center">
+		<br class="br_dbl">
+		<br class="br_dbl">
+		<b>Извещение</b>
+	</td>
+	<td valign="top" height="180" style="line-height:4px;" class="td_body">	
+		<br class="br_dbl">
+		<br class="br_dbl">	
+		
+		<table border="0" cellspacing="0" cellpadding="0" class="bankbill_inner bankbill_inner_1">
+			<tr>
+				<td width="10"></td>
+				<td colspan="2" width="330" class="w_330">Получатель: ООО  «СуперСет»</td>
+			</tr>
+			<tr>
+				<td width="10"></td>
+				<td width="80" class="w_150">КПП: 780501001</td>
+				<td>ИНН: 7805532201</td>
+			</tr>
+			<tr>
+				<td width="10"></td>
+				<td width="80" class="w_150">ОКАТО: 40276562000</td>
+				<td>P/сч.: 40702810655160001781</td>
+			</tr>	
+			<tr>					
+				<td width="10"></td>	
+				<td colspan="2" width="330" class="w_600">в  Московском ОСБ 1877/01093, г.СПб Северо-Западный банк Сбербанка РФ, г.СПб</td>
+			</tr>		
+			<tr>
+				<td width="10"></td>
+				<td width="80">БИК: 044030653</td>
+				<td>К/сч.: 30101810500000000653</td>
+			</tr>											
+		</table>		
+											
+		<br>
+											
+		<table cellspacing="0" cellpadding="0" class="bankbill_inner bankbill_inner_1">
+			<tr>
+				<td width="10"></td>
+				<td width="330" class="w_600">Оплата заказа № <?=$a['num'];?></td>
+			</tr>
+			<tr>
+				<td width="10"></td>
+				<td width="330" class="w_600">Плательщик: <?=$a['name'];?></td>
+			</tr>
+			<tr>
+				<td width="10"></td>
+				<td width="330" class="w_600">
+					Адрес плательщика:
+					<?if($a['address']):?> 
+						<?=$a['address'];?>
+					<?else:?>
+						____________________________________________________
+					<?endif;?>	
+				</td>
+			</tr>							
+			<tr>
+				<td width="10"></td>
+				<td width="330" class="w_600">ИНН плательщика: ____________________________________________________</td>
+			</tr>														
+			<tr>
+				<td width="10"></td>
+				<td width="330" class="w_600">N л/сч. плательщика: __________________________________________________</td>
+			</tr>																					
+		</table>						
+						
+		<br>						
+						
+		<table cellspacing="0" cellpadding="0" class="bankbill_inner bankbill_inner_1">
+			<tr>
+				<td width="10"></td>
+				<td width="120" style="padding:0 110px 0 0;">Сумма: <?=$a['price'];?> руб.</td>
+				<td>Сумма оплаты услуг банка:</td>
+			</tr>
+		</table>
+						
+		<br>						
+						
+		<table cellspacing="0" cellpadding="0" class="bankbill_inner">
+			<tr>
+				<td width="10"></td>
+				<td width="175" style="padding:0 60px 0 0;">Подпись: _______________</td>
+				<td width="175">Дата: "____" __________ 201_ г.</td>
+			</tr>
+		</table>
+						
+	</td>		
+</tr>		

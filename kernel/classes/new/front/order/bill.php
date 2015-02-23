@@ -22,14 +22,20 @@ Class Front_Order_Bill Extends Common_Rq{
 			: $this->Front_Order_Bill_Cart->get_data($num,$skip_user_match); 
 	}
 	
-	public function print_bill($num,$skip_user_match = false){
+	public function print_bill($num,$skip_user_match = false,$to_pdf = false){
 		$data = $this->get_data($num,$skip_user_match);
 		if(!$data) return false;
 		
-		$line = $this->do_rq('screen',$data,true);
-		$line.=$line;
+		$data['to_pdf'] = $to_pdf;
 		
-		return $this->do_rq('screen',$line);	
+		$line = $this->do_rq('line',$data,true);
+		
+		$a = array(
+				'lines' => $line.$line,
+				'to_pdf' => $to_pdf 
+				);
+		
+		return $this->do_rq('bill',$a);	
 	}
 	
 	public function to_screen(){
@@ -47,7 +53,7 @@ Class Front_Order_Bill Extends Common_Rq{
 	}
 	
 	public function to_letter($num){
-		return $this->print_bill($num,true);
+		return $this->print_bill($num,true,true);
 	}
 			
 }

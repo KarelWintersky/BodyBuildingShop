@@ -120,7 +120,8 @@
 
 				$this->registry['new_account_order_data'] = $output;
 
-				$this->registry['logic']->send_account_order($order_id);
+				$Front_Profile_Orders_Account_Make = new Front_Profile_Orders_Account_Make($this->registry);
+				$Front_Profile_Orders_Account_Make->send_order($order_num);
 
 				$this->send_to_admins($order_num);
 

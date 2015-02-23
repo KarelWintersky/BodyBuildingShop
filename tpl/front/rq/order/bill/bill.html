@@ -1,0 +1,19 @@
+<?if(!$a['to_pdf']):?>
+	<style>
+		#bankbill_show{width:689px;border-collapse:collapse;font-size:11px;font-family:Arial;}
+			#bankbill_show td{border:2px solid #000;vertical-align:top;}
+		.bankbill_inner{border-collapse:collapse;font-size:11px;}
+			.bankbill_inner td{border:0 !important;line-height:16px;}
+		.td_head{font-weight:bold;width:189px;text-align:center;padding:16px 0 0;}
+		.td_body{padding:4px 4px 17px;}
+		.bankbill_inner_1{margin:0 0 16px;}
+		.w_150{width:150px;}
+		.w_600{width:600px;}
+	</style>
+<?endif;?>
+
+<font size="7">
+	<table border="1" bordercolor="black" cellspacing="0" cellpadding="0" id="bankbill_show" width="650">
+		<?=$a['lines'];?>
+	</table>
+</font>

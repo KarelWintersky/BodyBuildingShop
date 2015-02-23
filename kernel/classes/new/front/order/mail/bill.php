@@ -12,7 +12,7 @@ Class Front_Order_Mail_Bill{
 	}	
 			
 	public function send_letter($order){
-		if($order['payment_method_id']!=2) return false;
+		if($order['payment_method_id']!=2 && $order['account_extra_payment']!=2) return false;
 				
 		$html = $this->Front_Order_Bill->to_letter($order['num']);
 		

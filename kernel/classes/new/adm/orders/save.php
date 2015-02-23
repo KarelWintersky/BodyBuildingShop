@@ -11,10 +11,7 @@ Class Adm_Orders_Save{
 	 $this->registry['logic']->send_order($_POST['num'],true,false);
 	$this->registry['logic']->admins_notify($_POST['num']);
 	}
-	
-	public function resend_bill(){
-	$this->registry['logic']->send_bill($_POST['num']);
-	}	*/	
+	*/	
 	
 	public function order_save(){
 		foreach($_POST as $key => $val) $$key = (is_array($val)) ? $val : $val;

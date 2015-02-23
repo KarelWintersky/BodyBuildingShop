@@ -201,7 +201,8 @@
 						$orders->resend_message();
 						break;
 					case 1002:
-						$orders->resend_bill();
+						$Front_Order_Mail = new Front_Order_Mail($this->registry);
+						$Front_Order_Mail->send_only_bill();
 						break;
 
 					case 1100:
