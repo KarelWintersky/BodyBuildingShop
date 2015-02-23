@@ -129,9 +129,16 @@ Class Adm_Orders_List Extends Common_Rq{
 		
 		$payment = Front_Order_Data_Payment::get_methods($order['payment_method_id']);
 		
-		return sprintf('%s <span>(%s)</span>',
+		$extra_payment = ($order['account_extra_payment']) 
+			? Front_Order_Data_Payment::get_methods($order['account_extra_payment'])
+			: false;
+		
+		$extra_payment = ($extra_payment) ? $extra_payment['short_name'] : false;
+		
+		return sprintf('%s <span>(%s%s)</span>',
 				$order['payment_method'],
-				mb_strtolower($payment['short_name'],'utf-8')
+				mb_strtolower($payment['short_name'],'utf-8'),
+				($extra_payment) ? sprintf(', %s',mb_strtolower($extra_payment,'utf-8')) : false
 				);
 	}
 		

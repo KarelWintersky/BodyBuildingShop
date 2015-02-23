@@ -48,7 +48,7 @@ Class Front_Template_Menu Extends Common_Rq{
 				
 				$i++;
 			}
-			
+
 			$this->registry['CL_template_vars']->set('main_menu',
 					$this->do_rq('container',
 							implode('',$html)

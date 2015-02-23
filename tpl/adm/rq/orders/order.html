@@ -3,7 +3,9 @@
 </h1>
 
 <div id="order_delivery_type">
-	{{delivery_name}}
+	<span>{{delivery_name}}</span>
+	
+	<span>{{payment_name}}</span>
 </div>
 
 {{mail_actions}}
@@ -63,11 +65,12 @@
 
 		<div class="form_l lft form_l_dlv">
 			<label>Наложка</label>
-			<input type="text" value="{{delivery_costs}}" disabled>
+			<input type="text" value="{{nalog_costs}}" disabled>
 		</div>
 
 		<div class="form_l lft form_l_overall">
-			
+				<label>{{overall_costs_label}}</label>
+				<input type="text" value="{{overall_costs}}" disabled>		
 		</div>
 
 		<div class="clr"></div>
@@ -81,12 +84,12 @@
 
 		<div class="form_l form_l_wishes lft">
 			<label>Пожелания</label>
-			<textarea name="wishes">{{wishes}}</textarea>
+			<textarea name="wishes" disabled>{{wishes}}</textarea>
 		</div>
 
 		<div class="form_l form_l_wishes lft">
 			<label>Комментарий</label>
-			<textarea name="comment" disabled>{{comment}}</textarea>
+			<textarea name="comment">{{comment}}</textarea>
 		</div>
 
 		<div class="clr"></div>
@@ -99,9 +102,7 @@
 
 </div>
 
-<div class="form_1">
-	<h2>Информация о покупателе</h2>
-</div>
+{{customer}}
 
 <table cellpadding="0" cellspacing="0" class="og_table">
 	<tr>

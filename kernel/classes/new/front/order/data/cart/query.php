@@ -5,6 +5,8 @@ Class Front_Order_Data_Cart_Query{
 		$qLnk = mysql_query(sprintf("
 				SELECT
 					goods.id AS goods_id,
+					goods.level_id AS level_id,
+					levels.parent_id AS parent_id,
 					goods.name,
 					goods.alias,
 					goods.grower_id,

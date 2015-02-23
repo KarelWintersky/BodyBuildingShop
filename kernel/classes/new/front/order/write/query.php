@@ -32,7 +32,9 @@ Class Front_Order_Write_Query{
 						delivery_costs, nalog_costs,
 						discount_percent,
 						overall_sum,
-						from_account, pay2courier, by_card
+						from_account, pay2courier, by_card,
+						account_extra_payment,
+						gift_barcode
 						)
 					VALUES
 						(
@@ -46,7 +48,9 @@ Class Front_Order_Write_Query{
 						'%s', '%s',
 						'%s',
 						'%s',
-						'%s', '%s', '%s'
+						'%s', '%s', '%s',
+						'%s',
+						%s	
 						);
 				",
 				$data['payment_number'], $data['order_status'], $data['user_num'], $data['payment_method_code'], $data['payment_method'],
@@ -59,7 +63,11 @@ Class Front_Order_Write_Query{
 				$data['delivery_costs'], $data['nalog_costs'],
 				$data['discount_percent'],
 				$data['overall_sum'],
-				$data['from_account'], $data['pay2courier'], $data['by_card']
+				$data['from_account'], $data['pay2courier'], $data['by_card'],
+				$data['account_extra_payment'],
+				($data['gift_barcode']!==false) 
+					? sprintf("'%s'",$data['gift_barcode'])
+					: "NULL"
 				));	
 
 	}

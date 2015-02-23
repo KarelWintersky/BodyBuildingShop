@@ -13,11 +13,15 @@ Class Front_Order_Data_Cart_Gift{
 				'gift' => true,
 				);
 	}
-	
+		
 	public function get_data(){
 		$barcode = $this->registry['CL_storage']->get_storage('gift');
 		if($barcode===false) return false;
 		
+		return $this->get_gift($barcode);
+	}
+	
+	public function get_gift($barcode){
 		//подарок на усмотрение администрации
 		if($barcode==='0') return $this->any_gift();
 		
@@ -28,7 +32,7 @@ Class Front_Order_Data_Cart_Gift{
 		
 		$goods['gift'] = true;
 		
-		return $goods;
+		return $goods;		
 	}
 		
 }

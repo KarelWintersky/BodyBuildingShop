@@ -1,0 +1,42 @@
+<div class="form_1">
+	<h2>Информация о покупателе</h2>
+	
+	<form id="form_OrderCustomer">
+
+		<div class="form_l fl_name lft">
+			<label>ФИО</label>
+			<input type="text" value="<?=$a['fio'];?>" disabled>
+		</div>	
+
+		<div class="form_l fl_email lft">
+			<label>Email</label>
+			<input type="text" value="<?=$a['email'];?>" disabled>
+		</div>	
+
+		<div class="clr"></div>
+
+		<div class="form_l fl_address lft">
+			<label>Адрес</label>
+			<input type="text" value="<?=$a['address'];?>" disabled>
+		</div>	
+
+		<div class="form_l fl_phone lft">
+			<label>Номер телефона</label>
+			<input type="text" value="<?=$a['phone'];?>" disabled>
+		</div>
+	
+		<div class="clr"></div>
+	
+		<?if($a['user_id']):?>
+			<div id="goto_profile">
+				<a href="/adm/users/<?=$a['user_id'];?>/">Перейти в карточку покупателя</a>
+			</div>
+		<?else:?>
+			<div id="unregistered">
+				Незарегистрированный покупатель
+			</div>
+		<?endif;?>
+	
+	</form>
+	
+</div>

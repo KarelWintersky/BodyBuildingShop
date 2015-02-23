@@ -61,7 +61,7 @@ Class Front_Order_Write_Input{
 		$payment = $this->Front_Order_Storage->get_storage('payment');
 				
 		$nalog_costs = ($deilvery==1 && $payment==1) ? $data['nalog'] : 0;
-		
+				
 		$input = array(
 				'account_extra_payment' => (isset($_POST['extrapayment'])) ? $_POST['extrapayment'] : false,
 				'wishes' => (isset($_POST['wishes'])) ? $_POST['wishes'] : false,
@@ -77,9 +77,12 @@ Class Front_Order_Write_Input{
 				'sum_with_discount' => $data['sum_with_discount'],		
 				'delivery_costs' => $data['delivery_sum'],
 				'nalog_costs' => $nalog_costs,
-				'overall_sum' => $data['sum_with_discount'] + $data['delivery_sum'] + $nalog_costs
+				'overall_sum' => $data['sum_with_discount'] + $data['delivery_sum'] + $nalog_costs,
+				'gift_barcode' => ($data['gift']) 
+					? ((isset($data['gift']['barcode'])) ? $data['gift']['barcode'] : 0)
+					: false
 				);
-		
+				
 		return $input;
 	}
 }

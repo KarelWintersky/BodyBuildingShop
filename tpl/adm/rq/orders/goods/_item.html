@@ -10,8 +10,12 @@
 		<?if($a['goods_barcode'] && !$a['goods_id']):?>
 			Штрихкод не найден	
 		<?else:?>
-			<a href="/adm/catalog/<?=$a['parent_id']?>/<?=$a['level_id']?>/<?=$a['goods_id']?>/">
-				<?=$a['name']?></a>
+			<?if($a['goods_id']):?>
+				<a href="/adm/catalog/<?=$a['parent_id']?>/<?=$a['level_id']?>/<?=$a['goods_id']?>/">
+					<?=$a['name']?></a>
+			<?else:?>
+				<?=$a['name']?>
+			<?endif;?>	
 			
 			<?if(isset($a['packing']) && $a['packing']!=''):?>
 				<br><span><?=$a['packing']?></span>
@@ -24,8 +28,14 @@
 			<?if($a['goods_feats_str']!=''):?><br><span><?=$a['goods_feats_str']?></span><?endif;?>
 		<?endif;?>
 	</td>
-	<td><?=Common_Useful::price2read($a['price'])?></td>
+	<td>
+		<?= ($a['price']) ? Common_Useful::price2read($a['price']) : '-';?>
+	</td>
 	<td><?=$a['amount']?></td>
-	<td><?=$a['discount']?> %</td>
-	<td><?=Common_Useful::price2read($a['final_price'])?></td>
+	<td>
+		<?= ($a['discount']) ? sprintf('%s %%',$a['discount']) : '-';?>
+	</td>
+	<td>
+		<?= ($a['final_price']) ? Common_Useful::price2read($a['final_price']) : '-';?>
+	</td>
 </tr>

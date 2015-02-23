@@ -16,49 +16,45 @@ Class Adm_Orders_Save{
 	$this->registry['logic']->send_bill($_POST['num']);
 	}	*/	
 	
-	public function order_sav(){
-		foreach($_POST as $key => $val){
-			$$key = (is_array($val)) ? $val : $val;
-		}
+	public function order_save(){
+		foreach($_POST as $key => $val) $$key = (is_array($val)) ? $val : $val;
 	
-		$id_arr = explode('/',$num);
-	
-		$postnum = ($postnum!='') ? "'".$postnum."'" : "NULL";
-	
-		mysql_query("
+		$arr = explode('/',$num);
+		
+		mysql_query(sprintf("
 				UPDATE
-				orders
+					orders
 				SET
-				orders.status = '".$status."',
-				orders.sent_on = IF('".$sent_on."'='',orders.sent_on,'".date('Y-m-d',strtotime($sent_on))."'),
-				orders.payed_on = IF('".$payed_on."'='',orders.payed_on,'".date('Y-m-d',strtotime($payed_on))."'),
-				orders.wishes = '".$wishes."',
-				orders.postnum = ".$postnum."
+					status = '%d',
+					sent_on = '%s',
+					payed_on = '%s',
+					comment = '%s',
+					postnum = %s
 				WHERE
-				orders.id = '".$id_arr[0]."'
-				AND
-				orders.user_num = '".$id_arr[1]."'
-				AND
-				orders.payment_method = '".$id_arr[2]."'
-				");
+					id = '%d'
+					AND
+					user_num = '%d'
+					AND
+					payment_method = '%s'
+				",
+				$status,
+				($sent_on) ? date('Y-m-d',strtotime($sent_on)) : '',
+				($payed_on) ? date('Y-m-d',strtotime($payed_on)) : '',
+				mysql_real_escape_string($comment),
+				($postnum) ? sprintf("'%s'",$postnum) : "NULL",
+				$arr[0],
+				$arr[1],
+				$arr[2]
+				));
 	
 		if($status==3){
 			$BL = new Blocks($this->registry,false);
-			$mail_nalog = $BL->order_nalog($id_arr,1);
+			$mail_nalog = $BL->order_nalog($arr,1);
 			$BL->order_goods_rate($num,1);
-			$mail_discount = $BL->mk_discount($id_arr,1);
-			$BL->mail_user_data_change($mail_nalog,$mail_discount,$id_arr);
-		}elseif($status==4){
-			$BL = new Blocks($this->registry,false);
-			$BL->ostatki_order_cancel_notify($num);
+			$mail_discount = $BL->mk_discount($arr,1);
+			$BL->mail_user_data_change($mail_nalog,$mail_discount,$arr);
 		}
-	
-		if($status==4){//если заказ отменен, смотрим, есть ли в нем товары по остаткам
-			Settings::order_cancel($id_arr);
-		}elseif($status==3){//если заказ оплачен, удаляем резерв
-			Settings::order_apply($id_arr);
-		}
-	
+		
 	}		
 }
 ?>

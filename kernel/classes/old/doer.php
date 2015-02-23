@@ -17,12 +17,12 @@
 			$blocks = new Blocks($this->registry,false);
 			$users = new Users($this->registry,false);
 			$articles = new Articles($this->registry,false);
-			$orders = new Orders($this->registry,false);
+			$orders = new Adm_Orders_Save($this->registry,false);
 			$accountorders = new Accountorders($this->registry,false);
 
 			if(isset($_POST['d_action'])){
 
-				$this->rp = $_POST['rp'];
+				$this->rp = (isset($_POST['rp'])) ? $_POST['rp'] : $_SERVER['HTTP_REFERER'];
 
 				switch($_POST['d_action']){
 					case 50:
@@ -195,7 +195,7 @@
 						break;
 
 					case 1000:
-						$orders->order_sav();
+						$orders->order_save();
 						break;
 					case 1001:
 						$orders->resend_message();

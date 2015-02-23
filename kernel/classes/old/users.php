@@ -232,13 +232,14 @@ Class Users{
 
 			$qLnk = mysql_query("
 								SELECT
-									orders.*
+									*,
+									IF(payment_method_id>0,overall_sum,overall_price) AS overall_price
 								FROM
 									orders
 								WHERE
-									orders.user_id = '".$this->registry['user_info']['id']."'
+									user_id = '".$this->registry['user_info']['id']."'
 								ORDER BY
-									orders.made_on DESC;
+									made_on DESC;
 								");
 			while($o = mysql_fetch_assoc($qLnk)){
 				$orders[$o['status']][] = $o;

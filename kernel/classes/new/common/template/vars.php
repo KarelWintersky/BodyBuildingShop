@@ -13,7 +13,7 @@ Class Common_Template_Vars{
 		$this->vars[$name] = $value;
 	}
 		
-	public function vars_replace($html){
+	public function vars_replace($html){		
 		$var_reg = "/\{\{([a-z]+[^}]*)\}\}/i";
 		for($i=1;$i<=3;$i++) $html = preg_replace_callback($var_reg,array($this,'vars_find'),$html);
 	

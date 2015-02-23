@@ -8,7 +8,6 @@ Class Template {
         public $TF;
         public $front_path;
         
-        public $Front_Template;
         public $Adm_Template;
 
         function __construct($registry) {
@@ -18,6 +17,7 @@ Class Template {
 		  
 		  $this->Front_Template = new Front_Template($this->registry);
 		  $this->Adm_Template = new Adm_Template($this->registry);
+		  $this->Template_Vars = new Common_Template_Vars($this->registry);
         }
         
 		function set($varname, $value, $overwrite=false) {
@@ -51,8 +51,11 @@ Class Template {
 			    include ($path);
 			    $html = ob_get_clean();
 			    
-			    if($this->vars['tpl']=='front') $html = $this->Front_Template->do_template($html);
-			    else $html = $this->Adm_Template->do_template($html);
+			    if($this->vars['tpl']=='front'){
+			    	$html = $this->Front_Template->do_template($html);
+			    }else{ 
+			    	$html = $this->Adm_Template->do_template($html);
+			    }
 			    
 			    echo $html;
           }

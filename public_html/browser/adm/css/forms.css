@@ -7,6 +7,7 @@ form{}
 	form input[type="submit"]{border:1px solid #084181;background:#465390;color:#fff;font-size:11px;font-family:Tahoma;font-weight:bold;padding:3px 11px 5px;cursor:pointer;}
 		form input[type="submit"]:hover{background:#5865a3;}
 		form input[type="submit"]:active{background:#7481c0;}
+	form input[disabled], form textarea[disabled]{background:#f5f5f5;color:#666;}	
 	form textarea{padding:4px;resize:none;}
 	form select{height:23px;}
 	form .cbox{}
@@ -429,7 +430,8 @@ form{}
 #order_links{float:right;}
 	#order_links .ol_block{float:left;font-size:11px;margin:9px 0 0 30px;}
 
-#order_delivery_type{float:left;font-size:11px;color:#666;padding:6px 0 0 20px;}
+#order_delivery_type{float:left;font-size:11px;color:#666;padding:0 0 0 20px;}
+	#order_delivery_type span{display:block}
 
 #form_OrderInfo{}
 	#form_OrderInfo .form_l{margin:0 0 15px;}
@@ -445,6 +447,18 @@ form{}
 		#form_OrderInfo .form_l.lft.form_l_sum input{width:70px;}
 		#form_OrderInfo .form_l.lft.form_l_dlv input{width:70px;}
 		#form_OrderInfo .form_l_address{width:190px;font-size:11px;color:#666;line-height:16px;margin-top:-10px;}
+
+#form_OrderCustomer{}
+	#form_OrderCustomer #unregistered{text-align:center;font-size:13px;font-family:Arial;margin:20px 0 0;color:#999;padding:20px 0 8px;}
+	#form_OrderCustomer #goto_profile{text-align:center;border:1px dashed #ccc;font-size:13px;font-family:Arial;margin:20px 0 0;}
+		#form_OrderCustomer #goto_profile a{display:block;padding:20px 0;text-decoration:none;background:#eee;color:#666;}
+			#form_OrderCustomer #goto_profile a:hover{opacity:.6;}
+	#form_OrderCustomer .form_l{margin-bottom:15px;}
+	#form_OrderCustomer .lft{float:left;}
+	#form_OrderCustomer .fl_name input{width:400px;margin-right:30px;}
+	#form_OrderCustomer .fl_email input{width:400px;}
+	#form_OrderCustomer .fl_address input{width:600px;margin-right:30px;}
+	#form_OrderCustomer .fl_phone input{width:200px;}
 
 .alphabet_item{font-size:11px;margin:0 0 10px;}
 	.alphabet_item .ai_f_letter{float:left;width:30px;font-weight:bold;color:#333;padding:1px 0 0;}
