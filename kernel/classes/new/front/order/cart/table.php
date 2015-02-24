@@ -39,17 +39,19 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 	}
 	
 	private function features_colors($g){
-		if(!isset($g['feature']) && !isset($g['color'])) return false;
-		if(!$g['feature'] && !$g['color']) return false;
+		$feature = (isset($g['feature'])) ? $g['feature'] : false;
+		$color = (isset($g['color'])) ? $g['color'] : false;
+		
+		if(!$feature && !$color) return false;
 		
 		$label = ($g['root_id']==4) ? 'Размер' : 'Вкус';
 
 		$string = array();
-			$string[] = (strpos($g['feature'],$label)===false) 
-				? sprintf('%s: %s',$label,$g['feature'])
-				: $g['feature'];
+			$string[] = (strpos($feature,$label)===false) 
+				? sprintf('%s: %s',$label,$feature)
+				: $feature;
 				
-			if(isset($g['color']) && $g['color']) $string[] = sprintf('цвет: %s',$g['color_name']);
+		if(isset($color) && $color) $string[] = sprintf('цвет: %s',$g['color_name']);
 		
 		return implode(', ',$string);
 	}
