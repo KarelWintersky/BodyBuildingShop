@@ -1,5 +1,5 @@
 <tr>
-	<td class="td_goods">
+	<td style="border:1px solid #ccc;padding:5px 0 5px 5px;text-align:left;">
 		<a href="<?=$a['url'];?>">
 			<?=$a['goods_full_name'];?></a>
 		
@@ -9,7 +9,7 @@
 					
 		<?if(isset($a['feature']) && $a['feature']):?>
 			<div style="font-size:11px;color:#666;">
-				<?= ($a['parent_parent_id']==4) ? 'Размер' : 'Вкус';?>: <?=$a['feature'];?>
+				<?=$a['feature_label'];?>: <?=$a['feature'];?>
 			</div>
 		<?endif;?>			
 		
@@ -17,16 +17,16 @@
 			<div style="font-size:11px;color:#666;">Цвет: <?=$a['goods_feats_str'];?></div>
 		<?endif;?>			
 	</td>
-	<td class="td_right">
+	<td style="<?=$a['td_right'];?>">
 		<?=Common_Useful::price2read($a['price'])?> руб.
 	</td>
-	<td class="td_right">
+	<td style="<?=$a['td_right'];?>">
 		<?=$a['amount'];?> шт.
 	</td>
-	<td class="td_right">
+	<td style="<?=$a['td_right'];?>">
 		<?=$a['discount'];?> %
 	</td>
-	<td class="td_right">
+	<td style="<?=$a['td_right'];?>">
 		<?=Common_Useful::price2read($a['final_sum']);?> руб.
 	</td>
 </tr>

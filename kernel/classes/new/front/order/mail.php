@@ -15,6 +15,8 @@ Class Front_Order_Mail{
 		$this->Front_Order_Mail_Bill = new Front_Order_Mail_Bill($this->registry);
 		$this->Front_Order_Mail_Tech = new Front_Order_Mail_Tech($this->registry);		
 		$this->Front_Order_Mail_Data = new Front_Order_Mail_Data($this->registry);		
+		
+		$Common_Mail = new Common_Mail($this->registry);		
 	}	
 		
 	public function send_mail($order_num){
@@ -22,7 +24,7 @@ Class Front_Order_Mail{
 		
 		$this->Front_Order_Mail_Notify->send_letter($order);
 			
-		$this->Front_Order_Mail_Bill->send_letter($order);
+		//$this->Front_Order_Mail_Bill->send_letter($order);
 		
 		//$this->Front_Order_Mail_Tech->send_letter($order);		
 	}

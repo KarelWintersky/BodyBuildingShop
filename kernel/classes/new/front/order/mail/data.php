@@ -83,6 +83,8 @@ Class Front_Order_Mail_Data{
 		$order['num'] = implode('/',$num);
 		$order['goods'] = $this->Front_Order_Mail_Goods->get_goods($num);
 		
+		$order['address'] = Common_Address::implode_address($order);
+		
 		$order['tech'] = $this->get_tech_data($order);
 		
 		return $order;

@@ -1,0 +1,58 @@
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+	<tr>
+		<th style="<?=$a['th_style'];?>">Товар</th>
+		<th style="<?=$a['th_style'];?>">Цена</th>
+		<th style="<?=$a['th_style'];?>">Кол-во</th>
+		<th style="<?=$a['th_style'];?>">Скидка</th>
+		<th style="<?=$a['th_style'];?>">Итого</th>
+	</tr>
+	
+	<?=$a['lines'];?>
+	
+	<tr>
+		<td style="<?=$a['td_right'];?>" colspan="4">Сумма заказа</td>
+		<td style="<?=$a['td_right'];?>">
+			<?=Common_Useful::price2read($a['sum_full']);?> руб.
+		</td>
+	</tr>
+	
+	<?if($a['discount_percent']):?>
+		<tr>
+			<td style="<?=$a['td_right'];?>" colspan="4">Скидка (<?=$a['discount_percent'];?> %)</td>
+			<td style="<?=$a['td_right'];?>">
+				<?=Common_Useful::price2read($a['discount_amount']);?> руб.
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="<?=$a['td_right'];?>" colspan="4">Сумма со скидкой</td>
+			<td style="<?=$a['td_right'];?>">
+				<?=Common_Useful::price2read($a['sum_with_discount']);?> руб.
+			</td>
+		</tr>
+	<?endif;?>
+	
+	<tr>
+		<td style="<?=$a['td_right'];?>" colspan="4">Доставка</td>
+		<td style="<?=$a['td_right'];?>">
+			<?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
+		</td>
+	</tr>	
+	
+	<?if($a['nalog_costs']):?>
+		<tr>
+			<td style="<?=$a['td_right'];?>" colspan="4">Расходы на оплату наложенным платежом</td>
+			<td style="<?=$a['td_right'];?>">
+				<?=Common_Useful::price2read($a['nalog_costs']);?> руб.
+			</td>
+		</tr>	
+	<?endif;?>	
+	
+	<tr>
+		<td style="<?=$a['td_right'];?>" colspan="4">Всего</td>
+		<td style="<?=$a['td_right'];?>">
+			<?=Common_Useful::price2read($a['overall_sum']);?> руб.
+		</td>
+	</tr>		
+	
+</table>

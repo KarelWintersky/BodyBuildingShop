@@ -1,36 +1,23 @@
-<p class="order_num">
+<p style="font-size:18px;color:#000;margin-bottom:0;">
 	Заказ <?=$a['num'];?>
 </p>
-<p class="order_date">
-	Дата заказа <?=$a['date'];?>
+<p style="font-size:12px;color:#999;margin-top:6px;">
+	Дата: <?=$a['date'];?>
 </p>
 <p>
-	Уважаемый <strong><?=$a['user_name'];?></strong>
+	Уважаемый <b><?=$a['user_name'];?></b>.
 </p>
-<p>
-	Внимательно проверьте адрес, на который будет отправлен заказ:
-</p>
-<div class="user_contacts">
-	<p>{USER_ADDRESS}</p>
-	<p class="user_address_hint">
-		Если в данном адресе есть какие-либо неточности, то сразу сообщите нам об этом е-мэйлом. Это позволит избежать возврата посылки.
-	</p>
-	<p>
-		Ваш контактный е-мэйл: <strong><a href="mailto:{USER_EMAIL}?subject=Заказ {ORDER_NUM} оплачен&amp;cc=hercules@superset.ru">{USER_EMAIL}</a></strong>
-		<br />
-		Регистрационный номер: <strong>{USER_ID}</strong>
-	</p>
-</div>
-<p style="text-align: center;"><strong>Ваш заказ:</strong></p>
+
+<?=$a['upper_text'];?>
+
+<p><b>Ваш заказ:</b></p>
 
 <?=$a['table'];?>
 
 <p>
-	Выбранный способ доставки: <strong>самовывоз</strong>
+	Доставка: <b><?=$a['delivery_name'];?></b>
 	<br />
-	Выбранный способ оплаты: <strong>{TR_COMP_PAYMENT}</strong>
-	<br />
-	Общая сумма заказа: <strong>{OVERALL_PRICE} руб.</strong>
+	Оплата: <b><?=$a['payment_name'];?></b>			
 </p>
 
 <?if($a['wishes']):?>
@@ -39,10 +26,6 @@
 	</p>	
 <?endif;?>
 
-<p>Розничный магазин располагается по адресу Новаторов 98, вход через дверь с вывеской "Зал греко-римской борьбы".</p>
-<p><strong>Время работы розничного магазина:</strong></p>
-<p>Понедельник-пятница с 10:00 до 20:00 без обеда.</p>
-<p>Суббота с 11:00 до 18:00&nbsp;без обеда.</p>
-<p>Воскресенье с 11:00 до 16:00&nbsp;без обеда.</p>
-<p>Подробнее о том как найти наш магазин указано <a href="http://www.bodybuilding-shop.ru/about/">на этой странице</a>.</p>
-<p>Официальный интернет-магазин спортивного питания ФБФР&nbsp;<a href="http://www.bodybuilding-shop.ru">www.bodybuilding-shop.ru</a></p>
+<?=$a['lower_text'];?>
+
+<p style="padding-top:20px;">Официальный интернет-магазин спортивного питания ФБФР <a href="http://www.bodybuilding-shop.ru">www.bodybuilding-shop.ru</a></p>
