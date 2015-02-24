@@ -6,13 +6,7 @@ Class Adm_Orders_Save{
 	public function __construct($registry){
 		$this->registry = $registry;
 	}
-		
-	/*public function resend_message(){
-	 $this->registry['logic']->send_order($_POST['num'],true,false);
-	$this->registry['logic']->admins_notify($_POST['num']);
-	}
-	*/	
-	
+			
 	public function order_save(){
 		foreach($_POST as $key => $val) $$key = (is_array($val)) ? $val : $val;
 	

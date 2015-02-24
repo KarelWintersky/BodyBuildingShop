@@ -198,7 +198,8 @@
 						$orders->order_save();
 						break;
 					case 1001:
-						$orders->resend_message();
+						$Front_Order_Mail = new Front_Order_Mail($this->registry);
+						$Front_Order_Mail->send_only_message();
 						break;
 					case 1002:
 						$Front_Order_Mail = new Front_Order_Mail($this->registry);

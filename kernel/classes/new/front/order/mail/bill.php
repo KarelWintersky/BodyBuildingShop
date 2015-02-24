@@ -23,7 +23,7 @@ Class Front_Order_Mail_Bill{
 			'ORDER_NUM' => $order['num']
 		);
 		
-		$mailer = new Mailer($this->registry,13,$replace,$order['user_email'],$attach);		
+		$mailer = new Mailer($this->registry,13,$replace,$order['tech']['email'],$attach);		
 	}
 }
 ?>

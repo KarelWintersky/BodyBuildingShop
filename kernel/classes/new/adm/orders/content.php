@@ -63,10 +63,12 @@ Class Adm_Orders_Content Extends Common_Rq{
 		$sum = ($order['payment_method_id']) ? $order['sum_with_discount'] : $order['sum'];
 			$sum = ($sum) ? Common_Useful::price2read($sum) : '-';
 		
-		$overall = ($order['payment_method_id']) ? $order['overall_sum'] : $order['overall_price'];	
-			
+		$overall = ($order['payment_method_id']) ? $order['overall_sum'] : $order['overall_price'];
+
+		$discount = ($order['payment_method_id']) ? $order['discount_percent'] : $order['discount'];
+		
 		$values = array(
-				'discount' => $order['discount_percent'],
+				'discount' => ($discount) ? $discount : 0,
 				'sum' => $sum,
 				'delivery_costs' => ($order['delivery_costs']) ? Common_Useful::price2read($order['delivery_costs']) : '-',
 				'nalog_costs' => ($order['nalog_costs']) ? Common_Useful::price2read($order['nalog_costs']) : '-',
@@ -84,7 +86,7 @@ Class Adm_Orders_Content Extends Common_Rq{
 		
 		return $values;
 	}
-	
+		
 	private function set_vars($order){
 		$vars = array(
 			'num' => $order['num'],

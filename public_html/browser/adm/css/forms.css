@@ -428,7 +428,7 @@ form{}
 		.og_table td.td_goods span{color:#666;font-size:10px;font-weight:bold;}
 
 #order_links{float:right;}
-	#order_links .ol_block{float:left;font-size:11px;margin:9px 0 0 30px;}
+	#order_links .ol_block{float:left;font-size:11px;margin:9px 0 0 30px;color:#999;}
 
 #order_delivery_type{float:left;font-size:11px;color:#666;padding:0 0 0 20px;}
 	#order_delivery_type span{display:block}

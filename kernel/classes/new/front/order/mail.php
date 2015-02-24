@@ -20,7 +20,7 @@ Class Front_Order_Mail{
 	public function send_mail($order_num){
 		$order = $this->Front_Order_Mail_Data->get_data($order_num);
 		
-		//$this->Front_Order_Mail_Notify->send_letter($order,1);
+		$this->Front_Order_Mail_Notify->send_letter($order);
 			
 		$this->Front_Order_Mail_Bill->send_letter($order);
 		
@@ -38,8 +38,10 @@ Class Front_Order_Mail{
 		$this->Front_Order_Mail_Bill->send_letter($order);
 	}
 
-	public function send_only_guest(){
-	
+	public function send_only_message(){
+		$order = $this->Front_Order_Mail_Data->get_data($_POST['num']);
+		
+		$this->Front_Order_Mail_Notify->send_letter($order,1);
 	}	
 	
 }

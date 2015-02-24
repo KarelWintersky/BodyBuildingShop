@@ -8,7 +8,8 @@
 		private $to;
 
 		public function __construct($registry,$tpl_id,$replace_arr,$to,$attach = false,$encoding='UTF-8'){
-
+			if(!$this->check_email($to)) return false;
+			
 			$this->registry = $registry;
 
 			set_include_path(ROOT_PATH.'kernel/libs/');
@@ -57,6 +58,12 @@
 
 		}
 
+		private function check_email($email){
+			if(!$email) return false;
+			
+			return filter_var($email, FILTER_VALIDATE_EMAIL);
+		}
+		
 		private function add2replacearr($replace_arr){
 			$replace_arr['SITE_URL'] = THIS_URL;
 			return $replace_arr;
