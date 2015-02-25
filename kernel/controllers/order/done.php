@@ -1,7 +1,12 @@
 <?php
 Class Controller_Done Extends Controller_Base{
 		
-	function done($path = NULL){		
+	function done($path = NULL){
+		if(count($path)){
+			header('Location: /order/');
+			exit();
+		}
+		
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
     	$this->registry['template']->set('c','order/done');

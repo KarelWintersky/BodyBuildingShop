@@ -43,9 +43,9 @@ Class Controller_Card Extends Controller_Base{
 		$Front_Order_Payment_Card->do_prepare();
 	}
 	
-    function index($path = NULL) {
-    	//$this->delivery($path);
-    }
+	function card($path = NULL){}
+	
+    function index($path = NULL){}
                      
 }
 
