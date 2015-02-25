@@ -1,3 +1,5 @@
+/public_html/.htaccess
+/public_html/.htpasswd
 /public_html/data
 /public_html/y_market.xml
 /public_html/sitemap.xml

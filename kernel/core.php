@@ -15,9 +15,15 @@ define('NEWS_PAGINATE',10,true);
 define('POPULAR_MAX',15,true);
 
 //robokassa
-define('ROBOKASSA_LG','bodybuilding-shop',true);
+/*define('ROBOKASSA_LG','bodybuilding-shop',true);
 define('ROBOKASSA_PW','Isdfisdoj23423',true);
 define('ROBOKASSA_PW_2','sdfsd2323423ss',true);
+define('ROBOKASSA_CURR','BANKOCEAN2R',true); //валюта
+define('ROBOKASSA_LANG','ru',true); //язык*/
+
+define('ROBOKASSA_LG','bodybuilding-test',true);
+define('ROBOKASSA_PW','IJsd89ds',true);
+define('ROBOKASSA_PW_2','Lsdlsdl3ed',true);
 define('ROBOKASSA_CURR','BANKOCEAN2R',true); //валюта
 define('ROBOKASSA_LANG','ru',true); //язык
 
