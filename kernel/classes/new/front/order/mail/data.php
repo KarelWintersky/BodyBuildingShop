@@ -51,6 +51,7 @@ Class Front_Order_Mail_Data{
 		$qLnk = mysql_query(sprintf("
 							SELECT
 								orders.*,
+								users.login AS user_login,
 								users.name AS user_name,
 								users.phone AS user_phone,
 								users.email AS user_email,

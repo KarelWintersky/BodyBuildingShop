@@ -24,9 +24,9 @@ Class Front_Order_Mail{
 		
 		$this->Front_Order_Mail_Notify->send_letter($order);
 			
-		//$this->Front_Order_Mail_Bill->send_letter($order);
+		$this->Front_Order_Mail_Bill->send_letter($order);
 		
-		//$this->Front_Order_Mail_Tech->send_letter($order);		
+		$this->Front_Order_Mail_Tech->send_letter($order);		
 	}
 	
 	public function send_only_bill(){
@@ -42,7 +42,7 @@ Class Front_Order_Mail{
 
 	public function send_only_message(){
 		$order = $this->Front_Order_Mail_Data->get_data($_POST['num']);
-		
+		$this->Front_Order_Mail_Tech->send_letter($order);
 		$this->Front_Order_Mail_Notify->send_letter($order,1);
 	}	
 	
