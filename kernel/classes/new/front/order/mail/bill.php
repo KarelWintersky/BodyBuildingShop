@@ -1,5 +1,5 @@
 <?php
-Class Front_Order_Mail_Bill{
+Class Front_Order_Mail_Bill Extends Common_Rq{
 	
 	private $registry;
 	
@@ -19,11 +19,12 @@ Class Front_Order_Mail_Bill{
 		$pdfmanager = new Pdfmanager($this->registry);
 		$attach = $pdfmanager->fileCompose($html);
 		
-		$replace = array(
-			'ORDER_NUM' => $order['num']
-		);
-		
-		$mailer = new Mailer($this->registry,13,$replace,$order['tech']['email'],$attach);		
+		$this->registry['CL_mail']->send_mail(
+				$order['tech']['email'],
+				sprintf('Квитанция на оплату заказа %s',$order['num']),
+				$this->do_rq('text',$order),
+				$attach
+		);		
 	}
 }
 ?>

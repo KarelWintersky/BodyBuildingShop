@@ -33,7 +33,7 @@ Class Front_Order_Mail_Notify{
 	
 	private function to_guests($html,$order){
 		$this->registry['CL_mail']->send_mail(
-				$order['user_email'],
+				$order['tech']['email'],
 				sprintf('Бодибилдинг-Магазин: заказ №%s',$order['num']),
 				$html
 				);
