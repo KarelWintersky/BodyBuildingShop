@@ -63,6 +63,7 @@ Class Front_Order_Payment_Card{
 				'code' => $code,
 				'curr' => ROBOKASSA_CURR,
 				'lang' => ROBOKASSA_LANG,
+				'url' => ROBOKASSA_URL,
 		);
 		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

@@ -8,16 +8,21 @@ Class Front_Order_Payment_Card_Done{
 	}	
 			
 	public function do_page(){
-
+		$order = $this->get_order();
+		
 		$vars = array(
-			'order_num' => '',
-			'overall_sum' => '',
+			'order_num' => sprintf('%d/%d/%s',
+					$order['id'],
+					$order['user_num'],
+					$order['payment_method']
+					),
+			'overall_sum' => Common_Useful::price2read($order['overall_sum'] - $order['from_account']),
 		);
 		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
 	}
 		
-	public function success_check(){
+	public function get_order(){
 		if(!Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_error();
 		
 		$qLnk = mysql_query(sprintf("
@@ -43,8 +48,8 @@ Class Front_Order_Payment_Card_Done{
 				)));
 	
 		if($crc!=strtoupper($_POST['SignatureValue'])) Front_Order_Payment_Card_Helper::goto_error();
-					
 		
+		return $order;
 	}
 		
 }

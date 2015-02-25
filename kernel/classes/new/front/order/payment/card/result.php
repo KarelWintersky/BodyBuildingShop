@@ -14,9 +14,10 @@ Class Front_Order_Payment_Card_Result{
 	public function do_result($path){
 		if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
 		
-		$crc = strtoupper(md5(sprintf("%s:%s:ROBOKASSA_PW_2:Shp_item=%s",
+		$crc = strtoupper(md5(sprintf("%s:%s:%s:Shp_item=%s",
 				$_POST['OutSum'],
 				$_POST['InvId'],
+				ROBOKASSA_PW_2,
 				$_POST['Shp_item']
 				)));
 		

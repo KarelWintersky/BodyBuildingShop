@@ -1,22 +1,6 @@
 <?php
 Class Controller_Card Extends Controller_Base{
 		
-	/*function delivery($path = NULL){
-		Front_Order_Steps::check_step(2);
-		
-    	$this->registry['CL_css']->set(array(
-    			'order',
-    	));    	
-    	$this->registry['CL_js']->set(array(
-    			'order/delivery',
-    	));    	
-    	
-    	$Front_Order_Data = new Front_Order_Data($this->registry);
-    	
-    	$Front_Order_Delivery = new Front_Order_Delivery($this->registry);
-    	$Front_Order_Delivery->do_vars();	
-	}*/
-
 	function result($path = NULL){			
 		$Front_Order_Payment_Card_Result = new Front_Order_Payment_Card_Result($this->registry);
 		$Front_Order_Payment_Card_Result->do_result($path);
