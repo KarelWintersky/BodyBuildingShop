@@ -2,54 +2,57 @@
 
 <div id="order_main">
 
-	<h2>Авторизация</h2>
+	
 
 	<div id="cart_login">
-		
-		<div class="cl_item">
-			<div class="cl_item_h">Я зарегистрирован</div>	
-			<div class="cl_item_c">
-				<form id="form_CartAuth" method="POST">
+		<div id="cart_login_auth">
+			<h2>Войти под учетной записью</h2>
+			
+			<form id="form_CartAuth" method="POST">
+			
+				<input type="hidden" name="after" value="/order/delivery/">
 				
-					<input type="hidden" name="after" value="/order/delivery/">
-					
-					<div class="fl">
-						<label>Логин</label>
-						<input type="text" name="login">
-					</div>
-					<div class="fl">
-						<label>Пароль</label>
-						<input type="password" name="pass">
-					</div>
-					<div class="fl">
-						<input type="submit" value="Войти">
-					</div>	
-					<div class="clr"></div>										
-				</form>
-			</div>	
+				<div class="fl">
+					<label>Логин</label>
+					<input type="text" name="login">
+					<div class="clr"></div>
+				</div>
+				<div class="fl">
+					<label>Пароль</label>
+					<input type="password" name="pass">
+					<div class="clr"></div>
+				</div>
+				<div class="fl fl_sbm">
+					<input type="submit" value="Войти">
+				</div>	
+				<div class="clr"></div>										
+			</form>			
 		</div>
-		<div class="cl_item">
-			<div class="cl_item_h">Зарегистрироваться</div>
-			<div class="cl_item_c">
-				<div class="cl_item_c_hint">
+		
+		<div id="cart_login_noauth">
+			<h2>Если покупаете впервые</h2>
+			
+			<div id="cln_register">
+				<div class="cln_go">
+					<a href="/register/?after=/order/delivery/">Зарегистрироваться</a>
+				</div>
+				<div class="cln_hint">
 					У зарегистрированных пользователей куча разных бонусов - наложка, курьер, скидки. Регистрируйтесь!
 				</div>
-				<div class="cl_item_c_link">
-					<a href="/register/?after=/order/delivery/">Перейти к регистрации</a>
-				</div>
 			</div>
-		</div>
-		<div class="cl_item">
-			<div class="cl_item_h">Продолжить без регистрации</div>
-			<div class="cl_item_c">
-				<div class="cl_item_c_hint">
-					Без наложки, без накопления скидки, но продолжить можно.<br>
-					Когда запрашиваем данные? На шаге "проверка"?
-				</div>		
-				<div class="cl_item_c_link">
-					<a href="/order/delivery/">Продолжить</a>
+			
+			<div id="cln_continue">
+				<div class="cln_go">
+					<a href="/order/delivery/">Купить без регистрации</a>
 				</div>
-			</div>	
-		</div>			
+				<div class="cln_hint">
+					Без наложки, без накопления скидки, но продолжить можно.
+				</div>							
+			</div>
+			
+		</div>
+	
+		<div class="clr"></div>
+					
 	</div>
 </div>
