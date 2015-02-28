@@ -19,7 +19,13 @@
 	
 	<li>
 		<div class="obs_val">
-			<b><?= ($a['delivery']) ? Common_Useful::price2read($a['delivery']) : 'бесплатно';?></b> руб.
+			<?if(is_null($a['delivery'])):?>
+				уточняется
+			<?elseif($a['delivery']):?>
+				<b><?=Common_Useful::price2read($a['delivery']);?></b> руб.
+			<?else:?>	
+				бесплатно
+			<?endif;?>	
 		</div>
 		<div class="obs_hint">Стоимость доставки:</div>
 		<div class="clr"></div>

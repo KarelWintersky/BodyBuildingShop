@@ -45,7 +45,8 @@ Class Front_Order_Write_Query{
 						'%s', '%s',
 				
 						'%s', '%s',
-						'%s', '%s',
+						 %s, 
+						'%s',
 						'%s',
 						'%s',
 						'%s', '%s', '%s',
@@ -60,7 +61,8 @@ Class Front_Order_Write_Query{
 				$data['courier_data'], $data['self_data'],
 				
 				$data['sum'], $data['sum_with_discount'],
-				$data['delivery_costs'], $data['nalog_costs'],
+				($data['delivery_costs']===false) ? "NULL" : sprintf("'%s'",$data['delivery_costs']), 
+				$data['nalog_costs'],
 				$data['discount_percent'],
 				$data['overall_sum'],
 				$data['from_account'], $data['pay2courier'], $data['by_card'],

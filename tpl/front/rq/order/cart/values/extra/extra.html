@@ -12,7 +12,11 @@
 	<div class="ogv_val">
 	
 		<?if(!$a['free_delivery']):?>
-			<b><?=$a['delivery'];?></b> руб.
+			<?if($a['delivery']):?>
+				<b><?=$a['delivery'];?></b> руб.
+			<?else:?>
+				уточняется
+			<?endif;?>	
 		<?else:?>
 			бесплатно
 		<?endif;?>
