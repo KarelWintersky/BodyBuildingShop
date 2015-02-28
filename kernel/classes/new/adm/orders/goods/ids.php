@@ -14,8 +14,11 @@ Class Adm_Orders_Goods_Ids{
 		$qLnk = mysql_query(sprintf("
 				SELECT
 					goods.id,
+					goods.alias,
 					levels.id AS level_id,
-					parent_tbl.id AS parent_id
+					levels.alias AS level_alias,
+					parent_tbl.id AS parent_id,
+					parent_tbl.alias AS parent_alias
 				FROM
 					goods
 				INNER JOIN levels ON levels.id = goods.level_id
@@ -30,6 +33,9 @@ Class Adm_Orders_Goods_Ids{
 				if($arr['goods_id']==$g['id']){
 					$goods[$key]['level_id'] = $g['level_id'];
 					$goods[$key]['parent_id'] = $g['parent_id'];
+					$goods[$key]['alias'] = $g['alias'];
+					$goods[$key]['level_alias'] = $g['level_alias'];
+					$goods[$key]['parent_alias'] = $g['parent_alias'];					
 				}
 			}
 		}	

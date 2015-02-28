@@ -19,9 +19,12 @@ Class Adm_Orders_Goods_Barcodes{
 					goods_barcodes.packing,
 					goods_barcodes.feature,
 					goods.id,
+					goods.alias,
 					goods.name AS goods_name,
 					levels.id AS level_id,
-					parent_tbl.id AS parent_id
+					levels.alias AS level_alias,
+					parent_tbl.id AS parent_id,
+					parent_tbl.alias AS parent_alias
 				FROM
 					goods_barcodes
 				INNER JOIN goods ON goods.id = goods_barcodes.goods_id
@@ -36,6 +39,9 @@ Class Adm_Orders_Goods_Barcodes{
 			foreach($goods as $key => $gitem){
 				if($gitem['goods_barcode']==$g['barcode']){
 					$goods[$key]['goods_id'] = $g['id'];
+					$goods[$key]['alias'] = $g['alias'];
+					$goods[$key]['level_alias'] = $g['level_alias'];
+					$goods[$key]['parent_alias'] = $g['parent_alias'];
 					$goods[$key]['goods_name'] = $g['goods_name'];
 					$goods[$key]['level_id'] = $g['level_id'];
 					$goods[$key]['parent_id'] = $g['parent_id'];

@@ -1,5 +1,5 @@
 <?php
-Class Front_Profile_Orders_Goods Extends Common_Rq{
+Class Front_Profile_Orders_Page_Goods Extends Common_Rq{
 	
 	private $registry;
 	
@@ -11,11 +11,13 @@ Class Front_Profile_Orders_Goods Extends Common_Rq{
 		$this->Adm_Orders_Goods = new Adm_Orders_Goods($this->registry);
 	}	
 	
-	public function print_goods($order_num){
-		$goods = $this->Adm_Orders_Goods->get_goods($order_num);
-		
+	public function print_goods($order){
+		$goods = $this->Adm_Orders_Goods->get_goods($order);
+				
 		$html = array();
 		foreach($goods as $g){
+			$g['total_price'] = $g['final_price']*$g['amount']; 
+			
 			$html[] = $this->do_rq('item',$g,true);
 		}
 		

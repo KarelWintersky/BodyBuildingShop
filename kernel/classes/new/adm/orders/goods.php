@@ -82,8 +82,8 @@ Class Adm_Orders_Goods Extends Common_Rq{
 		return $goods;
 	}
 	
-	public function get_goods($num){
-		$goods = $this->get_from_orders($num);
+	public function get_goods($order){
+		$goods = $this->get_from_orders($order['num']);
 		if(!count($goods)) return false;
 		
 		$goods = ($this->is_barcodes($goods))
@@ -96,7 +96,7 @@ Class Adm_Orders_Goods Extends Common_Rq{
 	}
 	
 	public function goods_list($order){		
-		$goods = $this->get_goods($order['num']);
+		$goods = $this->get_goods($order);
 		
 		$html = array();
 		foreach($goods as $g){

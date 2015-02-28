@@ -1,0 +1,42 @@
+<tr>
+	<td class="td_name">
+		<?if($a['goods_full_name']=='Подарок на усмотрение администрации,' || !$a['goods_id']):?>
+			<?=rtrim($a['goods_full_name'],',')?>
+		<?else:?>
+			<a href="/<?=$a['parent_alias']?>/<?=$a['level_alias']?>/<?=$a['alias']?>/"><?=$a['goods_full_name'];?></a>	
+			
+			<?if($a['goods_feats_str']):?>
+				<span>Цвет: <?=$a['goods_feats_str'];?></span>
+			<?endif;?>
+			
+			<?if(isset($a['feature']) && $a['feature']):?>
+				<span><?= ($a['parent_id']==4) ? 'Размер' : 'Вкус';?>: <?=$a['feature'];?></span>
+			<?endif;?>
+			
+		<?endif;?>
+	</td>
+	<td>
+		<?if($a['price']):?>
+			<b><?=Common_Useful::price2read($a['price']);?></b> руб
+		<?else:?>
+			<b>-</b>
+		<?endif;?>
+	</td>
+	<td>
+		<?=$a['amount']?>
+	</td>
+	<td>
+		<?if($a['price']):?>
+			<?=$a['discount']?> %
+		<?else:?>
+			<b>-</b>
+		<?endif;?>	
+	</td>
+	<td>
+		<?if($a['price']):?>
+			<b><?=Common_Useful::price2read($a['total_price']);?></b> руб
+		<?else:?>
+			<b>-</b>
+		<?endif;?>		
+	</td>
+</tr>
