@@ -39,6 +39,7 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'num' => $order['num'],
 				'date' => date('d.m.Y H:i',strtotime($order['made_on'])),
 				'user_name' => $order['tech']['name'],
+				'user_email' => $order['tech']['email'],
 				'table' => $this->Front_Order_Mail_Notify_Table->print_goods($order),
 				'wishes' => $order['wishes'],
 				'delivery_name' => $delivery['name'],

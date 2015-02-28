@@ -10,6 +10,13 @@
 
 <?=$a['upper_text'];?>
 
+<?if($a['user_email']):?>
+	<p>
+		Ваш контактный e-mail: 
+		<strong><a href='mailto:<?=$a["user_email"];?>?subject=Заказ <?=$a["num"];?> оплачен&cc=hercules@superset.ru'><?=$a["user_email"];?></a></strong>
+	</p>
+<?endif;?>
+
 <p><b>Ваш заказ:</b></p>
 
 <?=$a['table'];?>
