@@ -28,7 +28,7 @@ Class Front_Profile_Orders_Page_New{
 		$payment = Front_Order_Data_Payment::get_methods($order['payment_method_id']);
 		$order['payment_name'] = $payment['name'];
 				
-		$order['print_bill'] = ($order['payment_method_id']==2 || $order['account_extra_payment']==2);
+		$order['print_bill'] = ($order['status']==1 && ($order['payment_method_id']==2 || $order['account_extra_payment']==2));
 
 		$order['numbers'] = $this->numbers($order);
 		

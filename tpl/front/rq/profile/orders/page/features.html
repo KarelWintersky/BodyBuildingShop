@@ -4,10 +4,10 @@
 			<b>Дата заказа:</b> <?=date('d.m.Y',strtotime($a['made_on']));?>
 		</li>
 		<li>
-			<b>Способ оплаты:</b> <?=$a['payment_name'];?>
+			<b>Оплата:</b> <?=$a['payment_name'];?>
 		</li>
 		<li>
-			<b>Способ доставки:</b> <?=$a['delivery_name'];?>
+			<b>Доставка:</b> <?=$a['delivery_name'];?>
 		</li>
 		
 		<?if($a['sent_on']!='0000-00-00'):?>

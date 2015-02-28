@@ -54,6 +54,41 @@ Class Front_Profile_Orders_List Extends Common_Rq{
 		return implode('',$html);		
 	}
 	
+	private function account_orders(){
+		$statuses = array(
+				1 => 'сформирован',
+				2 => 'оплачен',
+				3 => 'отменен',
+		);
+		
+		$html = array();
+		$qLnk = mysql_query(sprintf("
+				SELECT
+					*
+				FROM
+					account_orders
+				WHERE
+					user_id = '%d'
+				ORDER BY
+					createdon DESC;
+				",
+				$this->registry['userdata']['id']
+				));
+		while($o = mysql_fetch_assoc($qLnk)){
+			$o['num'] = sprintf('%d/%d/A',
+					$o['id'],
+					$o['user_num']					
+					);
+			$o['status_name'] = $statuses[$o['status']];
+			
+			$html[] = $this->do_rq('account',$o,true);
+		}		
+		
+		return (count($html))
+			? implode('',$html)
+			: $this->do_rq('blank',NULL,true);
+	}
+	
 	private function print_orders($orders){		
 		$output = array();
 		$statuses = range(1,5);
@@ -66,6 +101,8 @@ Class Front_Profile_Orders_List Extends Common_Rq{
 			}
 			
 		}
+		
+		$output['account'] = $this->account_orders();
 		
 		return $output;
 	}

@@ -1,0 +1,25 @@
+<div id="page_cart">
+	<h1 class="second_style">Оплата заказа банковской картой</h1>
+
+	<div class="texted">
+		По нажатию на кнопку "Оплатить" Вы будете перенаправлены на страницу платежной системы Robokassa для оплаты Вашего заказа. Обращаем Ваше внимание, что система берет дополнительную комиссию за перевод денег в размере от 2% до 10% от суммы платежа. Точный размер суммы к оплате будет показан на следующем шаге.
+	</div>
+
+	<form action="{{url}}" method="POST" id="form_RobocassaGo">
+
+	   <input type="hidden" name="MrchLogin" value="{{login}}">
+	   <input type="hidden" name="OutSum" value="{{sum}}">
+	   <input type="hidden" name="InvId" value="{{unique_id}}">
+	   <input type="hidden" name="Desc" value="{{desc}}">
+	   <input type="hidden" name="SignatureValue" value="{{signature}}">
+	   <input type="hidden" name="Shp_item" value="{{code}}">
+	   <input type="hidden" name="Culture" value="{{lang}}">
+	   <input type="hidden" name="IncCurrLabel" value="{{curr}}">
+
+	   <div class="fl fl_sbm">
+	   		<input type="submit" value="Оплатить">
+		</div>
+
+	</form>
+
+</div>

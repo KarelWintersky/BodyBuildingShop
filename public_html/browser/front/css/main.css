@@ -356,3 +356,14 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 
 .article_typical_page{position:relative;}
 	.article_typical_page #article_share{position:absolute;top:-47px;right:0;background:#fff;padding:0 0 0 15px;}
+	
+#form_RobocassaGo{}		
+	#form_RobocassaGo .fl_sbm{text-align:center;padding:30px 0 0;}		
+		#form_RobocassaGo .fl_sbm input{text-decoration:none;outline:none;border:1px solid #F49900;height:26px;font-size:12px;color:#fff;font-family:Verdana;cursor:pointer;padding:0 18px;background:#eab000;margin:0 0 0 20px;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efcc3e', endColorstr='#ed9d00', GradientType=0 );
+		background-image: -webkit-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -webkit-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -moz-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -o-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);
+		background-image: -ms-linear-gradient(top, #efcc3e 0%, #eab500 50%, #ed9d00 100%);}	

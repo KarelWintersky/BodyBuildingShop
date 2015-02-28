@@ -1,0 +1,22 @@
+<tr>
+	<td>
+		<?=$a['num']?>
+	</td>
+	<td>
+		<?=date('d.m.Y',strtotime($a['createdon']));?>
+	</td>
+		
+	<td>
+		<?=Common_Useful::price2read($a['sum']);?> руб.
+	</td>
+	<td>
+		<?=$a['status_name']?>
+	</td>
+
+	<td class="td_bill">
+		<?if($a['status']==1):?>
+			<a class="td_bill_lnk" href="#" rel="<?=$a['num']?>" title="распечатать квитанцию на оплату"></a>
+		<?endif;?>
+	</td>	
+	
+</tr>

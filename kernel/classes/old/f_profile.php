@@ -13,6 +13,7 @@
 		public function path_check(){
 			$Front_Profile = new Front_Profile($this->registry);
 			$Front_Profile_Orders_Page = new Front_Profile_Orders_Page($this->registry);
+			$Front_Profile_Orders_Pay = new Front_Profile_Orders_Pay($this->registry);
 			
 			if(!isset($_SESSION['user_id'])){header('Location: /auth/');}
 
@@ -78,10 +79,18 @@
 				));				
 				
 				return true;
-			}elseif(count($path_arr)==3 && $path_arr[0]=='orders' && $this->order_check($path_arr[1]) && $path_arr[2]=='pay' && $this->pay_check($path_arr[1])){
-				$this->registry['template']->set('c','profile/order_pay');
-				$this->get_all_user_info();
-				$this->mk_roboxchange_data($path_arr[1]);
+			}elseif(
+					count($path_arr)==3 
+					&& 
+					$path_arr[0]=='orders' && $path_arr[2]=='pay' 
+					&& 
+					$Front_Profile_Orders_Pay->check_order($path_arr[1])){
+				
+				$data = $Front_Profile->get_data();
+				
+				$this->registry['template']->set('c','profile/orders/pay');
+				
+				//$this->mk_roboxchange_data($path_arr[1]);
 				
 				$this->registry['CL_css']->set(array(
 						'profile',
@@ -146,57 +155,6 @@
 					$mailer = new Mailer($this->registry,24,$replace_arr,$admin_mail);
 				}
 			}
-
-		}
-
-		private function mk_roboxchange_data($num){
-
-			$id_arr = explode('-',$num);
-			$order_id = implode('/',$id_arr);
-
-			$login = ROBOKASSA_LG; //$mrh_login
-			$pwd = ROBOKASSA_PW; //$mrh_pass1
-			$unique_id = $this->registry['orderdata']['ai'];; //$inv_id
-			$desc = 'Оплата заказа № '.$order_id.' в Бодибилдинг-Магазине'; //$inv_desc
-			$sum = $this->registry['orderdata']['overall_price']; //$out_summ
-			$code = 1;	//$shp_item
-
-			$crc  = md5("$login:$sum:$unique_id:$pwd:Shp_item=$code");
-
-			$this->registry['RD'] = array(
-				'login' => $login,
-				'sum' => $sum,
-				'unique_id' => $unique_id,
-				'desc' => $desc,
-				'signature' => $crc,
-				'code' => $code,
-				'curr' => ROBOKASSA_CURR,
-				'lang' => ROBOKASSA_LANG,
-			);
-		}
-
-		private function pay_check($num){
-			$id_arr = explode('-',$num);
-			$qLnk = mysql_query("
-								SELECT
-									COUNT(*)
-								FROM
-									orders
-								WHERE
-									orders.user_id = '".$this->registry['userdata']['id']."'
-									AND
-									orders.id = '".$id_arr[0]."'
-									AND
-									orders.user_num	= '".$id_arr[1]."'
-									AND
-									orders.payment_method = '".$id_arr[2]."'
-									AND
-									orders.by_card = 1
-									AND
-									orders.status = 1
-			");
-
-			return (mysql_result($qLnk,0)>0) ? true : false;
 
 		}
 

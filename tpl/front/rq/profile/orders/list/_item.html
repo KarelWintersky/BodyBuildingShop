@@ -48,8 +48,8 @@
 			<?if($a['status']!=5):?>
 				<?if($a['payment_method_id']==2 || $a['account_extra_payment']==2):?>
 					<a class="td_bill_lnk" href="#" rel="<?=$a['num']?>" title="распечатать квитанцию на оплату"></a>
-				<?elseif($a['by_card']==1):?>
-					<a class="payment_lnk" href="/profile/orders/<?=$a['lnk']?>/pay/" title="оплатить заказ кредитной картой"></a>
+				<?elseif($a['by_card']==1 && $a['payment_method_id']):?>
+					<a class="payment_lnk" href="/profile/orders/<?=$a['link']?>/pay/" title="оплатить заказ кредитной картой"></a>
 				<?endif;?>
 			<?endif;?>
 		</td>

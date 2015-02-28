@@ -15,7 +15,7 @@ Class Front_Order_Mail_Tech{
 				explode('::',ADMINS_EMAILS),
 				sprintf('В интернет-магазине новый заказ №%s%s',
 						$order['num'],
-						(strpos($order_id,'П'!==false)) ? ' ПО ПРЕДОПЛАТЕ' : ''
+						(strpos($order['num'],'П'!==false)) ? ' ПО ПРЕДОПЛАТЕ' : ''
 						),
 				$lines,
 				false,

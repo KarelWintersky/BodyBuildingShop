@@ -92,6 +92,8 @@
 		#form_AccountOrder #fao_l .form_l_sum{margin:0 0 15px;}
 	#form_AccountOrder #fao_r{float:right;width:500px;font-size:11px;line-height:15px;color:#999;padding:15px 0 0;}
 
+#order_features{padding-bottom:25px;}
+
 #order_block{padding:32px 0 0;}
 	#order_block h2{color:#e38a25;font-size:18px;font-weight:normal;padding:0 0 23px;}
 	#order_block .order_bill_link{text-decoration:none;border-bottom:1px dotted #36C;}

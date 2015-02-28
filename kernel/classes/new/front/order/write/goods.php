@@ -37,8 +37,11 @@ Class Front_Order_Write_Goods{
 		$q = array();
 		foreach($data['cart'] as $key => $arr){
 			$goods = $data['goods'][$key];
-			
+						
 			$discount = $goods['personal_discount'];
+			$name = ($goods['grower_name']) 
+						? sprintf('"%s". %s',$goods['grower_name'],$goods['name'])
+						: $goods['name'];
 			
 			$q[] = sprintf("
 						(
@@ -55,13 +58,13 @@ Class Front_Order_Write_Goods{
 					",
 					$order_num,
 					$arr['barcode'],
-					$goods['name'],
-					$arr['packing'],
+					mysql_real_escape_string($name),
+					mysql_real_escape_string($arr['packing']),
 					$arr['amount'],
 					$goods['old_price'],
 					$goods['personal_discount'],
 					$goods['price'],
-					$arr['color']
+					mysql_real_escape_string($arr['color'])
 					);
 		}
 				
