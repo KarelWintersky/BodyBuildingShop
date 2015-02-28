@@ -1,0 +1,24 @@
+<div class="profile_page">
+
+	<h1 class="second_style">{{name}}</h1>
+
+	<div id="profile_page_id">({{id}})</div>
+
+	<div id="profile_page_personal_discount">Персональная скидка: <b>{{discount}} %</b></div>
+
+	<div class="clr"></div>
+
+	<ul id="profile_nav">
+		<li><a href="/profile/">Ваши установки</a></li>
+		<li>Ваши заказы и баланс</li>
+		<li><a href="/profile/accountorder/">Пополнить счет</a></li>
+	</ul>
+
+	<div id="profile_page_hint">
+		<p>Максимальная сумма заказа для наложенного платежа <b>{{max_nalog_sum}} руб.</b> Для предоплаты ограничений нет.</p>
+		<p>На Вашем счету сейчас <b>{{my_account}} руб.</b> (<a href="/profile/accountorder/">зачем это нужно</a>, <a href="/profile/accountorder/">пополнить счет</a>)</p>
+	</div>
+
+	{{list}}
+
+</div>

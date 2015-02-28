@@ -1,0 +1,40 @@
+<div class="profile_page">
+
+	<h1 class="second_style">{{name}}</h1>
+
+	<div id="profile_page_id">({{id}})</div>
+
+	<div id="profile_page_personal_discount">Персональная скидка: <b>{{discount}} %</b></div>
+
+	<div class="clr"></div>
+
+	<ul id="profile_nav">
+		<li><a href="/profile/">Ваши установки</a></li>
+		<li><a href="/profile/orders/">Ваши заказы и баланс</a></li>
+		<li><a href="/profile/accountorder/">Пополнить счет</a></li>
+	</ul>
+
+	<div id="order_block">
+
+		<h2>Заказ номер {{num}}</h2>
+
+		{{features}}
+
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th id="th_name">Товар</th>
+				<th>Цена</th>
+				<th>Кол-во</th>
+				<th>Скидка</th>
+				<th>Сумма</th>
+			</tr>
+			{{goods}}
+		</table>
+
+		{{numbers}}
+
+		<div class="clr"></div>
+
+	</div>
+
+</div>

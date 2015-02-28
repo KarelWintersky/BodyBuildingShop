@@ -13,6 +13,10 @@ Class Front_Order_Done Extends Common_Rq{
 		
 	public function do_vars(){
 		$order = $this->Front_Order_Done_Data->get_data();
+		if(!$order){
+			header('Location: /order/');
+			exit();
+		}
 		
 		$vars = array(
 				'message' => $this->do_message($order),

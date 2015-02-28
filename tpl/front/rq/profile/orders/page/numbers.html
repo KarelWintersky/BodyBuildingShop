@@ -1,0 +1,42 @@
+<ul id="ob_summary">
+	<li>
+		<div class="obs_val">
+			<b><?=Common_Useful::price2read($a['order']);?></b> руб.
+		</div>
+		<div class="obs_hint">Сумма заказа:</div>
+		<div class="clr"></div>
+	</li>
+	
+	<?if($a['discount']):?>
+		<li>
+			<div class="obs_val">
+				<b><?=Common_Useful::price2read($a['discount']);?></b> руб.
+			</div>
+			<div class="obs_hint">Скидка (<?=$a['discount_percent'];?>%):</div>
+			<div class="clr"></div>
+		</li>				
+	<?endif;?>
+	
+	<li>
+		<div class="obs_val">
+			<b><?= ($a['delivery']) ? Common_Useful::price2read($a['delivery']) : 'бесплатно';?></b> руб.
+		</div>
+		<div class="obs_hint">Стоимость доставки:</div>
+		<div class="clr"></div>
+	</li>	
+	
+	<?if($a['nalog']):?>
+		<li>
+			<div class="obs_val">
+				<b><?=Common_Useful::price2read($a['nalog'])?></b> руб.
+			</div>
+			<div class="obs_hint">Дополнительные расходы на доставку наложенным платежом:</div>
+			<div class="clr"></div>
+		</li>	
+	<?endif;?>			
+
+</ul>		
+	
+<div id="order_overall">
+	Общая сумма заказа: <span><b><?=Common_Useful::price2read($a['overall'])?></b> руб.</span>
+</div>

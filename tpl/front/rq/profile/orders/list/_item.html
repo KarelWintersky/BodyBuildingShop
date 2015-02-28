@@ -1,18 +1,19 @@
-<tr class="<?= ($a['status']==4 || $a['status']==5) ? 'cancelled' : '';?>">
+<tr class="<?=$a['classes'];?>">
 	<td>
-		<a href="/profile/orders/<?=$a['lnk']?>/"><?=$a['num']?></a>
+		<a href="/profile/orders/<?=$a['link']?>/"><?=$a['num']?></a>
 	</td>
 
 	<?if(in_array($a['status'],array(3,2))):?>
 		<td>
-			<?if(!is_null($a['postnum']) && $a['postnum']!=''):?>
-				<a href="http://www.russianpost.ru/rp/servise/ru/home/postuslug/trackingpo" target="_blank"><?=$a['postnum']?></a>
+			<?if($a['postnum']):?>
+				<a href="http://www.russianpost.ru/rp/servise/ru/home/postuslug/trackingpo" target="_blank">
+					<?=$a['postnum']?></a>
 			<?endif;?>
 		</td>
 	<?endif;?>
 
 	<td>
-		<?=date('d.m.Y',strtotime($a['made_on']));?>
+		<?= ($a['made_on'] && $a['made_on']!='0000-00-00 00:00:00') ? date('d.m.Y',strtotime($a['made_on'])) : '';?>
 	</td>
 
 	<?if(in_array($a['status'],array(2,3,4))):?>
@@ -39,13 +40,13 @@
 		<?=$a['discount']?> %
 	</td>
 	<td class="td_price">
-		<b><?=Common_Useful::price2read($a['overall_price']);?></b> руб.
+		<b><?=Common_Useful::price2read($a['price']);?></b> руб.
 	</td>
 
 	<?if($a['status']==1 || $a['status']==5):?>
 		<td class="td_bill">
 			<?if($a['status']!=5):?>
-				<?if($a['payment_method']!='H' && $a['payment_method']!='Н' && $a['by_card']==0):?>
+				<?if($a['payment_method_id']==2 || $a['account_extra_payment']==2):?>
 					<a class="td_bill_lnk" href="#" rel="<?=$a['num']?>" title="распечатать квитанцию на оплату"></a>
 				<?elseif($a['by_card']==1):?>
 					<a class="payment_lnk" href="/profile/orders/<?=$a['lnk']?>/pay/" title="оплатить заказ кредитной картой"></a>

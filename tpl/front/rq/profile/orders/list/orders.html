@@ -1,0 +1,82 @@
+<div id="your_orders">
+	<h2>Ваши заказы</h2>
+
+	<div class="yo_table">
+		<div class="yo_table_h">Не отправленные заказы</div>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>№ заказа</th>
+				<th>Дата заказа</th>
+				<th>Скидка</th>
+				<th>Сумма</th>
+				<th></th>
+			</tr>
+			<?=$a[1].$a[5];?>
+		</table>
+	</div>
+
+	<div class="yo_post_hint">
+		Для каждого заказа в статусе "отправлен" указан номер почтового отправления. К сожалению, в связи с защитными мерами сайта почты мы не можем предоставить Вам прямой ссылки на страницу с информацией о Вашей посылке. Однако Вы можете перейти на сайт почте по ссылке и ввести там номер отправления вручную. Если номер отправления в строке заказа отсутствует, то вы можете <a href="/contacts/" target="_blank">связаться с нами</a> для его получения.
+	</div>
+
+	<div class="yo_table">
+		<div class="yo_table_h">Отправленные Вам заказы, за которые оплата не получена</div>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>№ заказа</th>
+				<th>№ отправления</th>
+				<th>Дата заказа</th>
+				<th>Отправлено</th>
+				<th>Скидка</th>
+				<th>Сумма</th>
+			</tr>
+			<?=$a[2];?>
+		</table>
+	</div>
+
+	<div class="yo_table">
+		<div class="yo_table_h">Отправленные и оплаченные Вами заказы</div>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>№ заказа</th>
+				<th>№ отправления</th>
+				<th>Дата заказа</th>
+				<th>Отправлено</th>
+				<th>Оплачено</th>
+				<th>Скидка</th>
+				<th>Сумма</th>
+			</tr>
+			<?=$a[3];?>
+		</table>
+	</div>
+
+	<div class="yo_table">
+		<div class="yo_table_h">Отмененные заказы</div>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>№ заказа</th>
+				<th>Дата заказа</th>
+				<th>Отправлено</th>
+				<th>Оплачено</th>
+				<th>Скидка</th>
+				<th>Сумма</th>
+			</tr>
+			<?=$a[4];?>
+		</table>
+	</div>
+
+	<div class="yo_table">
+		<div class="yo_table_h">Авансовые заказы</div>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>№ заказа</th>
+				<th>Дата заказа</th>
+				<th>Сумма</th>
+				<th>Статус</th>
+				<th></th>
+			</tr>
+					
+		</table>
+	</div>
+
+</div>

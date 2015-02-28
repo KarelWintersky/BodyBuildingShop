@@ -1,0 +1,38 @@
+<div class="texted">
+	<ul id="order_features">
+		<li>
+			<b>Дата заказа:</b> <?=date('d.m.Y',strtotime($a['made_on']));?>
+		</li>
+		<li>
+			<b>Способ оплаты:</b> <?=$a['payment_name'];?>
+		</li>
+		<li>
+			<b>Способ доставки:</b> <?=$a['delivery_name'];?>
+		</li>
+		
+		<?if($a['sent_on']!='0000-00-00'):?>
+			<li>
+				<b>Отправлен:</b> <?=date('d.m.Y',strtotime($a['sent_on']));?>
+			</li>
+		<?endif;?>
+		
+		<?if($a['payed_on']!='0000-00-00'):?>
+			<li>
+				<b>Оплачен:</b> <?=date('d.m.Y',strtotime($a['payed_on']));?>
+			</li>
+		<?endif;?>
+		
+		<?if($a['final_discount']):?>
+			<li>
+				<b>Общая скидка:</b> <?=$a['final_discount'];?> %
+			</li>
+		<?endif;?>
+		
+		<?if($a['print_bill']):?>
+			<li>
+				<a href="#" class="order_bill_link" rel="<?=$a['num'];?>">Квитанция на оплату</a>
+			</li>		
+		<?endif;?>
+
+	</ul>
+</div>

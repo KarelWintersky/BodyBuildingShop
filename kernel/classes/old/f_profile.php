@@ -11,7 +11,9 @@
 		}
 
 		public function path_check(){
-
+			$Front_Profile = new Front_Profile($this->registry);
+			$Front_Profile_Orders_Page = new Front_Profile_Orders_Page($this->registry);
+			
 			if(!isset($_SESSION['user_id'])){header('Location: /auth/');}
 
 			$this->registry['f_404'] = false;
@@ -32,9 +34,13 @@
 				
 				return true;
 			}elseif(count($path_arr)==1 && $path_arr[0]=='orders'){
-				$this->registry['template']->set('c','profile/orders');
+				$data = $Front_Profile->get_data();				
+				
+				$Front_Profile_Orders_List = new Front_Profile_Orders_List($this->registry);
+				$Front_Profile_Orders_List->print_list($data);
+				
+				$this->registry['template']->set('c','profile/orders/list');
 				$this->registry['longtitle'] = 'Ваши заказы';
-				$this->get_all_user_info();
 				
 				$this->registry['CL_css']->set(array(
 						'profile',
@@ -62,9 +68,10 @@
 				));				
 				
 				return true;
-			}elseif(count($path_arr)==2 && $path_arr[0]=='orders' && $this->order_check($path_arr[1])){
-				$this->registry['template']->set('c','profile/order');
-				$this->get_all_user_info();
+			}elseif(count($path_arr)==2 && $path_arr[0]=='orders' && $Front_Profile_Orders_Page->check_order($path_arr[1])){
+				$data = $Front_Profile->get_data();
+				
+				$this->registry['template']->set('c','profile/orders/page');
 				
 				$this->registry['CL_css']->set(array(
 						'profile',
@@ -193,65 +200,6 @@
 
 		}
 
-		private function order_check($num){
-
-			$id_arr = explode('-',$num);
-
-			$qLnk = mysql_query("
-								SELECT
-									orders.*
-								FROM
-									orders
-								WHERE
-									orders.id = '".$id_arr[0]."'
-									AND
-									orders.user_num = '".$id_arr[1]."'
-									AND
-									orders.payment_method = '".$id_arr[2]."'
-									AND
-									orders.user_id = '".$this->registry['userdata']['id']."'
-								LIMIT 1;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				$orderdata = mysql_fetch_assoc($qLnk);
-				$orderdata['num'] = $orderdata['id'].'/'.$orderdata['user_num'].'/'.$orderdata['payment_method'];
-
-				if($orderdata['delivery_type']==1){
-					$orderdata['delivery_type_text'] = 'по почте';
-				}elseif($orderdata['delivery_type']==2){
-					$orderdata['delivery_type_text'] = 'курьером';
-				}elseif($orderdata['delivery_type']==3){
-					$orderdata['delivery_type_text'] = 'транспортной компанией';
-				}
-
-				if($orderdata['payment_method']=='Н' || $orderdata['payment_method']=='H'){
-					$orderdata['payment_type_text'] = 'наложенным платежом';
-				}elseif($orderdata['payment_method']=='W'){
-					$orderdata['payment_type_text'] = 'электронными деньгами';
-				}elseif($orderdata['payment_method']=='П'){
-					if($orderdata['by_card']==1){
-						$orderdata['payment_type_text'] = 'банковской картой или через платежные системы';
-					}elseif($orderdata['pay2courier']==1){
-						$orderdata['payment_type_text'] = 'курьеру';
-					}elseif($orderdata['from_account']>0){
-						$orderdata['payment_type_text'] = 'с личного счета';
-					}else{
-						$orderdata['payment_type_text'] = 'предоплата';
-					}
-
-				}
-
-
-
-				$this->registry['orderdata'] = $orderdata;
-
-				$this->registry['longtitle'] = 'Заказ номер '.$orderdata['num'];
-				return true;
-			}else{
-				return false;
-			}
-		}
-
 		private function get_all_user_info(){
 
 			$qLnk = mysql_query("SELECT users.* FROM users WHERE users.id = '".$_SESSION['user_id']."';");
@@ -375,214 +323,6 @@
 					$html.= '<li>'.$error.'</li>';
 				}
 				echo '<ol id="profile_upper_err">'.$html.'</ol>';
-			}
-		}
-
-		public function get_your_orders(&$orders){
-
-			$orders = array();
-
-			$qLnk = mysql_query("
-								SELECT
-									orders.*
-								FROM
-									orders
-								WHERE
-									orders.user_id = '".$this->registry['full_ui']['id']."'
-								ORDER BY
-									orders.id DESC;
-								");
-			while($o = mysql_fetch_assoc($qLnk)){
-				$orders[$o['status']][] = $o;
-			}
-						
-		}
-
-		public function print_orders($orders,$type,$colspan){
-
-			$types = (is_array($type)) ? $type : array($type);
-			
-			$output = array();
-			
-			foreach($types as $type){
-				if(isset($orders[$type])){
-					foreach($orders[$type] as $l){
-						
-						$l['num'] = $l['id'].'/'.$l['user_num'].'/'.$l['payment_method'];
-						$l['lnk'] = $l['id'].'-'.$l['user_num'].'-'.$l['payment_method'];
-
-						$output[$l['ai']] = $l;
-					}
-				}else{
-					echo '<td class="no_orders" colspan="'.$colspan.'">Нет ни одного заказа</td>';
-				}
-			}
-
-			ksort($output,SORT_NUMERIC);
-			$output=array_reverse($output);
-						
-			foreach($output as $l){
-				$this->item_rq('order_tr',$l);
-			}
-						
-		}
-
-		public function order_goods_table(&$is_barcodes,&$final_price){
-			$final_price = 0;
-			$goods = array();
-			$barcodes = array();
-			$qLnk = mysql_query("
-								SELECT
-									orders_goods.*
-								FROM
-									orders_goods
-								WHERE
-									orders_goods.order_id = '".$this->registry['orderdata']['num']."'
-								ORDER BY
-									orders_goods.final_price DESC;
-								");
-			while($g = mysql_fetch_assoc($qLnk)){
-				$goods[] = $g;
-				$barcodes[] = $g['goods_barcode'];
-				
-				$final_price+=$g['price']*$g['amount'];
-			} 
-						
-			$is_barcodes = false;
-			foreach($goods as $g) if($g['goods_id']==0 && $g['price']>0) $is_barcodes = true;
-			
-			if($is_barcodes){
-				
-				foreach($goods as $key => $g){
-					if($g['goods_feats_str']!='' && is_numeric($g['goods_feats_str'])){
-						$goods[$key]['goods_feats_str'] = mysql_result(mysql_query(sprintf("SELECT IFNULL(name,'') FROM features WHERE id = '%d'",$g['goods_feats_str'])),0);
-					}
-				}			
-				
-				$qLnk = mysql_query(sprintf("
-						SELECT
-							goods_barcodes.barcode,
-							goods_barcodes.feature,
-							goods.alias,
-							levels.alias AS level_alias,
-							parent_tbl.alias AS parent_alias,
-							parent_tbl.id AS parent_parent_id						
-						FROM
-							goods_barcodes
-						INNER JOIN goods ON goods.id = goods_barcodes.goods_id 
-						LEFT OUTER JOIN levels ON levels.id = goods.level_id
-						LEFT OUTER JOIN levels AS parent_tbl ON parent_tbl.id = levels.parent_id
-						WHERE
-							goods_barcodes.barcode IN (%s)
-						",
-						implode(",",$barcodes)
-				));		
-				
-			while($g = mysql_fetch_assoc($qLnk)){
-				foreach($goods as $key => $gitem){
-					if($gitem['goods_barcode']==$g['barcode']){
-						$goods[$key]['alias'] = $g['alias'];
-						$goods[$key]['level_alias'] = $g['level_alias'];
-						$goods[$key]['parent_alias'] = $g['parent_alias'];						
-						$goods[$key]['feature'] = $g['feature'];						
-						$goods[$key]['parent_parent_id'] = $g['parent_parent_id'];						
-					}
-				}
-			}		
-				
-			}else{
-				
-				$newgoods = array();
-				foreach($goods as $key => $val){
-					$newgoods[$val['goods_id']] = $val; 
-				}
-				$goods = $newgoods;
-				
-				$qLnk = mysql_query(sprintf("
-						SELECT
-							goods.id,
-							goods.alias,
-							levels.alias AS level_alias,
-							parent_tbl.alias AS parent_alias
-						FROM
-							goods
-						LEFT OUTER JOIN levels ON levels.id = goods.level_id
-						LEFT OUTER JOIN levels AS parent_tbl ON parent_tbl.id = levels.parent_id
-						WHERE
-							goods.id IN (%s)
-						",
-						implode(",",array_keys($goods))
-						));		
-				
-				while($g = mysql_fetch_assoc($qLnk)){
-					$goods[$g['id']]['alias'] = $g['alias'];
-					$goods[$g['id']]['level_alias'] = $g['level_alias'];
-					$goods[$g['id']]['parent_alias'] = $g['parent_alias'];
-				}		
-			}
-						
-			foreach($goods as $g){
-				$this->item_rq('order_goods_tr',$g);
-			}
-		}
-
-		public function get_cart_sum(){
-			$cart = 0;
-			if(isset($_COOKIE['thecart']) && $_COOKIE['thecart']!=''){
-
-				$ids = array();
-
-				$array = explode('||',$_COOKIE['thecart']);
-				foreach($array as $str){
-					$a = explode(':',$str);
-					$ids[] = $a[0];
-				}
-
-				$ids = array_count_values($ids);
-				
-				$qLnk = mysql_query(sprintf("
-									SELECT
-										goods_barcodes.barcode,
-										goods_barcodes.price - goods_barcodes.price*%d/100 AS price,
-										goods.personal_discount
-									FROM
-										goods_barcodes
-									INNER JOIN goods ON goods.id = goods_barcodes.goods_id
-									WHERE
-										goods_barcodes.barcode IN (%s);
-									",OVERALL_DISCOUNT,implode(',',array_keys($ids))));
-				while($g = mysql_fetch_assoc($qLnk)){
-					$cart+= ($g['price'] - intval($g['price']*($g['personal_discount']+$this->registry['userdata']['personal_discount'])/100)*$ids[$g['barcode']]);
-				}
-
-			}
-			return Common_Useful::price2read($cart);
-		}
-
-		public function print_account_orders(){
-			$statuses = array(
-				1 => 'сформирован',
-				2 => 'оплачен',
-				3 => 'отменен',
-			);
-			$qLnk = mysql_query("
-								SELECT
-									account_orders.*
-								FROM
-									account_orders
-								WHERE
-									account_orders.user_id = '".$this->registry['userdata']['id']."'
-								ORDER BY
-									account_orders.createdon DESC;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				while($o = mysql_fetch_assoc($qLnk)){
-					$o['num'] = $o['id'].'/'.$o['user_num'].'/A';
-					$o['s'] = $statuses[$o['status']];
-					$this->item_rq('account_order',$o);
-				}
-			}else{
-				echo '<td class="no_orders" colspan="4">Нет ни одного заказа</td>';
 			}
 		}
 
