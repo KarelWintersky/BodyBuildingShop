@@ -550,12 +550,12 @@ Class Blocks{
 						$feedback[] = $l.' (заказ с номером '.$A[1].' не найден)$$0';
 					}
 
-					if($ord_status==4){//если заказ отменен, смотрим если ли в нем товары по остаткам
+					/*if($ord_status==4){//если заказ отменен, смотрим если ли в нем товары по остаткам
 						$this->ostatki_order_cancel_notify($A[1]);
 						Settings::order_cancel($order_arr);
 					}elseif($ord_status==3){//если заказ оплачен, удаляем резерв
 						Settings::order_apply($order_arr);
-					}
+					}*/
 
 					$mail_nalog = $this->order_nalog($order_arr,$status);
 
@@ -598,6 +598,8 @@ Class Blocks{
 								FROM
 									users
 								WHERE
+									users.id > 0
+									AND
 									users.id = (
 										SELECT
 											orders.user_id
@@ -659,6 +661,8 @@ Class Blocks{
 								FROM
 									users
 								WHERE
+									users.id > 0
+									AND
 									users.id = (
 										SELECT
 											orders.user_id
@@ -821,6 +825,8 @@ Class Blocks{
 							FROM
 								users
 							WHERE
+								users.id > 0
+								AND
 								users.id = (
 									SELECT
 										orders.user_id
