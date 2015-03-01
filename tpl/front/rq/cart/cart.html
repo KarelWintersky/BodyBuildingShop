@@ -1,0 +1,14 @@
+<a id="head_cart_go" href="/order/">Заказать</a>
+
+<div id="head_cart_info" class="<?=$a['class'];?>">
+	<div id="head_cart_amounts">
+		Товаров: <b><?=$a['amount'];?></b> на сумму: <b><?=$a['sum'];?> р.</b>
+	</div>
+	
+	<?if($a['authed']):?>
+		<div id="head_cart_bill">
+			На счету: 
+			<b><a href="/profile/accountorder/"><?=$a['account'];?> р.</a></b>
+		</div>
+	<?endif;?>
+</div>

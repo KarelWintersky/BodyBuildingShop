@@ -67,6 +67,8 @@ Class Front_Order_Payment_Card{
 		);
 		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
+		
+		$this->registry->set('longtitle','Оплата заказа');
 	}
 			
 }

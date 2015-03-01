@@ -12,6 +12,8 @@ Class Controller_Card Extends Controller_Base{
 		$this->registry['template']->set('tpl','front');
 		$this->registry['f_404'] = false;
 		$this->registry['template']->set('c','order/card/error_');
+		
+		$this->registry->set('longtitle','Ошибка при оплате заказа');
 
 		$this->registry['CL_css']->set(array(
 				'order',
@@ -23,6 +25,8 @@ Class Controller_Card Extends Controller_Base{
 		$this->registry['template']->set('tpl','front');
 		$this->registry['f_404'] = false;
 		$this->registry['template']->set('c','order/card/done_');
+		
+		$this->registry->set('longtitle','Заказ оплачен успешно');
 		
 		$this->registry['CL_css']->set(array(
 				'order',

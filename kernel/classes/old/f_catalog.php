@@ -749,42 +749,6 @@
 			echo ($counter>0) ? '<div class="added"><div class="added_i">'.$counter.'</div></div>' : '';
 		}
 
-		public function cart_construct(){
-
-			$personal_discount = isset($this->registry['userdata']['personal_discount']) ? $this->registry['userdata']['personal_discount'] : 0;
-
-			$goods_ids = array();
-			$a['cart_goods_amount'] = 0;
-			$a['cart_sum'] = 0;
-
-			if(isset($_COOKIE['thecart']) && $_COOKIE['thecart']!=''){
-				$cart_arr = explode('|',$_COOKIE['thecart']);
-								
-				foreach($cart_arr as $goods_string){
-					$goods_arr = explode(':',$goods_string);
-					if(count($goods_arr)<3) continue;
-
-					$qLnk = mysql_query(sprintf("SELECT price FROM goods_barcodes WHERE barcode = '%s' AND packing = '%s'",
-						$goods_arr[0],$goods_arr[1]
-						));
-					$price = mysql_fetch_assoc($qLnk);
-					if($price){
-						$a['cart_sum']+= $price['price']*$goods_arr[2];
-						$a['cart_goods_amount']+=$goods_arr[2];
-					}
-				}
-
-			}
-
-			ob_start();
-			$this->item_rq('cart',$a);
-			$html = ob_get_contents();
-			ob_end_clean();
-
-			echo $html;
-
-		}
-
 		public function prev_next(){
 
 			$sort_items = array(

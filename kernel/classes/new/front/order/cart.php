@@ -23,6 +23,8 @@ Class Front_Order_Cart{
 	}
 	
 	public function do_vars(){
+		$this->registry->set('longtitle','Оформление заказа');
+		
 		$data = $this->registry['CL_data']->get_data();
 		if(!$data) return $this->cart_empty();
 		

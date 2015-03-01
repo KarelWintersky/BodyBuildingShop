@@ -44,8 +44,8 @@ Class f_Ajax{
 	}
 
 	private function cart_construct(){
-		$catalog = new f_Catalog($this->registry);
-		$catalog->cart_construct();
+		$Front_Cart = new Front_Cart($this->registry);
+		echo $Front_Cart->head_cart();
 	}
 
 	private function goods_ostatok_check(){
