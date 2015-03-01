@@ -56,6 +56,20 @@ Class Front_Order_Write_Input{
 		return implode('::',$arr);		
 	}	
 	
+	private function is_spb($data,$deilvery){
+		/*
+		 * для облегчения дальнейших действий записываем, из Санкт-Петербурга ли покупатель
+		 * */
+		
+		if($deilvery==1) return $data['costs']['post']['is_spb'];
+		
+		if($deilvery==2) return $data['costs']['courier']['is_spb'];
+		
+		if($deilvery==3 && $this->registry['userdata']) return $data['costs']['post']['is_spb'];
+		
+		return true;
+	}
+	
 	public function make_data($data){	
 		$deilvery = $this->Front_Order_Storage->get_storage('delivery');
 		$payment = $this->Front_Order_Storage->get_storage('payment');
@@ -80,7 +94,8 @@ Class Front_Order_Write_Input{
 				'overall_sum' => $data['sum_with_discount'] + $data['delivery_sum'] + $nalog_costs,
 				'gift_barcode' => ($data['gift']) 
 					? ((isset($data['gift']['barcode'])) ? $data['gift']['barcode'] : 0)
-					: false
+					: false,
+				'is_spb' => $this->is_spb($data,$deilvery)
 				);
 				
 		return $input;

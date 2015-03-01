@@ -10,39 +10,6 @@ Class Front_Order_Mail_Data{
 		
 		$this->Front_Order_Mail_Goods = new Front_Order_Mail_Goods($this->registry);
 	}	
-
-	private function get_tech_data($order){
-		/*получаем данные о пользователе в зависимости от его регистрации и типа доставки, если незарегистрирован*/
-		
-		if($order['delivery_type']==1){
-			$data = array(
-					'name' => $order['user_name'],
-					'email' => $order['user_email'],
-					'phone' => $order['user_phone'],
-					'address' => Common_Address::implode_address($order),
-					);
-		}elseif($order['delivery_type']==2){
-			$arr = explode('::',$order['courier_data']);
-			
-			$data = array(
-					'name' => $arr[0],
-					'email' => ($arr[6]) ? $arr[6] : $order['user_email'],
-					'phone' => $arr[1],
-					'address' => Common_Address::from_courier($order['courier_data']),
-			);			
-		}elseif($order['delivery_type']==4){
-			$arr = explode('::',$order['self_data']);
-			
-			$data = array(
-					'name' => $arr[0],
-					'email' => $order['user_email'],
-					'phone' => $arr[1],
-					'address' => Common_Address::implode_address($order),
-			);			
-		}
-				
-		return $data;
-	}
 	
 	public function get_data($num){
 		$num = explode('/',$num);
@@ -86,7 +53,7 @@ Class Front_Order_Mail_Data{
 		
 		$order['address'] = Common_Address::implode_address($order);
 		
-		$order['tech'] = $this->get_tech_data($order);
+		$order['tech'] = Front_Order_Helper::get_tech_data($order);
 		
 		return $order;
 	}

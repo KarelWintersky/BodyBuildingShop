@@ -4,6 +4,7 @@ Class Controller_Payment Extends Controller_Base{
 	function payment($path = NULL){
 		Front_Order_Steps::check_step(3);
 		
+		$this->registry->set('noindex',true);
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
     	$this->registry['template']->set('c','order/payment');

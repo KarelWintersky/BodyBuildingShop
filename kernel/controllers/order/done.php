@@ -7,6 +7,7 @@ Class Controller_Done Extends Controller_Base{
 			exit();
 		}
 		
+		$this->registry->set('noindex',true);
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
     	$this->registry['template']->set('c','order/done');

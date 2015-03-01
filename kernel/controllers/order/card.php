@@ -8,6 +8,7 @@ Class Controller_Card Extends Controller_Base{
 	}	
 	
 	function error(){
+		$this->registry->set('noindex',true);
 		$this->registry['template']->set('tpl','front');
 		$this->registry['f_404'] = false;
 		$this->registry['template']->set('c','order/card/error_');
@@ -18,6 +19,7 @@ Class Controller_Card Extends Controller_Base{
 	}
 	
 	function done(){
+		$this->registry->set('noindex',true);
 		$this->registry['template']->set('tpl','front');
 		$this->registry['f_404'] = false;
 		$this->registry['template']->set('c','order/card/done_');
@@ -31,6 +33,7 @@ Class Controller_Card Extends Controller_Base{
 	}
 	
 	function prepare($path = NULL){
+		$this->registry->set('noindex',true);
 		$this->registry['template']->set('tpl','front');
 		$this->registry['f_404'] = false;
 		$this->registry['template']->set('c','order/card/prepare_');

@@ -8,6 +8,7 @@ Class Controller_Login Extends Controller_Base{
 				'order',
 		));		
 		
+		$this->registry->set('noindex',true);
 		$this->registry['template']->set('tpl','front');
 		$this->registry['f_404'] = false;
 		$this->registry['template']->set('c','order/login');		

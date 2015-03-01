@@ -4,6 +4,7 @@ Class Controller_Index Extends Controller_Base{
     function index($path = NULL) {
     	if(count($path)){ header('Location: /order/'); exit(); }
     	
+    	$this->registry->set('noindex',true);
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
 
@@ -37,6 +38,7 @@ Class Controller_Index Extends Controller_Base{
     function check(){
     	Front_Order_Steps::check_step(4);
     	
+    	$this->registry->set('noindex',true);
     	$this->registry['template']->set('tpl','front');
     	$this->registry['f_404'] = false;
     	$this->registry['template']->set('c','order/check');

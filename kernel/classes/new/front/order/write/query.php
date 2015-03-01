@@ -34,7 +34,8 @@ Class Front_Order_Write_Query{
 						overall_sum,
 						from_account, pay2courier, by_card,
 						account_extra_payment,
-						gift_barcode
+						gift_barcode,
+						is_spb
 						)
 					VALUES
 						(
@@ -51,7 +52,8 @@ Class Front_Order_Write_Query{
 						'%s',
 						'%s', '%s', '%s',
 						'%s',
-						%s	
+						 %s,	
+						'%d'
 						);
 				",
 				$data['payment_number'], $data['order_status'], $data['user_num'], $data['payment_method_code'], $data['payment_method'],
@@ -69,7 +71,8 @@ Class Front_Order_Write_Query{
 				$data['account_extra_payment'],
 				($data['gift_barcode']!==false) 
 					? sprintf("'%s'",$data['gift_barcode'])
-					: "NULL"
+					: "NULL",
+				($data['is_spb']) ? 1 : 0
 				));	
 
 	}
