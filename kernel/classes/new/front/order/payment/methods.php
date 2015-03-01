@@ -63,8 +63,6 @@ Class Front_Order_Payment_Methods{
 		$match = $this->get_delivery_match();
 		
 		$methods = Front_Order_Data_Payment::get_methods();
-
-		$texts = Front_Order_Helper::delivery_payment_texts($methods);
 		
 		$list = array();
 		foreach($methods as $id => $arr){
@@ -73,7 +71,7 @@ Class Front_Order_Payment_Methods{
 					'name' => $arr['name'],
 					'active' => ($id==$active),
 					'disabled' => (!in_array($id,$match)),
-					'text' => (isset($texts[$arr['field']])) ? $texts[$arr['field']] : false,
+					'class_alias' => (isset($arr['class_alias'])) ? $arr['class_alias'] : false
 			);
 		}
 		

@@ -7,6 +7,35 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 		$this->registry = $registry;
 	}	
 
+	public function do_text($data){
+		$arr = $data['costs']['courier'];
+				
+		/*человек зарегистрирован и не из Питера*/
+		if($this->registry['userdata'] && !$arr['is_spb'])
+			$type = 1;
+		
+		/*человек зарегистрирован, из Питера и набрал на бесплатную доставку*/
+		elseif($this->registry['userdata'] && $arr['is_spb'] && $data['sum_with_discount']>=FREE_DELIVERY_SUM)
+			$type = 2;		
+		
+		/*человек зарегистрирован, из Питера и НЕ набрал на бесплатную доставку*/
+		elseif($this->registry['userdata'] && $arr['is_spb'] && $data['sum_with_discount']<FREE_DELIVERY_SUM)
+			$type = 3;		
+		
+		/*человек НЕ зарегистрирован*/
+		elseif(!$this->registry['userdata'])
+			$type = 4;		
+		
+		$a = array(
+				'type' => (isset($type)) ? $type : false,
+				'order_sum' => Common_Useful::price2read($data['sum_with_discount']),
+				'delivery_sum' => COURIER_SPB_COST,
+				'diff' => Common_Useful::price2read(FREE_DELIVERY_SUM - $data['sum_with_discount'])
+				);
+		
+		return $this->do_rq('text',$a);
+	}	
+	
 	public function extra_fields(){
 		
 		$a = array(
@@ -41,10 +70,7 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 				
 		$a = array(
 				'price' => Common_Useful::price2read($arr['sum']),
-				'free_delivery_sum' => Common_Useful::price2read(FREE_DELIVERY_SUM),
-				'free_delivery_diff' => Common_Useful::price2read(FREE_DELIVERY_SUM - $data['sum_with_discount']),
 				'is_spb' => $arr['is_spb'],
-				'is_zipcode' => $arr['is_zipcode']
 				);
 		
 		return $this->do_rq('cost',$a);
@@ -59,7 +85,12 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 	
 		$data = $Front_Order_Data->get_data();
 		
-		echo $this->calculate_cost($data);
+		$output = array(
+				'cost' => $this->calculate_cost($data),
+				'text' =>  $this->do_text($data)
+				);
+		
+		echo json_encode($output);
 	}	
 }
 ?>

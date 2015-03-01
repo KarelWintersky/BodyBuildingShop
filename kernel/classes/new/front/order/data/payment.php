@@ -6,37 +6,30 @@ Class Front_Order_Data_Payment{
 				1 => array(
 					'name' => 'Заказать наложенным платежом',
 					'short_name' => 'Наложка',
-					'field' => 'pay_nalog'
+					'class_alias' => 'nalog'
 				),
 				2 => array(
-					'name' => 'Получить счет на предоплату через банк',
+					'name' => 'Оплата через коммерческий банк или Сбербанк',
 					'short_name' => 'Квитанция',
-					'field' => 'pay_bill'
 				),
 				3 => array(
 					'name' => 'Оплата через WebMoney, Яндекс-деньги',
 					'short_name' => 'WebMoney, Яндекс-деньги',
-					'field' => 'pay_webmoney'
 				),
 				4 => array(
-					'name' => 'Оплата банковской картой или другие платежные системы',
+					'name' => 'Оплата банковской картой, QIWI, RBK Money и другие системы',
 					'short_name' => 'Robokassa',
-					'field' => 'pay_card'
 				),
 				5 => array(
 					'name' => 'Наличными курьеру или в магазине',
 					'short_name' => 'Наличными',
-					'field' => 'pay_nal'
+					'class_alias' => 'courier'
 				),
 				6 => array(
 					'name' => 'Оплата c лицевого счета в нашем магазине',
 					'short_name' => 'Лицевой счет',
-					'field' => 'pay_account'
+					'class_alias' => 'account'
 				),
-				/*7 => array(
-					'name' => 'Другие платежные системы',
-					'field' => 'pay_other'
-				)*/				
 			);
 
 		return (!$method_id)

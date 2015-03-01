@@ -21,32 +21,19 @@ Class Front_Order_Payment Extends Common_Rq{
 	
 		return implode(' ',$classes);
 	}	
-	
-	private function print_extra($method_id,$data){
-		//дополнительные расходы на доставку наложенным платежом
 		
-		if($method_id!=1) return false;
-		
-		$a = array(
-				'costs' => Common_Useful::price2read($data['nalog'])
-				);
-		
-		return $this->do_rq('nalog',$a);
-	}
-	
 	private function print_items($data){
 		$methods = $this->Front_Order_Payment_Methods->get_actual_list($data);
 		
 		$html = array();
-		foreach($methods as $method_id => $arr){
-				
+		foreach($methods as $method_id => $arr){	
+			
 			$a = array(
 					'name' => $arr['name'],
 					'id' => $method_id,
 					'checked' => ($arr['active']) ? 'checked' : '',
 					'classes' => $this->print_classes($arr),
-					'text' => $arr['text'],
-					'extra' => $this->print_extra($method_id,$data),
+					'text' => $this->do_text($data,$arr,$method_id),
 					'disabled' => ($arr['disabled']) ? 'disabled' : ''
 			);
 				
@@ -56,8 +43,19 @@ Class Front_Order_Payment Extends Common_Rq{
 		return implode('',$html);
 	}	
 	
+	private function do_text($data,$arr,$method_id){
+		if(!$arr['class_alias']) return $this->do_rq('text',$method_id);
+		
+		$classname = __CLASS__.'_'.$arr['class_alias'];
+		$CL = new $classname($this->registry);
+
+		return $CL->do_text($data);
+	}
+	
 	public function do_vars(){
 		$data = $this->registry['CL_data']->get_data();
+		
+		$this->registry->set('longtitle','Выбор способа оплаты заказа');
 		
 		$vars = array(
 				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(3),

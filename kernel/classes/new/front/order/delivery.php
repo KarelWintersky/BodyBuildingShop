@@ -23,13 +23,7 @@ Class Front_Order_Delivery Extends Common_Rq{
 		
 		return implode(' ',$classes);
 	}
-	
-	private function do_text($method_id,$arr){
-		if($method_id==1 && !$this->registry['userdata']) return false;
 		
-		return $arr['text'];
-	}
-	
 	private function print_items($data){		
 		$methods = $this->Front_Order_Delivery_Methods->get_actual_list($data);
 		
@@ -46,18 +40,20 @@ Class Front_Order_Delivery Extends Common_Rq{
 					'disabled' => ($arr['disabled']) ? 'disabled' : '',
 					'classes' => $this->print_classes($arr),
 					'cost' => $CL->calculate_cost($data),
-					'text' => $this->do_text($method_id,$arr),
+					'text' => $CL->do_text($data),
 					'fields' => $CL->extra_fields()
 					);
 			
 			$html[] = $this->do_rq('item',$a,true);
 		}
-		
+				
 		return implode('',$html);
 	}
 		
 	public function do_vars(){
 		$data = $this->registry['CL_data']->get_data();
+		
+		$this->registry->set('longtitle','Выбор доставки заказа');
 		
 		$vars = array(
 				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(2),

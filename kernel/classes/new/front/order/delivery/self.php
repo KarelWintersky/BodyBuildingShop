@@ -7,6 +7,10 @@ Class Front_Order_Delivery_Self Extends Common_Rq{
 		$this->registry = $registry;
 	}	
 
+	public function do_text($data){
+		return $this->do_rq('text',NULL);
+	}	
+	
 	public function calculate_cost($data){	
 		return $this->do_rq('cost',NULL);
 	}

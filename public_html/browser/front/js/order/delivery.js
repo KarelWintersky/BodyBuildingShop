@@ -19,7 +19,7 @@ $(function() {
 		$.ajax({
 			url: '/ajax/',
 		    type:'POST',
-			dataType:'text',
+			dataType:'json',
 			data:  {
 				method:'delivery_courier',
 				zipcode:zipcode,
@@ -27,7 +27,8 @@ $(function() {
 				},
 			async:true,
 			success:function(resp){
-				$(block).parents('.fod_item').find('.fod_item_cost').html(resp);
+				$(block).parents('.fod_item').find('.fod_item_cost').html(resp.cost);
+				$(block).parents('.fod_item').find('.fod_item_text').html(resp.text);
 			}
 		});		
 	});

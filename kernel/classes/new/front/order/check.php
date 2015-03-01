@@ -22,6 +22,8 @@ Class Front_Order_Check Extends Common_Rq{
 	public function do_vars(){
 		$data = $this->registry['CL_data']->get_data();
 		
+		$this->registry->set('longtitle','Проверьте внимательно Ваш заказ');
+		
 		$vars = array(
 			'crumbs' => $this->Front_Order_Crumbs->do_crumbs(4),
 			'table' => $this->Front_Order_Cart_Table->do_table($data,true),

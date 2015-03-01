@@ -141,8 +141,10 @@
 						#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl label span{color:#ff0000;font-weight:bold;font-size:11px;}		
 					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl input{border:1px solid #c8c8c8;padding:0 5px;border-radius:2px;color:#333;font-family:Verdana;font-size:11px;height:23px;}		
 					#form_OrderDelivery #fod_items .fod_item .fod_item_fields .fl input.err{border-color:#ff0000;}		
-			#form_OrderDelivery #fod_items .fod_item .fod_item_cost{padding:10px 20px 20px;font-size:12px;}		
+			#form_OrderDelivery #fod_items .fod_item .fod_item_cost{padding:10px 20px 20px;font-size:12px;}				
 			#form_OrderDelivery #fod_items .fod_item .fod_item_text{padding:10px 20px 0;font-size:12px;}		
+			
+#post_cost{font-size:16px;}			
 			
 #self_fields{}			
 	#self_fields .fl_name input{width:250px;margin-right:30px;}						
