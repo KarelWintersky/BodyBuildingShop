@@ -48,6 +48,8 @@ Class Front_Profile_Orders_List Extends Common_Rq{
 			
 			$o['price'] = ($o['payment_method_id']) ? $o['overall_sum'] : $o['overall_price']; 
 			
+			$o['discount'] = ($o['payment_method_id']) ? $o['discount_percent'] : $o['discount']; 
+			
 			$html[] = $this->do_rq('item',$o,true);
 		}
 		
