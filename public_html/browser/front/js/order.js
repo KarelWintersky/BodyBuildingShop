@@ -11,8 +11,11 @@ $(function() {
 			success:function(resp){
 				$('#order_goods_values_container').html(resp.values);
 				
-				if(!resp.exists && coupon) $('#coupon_hint').show();
-				else $('#coupon_hint').hide();
+				if(!resp.exists && coupon) $('#coupon_error').show();
+				else $('#coupon_error').hide();
+				
+				if(resp.exists) $('#coupon_success').show();
+				else $('#coupon_success').hide();				
 			}
 		});
 		
