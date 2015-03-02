@@ -62,7 +62,7 @@ Class Front_Cart Extends Common_Rq{
 				
 		$user_discount = ($this->registry['userdata']) ? $this->registry['userdata']['personal_discount'] : 0;
 		
-		$sum = $sum - floor($sum*$user_discount/100);
+		$sum = $sum - ceil($sum*$user_discount/100);
 		
 		return array(
 				'amount' => $amount,
