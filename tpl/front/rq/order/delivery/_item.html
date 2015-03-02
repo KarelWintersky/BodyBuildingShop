@@ -11,9 +11,12 @@
 		</div>
 		<div class="clr"></div>
 	</div>
-	<div class="fod_item_cost">
-		<?=$a['cost'];?>
-	</div>
+	
+	<?if($a['cost']):?>
+		<div class="fod_item_cost">
+			<?=$a['cost'];?>
+		</div>
+	<?endif;?>
 	
 	<?if($a['fields']):?>
 		<div class="fod_item_fields">

@@ -41,7 +41,6 @@
 					($encoding=='UTF-8'), //если отправляем в 1251 - то без обертки
 					$encoding
 			);			
-			
 		}
 		
 		private function add2replacearr($replace_arr){

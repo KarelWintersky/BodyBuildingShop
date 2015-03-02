@@ -12,21 +12,27 @@ Class Front_Order_Mail_Notify{
 	}	
 						
 	public function send_letter($order,$direction = 0){
-					
-		$html = $this->Front_Order_Mail_Notify_Html->print_html($order);
 
 		//только покупателям
 		if($direction==1){
-			$this->to_guests($html,$order);
+			$this->to_guests(
+					$this->Front_Order_Mail_Notify_Html->print_html($order,false),
+					$order);
 			
 		//только менеджерам	
 		}elseif($direction==2){
-			$this->to_managers($html,$order);
+			$this->to_managers(
+					$this->Front_Order_Mail_Notify_Html->print_html($order,true),
+					$order);
 			
 		//всем	
 		}else{
-			$this->to_guests($html,$order);
-			$this->to_managers($html,$order);
+			$this->to_guests(
+					$this->Front_Order_Mail_Notify_Html->print_html($order,false),
+					$order);
+			$this->to_managers(
+					$this->Front_Order_Mail_Notify_Html->print_html($order,true),
+					$order);
 		}
 			
 	}

@@ -30,7 +30,7 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 		return implode('',$html);
 	}
 	
-	public function print_html($order){
+	public function print_html($order,$to_admin){
 		
 		$delivery = Front_Order_Data_Delivery::get_methods($order['delivery_type']);
 		$payment = Front_Order_Data_Payment::get_methods($order['payment_method_id']);
@@ -46,6 +46,7 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'payment_name' => ($payment) ? $payment['name'] : false,
 				'upper_text' => $this->upper_text($order),
 				'lower_text' => $this->lower_text($order),
+				'to_admin' => $to_admin
 				);
 		
 		return $this->do_rq('tpl',$a);

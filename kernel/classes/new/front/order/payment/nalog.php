@@ -18,13 +18,13 @@ Class Front_Order_Payment_Nalog Extends Common_Rq{
 		elseif(!$arr['no_nalog'])
 			$type = 2;
 		
-		/*Н/П недоступен – превышение макс.суммы*/
-		elseif($arr['no_nalog'] && $this->registry['userdata'] && $this->registry['userdata']['max_nalog']<$data['sum_with_discount'])
-			$type = 3;
-
 		/*Н/П недоступен – труднодоступный регион*/
 		elseif($arr['no_nalog'] && $this->registry['userdata'] && isset($arr['hard_cost']) && $arr['hard_cost'])
 			$type = 4;		
+		
+		/*Н/П недоступен – превышение макс.суммы*/
+		elseif($arr['no_nalog'] && $this->registry['userdata'] && $this->registry['userdata']['max_nalog']<$data['sum_with_discount'])
+			$type = 3;	
 		
 		/*Н/П недоступен – индекс не найден в базе данных индексов*/
 		elseif(!isset($arr['post_available']) && !$arr['no_zip_code'])

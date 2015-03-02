@@ -12,7 +12,7 @@ Class Front_Order_Delivery_Self Extends Common_Rq{
 	}	
 	
 	public function calculate_cost($data){	
-		return $this->do_rq('cost',NULL);
+		return false;
 	}
 	
 	public function extra_fields(){

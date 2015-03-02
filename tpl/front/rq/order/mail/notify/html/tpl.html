@@ -13,7 +13,13 @@
 <?if($a['user_email']):?>
 	<p>
 		Ваш контактный e-mail: 
-		<strong><a href='mailto:<?=$a["user_email"];?>?subject=Заказ <?=$a["num"];?> оплачен&cc=hercules@superset.ru'><?=$a["user_email"];?></a></strong>
+		<strong>
+			<?if(a['to_admin']):?>
+				<a href='mailto:<?=$a["user_email"];?>?subject=Заказ <?=$a["num"];?> оплачен&cc=hercules@superset.ru'><?=$a["user_email"];?></a>
+			<?else:?>
+				<?=$a["user_email"];?>
+			<?endif;?>
+		</strong>
 	</p>
 <?endif;?>
 

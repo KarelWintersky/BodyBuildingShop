@@ -89,9 +89,7 @@
 				$data = $Front_Profile->get_data();
 				
 				$this->registry['template']->set('c','profile/orders/pay');
-				
-				//$this->mk_roboxchange_data($path_arr[1]);
-				
+								
 				$this->registry['CL_css']->set(array(
 						'profile',
 				));				
@@ -232,13 +230,10 @@
 				'NEW_WISHES' => $_POST['wishes'],
 			);
 
-			foreach($replace_arr as $key => $val){$replace_arr[$key] = iconv('utf-8','windows-1251',$val);}
-
 			$emails = explode('::',ADMINS_EMAILS);
-			if(count($emails)>0){
-				foreach($emails as $admin_mail){
-					$mailer = new Mailer($this->registry,28,$replace_arr,$admin_mail,false,'windows-1251');
-				}
+						
+			foreach($emails as $admin_mail){
+				$mailer = new Mailer($this->registry,28,$replace_arr,$admin_mail,false,'windows-1251');
 			}
 
 		}

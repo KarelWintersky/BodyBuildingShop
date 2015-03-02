@@ -31,15 +31,18 @@ Class Front_Cart Extends Common_Rq{
 		$cart = $this->Front_Order_Data_Cart_String->get_cart_from_string();
 		if(!$cart || !count($cart)) return false;
 		
-		$amount = 0; $sum = 0;
+		$amounts = array(); $amount = 0; $sum = 0;
 		$barcodes = array();
 		foreach($cart as $g){
-			$barcodes[] = sprintf("'%s'",$g['barcode']);
+			$barcodes[] = sprintf("'%s'",$g['barcode']);;
+			$amounts[$g['barcode']] = $g['amount'];
+			
 			$amount+=$g['amount'];
 		}
 		
 		$qLnk = mysql_query(sprintf("
 				SELECT
+					goods_barcodes.barcode,
 					goods_barcodes.price,
 					goods.personal_discount + %d AS discount
 				FROM
@@ -51,9 +54,12 @@ Class Front_Cart Extends Common_Rq{
 				OVERALL_DISCOUNT,
 				implode(",",$barcodes)
 				));
-		while($g = mysql_fetch_assoc($qLnk))
-			$sum+= $g['price'] - floor($g['price']*$g['discount']/100); 
-		
+		while($g = mysql_fetch_assoc($qLnk)){
+			$price = round($g['price'] - $g['price']*$g['discount']/100);
+						
+			$sum+= $price*$amounts[$g['barcode']];
+		} 
+				
 		$user_discount = ($this->registry['userdata']) ? $this->registry['userdata']['personal_discount'] : 0;
 		
 		$sum = $sum - floor($sum*$user_discount/100);
