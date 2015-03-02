@@ -82,10 +82,11 @@
 				
 	#order_goods #coupon_block{border:1px solid #c8c8c8;background:#f2f2f2;border-radius:2px;padding:18px 20px 17px;margin:40px 0 0;}
 		#order_goods #coupon_block label{font-size:12px;float:left;padding:5px 20px 0 0;color:#333;}				
-		#order_goods #coupon_block input{float:left;border:1px solid #c8c8c8;padding:0 5px;border-radius:2px;color:#333;font-family:Verdana;font-size:11px;width:228px;height:23px;margin:0 20px 0 0;}				
+		#order_goods #coupon_block input{float:left;border:1px solid #c8c8c8;padding:0 5px;border-radius:2px;color:#333;font-family:Verdana;font-size:11px;width:180px;height:23px;margin:0 20px 0 0;}				
 		#order_goods #coupon_block #coupon_trigger{float:left;font-size:11px;padding:6px 0 0;}				
 			#order_goods #coupon_block #coupon_trigger a{text-decoration:none;border-bottom:1px dotted #3366cc;}				
 				#order_goods #coupon_block #coupon_trigger a:hover{border-bottom:none;}				
+		#order_goods #coupon_block #coupon_hint{float:right;width:140px;text-align:center;padding:5px 10px;font-size:10px;line-height:12px;border:1px solid #ff0000;background:#fff;color:#ff0000;margin:-5px 0 -6px;display:none;}
 				
 	#order_goods #cart_gift{padding:20px 0 0;}			
 		#order_goods #cart_gift #no_gift{padding:20px 0;}			

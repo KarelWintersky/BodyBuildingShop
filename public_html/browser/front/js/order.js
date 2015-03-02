@@ -5,11 +5,14 @@ $(function() {
 		$.ajax({
 			url: '/ajax/',
 		    type:'POST',
-			dataType:'text',
+		    dataType:'json',
 			data:  {method:'apply_coupon',coupon:coupon},
 			async:false,
 			success:function(resp){
-				$('#order_goods_values_container').html(resp);
+				$('#order_goods_values_container').html(resp.values);
+				
+				if(!resp.exists && coupon) $('#coupon_hint').show();
+				else $('#coupon_hint').hide();
 			}
 		});
 		

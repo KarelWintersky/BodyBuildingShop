@@ -50,7 +50,12 @@ Class Front_Order_Cart_Coupon Extends Common_Rq{
 		if(!$only_apply){
 			$data = $Front_Order_Data->get_data();
 		
-			echo $Front_Order_Cart_Values->do_block($data);
+			$output = array(
+					'values' => $Front_Order_Cart_Values->do_block($data),
+					'exists' => ($discount) ? 1 : 0
+					);
+			
+			echo json_encode($output);
 		}
 	}
 	
