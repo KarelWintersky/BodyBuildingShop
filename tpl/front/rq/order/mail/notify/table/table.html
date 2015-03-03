@@ -30,29 +30,6 @@
 				<?=Common_Useful::price2read($a['sum_with_discount']);?> руб.
 			</td>
 		</tr>
-	<?endif;?>
-	
-	<tr>
-		<td style="<?=$a['td_right'];?>" colspan="4">Доставка</td>
-		<td style="<?=$a['td_right'];?>">
-			<?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
-		</td>
-	</tr>	
-	
-	<?if($a['nalog_costs']):?>
-		<tr>
-			<td style="<?=$a['td_right'];?>" colspan="4">Расходы на оплату наложенным платежом</td>
-			<td style="<?=$a['td_right'];?>">
-				<?=Common_Useful::price2read($a['nalog_costs']);?> руб.
-			</td>
-		</tr>	
 	<?endif;?>	
-	
-	<tr>
-		<td style="<?=$a['td_right'];?>" colspan="4">Всего</td>
-		<td style="<?=$a['td_right'];?>">
-			<?=Common_Useful::price2read($a['overall_sum']);?> руб.
-		</td>
-	</tr>		
 	
 </table>

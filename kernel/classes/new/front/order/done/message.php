@@ -2,12 +2,17 @@
 Class Front_Order_Done_Message Extends Common_Rq{
 
 	private $registry;
+	
+	private $Front_Order_Done_Blocks;
 					
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Front_Order_Done_Blocks = new Front_Order_Done_Blocks($this->registry);
 	}	
 			
 	private function get_type($order){
+
 		/*почта + наложка*/
 		if(
 				$order['delivery_type']==1 
@@ -140,19 +145,30 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		return $type;
 	}
 	
-	public function do_message($order){
+	private function data_extend($order){
 		$tech = Front_Order_Helper::get_tech_data($order);
+		
+		return $order + array(
+				'user_name' => $tech['name'],
+				'user_address' => $tech['address'],
+				'user_email' => $tech['email'],
+				'user_phone' => $tech['phone'],		
+				'order_sum' => Common_Useful::price2read($order['overall_sum'] - $order['from_account']),
+				);
+	}
+	
+	public function do_message($order){
+		
+		$order = $this->data_extend($order);
 		
 		$a = array(
 				'type' => $this->get_type($order),
 				'num' => $order['num'],
-				'user_name' => $tech['name'],
-				'user_address' => $tech['address'],
-				'user_email' => $tech['email'],
-				'user_phone' => $tech['phone'],
-				'order_sum' => Common_Useful::price2read($order['overall_sum'] - $order['from_account']),
+				'order_sum' => $order['order_sum'],
+				'user_email' => $order['user_email'],
+				'user_phone' => $order['user_phone'],
 				'from_account' => Common_Useful::price2read($order['from_account']),
-				'is_spb' => $order['is_spb']
+				'blocks' => $this->Front_Order_Done_Blocks->get_blocks($order)
 				);
 		
 		return $this->do_rq('text',$a);

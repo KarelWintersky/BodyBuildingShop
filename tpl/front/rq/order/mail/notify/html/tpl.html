@@ -28,10 +28,32 @@
 <?=$a['table'];?>
 
 <p>
-	Доставка: <b><?=$a['delivery_name'];?></b>
+	<b>Доставка:</b> <?=$a['delivery_name'];?>
 	<br />
-	Оплата: <b><?=$a['payment_name'];?></b>			
+	<b>Оплата:</b> <?=$a['payment_name'];?>			
 </p>
+
+<div>
+	<div>
+		<b>Стоимость доставки:</b> <?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
+		</div>
+	
+	<?if($a['nalog_costs']):?>
+		<div>
+			<b>Дополнительные расходы на доставку наложенным платежом:</b> <?=Common_Useful::price2read($a['nalog_costs']);?> руб.
+		</div>
+	<?endif;?>
+	
+	<?if($a['from_account']):?>
+		<div>
+			<b>С личного счета удержано:</b> <?=Common_Useful::price2read($a['from_account']);?> руб.
+		</div>
+	 <?endif;?>
+	
+	<div>
+		<b>К оплате:</b> <?=Common_Useful::price2read($a['overall_sum']);?> руб.
+	</div>	
+</div> 
 
 <?if($a['wishes']):?>
 	<p>

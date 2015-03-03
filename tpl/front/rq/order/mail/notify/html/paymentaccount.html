@@ -1,7 +1,0 @@
-<p>Обращаем Ваше внимание: Ваш заказ сформирован, а с Вашего расчетного счета в нашем магазине удержана сумма <?=Common_Useful::price2read($a['from_account']);?> руб.</p>
-
-<?if($a['from_account']<$a['overall_sum']):?>
-	<p>
-		Вам необходимо дополнительно оплатить <?=Common_Useful::price2read($a['overall_sum']-$a['from_account'])?> руб. 
-	</p>
-<?endif;?>

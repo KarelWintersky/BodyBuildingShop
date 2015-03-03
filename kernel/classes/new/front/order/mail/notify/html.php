@@ -4,11 +4,13 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 	private $registry;
 	
 	private $Front_Order_Mail_Notify_Table;
+	private $Front_Order_Done_Message;
 	
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Mail_Notify_Table = new Front_Order_Mail_Notify_Table($this->registry);
+		$this->Front_Order_Done_Message = new Front_Order_Done_Message($this->registry);
 	}	
 			
 	private function upper_text($order){
@@ -16,18 +18,24 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 		
 		return false;
 	}
-	
-	private function lower_text($order){
-		$html = array();
 		
-		if($order['payment_method_id']==2) $html[] = $this->do_rq('paymentbill',$order);
-		elseif($order['payment_method_id']==3) $html[] = $this->do_rq('paymentwm',$order);
-		elseif($order['payment_method_id']==6) $html[] = $this->do_rq('paymentaccount',$order);
+	private function apply_styles($html){
+		$styles = array(
+				'params_block width_2' => 'padding:0;background:#f2f2f2;padding:19px 30px 8px 20px;list-style:none;',
+				'params_block_li' => 'padding:0 0 10px;',
+				'pb_label' => 'display:inline;font-weight:bold;',
+				'pb_text' => 'display:inline;',
+				'common_hint' => 'background:#fbf1d3;border-radius:2px;color:#333;padding:9px 35px 8px 15px;'
+				);
 		
-		if($order['delivery_type']==4) $html[] = $this->do_rq('deliveryself',$order);
-		elseif($order['delivery_type']==2) $html[] = $this->do_rq('deliverycourier',$order);
+		foreach($styles as $k => $v){
+			$find = sprintf('class="%s"',$k);
+			$replace = sprintf('style="%s"',$v);
+			
+			$html = str_replace($find,$replace,$html);
+		} 
 		
-		return implode('',$html);
+		return $html;
 	}
 	
 	public function print_html($order,$to_admin){
@@ -44,12 +52,21 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'wishes' => $order['wishes'],
 				'delivery_name' => $delivery['name'],
 				'payment_name' => ($payment) ? $payment['name'] : false,
+				'nalog_costs' => $order['nalog_costs'],
+				'delivery_costs' => $order['delivery_costs'],
+				'overall_sum' => $order['overall_sum'],				
+				'from_account' => $order['from_account'],				
 				'upper_text' => $this->upper_text($order),
-				'lower_text' => $this->lower_text($order),
+				'lower_text' => $this->Front_Order_Done_Message->do_message($order),
 				'to_admin' => $to_admin
 				);
 		
-		return $this->do_rq('tpl',$a);
+		$html = $this->do_rq('tpl',$a); 
+		
+		$html = $this->apply_styles($html);
+		
+		//echo $html; exit();
+		return $html;
 	}	
 	
 }

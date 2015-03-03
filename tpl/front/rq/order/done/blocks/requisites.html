@@ -1,0 +1,43 @@
+<p>Сейчас должно открыться дополнительное окошко, в котором будет подготовлена квитанция на оплату Вашего заказа. Распечатайте ее (или выпишите реквизиты) и оплатите в Сберкассе или коммерческом банке. Если по какой-либо причине данное окно не открылось (например Ваш браузер не поддерживает JavaScript) то нажмите на <a href="/order/bill?o=<?=$a['num'];?>" target="_blank">ЭТУ ССЫЛКУ</a>, чтобы открыть квитанцию на оплату в отдельном окне.</p>
+
+<p>На всякий случай еще раз сообщаем наши реквизиты для перевода денег:</p>
+
+<ul class="params_block width_2">
+	<li class="params_block_li">
+		<div class="pb_label">Получатель:</div> <div class="pb_text">ООО "СуперСет"</div> <div class="clr"></div>
+	</li>
+	<li class="params_block_li">
+		<div class="pb_label">ИНН:</div> <div class="pb_text">7805532201</div> <div class="clr"></div>
+	</li>
+	<li class="params_block_li">
+		<div class="pb_label">КПП:</div> <div class="pb_text">780501001</div> <div class="clr"></div>
+	</li>
+	<li class="params_block_li">
+		<div class="pb_label">Р/с:</div> <div class="pb_text">40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</div> <div class="clr"></div>
+	</li>
+	<li class="params_block_li">
+		<div class="pb_label">К/с:</div> <div class="pb_text">30101810500000000653</div> <div class="clr"></div>
+	</li>
+	<li class="params_block_li">
+		<div class="pb_label">БИК:</div> <div class="pb_text">044030653</div> <div class="clr"></div>
+	</li>		
+	<li class="params_block_li">
+		<div class="pb_label">Сумма:</div> <div class="pb_text"><?=$a['order_sum'];?> руб.</div> <div class="clr"></div>
+	</li>
+	<li class="params_block_li">
+		В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".
+	</li>						
+</ul>
+
+<div class="common_hint">
+	<div class="common_hint_ico"></div>
+	<div class="common_hint_text">
+			
+		<h3>Внимание!</h3>
+		<p>Мы принимаем оплату заказов только от ФИЗИЧЕСКИХ ЛИЦ. Убедительная просьба НЕ оплачивать заказы со счетов юридических лиц.</p>
+		<p>Если в качестве плательщика будет выступать юридическое лицо (ЗАО, ООО и т.д.) то данный платеж будет возвращаться плательщику.
+</p>
+			
+	</div>
+	<div class="clr"></div>
+</div>	
