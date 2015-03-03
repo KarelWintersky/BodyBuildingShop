@@ -9,21 +9,21 @@ Class Front_Order_Payment_Nalog Extends Common_Rq{
 		
 	public function do_text($data){
 		$arr = $data['costs']['post'];
-		
+				
 		/*Н/П недоступен – выбран другой вариант доставки - не почта*/
 		if($this->registry['CL_storage']->get_storage('delivery')!=1)
 			$type = 1;
 		
 		/*Н/П доступен*/
-		elseif(!$arr['no_nalog'])
+		elseif($data['nalog_payment_available'])
 			$type = 2;
 		
 		/*Н/П недоступен – труднодоступный регион*/
-		elseif($arr['no_nalog'] && $this->registry['userdata'] && isset($arr['hard_cost']) && $arr['hard_cost'])
+		elseif(!$data['nalog_payment_available'] && $this->registry['userdata'] && isset($arr['hard_cost']) && $arr['hard_cost'])
 			$type = 4;		
 		
 		/*Н/П недоступен – превышение макс.суммы*/
-		elseif($arr['no_nalog'] && $this->registry['userdata'] && $this->registry['userdata']['max_nalog']<$data['sum_with_discount'])
+		elseif(!$data['nalog_payment_available'] && $this->registry['userdata'] && $this->registry['userdata']['max_nalog']<$data['sum_with_discount'])
 			$type = 3;	
 		
 		/*Н/П недоступен – индекс не найден в базе данных индексов*/
