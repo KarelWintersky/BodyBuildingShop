@@ -106,7 +106,7 @@ Class Front_Order_Done_Message Extends Common_Rq{
 
 		/*самовывоз + яндекс.деньги*/
 		elseif(
-				$order['delivery_type']==2
+				$order['delivery_type']==4
 				&&
 				($order['payment_method_id']==3 || $order['account_extra_payment']==3)
 		)
@@ -115,7 +115,7 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		
 		/*самовывоз + банковская карта*/
 		elseif(
-				$order['delivery_type']==2
+				$order['delivery_type']==4
 				&&
 				($order['payment_method_id']==4 || $order['account_extra_payment']==4)
 		)
@@ -125,7 +125,7 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		
 		/*самовывоз + личный счет полный*/
 		elseif(
-				$order['delivery_type']==2
+				$order['delivery_type']==4
 				&&
 				($order['payment_method_id']==6 && !$order['account_extra_payment'])
 		)
