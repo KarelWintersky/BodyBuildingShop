@@ -1,12 +1,16 @@
 <?if($a['type']==1):?>
 
 	<p>Проверьте, пожалуйста, еще раз реквизиты, по которым он будет отправлен:</p>
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>
+
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>	
+
 	<p>На адрес <b><?=$a['user_email'];?></b> будет выслано подтверждение о формировании заказа. <b>На следующий день после отправки</b> (это связано со спецификой работы почты) Вы получите уведомление об отправке с указанием номера отправления для отслеживания посылки на сайте почты России. Если Вы его не получите, то обязательно свяжитесь с нами!</p>
 	<p>Со всеми вопросами обращайтесь по адресу <a href="mailto:of@bodybuilding-shop.ru">of@bodybuilding-shop.ru</a>.</p>
 
@@ -21,19 +25,33 @@
 	
 	<p>На всякий случай еще раз сообщаем наши реквизиты для перевода денег:</p>
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><b>Получатель:</b> ООО "СуперСет"</li>
-			<li><b>ИНН:</b> 7805532201</li>
-			<li><b>КПП:</b> 780501001</li>
-			<li><b>р/с:</b> 40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</li>
-			<li><b>к/с:</b> 30101810500000000653</li>
-			<li><b>БИК:</b> 044030653</li>
-		</ul>		
-		<p>В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".</p>
-		<p><b>Сумма:</b> <?=$a['order_sum'];?> руб.</p>
-	</div>
-	
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text">ООО "СуперСет"</div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">ИНН:</div> <div class="pb_text">7805532201</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">КПП:</div> <div class="pb_text">780501001</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">Р/с:</div> <div class="pb_text">40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">К/с:</div> <div class="pb_text">30101810500000000653</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">БИК:</div> <div class="pb_text">044030653</div> <div class="clr"></div>
+		</li>		
+		<li>			
+			<div class="pb_label">Сумма:</div> <div class="pb_text"><?=$a['order_sum'];?> руб.</div> <div class="clr"></div>
+		</li>
+		<li>			
+			В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".
+		</li>						
+	</ul>
+		
 	<div class="common_hint">
 		<div class="common_hint_ico"></div>
 		<div class="common_hint_text">
@@ -48,13 +66,16 @@
 	</div>		
 	
 	<p>В течение одного-двух рабочих дней после получения нами денег Ваш заказ будет отправлен по следующим реквизитам:</p>
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>	
-		
+	
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>	
+			
 	<p><b>На следующий день после отправки</b> (это связано со спецификой работы почты) (это связано со спецификой работы почты) Вы получите уведомление об отправке с указанием номера отправления для отслеживания посылки на сайте почты России.</p>
 	<p>Со всеми вопросами обращайтесь по адресу <a href="mailto:of@bodybuilding-shop.ru">of@bodybuilding-shop.ru</a>.</p>
 
@@ -86,12 +107,15 @@
 	
 	<p>После получения денег в течение 2-3 рабочих дней заказ будет отправлен по следующим реквизитам:</p>	
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>	
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>	
+		
 	<p><b>На следующий день после отправки</b> (это связано со спецификой работы почты) на адрес <b><?=$a['user_email'];?></b> Вы получите уведомление об отправке с указанием номера отправления для отслеживания посылки на сайте почты России.</p>
 	
 	<p>Со всеми вопросами обращайтесь по адресу <a href="mailto:of@bodybuilding-shop.ru">of@bodybuilding-shop.ru</a>.</p>
@@ -114,12 +138,15 @@
 	</div>		
 	
 	<p>Напоминаем реквизиты, по которым будет отправлен заказ:</p>
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>	
+
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>		
 
 	<p>Со всеми вопросами обращайтесь по адресу <a href="mailto:of@bodybuilding-shop.ru">of@bodybuilding-shop.ru</a>.</p>
 
@@ -141,12 +168,14 @@
 	
 	<p>Напоминаем реквизиты, по которым будет отправлен заказ:</p>
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>	
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>		
 	
 	<p>Со всеми вопросами обращайтесь по адресу <a href="mailto:of@bodybuilding-shop.ru">of@bodybuilding-shop.ru</a>.</p>
 
@@ -168,18 +197,32 @@
 	
 	<p>На всякий случай еще раз сообщаем наши реквизиты для перевода денег:</p>
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><b>Получатель:</b> ООО "СуперСет"</li>
-			<li><b>ИНН:</b> 7805532201</li>
-			<li><b>КПП:</b> 780501001</li>
-			<li><b>р/с:</b> 40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</li>
-			<li><b>к/с:</b> 30101810500000000653</li>
-			<li><b>БИК:</b> 044030653</li>
-		</ul>		
-		<p>В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".</p>
-		<p><b>Сумма:</b> <?=$a['order_sum'];?> руб.</p>
-	</div>
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text">ООО "СуперСет"</div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">ИНН:</div> <div class="pb_text">7805532201</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">КПП:</div> <div class="pb_text">780501001</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">Р/с:</div> <div class="pb_text">40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">К/с:</div> <div class="pb_text">30101810500000000653</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">БИК:</div> <div class="pb_text">044030653</div> <div class="clr"></div>
+		</li>		
+		<li>			
+			<div class="pb_label">Сумма:</div> <div class="pb_text"><?=$a['order_sum'];?> руб.</div> <div class="clr"></div>
+		</li>
+		<li>			
+			В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".
+		</li>						
+	</ul>
 	
 	<div class="common_hint">
 		<div class="common_hint_ico"></div>
@@ -201,12 +244,14 @@
 
 	<p>Адрес доставки:</p>
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>	
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>		
 
 	<p>После отправки заказа уведомление будет направлено на адрес <?=$a['user_email'];?>.</p>
 
@@ -243,12 +288,14 @@
 
 	<p>Адрес доставки:</p>
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><strong>Получатель:</strong> <?=$a['user_name'];?></li>
-			<li><strong>Почтовый адрес:</strong> <?=$a['user_address'];?></li>
-		</ul>
-	</div>	
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text"><?=$a['user_name'];?></div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">Почтовый адрес:</div> <div class="pb_text"><?=$a['user_address'];?></div> <div class="clr"></div>
+		</li>						
+	</ul>		
 
 	<p>После отправки заказа уведомление будет направлено на адрес <?=$a['user_email'];?>.</p>
 
@@ -310,18 +357,32 @@
 	
 	<p>На всякий случай еще раз сообщаем наши реквизиты для перевода денег:</p>
 	
-	<div class="hint_1">
-		<ul class="noborder">
-			<li><b>Получатель:</b> ООО "СуперСет"</li>
-			<li><b>ИНН:</b> 7805532201</li>
-			<li><b>КПП:</b> 780501001</li>
-			<li><b>р/с:</b> 40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</li>
-			<li><b>к/с:</b> 30101810500000000653</li>
-			<li><b>БИК:</b> 044030653</li>
-		</ul>		
-		<p>В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".</p>
-		<p><b>Сумма:</b> <?=$a['order_sum'];?> руб.</p>
-	</div>
+	<ul class="params_block width_2">
+		<li>
+			<div class="pb_label">Получатель:</div> <div class="pb_text">ООО "СуперСет"</div> <div class="clr"></div>
+		</li>
+		<li>	
+			<div class="pb_label">ИНН:</div> <div class="pb_text">7805532201</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">КПП:</div> <div class="pb_text">780501001</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">Р/с:</div> <div class="pb_text">40702810655160001781 в Московском ОСБ 1877/01093, г.Санкт-Петербург Северо-Западный банк Сбербанка РФ</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">К/с:</div> <div class="pb_text">30101810500000000653</div> <div class="clr"></div>
+		</li>
+		<li>			
+			<div class="pb_label">БИК:</div> <div class="pb_text">044030653</div> <div class="clr"></div>
+		</li>		
+		<li>			
+			<div class="pb_label">Сумма:</div> <div class="pb_text"><?=$a['order_sum'];?> руб.</div> <div class="clr"></div>
+		</li>
+		<li>			
+			В графе "Назначение платежа" ОБЯЗАТЕЛЬНО нужно указать: "Оплата заказа № <?=$a['num'];?>. Плательщик: <?=$a['user_name'];?>, НДС не облагается".
+		</li>						
+	</ul>
 	
 	<div class="common_hint">
 		<div class="common_hint_ico"></div>

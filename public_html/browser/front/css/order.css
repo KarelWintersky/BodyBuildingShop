@@ -184,11 +184,15 @@
 			#extra_payment #extra_payment_methods .method_item input{float:left;margin:1px 7px 0 0;}			
 			#extra_payment #extra_payment_methods .method_item span{float:left;font-size:14px;color:#333;}			
 						
-#order_check_params{}						
-	#order_check_params .params_block{background:#f2f2f2;font-size:12px;border-radius:2px;padding:19px 30px 8px;margin:8px 0 17px;}						
-		#order_check_params .params_block li{padding:0 0 10px;line-height:17px;}						
-			#order_check_params .params_block li .pb_label{float:left;text-align:right;width:303px;color:#333;font-weight:bold;}
-			#order_check_params .params_block li .pb_text{float:right;width:325px;color:#999;}						
+					
+.params_block{background:#f2f2f2;font-size:12px;border-radius:2px;padding:19px 30px 8px !important;margin:8px 0 17px;}						
+	.params_block li{padding:0 0 10px !important;line-height:17px;list-style:none !important;}						
+		.params_block li .pb_label{float:left;text-align:right;width:303px;color:#333;font-weight:bold;}
+		.params_block li .pb_text{float:right;width:325px;color:#999;}
+.params_block.width_2{}
+	.params_block.width_2 .pb_label{width:173px;}
+	.params_block.width_2 .pb_text{width:455px;}
+									
 #order_check_wishes{border:1px solid #c8c8c8;background:#f2f2f2;border-radius:2px;margin:20px 0 0;padding:18px 20px 17px;}
 	#order_check_wishes label{font-size:12px;display:block;padding:0 0 14px;}
 	#order_check_wishes textarea{padding:5px;resize:none;border:1px solid #c8c8c8;border-radius:2px;width:656px;height:63px;outline:none;color:#333;font-family:Verdana;font-size:11px;}
@@ -196,12 +200,6 @@
 		
 #order_done{}
 	#order_done .common_hint{margin-bottom:20px;}
-	#order_done .hint_1{background:#f2f2f2;padding:19px 24px 10px 19px;margin:0 0 20px;border-radius:4px;}
-		#order_done .hint_1 ul{border-bottom:1px dotted #b2b2b2;padding:0 0 8px;margin:0 0 15px;}
-			#order_done .hint_1 ul li{background:0;padding-left:0;list-style:none;}
-				#order_done .hint_1 ul li strong{width:172px;display:inline-block;text-align:right;padding-right:10px;vertical-align:top;}
-				#order_done .hint_1 ul li em{display:inline-block;font-style:normal;width:450px;}
-		#order_done .hint_1 ul.noborder{border:0;margin:0;padding:0;}
 	#order_done .hint_2{background:#FBF1D3;border-radius:4px;padding:9px 20px 11px 43px;margin:0 0 15px;}
 		#order_done .hint_2 h2{font-size:14px;color:#e38a25;font-weight:normal;margin:0;padding:0 0 6px;}		
 			
