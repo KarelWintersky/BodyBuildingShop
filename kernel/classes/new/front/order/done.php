@@ -23,6 +23,7 @@ Class Front_Order_Done Extends Common_Rq{
 		$this->registry->set('longtitle','Ваш заказ успешно совершен');
 		
 		$vars = array(
+				'num' => $order['num'],
 				'message' => $this->Front_Order_Done_Message->do_message($order),
 				'bill' => $this->do_bill($order),
 				'social' => $this->do_rq('social',NULL)
