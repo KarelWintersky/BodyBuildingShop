@@ -51,7 +51,7 @@
 	 <?endif;?>
 	
 	<div>
-		<b>К оплате:</b> <?=Common_Useful::price2read($a['overall_sum']);?> руб.
+		<b>К оплате:</b> <?=Common_Useful::price2read($a['overall_sum'] - $a['from_account']);?> руб.
 	</div>	
 </div> 
 
