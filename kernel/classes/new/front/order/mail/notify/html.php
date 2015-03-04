@@ -12,13 +12,7 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 		$this->Front_Order_Mail_Notify_Table = new Front_Order_Mail_Notify_Table($this->registry);
 		$this->Front_Order_Done_Message = new Front_Order_Done_Message($this->registry);
 	}	
-			
-	private function upper_text($order){
-		if($order['delivery_type']==1) return $this->do_rq('deliverypost',$order);
-		
-		return false;
-	}
-		
+					
 	private function apply_styles($html){
 		$styles = array(
 				'params_block width_2' => 'padding:0;background:#f2f2f2;padding:19px 30px 8px 20px;list-style:none;',
@@ -56,7 +50,6 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'delivery_costs' => $order['delivery_costs'],
 				'overall_sum' => $order['overall_sum'],				
 				'from_account' => $order['from_account'],				
-				'upper_text' => $this->upper_text($order),
 				'lower_text' => $this->Front_Order_Done_Message->do_message($order),
 				'to_admin' => $to_admin
 				);
