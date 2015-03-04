@@ -6,6 +6,7 @@ Class Front_Template_Links{
 		
 	public function __construct($registry){
 		$this->registry = $registry;
+		$this->registry->set('CL_tpl_links',$this);
 		
 		$this->domains = array(
 				'http://new2.bodybuilding-shop.ru',

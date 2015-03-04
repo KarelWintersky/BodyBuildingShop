@@ -15,11 +15,12 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 					
 	private function apply_styles($html){
 		$styles = array(
-				'params_block width_2' => 'padding:0;background:#f2f2f2;padding:19px 30px 8px 20px;list-style:none;',
+				'params_block width_2' => 'padding:0;background:#f2f2f2;padding:19px 30px 8px 20px;list-style:none;border:1px solid #ccc;',
 				'params_block_li' => 'padding:0 0 10px;',
 				'pb_label' => 'display:inline;font-weight:bold;',
 				'pb_text' => 'display:inline;',
-				'common_hint' => 'background:#fbf1d3;border-radius:2px;color:#333;padding:9px 35px 8px 15px;'
+				'common_hint' => 'background:#fbf1d3;border-radius:2px;color:#333;padding:9px 35px 8px 15px;',
+				'ch_h3' => 'margin:0 0 10px;color:#e38a25;font-weight:normal;font-size:18px;'
 				);
 		
 		foreach($styles as $k => $v){
@@ -58,7 +59,8 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 		
 		$html = $this->apply_styles($html);
 		
-		//echo $html; exit();
+		$html = $this->registry['CL_tpl_links']->do_links($html);
+		
 		return $html;
 	}	
 	
