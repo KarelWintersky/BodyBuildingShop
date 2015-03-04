@@ -131,7 +131,7 @@ Class Front_Order_Write{
 	}
 	
 	private function go_further($by_card,$order_num){
-		if(!$by_card) $this->Front_Order_Mail->send_mail($order_num);
+		$this->Front_Order_Mail->send_mail($order_num);
 		
 		$url = ($by_card)
 			? sprintf('/order/card/prepare/?id=%s',$order_num)
