@@ -60,12 +60,15 @@ Class Front_Order_Write_Input{
 		/*
 		 * для облегчения дальнейших действий записываем, из Санкт-Петербурга ли покупатель
 		 * */
-		
+				
 		if($deilvery==1) return $data['costs']['post']['is_spb'];
 		
 		if($deilvery==2) return $data['costs']['courier']['is_spb'];
 		
-		if($deilvery==3 && $this->registry['userdata']) return $data['costs']['post']['is_spb'];
+		if($deilvery==4 && $this->registry['userdata']) 
+			return (isset($data['costs']['post']['is_spb']))
+				? $data['costs']['post']['is_spb']
+				: false;
 		
 		return true;
 	}
@@ -97,7 +100,7 @@ Class Front_Order_Write_Input{
 					: false,
 				'is_spb' => $this->is_spb($data,$deilvery)
 				);
-				
+						
 		return $input;
 	}
 }
