@@ -78,7 +78,7 @@ Class Front_Template_Links{
 	}
 	
 	public function do_links($html){		
-		$reg = '/<a href=\"([^\"]*)\">.*<\/a>/iU';
+		$reg = '/<a href=\"([^\"]*)\".*>.*<\/a>/iU';
 		$html = preg_replace_callback(
 				$reg,
 				array($this,'do_replace'),
