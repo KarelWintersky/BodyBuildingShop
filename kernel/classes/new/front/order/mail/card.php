@@ -37,7 +37,7 @@ Class Front_Order_Mail_Card{
 				'ORDER_NUM_SUBJ' => sprintf('Заказ %s оплачен по банковской карте',$order['num']),
 				'ORDER_NUM_TEXT' => sprintf('Заказ %s оплачен по банковской карте на сумму %s руб.',
 						$order['num'],
-						$order['overall_price'] - $order['from_account']
+						$order['overall_sum'] - $order['from_account']
 						)
 				);
 		
