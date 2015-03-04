@@ -136,7 +136,13 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		)
 		$type = 11;
 		
-		
+		/*самовывоз + наличными*/
+		elseif(
+				$order['delivery_type']==4
+				&&
+				($order['payment_method_id']==5 || $order['account_extra_payment']==5)
+		)
+		$type = 12;		
 		
 
 		
