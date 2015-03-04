@@ -20,6 +20,10 @@ Class Front_Order_Payment_Card_Done Extends Common_Rq{
 			'message' => $this->do_message($order)
 		);
 		
+		$_SESSION['done_order_num'] = $vars['order_num'];
+		header('Location: /order/done/');
+		exit();
+		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
 	}
 		
