@@ -20,7 +20,7 @@ Class Front_Order_Done Extends Common_Rq{
 			exit();
 		}
 		
-		$this->registry->set('longtitle','Ваш заказ успешно совершен');
+		$this->registry->set('longtitle','Ваш заказ успешно сформирован');
 		
 		$vars = array(
 				'num' => $order['num'],
