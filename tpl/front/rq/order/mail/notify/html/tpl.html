@@ -33,7 +33,7 @@
 	<b>Оплата:</b> <?=$a['payment_name'];?>			
 </p>
 
-<div>
+<div style="margin-top:20px;">
 	<div>
 		<b>Стоимость доставки:</b> <?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
 		</div>
