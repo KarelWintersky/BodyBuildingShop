@@ -1,5 +1,5 @@
 <?php
-Class Front_Order_Mail_Card{
+Class Front_Order_Mail_Card Extends Common_Rq{
 	
 	/*
 	 * уведомления об оплате по карте
@@ -8,12 +8,12 @@ Class Front_Order_Mail_Card{
 	
 	private $registry;
 	
-	private $Front_Order_Mail_Card_Html;
+	private $Front_Order_Done_Message;
 	
 	public function __construct($registry){
 		$this->registry = $registry;
 		
-		$this->Front_Order_Mail_Card_Html = new Front_Order_Mail_Card_Html($this->registry);
+		$this->Front_Order_Done_Message = new Front_Order_Done_Message($this->registry);
 	}	
 			
 	private function get_data($ai){
@@ -50,23 +50,21 @@ Class Front_Order_Mail_Card{
 	}
 
 	private function to_user($order){
-		$html = $this->Front_Order_Mail_Card_Html->make_message($order);
+		
+		$a = array(
+				'num' => $order['num'],
+				'order_sum' => Common_Useful::price2read($order['overall_sum'] - $order['from_account']),
+				'message' => $this->Front_Order_Done_Message->do_message($order),
+				);
+		
+		$html = $this->do_rq('tpl',$a);
 		
 		$this->registry['CL_mail']->send_mail(
 				$order['tech']['email'],
 				sprintf('Ваш заказ %s успешно оплачен',$order['num']),
 				$html
 		);		
-		
-		/*$replace = array(
-				'ORDER_NUM' => $order['num'],
-				'OVERALL_PRICE' => $order['overall_sum'],
-				'DELIVERY_COMMENT' => ($order['delivery_type']==1) 
-					? 'В ближайшее время заказ будет передан в обработку. После отправки Вы получите уведомление где будет указана точная дата отправки и номер отправления для отслеживания посылки на сайте почты России.' 
-					: 'Если заказ Был сделан до 12 часов то курьер свяжется с Вами в течении дня. В противном случае - на следующий рабочий день после заказа. (За исключением случаев форс-мажора или невозможности связаться с Вами по указанному Вами телефону).',
-		);
-		
-		$mailer = new Mailer($this->registry,35,$replace,$order['user_email']);*/	
+			
 	}	
 	
 	public function send_letter($ai){
