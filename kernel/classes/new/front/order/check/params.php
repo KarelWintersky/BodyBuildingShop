@@ -11,7 +11,10 @@ Class Front_Order_Check_Params Extends Common_Rq{
 		
 		$a = array(
 				'delivery_payment' => $this->delivery_payment($data),
-				'personal_data' => $this->personal_data($data)
+				'personal_data' => $this->personal_data($data),
+				'personal_data_h' => ($this->registry['CL_storage']->get_storage('delivery')==2)
+					? 'Ваши контактные данные'
+					: 'Проверьте еще раз реквизиты, по которым будет отправлен заказ'
 				);
 		
 		return $this->do_rq('params',$a);
