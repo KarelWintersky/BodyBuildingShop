@@ -153,14 +153,14 @@ Class Front_Order_Done_Message Extends Common_Rq{
 	
 	private function data_extend($order){
 		$tech = Front_Order_Helper::get_tech_data($order);
-		
-		return $order + array(
+				
+		return array_merge($order,array(
 				'user_name' => $tech['name'],
 				'user_address' => $tech['address'],
 				'user_email' => $tech['email'],
 				'user_phone' => $tech['phone'],		
 				'order_sum' => Common_Useful::price2read($order['overall_sum'] - $order['from_account']),
-				);
+				));
 	}
 	
 	public function do_message($order){
