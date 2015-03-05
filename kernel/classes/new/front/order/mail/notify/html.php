@@ -47,6 +47,7 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'wishes' => $order['wishes'],
 				'delivery_name' => $delivery['name'],
 				'payment_name' => ($payment) ? $payment['name'] : false,
+				'delivery_type' => $order['delivery_type'],
 				'nalog_costs' => $order['nalog_costs'],
 				'delivery_costs' => $order['delivery_costs'],
 				'overall_sum' => $order['overall_sum'],				

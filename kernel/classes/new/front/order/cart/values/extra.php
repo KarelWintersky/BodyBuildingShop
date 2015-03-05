@@ -17,7 +17,8 @@ Class Front_Order_Cart_Values_Extra Extends Common_Rq{
 					? Common_Useful::price2read($data['nalog']) 
 					: false,
 				'free_delivery' => ($data['delivery_sum']===0),
-				'delivery' => Common_Useful::price2read($data['delivery_sum'])
+				'delivery' => Common_Useful::price2read($data['delivery_sum']),
+				'delivery_type' => $this->registry['CL_storage']->get_storage('delivery')
 				);
 				
 		return $this->do_rq('extra',$a);

@@ -32,16 +32,17 @@
 </p>
 
 <div style="margin:20px 0 20px 0;">
-	<div>
-		<b>Стоимость доставки:</b> 
-		
-		<?if($a['delivery_costs']===false):?>
-			будет уточнена по запросу
-		<?else:?>
-			<?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
-		<?endif;?>
-		
-	</div>
+	<?if($a['delivery_type']!=4):?>
+		<div>
+			<b>Стоимость доставки:</b> 
+			
+			<?if($a['delivery_costs']===false):?>
+				будет уточнена по запросу
+			<?else:?>
+				<?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
+			<?endif;?>
+		</div>
+	<?endif;?>
 	
 	<?if($a['nalog_costs']):?>
 		<div>
