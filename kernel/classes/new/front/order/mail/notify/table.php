@@ -15,9 +15,9 @@ Class Front_Order_Mail_Notify_Table Extends Common_Rq{
 		
 		return $styles[$key];
 	}
-	
+		
 	public function print_goods($order){
-	
+			
 		$lines = array();
 		foreach($order['goods'] as $g){
 			

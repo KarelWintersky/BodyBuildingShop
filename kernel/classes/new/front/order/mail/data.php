@@ -3,12 +3,14 @@ Class Front_Order_Mail_Data{
 	
 	private $registry;
 	
+	private $Front_Order_Data_Cart_Gift;
 	private $Front_Order_Mail_Goods;
 	
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Mail_Goods = new Front_Order_Mail_Goods($this->registry);
+		$this->Front_Order_Data_Cart_Gift = new Front_Order_Data_Cart_Gift($this->registry);
 	}	
 	
 	public function get_data($num){
@@ -49,11 +51,14 @@ Class Front_Order_Mail_Data{
 		if(!$order) return false;
 		
 		$order['num'] = implode('/',$num);
-		$order['goods'] = $this->Front_Order_Mail_Goods->get_goods($num);
 		
 		$order['address'] = Common_Address::implode_address($order);
 		
 		$order['tech'] = Front_Order_Helper::get_tech_data($order);
+		
+		$order['gift'] = $this->Front_Order_Data_Cart_Gift->get_gift($order['gift_barcode']);
+		
+		$order['goods'] = $this->Front_Order_Mail_Goods->get_goods($order);
 		
 		return $order;
 	}

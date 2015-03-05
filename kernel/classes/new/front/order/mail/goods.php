@@ -59,7 +59,37 @@ Class Front_Order_Mail_Goods{
 		return $goods;
 	}
 	
-	public function get_goods($num){
+	private function add_gift_to_goods($goods,$order){	
+		$gift = $order['gift'];
+		if(!$gift) return $goods;
+	
+		$goods[] = array(
+				'order_id' => $order['num'],
+				'goods_id' => 0,
+				'goods_barcode' => (isset($gift['barcode'])) ? $gift['barcode'] : false,
+				'goods_packing' => (isset($gift['packing'])) ? $gift['packing'] : false,
+				'goods_full_name' => (isset($gift['grower_name']) && $gift['grower_name'])
+					? sprintf('"%s". %s',$gift['grower_name'],$gift['name'])
+					: $gift['name'],
+				'goods_feats_str' => '',
+				'amount' => '1',
+				'price' => '0',
+				'discount' => '0',
+				'final_price' => '0',
+				'barcode' => (isset($gift['barcode'])) ? $gift['barcode'] : false,
+				'feature' => (isset($gift['feature'])) ? $gift['feature'] : false,
+				'packing' => (isset($gift['packing'])) ? $gift['packing'] : false,
+				'alias' => (isset($gift['alias'])) ? $gift['alias'] : false,
+				'level_alias' => (isset($gift['level_alias'])) ? $gift['level_alias'] : false,
+				'parent_alias' => (isset($gift['parent_alias'])) ? $gift['parent_alias'] : false,
+				'parent_parent_id' => (isset($gift['parent_id'])) ? $gift['parent_id'] : false,
+				);
+			
+		return $goods;
+	}
+	
+	
+	public function get_goods($order){
 		$goods = array();
 		$qLnk = mysql_query(sprintf("
 				SELECT
@@ -71,12 +101,14 @@ Class Front_Order_Mail_Goods{
 				ORDER BY
 					final_price DESC;
 				",
-				implode('/',$num)
+				$order['num']
 				));
 		while($g = mysql_fetch_assoc($qLnk)) $goods[] = $g;
 		
 		$goods = $this->get_rest($goods);
 		$goods = $this->get_features($goods);
+		
+		$goods = $this->add_gift_to_goods($goods,$order);
 		
 		return $goods;
 	}

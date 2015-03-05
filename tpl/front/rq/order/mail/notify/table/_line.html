@@ -1,7 +1,12 @@
 <tr>
 	<td style="border:1px solid #ccc;padding:5px 0 5px 5px;text-align:left;">
-		<a href="<?=$a['url'];?>">
-			<?=$a['goods_full_name'];?></a>
+	
+		<?if($a['goods_barcode']):?>
+			<a href="<?=$a['url'];?>">
+				<?=$a['goods_full_name'];?></a>
+		<?else:?>
+			<?=$a['goods_full_name'];?>
+		<?endif;?>	
 		
 		<?if($a['packing']):?>
 			<div style="font-size:11px;color:#666;"><?=$a['packing'];?></div>
@@ -18,15 +23,27 @@
 		<?endif;?>			
 	</td>
 	<td style="<?=$a['td_right'];?>">
-		<?=Common_Useful::price2read($a['price'])?> руб.
+		<?if($a['price']):?>
+			<?=Common_Useful::price2read($a['price'])?> руб.
+		<?else:?>
+			-
+		<?endif;?>	
 	</td>
 	<td style="<?=$a['td_right'];?>">
 		<?=$a['amount'];?> шт.
 	</td>
 	<td style="<?=$a['td_right'];?>">
-		<?=$a['discount'];?> %
+		<?if($a['discount']):?>
+			<?=$a['discount'];?> %
+		<?else:?>
+			-
+		<?endif;?>	
 	</td>
 	<td style="<?=$a['td_right'];?>">
-		<?=Common_Useful::price2read($a['final_sum']);?> руб.
+		<?if($a['final_sum']):?>
+			<?=Common_Useful::price2read($a['final_sum']);?> руб.
+		<?else:?>
+			-
+		<?endif;?>
 	</td>
 </tr>
