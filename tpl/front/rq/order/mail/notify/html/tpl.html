@@ -33,8 +33,15 @@
 
 <div style="margin-top:20px;">
 	<div>
-		<b>Стоимость доставки:</b> <?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
-		</div>
+		<b>Стоимость доставки:</b> 
+		
+		<?if($a['delivery_costs']===false):?>
+			будет уточнена по запросу
+		<?else:?>
+			<?= ($a['delivery_costs']) ? sprintf('%s руб.',Common_Useful::price2read($a['delivery_costs'])) : 'бесплатно';?>
+		<?endif;?>
+		
+	</div>
 	
 	<?if($a['nalog_costs']):?>
 		<div>
