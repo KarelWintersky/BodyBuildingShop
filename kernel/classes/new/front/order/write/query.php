@@ -74,7 +74,7 @@ Class Front_Order_Write_Query{
 					: "NULL",
 				($data['is_spb']) ? 1 : 0
 				));	
-
+		
 	}
 }
 ?>

@@ -33,6 +33,20 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 		return $html;
 	}
 	
+	public function just_message($order){
+		/*
+		 * получить только сообщение с последнего шага - для письма оплаты картами
+		 * */
+		
+		$html = $this->Front_Order_Done_Message->do_message($order);
+		
+		$html = $this->apply_styles($html);
+		
+		$html = $this->registry['CL_tpl_links']->do_links($html);	
+
+		return $html;
+	}
+	
 	public function print_html($order,$to_admin){
 		
 		$delivery = Front_Order_Data_Delivery::get_methods($order['delivery_type']);

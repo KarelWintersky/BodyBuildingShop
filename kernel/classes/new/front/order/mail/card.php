@@ -8,30 +8,38 @@ Class Front_Order_Mail_Card Extends Common_Rq{
 	
 	private $registry;
 	
-	private $Front_Order_Done_Message;
+	private $Front_Order_Mail_Notify_Html;
+	private $Front_Order_Mail_Data;
 	
 	public function __construct($registry){
 		$this->registry = $registry;
 		
-		$this->Front_Order_Done_Message = new Front_Order_Done_Message($this->registry);
+		$this->Front_Order_Mail_Notify_Html = new Front_Order_Mail_Notify_Html($this->registry);
+		$this->Front_Order_Mail_Data = new Front_Order_Mail_Data($this->registry);
 	}	
 			
 	private function get_data($ai){
 		$qLnk = mysql_query(sprintf("
 				SELECT
-					orders.*,
-					users.email AS user_email				
+					id,			
+					user_num,			
+					payment_method			
 				FROM
 					orders
-				LEFT OUTER JOIN users ON users.id = orders.user_id
 				WHERE
-					orders.ai = '%d'
+					ai = '%d'
 				",
 				$ai
 				));
 		$order = mysql_fetch_assoc($qLnk);
 		
-		return $order;
+		$num = sprintf('%d/%d/%s',
+				$order['id'],
+				$order['user_num'],
+				$order['payment_method']
+				);
+		
+		return $this->Front_Order_Mail_Data->get_data($num);
 	}
 	
 	private function to_admins($order){
@@ -54,7 +62,7 @@ Class Front_Order_Mail_Card Extends Common_Rq{
 		$a = array(
 				'num' => $order['num'],
 				'order_sum' => Common_Useful::price2read($order['overall_sum'] - $order['from_account']),
-				'message' => $this->Front_Order_Done_Message->do_message($order),
+				'message' => $this->Front_Order_Mail_Notify_Html->just_message($order),
 				);
 		
 		$html = $this->do_rq('tpl',$a);
