@@ -22,15 +22,23 @@ Class Front_Order_Delivery_Courier Extends Common_Rq{
 		elseif($this->registry['userdata'] && $arr['is_spb'] && $data['sum_with_discount']<FREE_DELIVERY_SUM)
 			$type = 3;		
 		
-		/*человек НЕ зарегистрирован*/
-		elseif(!$this->registry['userdata'])
+		/*человек НЕ зарегистрирован и не из Питера*/
+		elseif(!$this->registry['userdata'] && !$arr['is_spb'])
 			$type = 4;		
+
+		/*человек НЕ зарегистрирован и из Питера и набрал на бесплатную доставку*/
+		elseif(!$this->registry['userdata'] && $arr['is_spb'] && $data['sum_with_discount']>=FREE_DELIVERY_SUM)
+			$type = 5;		
+
+		/*человек НЕ зарегистрирован и из Питера и НЕ набрал на бесплатную доставку*/
+		elseif(!$this->registry['userdata'] && $arr['is_spb'] && $data['sum_with_discount']<FREE_DELIVERY_SUM)
+			$type = 6;		
 		
 		$a = array(
 				'type' => (isset($type)) ? $type : false,
 				'order_sum' => Common_Useful::price2read($data['sum_with_discount']),
 				'delivery_sum' => COURIER_SPB_COST,
-				'diff' => Common_Useful::price2read(FREE_DELIVERY_SUM - $data['sum_with_discount'])
+				'diff' => Common_Useful::price2read(FREE_DELIVERY_SUM - $data['sum_with_discount']),
 				);
 		
 		return $this->do_rq('text',$a);

@@ -8,8 +8,12 @@ Class Front_Order_Mail_Card{
 	
 	private $registry;
 	
+	private $Front_Order_Mail_Card_Html;
+	
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Front_Order_Mail_Card_Html = new Front_Order_Mail_Card_Html($this->registry);
 	}	
 			
 	private function get_data($ai){
@@ -46,7 +50,15 @@ Class Front_Order_Mail_Card{
 	}
 
 	private function to_user($order){
-		$replace = array(
+		$html = $this->Front_Order_Mail_Card_Html->make_message($order);
+		
+		$this->registry['CL_mail']->send_mail(
+				$order['tech']['email'],
+				sprintf('Ваш заказ %s успешно оплачен',$order['num']),
+				$html
+		);		
+		
+		/*$replace = array(
 				'ORDER_NUM' => $order['num'],
 				'OVERALL_PRICE' => $order['overall_sum'],
 				'DELIVERY_COMMENT' => ($order['delivery_type']==1) 
@@ -54,7 +66,7 @@ Class Front_Order_Mail_Card{
 					: 'Если заказ Был сделан до 12 часов то курьер свяжется с Вами в течении дня. В противном случае - на следующий рабочий день после заказа. (За исключением случаев форс-мажора или невозможности связаться с Вами по указанному Вами телефону).',
 		);
 		
-		$mailer = new Mailer($this->registry,35,$replace,$order['user_email']);	
+		$mailer = new Mailer($this->registry,35,$replace,$order['user_email']);*/	
 	}	
 	
 	public function send_letter($ai){
