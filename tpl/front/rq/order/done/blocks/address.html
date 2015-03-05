@@ -4,7 +4,13 @@
 	</li>
 	<li class="params_block_li">	
 		<span class="pb_label">Почтовый адрес:</span> <span class="pb_text"><?=$a['user_address'];?></span> <span class="clr"></span>
-	</li>			
+	</li>
+	
+	<?if($a['delivery_type']==2):?>	
+		<li class="params_block_li">	
+			<span class="pb_label">Телефон:</span> <span class="pb_text"><?=$a['user_phone'];?></span> <span class="clr"></span>
+		</li>						
+	<?endif;?>	
 	
 	<?if($a['delivery_type']==1):?>		
 		<li class="params_block_li">
