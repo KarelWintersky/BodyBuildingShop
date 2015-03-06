@@ -99,7 +99,7 @@ Class Front_Order_Mail_Tech{
 	}
 	
 	private function prepare_line($line){
-		foreach($line as $k => $v) if(!$v) $line[$k] = ' ';
+		foreach($line as $k => $v) if($v===false) $line[$k] = ' ';
 		foreach($line as $k => $v) $line[$k] = str_replace('::','',$v);
 
 		return $line;
