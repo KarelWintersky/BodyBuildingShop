@@ -56,7 +56,9 @@ Class Front_Order_Mail_Tech{
 	
 	public function get_lines($order){		
 		$delivery = Front_Order_Data_Delivery::get_methods($order['delivery_type']);
-		$payment = Front_Order_Data_Payment::get_methods($order['payment_method_id']);
+		
+		$payment_id = ($order['account_extra_payment']) ? $order['account_extra_payment'] : $order['payment_method_id'];  
+		$payment = Front_Order_Data_Payment::get_methods($payment_id);
 		
 		$order_line = array(
 				$order['num'],
@@ -65,8 +67,8 @@ Class Front_Order_Mail_Tech{
 				date('d.m.Y',strtotime($order['made_on'])),
 				date('H:i:s',strtotime($order['made_on'])),
 				$order['delivery_costs'] + $order['nalog_costs'],
-				$payment['name'],
-				$delivery['name'],
+				$payment['tech_name'],
+				$delivery['tech_name'],
 				$order['overall_sum'],
 				$order['tech']['email'],
 				$order['tech']['name'],

@@ -5,12 +5,14 @@ Class Front_Order_Data_Delivery{
 		$methods = array(
 				1 => array(
 					'name' => 'Доставка по почте',
+					'tech_name' => 'почтой',
 					'payment' => array(1,2,3,4,6,7),
 					'field' => 'delivery_mail',
 					'class_alias' => 'post'
 				),
 				2 => array(
 					'name' => 'Доставка курьером',
+					'tech_name' => 'курьером',						
 					'payment' => array(2,3,4,5,6,7),
 					'field' => 'delivery_courier',
 					'class_alias' => 'courier'	
@@ -21,6 +23,7 @@ Class Front_Order_Data_Delivery{
 				),*/
 				4 => array(
 					'name' => 'Самовывоз',
+					'tech_name' => 'самовывоз',
 					'payment' => array(2,3,4,5,6,7),
 					'field' => 'delivery_self',
 					'class_alias' => 'self'
