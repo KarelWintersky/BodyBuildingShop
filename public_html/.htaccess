@@ -1,15 +1,5 @@
 #DirectoryIndex index.php
 
-#AuthType Basic
-#AuthName "restricted area"
-#AuthUserFile /home/wwwuser/www/new2.bodybuilding-shop.ru/public_html/.htpasswd
-
-#Order Deny,Allow
-#Satisfy any
-#Deny from all
-#Require valid-user
-#Allow from env=noauth
-
 RewriteEngine on
 
 RewriteCond %{HTTP_HOST} ^bodybuilding-shop\.ru

@@ -15,7 +15,7 @@ Class Controller_Index Extends Controller_Base{
     			'order',
     			'order/table',
     	));    	  
-
+    	
     	$Front_Order_Data = new Front_Order_Data($this->registry);
     	
     	$Front_Order_Cart = new Front_Order_Cart($this->registry);
