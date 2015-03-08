@@ -1,17 +1,27 @@
 <?php
 Class Common_Useful_Date{
 
-	public static function read2date($read){
-		$arr = explode('.',$read);
-		return $arr[2].'-'.$arr[1].'-'.$arr[0];
-	}	
+	private static function mkstring($date){
+		$date = (is_numeric($date)) ? $date : strtotime($date);
+		
+		return $date;
+	}
 	
-	public static function date2read($date){
-		$date = explode('-',$date);
-		return $date[2].'.'.$date[1].'.'.$date[0];
+	public static function date2node($date,$type){
+		$date = self::mkstring($date);
+		
+		//28 февраля 2014
+		if($type==1)
+			return sprintf('%d %s %d',
+					date('d',$date),
+					self::date2monthname($date),
+					date('Y',$date)
+					);
 	}	
-	
+		
 	public static function date2dayofweek($date,$t){
+		$date = self::mkstring($date);
+		
 		$days = array(
 				0 => array('вс','воскресение'),
 				1 => array('пн','понедельник'),
@@ -21,10 +31,12 @@ Class Common_Useful_Date{
 				5 => array('пт','пятница'),
 				6 => array('сб','суббота'),
 		);
-		return $days[date('w',strtotime($date))][$t];
+		return $days[date('w',$date)][$t];
 	}	
 	
 	public static function date2monthname($date){
+		$date = self::mkstring($date);
+		
 		$captions = array(
 			1 => 'января',
 			2 => 'февраля',
@@ -39,7 +51,7 @@ Class Common_Useful_Date{
 			11 => 'ноября',
 			12 => 'декабря'
 		);
-		return $captions[date('n',strtotime($date))];
+		return $captions[date('n',$date)];
 	}	
 	
 }

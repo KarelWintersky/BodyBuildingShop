@@ -1,4 +1,14 @@
-#main_page_module{width:964px;height:319px;margin:-4px 0 34px 0;}
+#mainpage_module{width:964px;height:340px;margin:-4px 0 34px 0;}
+	#mainpage_module #mainpage_slider{float:left;width:580px;height:340px;}
+	#mainpage_module #mainpage_nutrition_news{float:right;width:360px;}
+		#mainpage_module #mainpage_nutrition_news #mainpage_nutrition_news_h{color:#E38A25;font-size:19px;padding:0 0 20px;}
+		#mainpage_module #mainpage_nutrition_news #mainpage_nutrition_news_more{font-size:12px;}
+		#mainpage_module #mainpage_nutrition_news .mnn_item{padding:0 0 15px;}
+			#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_img{float:left;width:50px;height:50px;background:#ccc;}
+			#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_right{float:right;width:295px;}
+				#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_right .mnn_item_date{color:#b2b2b2;font-size:11px;padding:0 0 6px;}
+				#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_right .mnn_item_name{font-size:12px;line-height:16px;}
+			#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_intro{font-size:12px;line-height:16px;color:#4c4c4c;padding:8px 0 0;}
 
 #main_page{}
 	#main_page #main_page_c{float:left;width:491px;}
@@ -36,7 +46,7 @@
 		.hot_goods_item .hgi_price .hgi_price_old span{text-decoration:line-through;}
 	.hot_goods_item .goods_item_lnk_1{float:right;font-size:11px;padding:12px 0 0;margin:0 -9px 0 0;}
 		.hot_goods_item .goods_item_lnk_1 a{color:#e38a25;}
-.hot_goods_item.r{float:right;margin-right:0;}
+.hot_goods_item:nth-child(3n){float:right;margin-right:0;}
 .hot_goods_divider{border-top:1px dotted #b2b2b2;height:1px;width:100%;margin:0 0 25px;}
 
 #growers_carousel{padding:36px 0 0;}
@@ -53,7 +63,6 @@
 	.srb_news .s_news_item{padding:0 0 16px;}
 		.srb_news .s_news_item .s_news_item_date{font-size:11px;color:#b2b2b2;padding:0 0 5px 0;}
 		.srb_news .s_news_item .s_news_item_name{line-height:16px;padding:0 15px 0 0;}
-	.srb_news .s_news_item.last{}
 	.srb_news .srb_news_more{float:left;padding:4px 0 0;}
 	.srb_news .srb_news_rss{float:right;margin:0 -17px 0 0;}
 		.srb_news .srb_news_rss a{width:112px;padding:5px 0 0;height:19px;text-align:center;display:block;border:1px solid #F49900;color:#fff;font-family:Verdana;text-decoration:none;border-radius:2px;background:#eab000;font-size:11px;
@@ -70,8 +79,8 @@
 		.srb_popular .sb_popular_item .sb_popular_img{float:left;}
 			.sb_popular .sb_popular_item .sb_popular_img img{width:57px;}
 		.srb_popular .sb_popular_item .sb_popular_r{float:right;width:100px;line-height:16px;}
-	.srb_popular .sb_popular_item.first{padding-top:0;}
-	.srb_popular .sb_popular_item.last{margin-bottom:11px;}
+	.srb_popular .sb_popular_item:nth-child(1){padding-top:0;}
+	.srb_popular .sb_popular_item:nth-child(3){margin-bottom:11px;}
 
 .srb_photogallery{}
 	.srb_photogallery .srb_photogallery_lnk{padding:0 0 0 3px;}

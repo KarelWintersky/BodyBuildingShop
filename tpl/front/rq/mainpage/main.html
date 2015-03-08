@@ -1,0 +1,92 @@
+<div id="main_page">
+
+	<div id="main_page_c">
+
+		<div id="mpc_hot_goods">
+			<div class="texted">
+				<h1>Спортивное питание</h1>
+				<p>Наш <b>интернет магазин спортивного питания</b> предлагает добавки ведущих мировых брендов. Мы осуществляем доставку как в Санкт-Петербурге, так и по всей России, в том числе – наложенным платежом.</p>
+			</div>
+
+			{{goods}}
+
+		</div>
+
+		{{articles}}
+
+		<div id="mpc_about" class="texted">
+			<h3>{{h3}}</h3>
+			{{text}}
+		</div>
+
+	</div>
+
+	<div id="sidebar_r">
+
+		<div class="sidebar_r_block srb_interesting">
+			<div class="sidebar_r_block_h">Интересное</div>
+			<div class="sidebar_r_block_i">
+				<ul>
+					<li class="srb_interesting_1">
+						<span class="srb_ico"></span>
+						<span class="srb_link">
+							<a href="/diplom/">Диплом Федерации бодибилдинга и фитнеса России</a>
+						</span>
+					</li>
+					<li class="srb_interesting_2">
+						<span class="srb_ico"></span>
+						<span class="srb_link">
+							<a href="/prices/">Скачайте наш каталог одежды и прайс-лист</a>
+						</span>	
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		{{site_news}}
+
+		{{leaders}}
+
+		<div class="sidebar_r_block srb_photogallery">
+			<div class="sidebar_r_block_h">Галерея одежды</div>
+			<div class="sidebar_r_block_i">
+				<div class="srb_photogallery_img">
+					<a href="/photogallery/" style="background-image:url(http://www.bodybuilding-shop.ru/data/foto/goods/122x122/1418/superset_bandana.jpg);"></a>
+				</div>
+				<div class="srb_photogallery_lnk">
+					<a href="/photogallery/">Посмотреть</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar_r_block srb_delivery">
+			<div class="sidebar_r_block_h">Стоимость доставки</div>
+			<div class="sidebar_r_block_i">
+				<div class="srb_delivery_txt">
+					Введите Ваш почтовый индекс и узнайте стоимость доставки питания в Ваш населенный пункт
+				</div>
+				<div class="srb_delivery_form">
+					<form method="GET" action="/delivery/" id="form_IndexCheck">
+						<input type="text" name="index" value="индекс" onfocus="this.value=(this.value=='индекс')? '' : this.value;" onblur="this.value=(this.value=='')? 'индекс' : this.value;">
+						<a href="#" onclick="return form_sbm('#form_IndexCheck');">Проверить</a>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar_r_block">
+			<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?52"></script>
+
+			<div id="vk_groups"></div>
+			<script type="text/javascript">
+			VK.Widgets.Group("vk_groups", {mode: 0, width: "190", height: "290"}, 37480880);
+			</script>
+		</div>
+
+	</div>
+
+	<div class="clr"></div>
+
+	{{growers}}
+
+</div>

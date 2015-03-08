@@ -9,7 +9,6 @@
 			$this->registry->set('doer',$this);
 			$catalog = new Catalog($this->registry,false);
 			$pages = new Pages($this->registry,false);
-			$news = new News($this->registry,false);
 			$features = new Features($this->registry,false);
 			$growers = new Growers($this->registry,false);
 			$settings = new Settings($this->registry,false);
@@ -67,13 +66,11 @@
 						break;
 
 					case 300:
-						$news->news_sav();
-						break;
-					case 301:
-						$news->news_add();
+						$Adm_News_Save = new Adm_News_Save($this->registry);
+						$Adm_News_Save->do_save();
 						break;
 					case 302:
-						$news->news_del();
+						//$news->news_del();
 						break;
 
 					case 400:

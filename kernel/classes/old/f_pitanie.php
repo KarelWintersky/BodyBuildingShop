@@ -60,26 +60,6 @@
 			return false;
 		}
 
-		public function main_page(){
-			$qLnk = mysql_query("
-								SELECT
-									articles.main_h2,
-									articles.alias,
-									articles.img_alt,
-									articles.introtext,
-									articles.avatar
-								FROM
-									articles
-								WHERE
-									articles.published = 1
-									AND
-									articles.id IN (1,2,3)
-								LIMIT 3;
-								");
-			while($a = mysql_fetch_assoc($qLnk)){
-				$this->item_rq('mainpage_item',$a);
-			}
-		}
 
 	}
 ?>

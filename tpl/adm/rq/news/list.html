@@ -1,0 +1,26 @@
+<h1>Новости</h1>
+
+{{add}}
+
+<ul class="news_links" id="nl_show">
+	<li class="nl_label">Показать:</li>
+	<li>
+		<form id="form_TypeChange">
+			<select name="type" onchange="$('#form_TypeChange').submit();">
+				{{options}}
+			</select>
+		</form>
+	</li>
+	<div class="clr"></div>
+</ul>
+
+<div class="clr"></div>
+
+<table class="table_one" id="table_NewsList">
+	<tr>
+		<th class="td_date">Дата</th>
+		<th class="td_name">Название</th>
+		<th class="td_type">Тип</th>
+	</tr>
+	{{list}}
+</table>

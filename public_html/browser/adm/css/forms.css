@@ -19,6 +19,7 @@ form{}
 	form input.err{border:1px solid #ff0000;background:#fceaea;}
 	form .datepicker{cursor:pointer;background:#fff url(/browser/adm/i/ico_date.gif) 100% 5px no-repeat;}
 	form #overall_err_msg{float:left;font-size:11px;color:#ff0000;padding:22px 0 0 15px;display:none;}
+	form .fl{margin:0 0 14px;}
 
 .usual_form{}
 	.usual_form .form_l{margin:0 0 13px;}
@@ -243,21 +244,33 @@ form{}
 		#form_FeedbackOptAdd .form_l input[type="text"]{width:200px;}
 	#form_FeedbackOptAdd .form_l.sbm{padding:13px 0 0;}
 
-#form_NewsInfo{}
-	#form_NewsInfo .form_l_published{margin-right:30px;}
-	#form_NewsInfo .form_l_content textarea{width:858px;height:350px;}
-	#form_NewsInfo .form_l_name input{width:400px;margin-right:30px;}
-	#form_NewsInfo .form_l_alias input{width:280px;}
-	#form_NewsInfo .form_l_date{float:right;}
-		#form_NewsInfo .form_l_date input{width:90px;}
-	#form_NewsInfo .sbm{float:left;}
+.news_links{font-size:11px;padding:5px 0 25px;}
+	.news_links li{float:left;margin:0 20px 0 0;}
+		.news_links li a{background:#465390;color:#fff;padding:6px 10px 8px;}
+		.news_links li select{width:150px;margin:-2px 0 0;}
+	.news_links li.nl_label{font-size:12px;color:#666;padding:2px 0 0;}
+#nl_add{float:left;}	
+#nl_show{float:right;}	
 
-.news_add{font-size:11px;margin:0 0 20px;}
-.news_list{font-size:11px;padding:0 0 12px;}
-	.news_list .nl_name{float:left;width:550px;margin-right:30px;}
-	.news_list .nl_date{float:left;color:#999;}
-.news_list.unpub{}
-	.news_list.unpub a{color:#999;}
+#table_NewsList{}
+	#table_NewsList .td_date{width:40px;text-align:center;}
+	#table_NewsList .td_type{width:120px;}
+	#table_NewsList .tr_unpub td{color:#ccc;}
+		#table_NewsList .tr_unpub td a{color:#ccc;}
+
+#news_head{padding:8px 0 5px;}
+	#news_head h1{float:left;width:680px;}
+		#news_head h1 span{display:block;font-weight:normal;font-size:11px;padding:6px 0 0;}
+	#news_head #type_name{float:right;font-size:12px;background:green;color:#fff;padding:8px 12px 9px;border-radius:12px;margin:-1px 0 0;}
+#form_NewsAddEdit{}
+	#form_NewsAddEdit .lft{float:left;}
+	#form_NewsAddEdit .fl_name input{width:855px;}
+	#form_NewsAddEdit .fl_alias input{width:710px;margin-right:30px;}
+	#form_NewsAddEdit .fl_content textarea{width:855px;height:400px;}
+	#form_NewsAddEdit .fl_introtext textarea{width:855px;height:50px;}
+	#form_NewsAddEdit .fl_published{margin-right:30px;}
+	#form_NewsAddEdit .fl_sbm{text-align:center;padding-top:15px;}
+
 
 .pages_add{font-size:11px;margin:0 0 20px;}
 .pages_list{font-size:11px;padding:0 0 15px;}

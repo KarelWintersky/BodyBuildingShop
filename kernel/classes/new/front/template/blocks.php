@@ -70,6 +70,8 @@ Class Front_Template_Blocks{
 			'this_page_url' => $this->this_page_url(),
 		);
 		
+		if(!isset($this->registry['mainpage'])) $blocks['module'] = false;
+		
 		foreach($blocks as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
 	}
 		

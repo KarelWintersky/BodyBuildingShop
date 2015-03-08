@@ -1,0 +1,19 @@
+<div id="news_prev_next">
+
+	<?if($a['prev']):?>
+		<div id="news_prev" class="npn">
+			<span>Предыдущая новость</span>
+			<a href="/<?=$a['news_alias'];?><?=$a['prev']['alias']?>/">
+				<?=$a['prev']['name']?></a>
+		</div>
+	<?endif;?>
+	
+	<?if($a['next']):?>
+		<div id="news_next" class="npn">
+			<span>Следующая новость</span>
+			<a href="/<?=$a['news_alias'];?><?=$a['next']['alias']?>/">
+				<?=$a['next']['name']?></a>
+		</div>	
+	<?endif;?>
+	
+</div>

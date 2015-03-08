@@ -1,0 +1,74 @@
+<div id="news_head">
+
+	<h1>
+		{{h1}}
+		<span>
+			<a href="/adm/news/">&larr; к списку новостей</a>
+		</span>
+	</h1>
+	
+	{{type}}
+		
+	<div class="clr"></div>
+
+</div>
+
+<div class="form_1">
+
+	<form id="form_NewsAddEdit" action="/doer/" method="POST">
+
+		<input type="hidden" name="d_action" value="300">
+		<input type="hidden" name="id" value="{{id}}">
+		<input type="hidden" name="type" value="{{type_id}}">
+
+		<div class="fl fl_name">
+			<label>Название</label>
+			<input type="text" name="name" value="{{name}}">
+			<div class="errF"></div>
+		</div>
+
+		<div class="fl fl_alias lft">
+			<label>Alias</label>
+			<input type="text" name="alias" value="{{alias}}">
+		</div>
+
+		<div class="fl fl_date lft">
+			<label>Дата</label>
+			<input class="datepicker" type="text" name="date" value="{{date}}" readonly>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="fl fl_content">
+			<label>Полный текст</label>
+			<textarea class="tinyMCE" name="content">{{content}}</textarea>
+		</div>
+
+		<div class="fl fl_introtext">
+			<label>Вступительный текст</label>
+			<textarea name="introtext">{{introtext}}</textarea>
+		</div>
+
+		<div class="fl fl_published lft cbox">
+			<input type="checkbox" name="published" id="published" value="1" {{published}}>
+			<label for="published">Опубликована</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="fl fl_rss lft cbox">
+			<input type="checkbox" name="rss" id="rss" value="1" {{rss}}>
+			<label for="rss">Участвует в RSS</label>
+			<div class="clr"></div>
+		</div>
+
+		<div class="clr"></div>
+
+		<div class="fl fl_sbm">
+			<input type="submit" value="{{submit}}">
+		</div>
+
+		<div class="clr"></div>
+
+	</form>
+
+</div>

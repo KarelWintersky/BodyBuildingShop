@@ -8,13 +8,13 @@
 	
 	<?if(in_array($a['status'],array(2,3,4))):?>
 		<td>
-			<?=Common_Useful_Date::date2read($a['sent_on'])?>
+			<?=date('d.m.Y',strtotime($a['sent_on']))?>
 		</td>	
 	<?endif;?>
 	
 	<?if(in_array($a['status'],array(3,4))):?>
 		<td>
-			<?=Common_Useful_Date::date2read($a['payed_on'])?>
+			<?=date('d.m.Y',strtotime($a['payed_on']))?>
 		</td>	
 	<?endif;?>	
 	

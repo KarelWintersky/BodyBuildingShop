@@ -8,24 +8,20 @@ Class Controller_Index Extends Controller_Base {
     	
     	if(count($this->registry['route_path'])==0){
     		$this->registry['CL_css']->set(array(
-    				'accordionImageMenu',
     				'mainpage',
     				));
     		$this->registry['CL_js']->set(array(
     				'lib/jquery-ui.min',
-    				'lib/accordionImageMenu',
     				'mainpage',
     		));    		
     		
-    		$this->registry['mp_info'] = $this->registry['template']->get_main_page_content();
     		$this->registry['f_404'] = false;	
     		$this->registry['mainpage'] = true;
-    		$this->registry['longtitle'] = $this->registry['mp_info']['seo_title'];
-    		$this->registry['h1'] = $this->registry['mp_info']['name'];
-    		$this->registry['template']->set('c','main_page');
+
+    		$this->registry['template']->set('c','mainpage');
     		
-    		$this->registry['seo_kw'] = $this->registry['mp_info']['seo_kw'];
-    		$this->registry['seo_dsc'] = $this->registry['mp_info']['seo_dsc'];
+    		$Front_Mainpage = new Front_Mainpage($this->registry);
+    		$Front_Mainpage->set_vars();
     		
     	}else{
     		$this->registry['router']->path_check();

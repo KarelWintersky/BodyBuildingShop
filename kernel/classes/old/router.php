@@ -152,11 +152,15 @@ Class Router {
 
 			$f_articles = new f_Pitanie($this->registry);
 
+			$Front_News = new Front_News($this->registry);
+			
 			if(!$this->redirect_check()){
 				if(!$f_catalog->path_check()){
 					if(!$this->method_check()){
 						if(!$f_pages->path_check()){
-
+							if(!$Front_News->path_check()){
+								
+							}
 						}
 					}
 				}

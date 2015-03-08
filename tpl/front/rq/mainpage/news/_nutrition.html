@@ -1,0 +1,17 @@
+<div class="mnn_item">
+	<div class="mnn_item_img"></div>
+	<div class="mnn_item_right">
+		<div class="mnn_item_date">
+			<?=date('j',strtotime($a['date']));?> 
+			<?=Common_Useful_Date::date2monthname($a['date']);?> 
+			<?=date('Y',strtotime($a['date']));?>		
+		</div>
+		<div class="mnn_item_name">
+			<a href="/<?=$a['alias'];?>/"><?=$a['name'];?></a>
+		</div>
+	</div>
+	<div class="clr"></div>
+	<div class="mnn_item_intro">
+		<?=$a['introtext'];?>
+	</div>
+</div>

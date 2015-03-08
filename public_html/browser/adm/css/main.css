@@ -40,3 +40,10 @@ h3{font-size:12px;color:#333;margin:0 0 15px;}
 		#settings_sb ul li.active{background:#465390;}
 			#settings_sb ul li.active a{color:#fff;text-decoration:none;}
 #settings_c{float:right;width:700px;}
+
+
+.table_one{width:100%;border-collapse:collapse;font-size:11px;color:#333;}
+	.table_one td, .table_one th{padding:7px 12px;border:1px solid #fff;}
+	.table_one th{background:#dadada;}
+	.table_one td{background:#f3f3f3;}
+	.table_one tr:hover td{background:#f0f0f0;}

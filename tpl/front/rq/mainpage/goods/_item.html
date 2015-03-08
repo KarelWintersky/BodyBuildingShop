@@ -1,0 +1,42 @@
+<div class="hot_goods_item">
+	<div class="hgi_name">
+		<a href="<?=$a['link']?>">
+			<?=$a['name']?></a>
+		
+		<?if($a['discount']):?>		
+			<span>-<?=$a['discount'];?>%</span>
+		<?endif;?>		
+		
+	</div>
+	<div class="hgi_img">
+	
+		<?if($a['new']):?>
+			<div class="new_big">New</div>
+		<?endif;?>	
+	
+		<a href="<?=$a['link'];?>">
+			<?if($a['avatar']):?>
+				<img src="<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['alt']);?>">
+			<?else:?>
+				<span class="goods_noimg"></span>
+			<?endif;?>
+		</a>
+	</div>
+	<div class="hgi_price <?= ($a['discount']) ? 'w_discount' : '';?>">
+		<?if($a['the_count']>1):?>
+			от
+		<?endif;?>
+		<span><?=Common_Useful::price2read($a['price']);?></span> руб.
+	</div>
+	<div class="goods_item_lnk_1">
+		<a href="<?=$a['link']?>">Заказать</a>
+	</div>
+	<div class="clr"></div>
+</div>
+
+<?if($a['num']==3):?>
+
+	<div class="clr"></div>
+	<div class="hot_goods_divider"></div>
+	
+<?endif;?>

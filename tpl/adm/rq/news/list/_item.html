@@ -1,0 +1,23 @@
+<?if($a['print_year']):?>
+	<tr>
+		<th colspan="3">
+			<?=$a['year'];?>
+		</th>
+	</tr>
+<?endif;?>
+
+<tr class="<?=$a['classes'];?>">
+
+	<td class="td_date">
+		<?=date('d.m',strtotime($a['date']))?>
+	</td>
+
+	<td class="td_name">
+		<a href="<?=$a['id']?>/"><?=$a['name']?></a>
+	</td>
+
+	<td class="td_type">
+		<span style="color:<?=$a['type_color']?>;"><?=$a['type_name']?></span>
+	</td>
+	
+</tr>
