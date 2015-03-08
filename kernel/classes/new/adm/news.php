@@ -57,6 +57,7 @@ Class Adm_News Extends Common_Rq{
 					: ((isset($_GET['type'])) ? $_GET['type'] : 1),
 				'id' => ($news) ? $news['id'] : 0,
 				'name' => ($news) ? htmlspecialchars($news['name']) : '',
+				'longtitle' => ($news) ? htmlspecialchars($news['longtitle']) : '',
 				'alias' => ($news) ? $news['alias'] : '',
 				'date' => ($news) ? date('d.m.Y',strtotime($news['date'])) : date('d.m.Y'),
 				'content' => ($news) ? $news['content'] : '',

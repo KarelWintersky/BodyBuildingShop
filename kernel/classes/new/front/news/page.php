@@ -53,6 +53,10 @@ Class Front_News_Page{
 	private function set_vars($news){
 		$this->mk_crumbs($news);
 		
+		$this->registry->set('longtitle',
+				($news['longtitle']) ? $news['longtitle'] : $news['name']
+				);
+		
 		$vars = array(
 				'date' => Common_Useful_Date::date2node($news['date'],1),
 				'name' => $news['name'],

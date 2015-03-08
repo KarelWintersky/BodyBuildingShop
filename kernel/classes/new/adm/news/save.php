@@ -29,6 +29,7 @@ Class Adm_News_Save{
 		$published = (isset($published)) ? 1 : 0;
 		$rss = (isset($rss)) ? 1 : 0;
 		
+		$longtitle = ($longtitle) ? $longtitle : $name;
 		$alias = $this->do_alias($alias,$name,$id,$type);
 		
 		if($id){
@@ -38,6 +39,7 @@ Class Adm_News_Save{
 					SET
 						name = '%s',
 						alias = '%s',
+						longtitle = '%s',
 						date = '%s',
 						content = '%s',
 						introtext = '%s',
@@ -48,6 +50,7 @@ Class Adm_News_Save{
 					",
 					mysql_real_escape_string($name),
 					$alias,
+					mysql_real_escape_string($longtitle),
 					sprintf('%s %s',
 							date('Y-m-d',strtotime($date)),
 							date('H:i:s')
@@ -66,6 +69,7 @@ Class Adm_News_Save{
 						type,
 						name,
 						alias,
+						longtitle,
 						date,
 						content,
 						introtext,
@@ -80,6 +84,7 @@ Class Adm_News_Save{
 						'%s',
 						'%s',
 						'%s',
+						'%s',
 						'%d',
 						'%d'
 					)
@@ -87,6 +92,7 @@ Class Adm_News_Save{
 					$type,
 					mysql_real_escape_string($name),
 					$alias,
+					mysql_real_escape_string($longtitle),
 					sprintf('%s %s',
 							date('Y-m-d',strtotime($date)),
 							date('H:i:s')
