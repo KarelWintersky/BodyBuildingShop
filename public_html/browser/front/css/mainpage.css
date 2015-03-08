@@ -17,8 +17,8 @@
 	.nivo-slice{display:block;position:absolute;z-index:5;height:100%;top:0;}
 	.nivo-box{display:block;position:absolute;z-index:5;overflow:hidden;}
 	.nivo-box img {display:block;}
-	.nivo-controlNav{text-align:center;width:100%;}
-	.nivo-controlNav a{cursor:pointer;display:inline-block;width:6px;height:6px;border-radius:8px;border:2px solid #fff;text-indent:-5000px;overflow:hidden;background:#bebebe;margin:0 3px;margin:8px 0 0;}
+	.nivo-controlNav{text-align:center;width:100%;margin:8px 0 0;}
+	.nivo-controlNav a{cursor:pointer;display:inline-block;width:6px;height:6px;border-radius:8px;border:2px solid #fff;text-indent:-5000px;overflow:hidden;background:#bebebe;margin:0 3px;}
 	.nivo-controlNav a.active{background:#ffb22d;border:2px solid #ffb22d;}
 
 #main_page{}
