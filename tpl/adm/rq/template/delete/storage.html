@@ -1,0 +1,20 @@
+<form id="form_Delete" method="POST" action="/doer/">
+	
+	<input type="hidden" name="id" value="<?=$a['id'];?>">
+	<input type="hidden" name="func" value="Adm_Template_Delete::do_delete">
+	<input type="hidden" name="then_func" value="<?=$a['func'];?>">
+	
+	<div id="fd_confirm">
+		<div id="fd_confirm_text">
+			Вы действительно хотите удалить?
+		</div>	
+		<ul>
+			<li id="fd_no"><a href="#" onclick="$('#fd_confirm').hide();return false;">Нет</a></li>
+			<li id="fd_yes"><a href="#" onclick="$('#form_Delete').submit();return false;">Да</a></li>
+		</ul>
+		<div class="clr"></div>
+	</div>
+	
+	<a href="#" id="fd_trigger" onclick="$('#fd_confirm').show();return false;">Удалить</a>
+	
+</form>

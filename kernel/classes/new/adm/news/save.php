@@ -106,6 +106,18 @@ Class Adm_News_Save{
 		$this->Adm_News_Rss->do_rss();		
 	}
 			
+	public function do_delete(){
+		mysql_query(sprintf("
+				DELETE FROM
+					news
+				WHERE
+					id = '%d'
+				",
+				$_POST['id']				
+				));
+		
+	}
+	
 	private function generate_alias($alias,$id,$type){
 		$type = Adm_News_Types::get_types($type);
 		

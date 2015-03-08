@@ -5,6 +5,8 @@ Class Adm_Template{
 			
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$Adm_Template_Delete = new Adm_Template_Delete($this->registry);
 	}	
 	
 	public function do_template($html){

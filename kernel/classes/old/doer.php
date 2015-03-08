@@ -18,7 +18,7 @@
 			$articles = new Articles($this->registry,false);
 			$orders = new Adm_Orders_Save($this->registry,false);
 			$accountorders = new Accountorders($this->registry,false);
-
+			
 			if(isset($_POST['d_action'])){
 
 				$this->rp = (isset($_POST['rp'])) ? $_POST['rp'] : $_SERVER['HTTP_REFERER'];
@@ -245,6 +245,9 @@
 						$photomanager->upload_goods_photo();
 						break;
 				}
+			}elseif(isset($_POST['func'])){
+				$Adm_Doer = new Adm_Doer($this->registry);
+				$Adm_Doer->go();
 			}else{
 				header('Location: /');
 			}

@@ -64,6 +64,9 @@ Class Adm_News Extends Common_Rq{
 				'published' => ($news && $news['published']) ? 'checked' : '',
 				'rss' => ($news && $news['rss']) ? 'checked' : '',
 				'submit' => ($news) ? 'Сохранить' : 'Добавить',
+				'delete' => ($news) 
+					? $this->registry['CL_delete']->do_block($news['id'],'Adm_News_Save::do_delete')
+					: false
 				);
 		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

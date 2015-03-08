@@ -52,6 +52,17 @@ form{}
 		#form_Not_authed .f_line.f_sbm{padding:14px 0 0;}
 		#form_Not_authed .f_line.cbox{padding:19px 0 0;}
 
+#form_Delete{border:1px solid #ff0000;background:#f9f9f9;text-align:center;padding:15px 0;position:relative;font-family:Arial;}
+	#form_Delete a#fd_trigger{font-size:18px;color:#ff0000;text-decoration:none;border-bottom:1px dotted #ff0000;}
+		#form_Delete a#fd_trigger:hover{border:0;}
+	#form_Delete #fd_confirm{position:absolute;top:7px;left:410px;border:1px solid #ff0000;background:#fff;font-size:13px;padding:10px 20px;display:none;}
+		#form_Delete #fd_confirm #fd_confirm_text{float:left;}
+		#form_Delete #fd_confirm ul{float:left;padding:0 0 0 50px;}
+			#form_Delete #fd_confirm ul li{display:inline;}
+				#form_Delete #fd_confirm ul li a{padding:4px 8px;}
+				#form_Delete #fd_confirm ul li#fd_no a{color:#333;}
+				#form_Delete #fd_confirm ul li#fd_yes a{background:#ff0000;color:#fff;}
+
 #form_LevelOrder{}
 	#form_LevelOrder .form_l_op{padding:10px 0 0 5px;}
 
