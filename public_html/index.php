@@ -6,7 +6,8 @@
 	
 	$registry = new Registry();
 		$registry->set('config',$config);
-	$db = new Database();
+		
+	$db = new Database($registry);
 	$logic = new Logic($registry); $logic->register_params();
 		
 	$registry->set ('logic', $logic);

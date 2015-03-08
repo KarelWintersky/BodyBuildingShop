@@ -54,59 +54,35 @@ Class Front_Profile_Orders_Pay Extends Common_Rq{
 	
 		$this->registry['longtitle'] = sprintf('Оплата заказа № %s',$order['num']);
 	
+                $R = $this->registry['config']['robokassa'];
+                
 		$unique_id = $order['ai'];
 		$desc = sprintf('Оплата заказа № %s в Бодибилдинг-Магазине',$order['num']);
 		$sum = $order['overall_sum'] - $order['from_account'];
 		$code = 1;
 			
 		$crc  = md5(sprintf("%s:%s:%s:%s:Shp_item=%s",
-				ROBOKASSA_LG,
+				$R['login'],
 				$sum,
 				$unique_id,
-				ROBOKASSA_PW,
+				$R['pass'],
 				$code
 		));
 		
 		$vars = array(
-				'login' => ROBOKASSA_LG,
+				'login' => $R['login'],
 				'sum' => $sum,
 				'unique_id' => $unique_id,
 				'desc' => $desc,
 				'signature' => $crc,
 				'code' => $code,
-				'curr' => ROBOKASSA_CURR,
-				'lang' => ROBOKASSA_LANG,
-				'url' => ROBOKASSA_URL,
+				'curr' => $R['curr'],
+				'lang' => $R['lang'],
+				'url' => $R['url'],
 		);		
 			
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
 	}	
-	
-	private function mk_roboxchange_data($num){
-	
-		$id_arr = explode('-',$num);
-		$order_id = implode('/',$id_arr);
-	
-		$login = ROBOKASSA_LG; //$mrh_login
-		$pwd = ROBOKASSA_PW; //$mrh_pass1
-		$unique_id = $this->registry['orderdata']['ai'];; //$inv_id
-		$desc = 'Оплата заказа № '.$order_id.' в Бодибилдинг-Магазине'; //$inv_desc
-		$sum = $this->registry['orderdata']['overall_price']; //$out_summ
-		$code = 1;	//$shp_item
-	
-		$crc  = md5("$login:$sum:$unique_id:$pwd:Shp_item=$code");
-	
-		$this->registry['RD'] = array(
-				'login' => $login,
-				'sum' => $sum,
-				'unique_id' => $unique_id,
-				'desc' => $desc,
-				'signature' => $crc,
-				'code' => $code,
-				'curr' => ROBOKASSA_CURR,
-				'lang' => ROBOKASSA_LANG,
-		);
-	}	
-	
+		
 }
 ?>

@@ -8,9 +8,7 @@ Class Front_Catalog_Helper_Image{
 				$alias
 				);
 		
-		if(!IMAGE_FULL_PATH) return $path;
-		
-		return sprintf('http://bodybuilding-shop.ru%s',$path);
+		return $path;
 	}
 
 }

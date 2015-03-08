@@ -4,21 +4,26 @@
 	define('DIRSEP',DIRECTORY_SEPARATOR,true);
 	$site_path = realpath(dirname(__FILE__).DIRSEP.'..'.DIRSEP).DIRSEP;
 	define ('ROOT_PATH',$site_path);
+	
+	define('THIS_URL','http://bodybuilding-shop/',true);
+					
+	$config = array (
+		'db' => array(
+				'host' => '',
+				'u' => '',
+				'p' => '',
+				'db' => '',
+				),
+		'robokassa' => array(
+				'login' => 'bodybuilding-test',
+				'pass' => 'IJsd89ds',
+				'pass2' => 'Lsdlsdl3ed',
+				'curr' => 'BANKOCEAN2R',
+				'lang' => 'ru',
+				'url' => 'http://test.robokassa.ru/Index.aspx',
+				),	
+		'hide_counters' => true, //не выводить код счетчиков в шаблон,
+		'optimise_frontend' => false, //включаем оптимизацию фронтенда (css, js, html)
+	);
 
-	date_default_timezone_set('Europe/Moscow');
-	
-	define('DB_HOST','localhost',true);
-	define('DB_U','whbody2',true);
-	define('DB_P','54321155',true);
-	define('DB_NAME','whbody2',true);
-
-	define('THIS_URL','http://www.bodybuilding-shop.ru/',true);
-	
-	define('CLOSE_FRONTEND',true,true); //закрыть фронтенд от незалогиненных в админку
-	
-	define('HIDE_COUNTERS',false,true); //не выводить код счетчиков в шаблон
-	
-	define('OPTIMISE_FRONTEND',true,true); //включаем оптимизацию фронтенда (css, js, html)
-	
-	define('IMAGE_FULL_PATH',true,true); //полный путь для картинок (чтобы смотрели на основной сайт)
 ?>

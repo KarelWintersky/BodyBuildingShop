@@ -11,9 +11,7 @@ define('FEAT_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/features'.DIRSEP,true);
 define('GROWER_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/growers'.DIRSEP,true);
 define('ARTICLE_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/articles'.DIRSEP,true);
 
-define('POPULAR_MAX',15,true);
-
-$config = array (
+$config_extend = array (
 		'disable_images' => false,
 		'photo' => array(
 				'src' => ROOT_PATH.'data/images/',
@@ -31,22 +29,9 @@ $config = array (
 				),
 		)
 );
+$config = $config + $config_extend;
 
-//robokassa
-define('ROBOKASSA_LG','bodybuilding-shop',true);
-define('ROBOKASSA_PW','Isdfisdoj23423',true);
-define('ROBOKASSA_PW_2','sdfsd2323423ss',true);
-define('ROBOKASSA_CURR','BANKOCEAN2R',true);
-define('ROBOKASSA_LANG','ru',true); 
-define('ROBOKASSA_URL','https://merchant.roboxchange.com/Index.aspx',true);
-
-
-/*define('ROBOKASSA_LG','bodybuilding-test',true);
-define('ROBOKASSA_PW','IJsd89ds',true);
-define('ROBOKASSA_PW_2','Lsdlsdl3ed',true);
-define('ROBOKASSA_CURR','BANKOCEAN2R',true);
-define('ROBOKASSA_LANG','ru',true);
-define('ROBOKASSA_URL','http://test.robokassa.ru/Index.aspx',true);*/
+date_default_timezone_set('Europe/Moscow');
 
 function __autoload($className){
 

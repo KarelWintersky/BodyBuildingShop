@@ -29,7 +29,7 @@ Class Front_Template_Js{
         private function mk_src($file, &$ver){
 			if(strpos($file,'http://')===false && strpos($file,'https://')===false && strpos($file,'//')===false){
 
-				if(OPTIMISE_FRONTEND && strpos($file,'.min')===false){
+				if($this->registry['config']['optimise_frontend'] && strpos($file,'.min')===false){
 					$file_js = sprintf('/browser/front/js/%s.js',$file);
 					$file_js_min = sprintf('/browser/front/js/%s.min.js', $file);
 

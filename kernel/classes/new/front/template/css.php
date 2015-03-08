@@ -49,7 +49,7 @@ Class Front_Template_Css{
 				if(strpos($file,'http://')===false && strpos($file,'https://')===false && strpos($file,'//')===false){
 					$file_css = sprintf('%s%s.css',$this->path,$file);
 
-					if(OPTIMISE_FRONTEND){
+					if($this->registry['config']['optimise_frontend']){
 						$file_css_min = sprintf('%s%s.min.css',$this->path,$file);
 
 						if(!file_exists(ROOT_PATH.'public_html'.$file_css_min) || filemtime(ROOT_PATH.'public_html'.$file_css) != filemtime(ROOT_PATH.'public_html'.$file_css_min)){
