@@ -141,6 +141,7 @@
 				#goods_page .goods_tog_block .goods_tog_block_h.vis a b{background-position:-156px -94px;}
 				#goods_page .goods_tog_block .goods_tog_block_h.invis a b{background-position:-156px -98px;}
 		#goods_page .goods_tog_block .goods_tog_block_i{font-size:12px;color:#4c4c4c;line-height:16px;padding:0 0 28px;}
+			#goods_page .goods_tog_block .goods_tog_block_i h2{color:#e38a25;font-size:19px;font-weight:normal;}
 			#goods_page .goods_tog_block .goods_tog_block_i p{padding:0 0 7px;}
 			#goods_page .goods_tog_block .goods_tog_block_i ul{padding:0 0 0 16px;}
 				#goods_page .goods_tog_block .goods_tog_block_i ul li{padding:0 0 10px 0;list-style:outside disc;}
