@@ -230,29 +230,10 @@ Class Template {
 		}
 
 		private function F_contacts_form(){
-			$this->item_rq('contacts_form');
-		}
-
-		public function F_contacts_form_mail(){
-			foreach($_POST as $key => $val){$$key = (is_array($val)) ? $val : mysql_real_escape_string($val);}
-
-			$topic = ($topic) ? $topic : 1;
+			$Front_Contacts_Form_Send = new Front_Contacts_Form_Send($this->registry);
+			$Front_Contacts_Form_Send->do_send();
 			
-			$qLnk = mysql_query("SELECT feedback_mail.email, feedback_mail.name FROM feedback_mail WHERE feedback_mail.id = '".$topic."' LIMIT 1;");
-			if(mysql_num_rows($qLnk)>0){
-				$M = mysql_fetch_assoc($qLnk);
-
-				$replace_arr = array(
-					'F_TOPIC' => $M['name'],
-					'F_NAME' => $name,
-					'F_EMAIL' => $email,
-					'F_MSG' => str_replace('\r\n','<br>',$msg)
-				);
-
-				$mailer = new Mailer($this->registry,3,$replace_arr,$M['email']);
-
-			}
-
+			$this->item_rq('contacts_form');
 		}
 
 		public function F_contacts_form_options(){

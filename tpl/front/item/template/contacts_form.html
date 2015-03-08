@@ -1,9 +1,5 @@
 <form id="form_Contacts" method="POST" action="<?=$_SERVER['REQUEST_URI']?>#form">
-	
-	<?if(count($_POST)>0):?>
-		<?$this->registry['template']->F_contacts_form_mail();?>
-	<?endif;?>
-	
+		
 	<a name="form"></a>
 
 	<input type="hidden" name="rp">

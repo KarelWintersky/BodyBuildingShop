@@ -17,7 +17,9 @@ Class Common_Mail{
 			$text,
 			$attach = false,
 			$wrap = true,
-			$encoding='UTF-8'){
+			$encoding='UTF-8',
+			$from = false
+			){
 		
 		$emails = $this->to_emails($emails);
 		if(!count($emails)) return false;
@@ -39,10 +41,16 @@ Class Common_Mail{
 				Zend_Mime::MULTIPART_RELATED				
 				);
 		
-		$mail->setFrom(
-				'no-reply@bodybuilding-shop.ru',
-				$this->set_encoding('Бодибилдинг Магазин',$encoding)
-				);		
+		if(!$from)
+			$mail->setFrom(
+					'no-reply@bodybuilding-shop.ru',
+					$this->set_encoding('Бодибилдинг Магазин',$encoding)
+					);
+		else
+			$mail->setFrom(
+					$from['email'],
+					$this->set_encoding($from['name'],$encoding)
+			);					
 		
 		$attachment = $this->attachment($attach); if($attachment) $mail->addAttachment($attachment);
 
