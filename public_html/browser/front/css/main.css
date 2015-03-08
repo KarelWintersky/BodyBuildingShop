@@ -370,8 +370,8 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 	.articles_container.with_last .page_article.last{width:100%;}
 		.articles_container.with_last .page_article.last .page_article_txt{width:620px;}
 
-.article_typical_page{position:relative;}
-	.article_typical_page #article_share{position:absolute;top:-47px;right:0;background:#fff;padding:0 0 0 15px;}
+.typical_page{position:relative;}
+	.typical_page #typical_share{position:absolute;top:-47px;right:0;background:#fff;padding:0 0 0 15px;}
 	
 #form_RobocassaGo{}		
 	#form_RobocassaGo .fl_sbm{text-align:center;padding:30px 0 0;}		

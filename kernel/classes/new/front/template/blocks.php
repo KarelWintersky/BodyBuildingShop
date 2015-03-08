@@ -1,5 +1,5 @@
 <?php
-Class Front_Template_Blocks{
+Class Front_Template_Blocks Extends Common_Rq{
 
 	private $registry;
 		
@@ -68,6 +68,7 @@ Class Front_Template_Blocks{
 			'sidebar_faq' => $this->sidebar_faq(),
 			'sidebar_growers' => $this->sidebar_growers(),
 			'this_page_url' => $this->this_page_url(),
+			'share' => $this->do_rq('share',NULL)
 		);
 		
 		if(!isset($this->registry['mainpage'])) $blocks['module'] = false;
