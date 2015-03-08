@@ -63,6 +63,15 @@ form{}
 				#form_Delete #fd_confirm ul li#fd_no a{color:#333;}
 				#form_Delete #fd_confirm ul li#fd_yes a{background:#ff0000;color:#fff;}
 
+#avatars_storage{padding:7px 0 26px;}
+	#avatars_storage .avatar_item{padding:0 50px 0 0;width:300px;height:133px;float:left;}
+		#avatars_storage .avatar_item .avatar_item_head{font-size:14px;color:#333;padding:0 0 8px;}
+			#avatars_storage .avatar_item .avatar_item_head span{font-size:12px;color:#999;}
+		#avatars_storage .avatar_item .avatar_image{}
+			#avatars_storage .avatar_item .avatar_image img{max-width:300px;max-height:60px;}
+			#avatars_storage .avatar_item .avatar_image .fl_del{padding:5px 0 0;margin:0;}
+		#avatars_storage .avatar_item .fl_file{padding:10px 0 0;}
+
 #form_LevelOrder{}
 	#form_LevelOrder .form_l_op{padding:10px 0 0 5px;}
 

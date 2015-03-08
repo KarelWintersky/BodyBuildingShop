@@ -5,6 +5,7 @@
 	require('../kernel/core.php');
 	
 	$registry = new Registry();
+		$registry->set('config',$config);
 	$db = new Database();
 	$logic = new Logic($registry); $logic->register_params();
 		

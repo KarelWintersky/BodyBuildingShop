@@ -11,8 +11,26 @@ define('FEAT_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/features'.DIRSEP,true);
 define('GROWER_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/growers'.DIRSEP,true);
 define('ARTICLE_PHOTO_DIR',ROOT_PATH.'public_html/data/foto/articles'.DIRSEP,true);
 
-define('NEWS_PAGINATE',10,true);
 define('POPULAR_MAX',15,true);
+
+$config = array (
+		'disable_images' => false,
+		'photo' => array(
+				'src' => ROOT_PATH.'data/images/',
+				'size' => ROOT_PATH.'data/sizes/'
+		),		
+		'avatar_settings' => array(
+				'news' => array(
+						1 => array(
+								'sizes' => array(
+										1 => array(50,50,1),
+								),
+								'comment' => false
+						),
+
+				),
+		)
+);
 
 //robokassa
 define('ROBOKASSA_LG','bodybuilding-shop',true);

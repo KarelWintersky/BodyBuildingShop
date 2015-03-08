@@ -15,7 +15,7 @@
 
 <div class="form_1">
 
-	<form id="form_NewsAddEdit" action="/doer/" method="POST" onsubmit="return news_check(this);">
+	<form id="form_NewsAddEdit" action="/doer/" method="POST" onsubmit="return news_check(this);" enctype="multipart/form-data">
 
 		<input type="hidden" name="d_action" value="300">
 		<input type="hidden" name="id" value="{{id}}">
@@ -54,6 +54,8 @@
 			<label>Вступительный текст</label>
 			<textarea name="introtext">{{introtext}}</textarea>
 		</div>
+
+		{{avatars}}
 
 		<div class="fl fl_published lft cbox">
 			<input type="checkbox" name="published" id="published" value="1" {{published}}>

@@ -2,9 +2,13 @@
 Class Adm_News Extends Common_Rq{
 
 	private $registry;
+	
+	private $Avatar;
 		
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Avatar = new Adm_Avatar($this->registry,'news');
 	}
 		
 	public function news_check($id){					
@@ -64,6 +68,7 @@ Class Adm_News Extends Common_Rq{
 				'introtext' => ($news) ? $news['introtext'] : '',
 				'published' => ($news && $news['published']) ? 'checked' : '',
 				'rss' => ($news && $news['rss']) ? 'checked' : '',
+				'avatars' => $this->registry['CL_avatar_form']->print_forms($news),
 				'submit' => ($news) ? 'Сохранить' : 'Добавить',
 				'delete' => ($news) 
 					? $this->registry['CL_delete']->do_block($news['id'],'Adm_News_Save::do_delete')

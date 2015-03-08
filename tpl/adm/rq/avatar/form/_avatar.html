@@ -1,0 +1,29 @@
+<div class="avatar_item">
+	<div class="avatar_item_head">
+		<?=$a['label'];?>
+		
+		<?if($a['comment']):?>
+			<span>(<?=$a['comment'];?>)</span>
+		<?endif;?>
+	</div>		
+	
+	<?if($a['image']):?>
+		<div class="avatar_image">
+			<img src="<?=$a['image'];?>">
+			
+			<div class="fl fl_del cbox">
+				<label>
+					<input type="checkbox" name="avatar[<?=$a['num'];?>][delete]">
+					<input type="hidden" name="avatar[<?=$a['num'];?>][alias]" value="<?=$a['alias'];?>">
+					удалить
+				</label>
+				<div class="clr"></div>
+			</div>			
+			
+		</div>
+	<?endif;?>
+	
+	<div class="fl_file">
+		<input type="file" name="avatars[<?=$a['num'];?>]">
+	</div>
+</div>

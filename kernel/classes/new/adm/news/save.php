@@ -4,11 +4,13 @@ Class Adm_News_Save{
 	private $registry;
 	
 	private $Adm_News_Rss;
+	private $Avatar;
 		
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Adm_News_Rss = new Adm_News_Rss($this->registry);
+		$this->Avatar = new Adm_Avatar($this->registry,'news');
 	}
 			
 	private function do_alias($alias,$name,$id,$type){
@@ -108,6 +110,8 @@ Class Adm_News_Save{
 					sprintf('/adm/news/%d/',$id)
 					);
 		}
+		
+		$this->registry['CL_avatar_upload']->upload_avatars($id);
 		
 		$this->Adm_News_Rss->do_rss();		
 	}
