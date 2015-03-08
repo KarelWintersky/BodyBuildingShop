@@ -279,6 +279,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 .news_item{padding:0 0 25px;}
 	.news_item .news_date{font-size:11px;color:#b2b2b2;padding:0 0 5px;}
 	.news_item .news_lnk{font-size:12px;line-height:16px;}
+	.news_item .news_introtext{font-size:11px;line-height:14px;color:#666;padding:8px 0 0;}
 
 #news_page{}
 	#news_page #news_date{font-size:11px;color:#b2b2b2;padding:0 0 4px;}
