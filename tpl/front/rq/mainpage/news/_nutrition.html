@@ -1,6 +1,10 @@
 <div class="mnn_item">
 	<div class="mnn_item_img">
-		<img src="<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['name']);?>">
+		
+		<?if($a['avatar']):?>
+			<img src="<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['name']);?>">
+		<?endif;?>
+		
 	</div>
 	<div class="mnn_item_right">
 		<div class="mnn_item_date">
