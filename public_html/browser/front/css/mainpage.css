@@ -18,8 +18,8 @@
 	.nivo-box{display:block;position:absolute;z-index:5;overflow:hidden;}
 	.nivo-box img {display:block;}
 	.nivo-controlNav{text-align:center;width:100%;}
-	.nivo-controlNav a{cursor:pointer;display:inline-block;width:10px;height:10px;border-radius:10px;border:1px solid #fff;text-indent:-5000px;overflow:hidden;background:#fff;margin:0 3px;}
-	.nivo-controlNav a.active{background:none;}
+	.nivo-controlNav a{cursor:pointer;display:inline-block;width:6px;height:6px;border-radius:8px;border:2px solid #fff;text-indent:-5000px;overflow:hidden;background:#bebebe;margin:0 3px;}
+	.nivo-controlNav a.active{background:#ffb22d;border:1px solid #ffb22d;}
 
 #main_page{}
 	#main_page #main_page_c{float:left;width:491px;}
