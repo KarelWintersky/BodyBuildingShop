@@ -18,7 +18,7 @@ form{}
 		form .errF a{color:#ff0000;}
 	form input.err{border:1px solid #ff0000;background:#fceaea;}
 	form .datepicker{cursor:pointer;background:#fff url(/browser/adm/i/ico_date.gif) 100% 5px no-repeat;}
-	form #overall_err_msg{float:left;font-size:11px;color:#ff0000;padding:22px 0 0 15px;display:none;}
+	form #overall_err_msg{font-family:Arial;font-size:16px;color:#ff0000;background:#fff;border:1px solid #ff0000;text-align:center;padding:14px 0;margin:10px 0;display:none;}
 	form .fl{margin:0 0 14px;}
 
 .usual_form{}

@@ -149,9 +149,11 @@ function page_form_check(form){
 }
 
 
-function news_form_check(form){
+function news_check(form){
 	var fl = true;
 
+	$('#overall_err_msg').hide();
+	
 	var name = $(form).find('input[name="name"]');
 	if($(name).val()==''){
 		$(name).addClass('err');
@@ -162,11 +164,7 @@ function news_form_check(form){
 		$(name).parent().find('.errF').html('');
 	}
 
-	if(!fl){
-		$('#overall_err_msg').show();
-	}else{
-		$('#overall_err_msg').hide();
-	}
+	if(!fl) $('#overall_err_msg').show();
 
 	return fl;
 }
