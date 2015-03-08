@@ -6,6 +6,7 @@ Class Front_News_Data{
 				array(
 						'id' => 1,
 						'name' => 'Новости сайта',
+						'title' => 'Новости сайта',
 						'alias' => 'news',
 						'alias_in_url' => true,
 						'paging' => 10,
@@ -13,6 +14,8 @@ Class Front_News_Data{
 				array(
 						'id' => 2,
 						'name' => 'Новости спортивного питания',
+						'title' => 'Новости спортивного питания, науки и производителей
+спортивного питания',
 						'alias' => 'novosti-sportivnogo-pitania',
 						'alias_in_url' => false,
 						'paging' => 10,

@@ -87,7 +87,7 @@ Class Front_News_List Extends Common_Rq{
 	
 	private function set_vars($type){
 		$this->registry->set('longtitle',
-				$this->do_longtitle($type['name'])
+				$this->do_longtitle($type['title'])
 				);
 		
 		$vars = array(
