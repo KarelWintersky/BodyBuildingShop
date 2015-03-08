@@ -1,0 +1,39 @@
+#DirectoryIndex index.php
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^bodybuilding-shop\.ru
+RewriteRule ^(.*)$ http://www.bodybuilding-shop.ru/$1 [R=permanent,L]
+RewriteRule ^public/foto/goods/(.*)$ /data/foto/goods/$1 [R=301,NC,L]
+RewriteRule ^public/foto/features/(.*)$ /data/foto/features/$1 [R=301,NC,L]
+
+Redirect 301 /importnoe/specialnye-dobavki/universal-zma-90kap/  http://www.bodybuilding-shop.ru/importnoe/specialnye-dobavki/zma/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
+
+AddDefaultCharset utf-8
+php_flag magic_quotes_gpc off
+
+php_flag display_errors on
+
+php_flag session.use_trans_sid off
+php_flag session.use_cookies on
+php_value upload_max_filesize 10M
+php_value max_execution_time 259200
+php_value memory_limit 300M
+php_value max_input_time 259200
+
+php_value date.timezone "Europe/Moscow"
+
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
