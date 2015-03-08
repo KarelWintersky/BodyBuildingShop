@@ -3,14 +3,19 @@ Class Front_Mainpage_News Extends Common_Rq{
 
 	private $registry;
 		
+	private $Front_Avatar;
+	
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Front_Avatar = new Front_Avatar($this->registry,'news');
 	}	
 		
 	private function get_data($type,$limit){
 		$news = array();
 		$qLnk = mysql_query(sprintf("
 				SELECT
+					id,
 					name,
 					date,
 					introtext,
@@ -28,13 +33,14 @@ Class Front_Mainpage_News Extends Common_Rq{
 				$type, $limit
 				));
 
-		while($n = mysql_fetch_assoc($qLnk)) $news[] = $n;
+		while($n = mysql_fetch_assoc($qLnk)) $news[$n['id']] = $n;
 		
 		return $news;
 	}
 	
 	public function nutrition_news(){
 		$news = $this->get_data(2,2);
+		$news = $this->Front_Avatar->list_avatars($news,1,1);
 		
 		$html = array();
 		foreach($news as $n)

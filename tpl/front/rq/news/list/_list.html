@@ -1,11 +1,21 @@
-<div class="news_item">
-	<div class="news_date">
-		<?=$a['date'];?>
+<div class="<?=$a['classes'];?>">
+	
+	<?if($a['avatar']):?>
+		<div class="news_avatar">
+			<img src="<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['name']);?>">
+		</div>
+	<?endif;?>
+	
+	<div class="news_text">
+		<div class="news_date">
+			<?=$a['date'];?>
+		</div>
+		<div class="news_lnk">
+			<a href="<?=$a['url'];?>">
+				<?=$a['name'];?></a>
+		</div>
 	</div>
-	<div class="news_lnk">
-		<a href="<?=$a['url'];?>">
-			<?=$a['name'];?></a>
-	</div>
+	<div class="clr"></div>
 	
 	<?if($a['introtext']):?>
 		<div class="news_introtext">

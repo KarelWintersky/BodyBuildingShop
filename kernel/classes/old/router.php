@@ -146,12 +146,12 @@ Class Router {
 
 			$f_catalog = new f_Catalog($this->registry);
 			$this->registry->set('f_catalog',$f_catalog);
-
+			
 			$f_pages = new f_Pages($this->registry);
 			$this->registry->set('f_pages',$f_pages);
-
+			
 			$f_articles = new f_Pitanie($this->registry);
-
+			
 			$Front_News = new Front_News($this->registry);
 			
 			if(!$this->redirect_check()){

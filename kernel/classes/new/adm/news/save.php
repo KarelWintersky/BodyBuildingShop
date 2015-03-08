@@ -117,15 +117,18 @@ Class Adm_News_Save{
 	}
 			
 	public function do_delete(){
+		$id = $_POST['id'];
+		
 		mysql_query(sprintf("
 				DELETE FROM
 					news
 				WHERE
 					id = '%d'
 				",
-				$_POST['id']				
+				$id				
 				));
 		
+		$this->registry['CL_avatar_delete']->delete_all($id);
 	}
 	
 	private function generate_alias($alias,$id,$type){

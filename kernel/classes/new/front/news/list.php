@@ -4,15 +4,18 @@ Class Front_News_List Extends Common_Rq{
 	private $registry;
 	
 	private $Adm_Pagination;
+	private $Front_Avatar;
 			
 	public function __construct($registry){
 		$this->registry = $registry;
+		
+		$this->Front_Avatar = new Front_Avatar($this->registry,'news');
 	}	
 		
 	public function list_check($alias){
 		$type = Front_News_Data::get_type($alias);
 		if(!$type) return false;
-		
+				
 		$this->registry['f_404'] = false;
 		
 		$this->registry['template']->set('c','news/list_');
@@ -43,6 +46,7 @@ Class Front_News_List Extends Common_Rq{
 	private function print_list($type){
 		$qLnk = mysql_query(sprintf("
 				SELECT SQL_CALC_FOUND_ROWS
+					id,
 					name,
 					date,
 					introtext,
@@ -67,7 +71,9 @@ Class Front_News_List Extends Common_Rq{
 		);
 						
 		$news = array();
-		while($n = mysql_fetch_assoc($qLnk)) $news[] = $n;
+		while($n = mysql_fetch_assoc($qLnk)) $news[$n['id']] = $n;
+		
+		$news = $this->Front_Avatar->list_avatars($news,1,1);
 			
 		$html = array();
 		foreach($news as $n){
@@ -79,10 +85,21 @@ Class Front_News_List Extends Common_Rq{
 						)
 				: sprintf('/%s/',$n['alias']);
 			
+			$n['classes'] = $this->print_classes($n);
+			
 			$html[] = $this->do_rq('list',$n,true);
 		}
 		
 		return implode('',$html);
+	}
+	
+	private function print_classes($n){
+		$classes = array();
+		
+		$classes[] = 'news_item';
+		if(!$n['avatar']) $classes[] = 'no_avatar';
+		
+		return implode(' ',$classes);
 	}
 	
 	private function set_vars($type){

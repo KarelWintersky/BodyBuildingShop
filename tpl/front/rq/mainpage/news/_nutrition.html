@@ -1,5 +1,7 @@
 <div class="mnn_item">
-	<div class="mnn_item_img"></div>
+	<div class="mnn_item_img">
+		<img src="<?=$a['avatar'];?>" alt="<?=htmlspecialchars($a['name']);?>">
+	</div>
 	<div class="mnn_item_right">
 		<div class="mnn_item_date">
 			<?=date('j',strtotime($a['date']));?> 
