@@ -1,5 +1,5 @@
 #mainpage_module{width:964px;height:340px;margin:-4px 0 34px 0;}
-	#mainpage_module #mainpage_slider{float:left;width:580px;height:340px;}
+	#mainpage_module #mainpage_slider{float:left;width:580px;height:340px;position:relative;}
 	#mainpage_module #mainpage_nutrition_news{float:right;width:360px;}
 		#mainpage_module #mainpage_nutrition_news #mainpage_nutrition_news_h{color:#E38A25;font-size:19px;padding:0 0 20px;}
 		#mainpage_module #mainpage_nutrition_news #mainpage_nutrition_news_more{font-size:12px;}
@@ -9,6 +9,17 @@
 				#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_right .mnn_item_date{color:#b2b2b2;font-size:11px;padding:0 0 6px;}
 				#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_right .mnn_item_name{font-size:12px;line-height:16px;}
 			#mainpage_module #mainpage_nutrition_news .mnn_item .mnn_item_intro{font-size:12px;line-height:16px;color:#4c4c4c;padding:8px 0 0;}
+
+.nivoSlider{position:relative;width:100%;height:auto;overflow:hidden;}
+	.nivoSlider img{position:absolute;top:0px;left:0px;max-width:none;}
+	.nivo-main-image{display: block !important;	position: relative !important;width: 100% !important;}
+	.nivoSlider a.nivo-imageLink{position:absolute;top:0px;left:0px;width:100%;height:100%;border:0;padding:0;margin:0;z-index:6;display:none;background:white;filter:alpha(opacity=0);opacity:0;}
+	.nivo-slice{display:block;position:absolute;z-index:5;height:100%;top:0;}
+	.nivo-box{display:block;position:absolute;z-index:5;overflow:hidden;}
+	.nivo-box img {display:block;}
+	.nivo-controlNav{text-align:center;position:absolute;bottom:3px;z-index:20000;width:100%;}
+	.nivo-controlNav a{cursor:pointer;display:inline-block;width:10px;height:10px;border-radius:10px;border:1px solid #fff;text-indent:-5000px;overflow:hidden;background:#fff;margin:0 3px;}
+	.nivo-controlNav a.active{background:none;}
 
 #main_page{}
 	#main_page #main_page_c{float:left;width:491px;}

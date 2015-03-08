@@ -8,25 +8,31 @@ Class Front_Mainpage_Module Extends Common_Rq{
 	}	
 		
 	public function do_module(){
-		return $this->do_rq('storage',NULL);
+		
+		$this->registry['CL_js']->set(array(
+			'lib/jquery.nivo.slider.min',
+		));		
+		
+		return $this->do_rq('storage',
+				$this->get_slides()
+				);
 	}
 	
-	public function F_main_page_module_items(){
-	
+	private function get_slides(){
 		$file = ROOT_PATH.'files/module.txt';
-		if(is_file($file)){
-			$lines = preg_split("/[\n\r]+/s", file_get_contents($file));
-			foreach($lines as $l){
-				$arr = explode('::',$l);
-				if(count($arr)==3){
-					$a['filename'] = $arr[0];
-					$a['link'] = $arr[1];
-					$a['alt'] = htmlspecialchars($arr[2]);
-					$this->item_rq('module_item',$a);
-				}
-			}
-		}
-	
+		if(!is_file($file)) return false;
+			
+		$lines = preg_split("/[\n\r]+/s", file_get_contents($file));
+		
+		$html = array();
+		foreach($lines as $l){
+			$arr = explode('::',$l);
+			if(count($arr)!=3) continue;
+			
+			$html[] = $this->do_rq('item',$arr,true);
+		}	
+		
+		return implode('',$html);
 	}	
 	
 }
