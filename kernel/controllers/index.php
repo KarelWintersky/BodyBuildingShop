@@ -11,7 +11,6 @@ Class Controller_Index Extends Controller_Base {
     				'mainpage',
     				));
     		$this->registry['CL_js']->set(array(
-    				'lib/jquery-ui.min',
     				'mainpage',
     		));    		
     		
