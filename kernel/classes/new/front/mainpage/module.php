@@ -24,13 +24,22 @@ Class Front_Mainpage_Module Extends Common_Rq{
 			
 		$lines = preg_split("/[\n\r]+/s", file_get_contents($file));
 		
-		$html = array();
+		$html = array(); $first_img = false;
 		foreach($lines as $l){
 			$arr = explode('::',$l);
 			if(count($arr)!=3) continue;
 			
+			$arr[0] = sprintf('/data/foto/module/%s',$arr[0]);
+			
+			if(!$first_img) $first_img = $arr[0]; 
+			
 			$html[] = $this->do_rq('item',$arr,true);
 		}	
+		
+		return array(
+				'slides' => implode('',$html),
+				'bg' => $first_img
+				);
 		
 		return implode('',$html);
 	}	
