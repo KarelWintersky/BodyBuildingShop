@@ -9,6 +9,7 @@ Class Front_Template{
 	private $Front_Template_Compress;
 	private $Front_Template_Blocks;
 	private $Front_Template_Menu;
+	private $Front_Template_Texted;
 		
 	public function __construct($registry){
 		$this->registry = $registry;
@@ -19,6 +20,7 @@ Class Front_Template{
 		$this->Front_Template_Compress = new Front_Template_Compress($this->registry);
 		$this->Front_Template_Blocks = new Front_Template_Blocks($this->registry);
 		$this->Front_Template_Menu = new Front_Template_Menu($this->registry);
+		$this->Front_Template_Texted = new Front_Template_Texted($this->registry);
 	}	
 	
 	public function do_template($html){
@@ -31,6 +33,8 @@ Class Front_Template{
 		
 		$html = $this->registry['CL_template_vars']->vars_replace($html);
 		$html = $this->Front_Template_Links->do_links($html);
+		
+		$html = $this->Front_Template_Texted->do_replace($html);
 		
 		$html = $this->Front_Template_Compress->do_compress($html);
 		
