@@ -25,8 +25,22 @@ Class Front_Order_Done_Blocks Extends Common_Rq{
 				);
 	}	
 				
+	private function extra_fields($order){
+		/*
+		 * Для  оплаты  через  вебмоней  и яндексденьги в письмах и на пятом шаге
+надо  заменить  е-мэйл hercules@superset.ru на of@bodybuilding-shop.ru
+		 * */
+		$order['prepay_email'] = ($order['payment_method_id']==3)
+					? 'of@bodybuilding-shop.ru'
+					: 'hercules@superset.ru';
+		
+		return $order;
+	}
+	
 	public function get_blocks($order){
 		$output = array();
+		
+		$order = $this->extra_fields($order);
 		
 		foreach($this->blocks as $alias)
 			$output[$alias] = $this->do_rq($alias,$order);
