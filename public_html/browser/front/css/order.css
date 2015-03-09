@@ -72,13 +72,14 @@
 		#order_goods #order_goods_values li{}	
 			#order_goods #order_goods_values li .ogv_label{float:right;color:#666;font-size:11px;line-height:14px;text-align:right;margin:6px 21px 20px 0;}	
 			#order_goods #order_goods_values li .ogv_val{float:right;color:#ccc;width:200px;text-align:right;font-size:14px;padding:2px 0 0;}	
-				#order_goods #order_goods_values li .ogv_val b{font-size:14px;color:#333;}	
+				#order_goods #order_goods_values li .ogv_val b{font-size:14px;color:#333;}		
 		#order_goods #order_goods_values li#ogv_3{}	
 			#order_goods #order_goods_values li#ogv_3 .ogv_val{font-size:18px;}		
 				#order_goods #order_goods_values li#ogv_3 .ogv_val b{font-size:30px;font-weight:normal;}	
 	#order_goods #overall_sum{background:#f2f2f2;border-radius:2px;font-size:12px;color:#343434;padding:16px 18px 15px;margin:30px 0 30px;float:left;}	
 		#order_goods #overall_sum span{color:#ccc;font-size:16px;}
 		#order_goods #overall_sum b{font-size:18px;color:#000;font-weight:normal;}
+	.order_main_check .ogv_val_discount b{color:#999 !important;}		
 				
 	#order_goods #coupon_block{border:1px solid #c8c8c8;background:#f2f2f2;border-radius:2px;padding:18px 20px 17px;margin:40px 0 0;}
 		#order_goods #coupon_block label{font-size:12px;float:left;padding:5px 20px 0 0;color:#333;}				
