@@ -26,7 +26,7 @@ Class Front_Template_Texted_Li{
         }
         
 		public function replace_li($html){
-			$reg = '/<div class=\"texted\">(.*)<\/div>/sU';
+			$reg = '/<div class=\"texted\".*>(.*)<\/div>/sU';
 			
 			$html = preg_replace_callback(
 					$reg,
