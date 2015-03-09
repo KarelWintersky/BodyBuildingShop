@@ -9,7 +9,16 @@ Class Adm_Helper_Content{
 		
 		return $content;
 	}	
-
+	
+	/*
+	 * заменяет всюду div на p
+	 * */
+	public static function div_replace($content){
+		$content = str_replace('<div','<p',$content);
+		$content = str_replace('</div','</p',$content);
+		
+		return $content;
+	}
 	
 }
 ?>

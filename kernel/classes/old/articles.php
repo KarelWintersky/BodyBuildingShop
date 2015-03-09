@@ -120,6 +120,7 @@ Class Articles{
 		$img_alt = str_replace('"','',$img_alt);
 
 		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);
 		
 		mysql_query("
 					INSERT INTO
@@ -184,6 +185,7 @@ Class Articles{
 		$img_alt = str_replace('"','',$img_alt);
 
 		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);
 		
 		mysql_query("
 					UPDATE

@@ -34,6 +34,9 @@ Class Adm_News_Save{
 		$longtitle = ($longtitle) ? $longtitle : $name;
 		$alias = $this->do_alias($alias,$name,$id,$type);
 		
+		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);		
+		
 		if($id){
 			$qLnk = mysql_query(sprintf("
 					UPDATE

@@ -82,6 +82,7 @@ Class Pages{
 		$alias = $this->urlGenerate($alias,$id);
 
 		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);
 		
 		mysql_query("
 					INSERT INTO
@@ -136,6 +137,7 @@ Class Pages{
 		$alias = $this->urlGenerate($alias,$id);
 
 		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);
 		
 		$qLnk = mysql_query("
 							UPDATE

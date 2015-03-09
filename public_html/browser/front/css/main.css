@@ -248,7 +248,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 		.table_one tr td{color:#333;}
 		.table_one tr:nth-child(2n+1) td{background:#f4f4f4;}
 
-.the_quote{font-size:11px;color:#666;border:1px solid #ccc;border-radius:5px;margin:10px 0 15px;padding:5px 10px;}
+.the_quote{font-size:11px;color:#666;border:1px solid #ccc;border-radius:5px;margin:10px 0 15px;padding:5px 10px !important;}
 
 #pagination{text-align:center;font-family:Arial;font-size:12px;padding:40px 0 0;color:#999;}
 	#pagination li{display:inline;margin:0 2px;}
