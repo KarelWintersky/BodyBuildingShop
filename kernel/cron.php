@@ -3,7 +3,7 @@
 	require('core.php');
 	
 	$registry = new Registry;
-	die(2);
+	echo 2;exit();
 	$db = new Database();
 	$logic = new Logic($registry);
 		$logic->register_params();
