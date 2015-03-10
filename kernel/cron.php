@@ -12,6 +12,7 @@
 	if(isset($argv[1])){
 		switch($argv[1]){
 			case 'do_orders':
+				echo 2;
 				$blocks = new Blocks($registry,false);
 				$blocks->cron_do_orders();
 				break;
