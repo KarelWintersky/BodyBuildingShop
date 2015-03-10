@@ -2,10 +2,13 @@
 	require('config.php');
 	require('core.php');
 	
-	$registry = new Registry;
-	$db = new Database($registry);
-	$logic = new Logic($registry);
-		$logic->register_params();
+	$registry = new Registry();
+		$registry->set('config',$config);
+	
+	$db = new Database($registry);	
+	
+	$logic = new Logic($registry); $logic->register_params();
+	
 	$registry->set ('logic', $logic);
 	$registry->set ('db', $db);
 
