@@ -89,6 +89,16 @@
 			}
 		}
 
+		private function mk_description($news){
+			if($news['introtext']) $content = $news['introtext'];
+			else{
+				$content = explode('</p>',$news['content']);
+				$content = str_replace('<p>','',$content[0]);
+			} 
+			
+			return $this->prepare_content($content);
+		}
+		
 		private function prepare_url($n){
 			return ($n['type']==1)
 				? sprintf('%snews/%s/',
