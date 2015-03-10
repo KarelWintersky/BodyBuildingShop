@@ -3,6 +3,7 @@
 	require('core.php');
 	
 	$registry = new Registry;
+	die(2);
 	$db = new Database();
 	$logic = new Logic($registry);
 		$logic->register_params();
@@ -12,7 +13,6 @@
 	if(isset($argv[1])){
 		switch($argv[1]){
 			case 'do_orders':
-				echo 2;
 				$blocks = new Blocks($registry,false);
 				$blocks->cron_do_orders();
 				break;
