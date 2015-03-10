@@ -38,7 +38,7 @@ Class Front_Contacts_Form_Send Extends Common_Rq{
 		
 		$this->registry['CL_mail']->send_mail(
 				$to['email'],
-				'Сообщение с формы обратной связи',
+				$to['name'],
 				$this->get_text($_POST,$to['name']),
 				false,
 				false,
