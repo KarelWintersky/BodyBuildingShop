@@ -341,7 +341,7 @@
 
 			$file = ROOT_PATH.'files/news_work_file.txt';
 			file_put_contents($file,$news_topic.'::'.$news_text);
-			exec('/usr/local/bin/php /Web/WebHosting/whbody2/data/kernel/cron.php do_news',$output);
+			exec('/usr/bin/php /home/wwwuser/www/bodybuilding-shop.ru/kernel/cron.php do_news',$output);
 
 		}
 
