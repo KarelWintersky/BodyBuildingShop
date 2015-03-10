@@ -933,6 +933,9 @@ Class Catalog{
 
 		$seo_title = ($seo_title=='') ? str_replace('&quot;','',htmlspecialchars($name)) : $seo_title;
 
+		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);
+		
 		mysql_query("
 					UPDATE
 						levels
@@ -973,6 +976,9 @@ Class Catalog{
 
 		$seo_title = ($seo_title=='') ? str_replace('&quot;','',htmlspecialchars($name)) : $seo_title;
 
+		$content = Adm_Helper_Content::delete_junk($content);
+		$content = Adm_Helper_Content::div_replace($content);		
+		
 		mysql_query("
 					INSERT INTO
 						levels
