@@ -15,7 +15,7 @@
 			$this->Front_Catalog_Goods_List_Display = new Front_Catalog_Goods_List_Display($this->registry);			
 			$this->Front_Catalog_Goods_List_Paginate = new Front_Catalog_Goods_List_Paginate($this->registry);			
                         
-                        define('POPULAR_MAX',15,true);
+			if(!defined('POPULAR_MAX')) define('POPULAR_MAX',15,true);
 		}
 
 		public function redirect_check(){
