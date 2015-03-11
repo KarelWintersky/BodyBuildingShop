@@ -298,8 +298,7 @@
 
 			$start_time = date('d.m.Y H:i');
 
-			//$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.get_news = 1;");
-			$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.id = 32099;");
+			$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.get_news = 1;");
 			$count = 0;
 			while($u = mysql_fetch_assoc($qLnk)){
 
