@@ -298,7 +298,8 @@
 
 			$start_time = date('d.m.Y H:i');
 
-			$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.get_news = 1;");
+			//$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.get_news = 1;");
+			$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.id = 32099;");
 			$count = 0;
 			while($u = mysql_fetch_assoc($qLnk)){
 
@@ -306,10 +307,10 @@
 				$news_text = $news_d[1];
 
 				$replace_arr = array(
-					'USER_NAME' => iconv('utf-8','windows-1251',$u['name']),
+					'USER_NAME' => $u['name'],
 					'USER_ID' => $u['id'],
-					'NEWS_TEXT' => iconv('utf-8','windows-1251',$news_text),
-					'NEWS_TOPIC' => iconv('utf-8','windows-1251',$news_d[0])
+					'NEWS_TEXT' => $news_text,
+					'NEWS_TOPIC' => $news_d[0]
 				);
 
 				$mailer = new Mailer($this->registry,6,$replace_arr,$u['email'],false,'windows-1251');
