@@ -37,7 +37,7 @@ Class Front_Contacts_Form_Send Extends Common_Rq{
 		if(!$to) return false;
 		
 		$this->registry['CL_mail']->send_mail(
-				$to['email'],
+				explode(',',$to['email']),
 				$to['name'],
 				$this->get_text($_POST,$to['name']),
 				false,
