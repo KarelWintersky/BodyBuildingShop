@@ -19,7 +19,7 @@ Class Front_Template_Texted_Li{
 				
 				foreach($lis as $li){
 					$li = pq($li);
-					
+										
 					$li->replaceWith(sprintf('<li><span class="texted_li_gray">%s</span></li>',
 							$li->html()
 							));
