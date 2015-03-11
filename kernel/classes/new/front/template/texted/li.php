@@ -6,35 +6,27 @@ Class Front_Template_Texted_Li{
         function __construct($registry) {
 	        $this->registry = $registry;
         }
-
-        private function li_replace($matches){
-        	return sprintf('<li><span class="texted_li_gray">%s</span></li>',
-        			$matches[1]
-        			);
-        }
-        
-        private function texted_replace($matches){
-        	$reg = '/<li>(.*)<\/li>/sU';
-        	
-        	$texted = preg_replace_callback(
-        			$reg,
-        			array($this,'li_replace'),
-        			$matches[1]
-        	);
-
-        	return sprintf('<div class="texted">%s</div>',$texted);
-        }
         
 		public function replace_li($html){
-			$reg = '/<div class=\"texted\".*>(.*)<\/div>/sU';
+			$document = phpQuery::newDocumentHTML($html,'utf-8');
 			
-			$html = preg_replace_callback(
-					$reg,
-					array($this,'texted_replace'),
-					$html
-			);			
+			$texted = $document->find('div.texted');
 			
-			return $html;
+			foreach($texted as $el){
+				$block = pq($el);
+				
+				$lis = $block->find('li');
+				
+				foreach($lis as $li){
+					$li = pq($li);
+					
+					$li->replaceWith(sprintf('<li><span class="texted_li_gray">%s</span></li>',
+							$li->html()
+							));
+				}	
+			}
+			
+			return (string)$document;
 		}	
 }
 ?>

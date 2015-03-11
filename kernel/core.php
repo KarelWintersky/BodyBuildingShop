@@ -37,7 +37,10 @@ function __autoload($className){
 
 	if(substr($className, 0, 3) == 'ezc') ezcBase::autoload($className);
 	elseif(substr($className, 0, 9) == 'PHPExcel_') PHPExcel_Autoloader::Load($className);
-	else{
+	elseif(substr($className, 0, 8) == 'phpQuery'){
+		$file = ROOT_PATH.'kernel/classes/new/phpquery.php';
+		require_once($file);
+	}else{
 		
 		$arr = explode('_',$className);
 				
