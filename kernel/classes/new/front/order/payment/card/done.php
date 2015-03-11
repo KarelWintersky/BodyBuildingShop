@@ -40,10 +40,12 @@ Class Front_Order_Payment_Card_Done Extends Common_Rq{
 		$order = mysql_fetch_assoc($qLnk);
 		if(!$order) Front_Order_Payment_Card_Helper::goto_error();
 		
+		$R = $this->registry['config']['robokassa'];
+		
 		$crc  = strtoupper(md5(sprintf("%s:%s:%s:Shp_item=%s",
 				$_POST['OutSum'],
 				$_POST['InvId'],
-				ROBOKASSA_PW,
+				$R['pass'],
 				$_POST['Shp_item']
 				)));
 	

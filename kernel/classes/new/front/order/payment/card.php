@@ -39,7 +39,7 @@ Class Front_Order_Payment_Card{
 		$order = mysql_fetch_assoc($qLnk);
 		if(!$order) Front_Order_Payment_Card_Helper::goto_error();
 				
-                $R = $this->registry['config']['robokassa'];
+       $R = $this->registry['config']['robokassa'];
                 
 		$unique_id = $order['ai'];
 		$desc = sprintf('Оплата заказа № %s в Бодибилдинг-Магазине',$order_id);
