@@ -35,7 +35,7 @@ Class Front_Order_Done Extends Common_Rq{
 	private function do_bill($order){
 		if($order['payment_method_id']!=2) return false;
 		
-		return sprintf('<input type="hidden" id="openbill" value="%s">',$order['num']);
+		return '<input type="hidden" id="openbill" value="1">';
 	}
 					
 }
