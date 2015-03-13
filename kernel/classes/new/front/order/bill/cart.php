@@ -15,9 +15,9 @@ Class Front_Order_Bill_Cart{
 		 * */
 		if($skip_user_match) return true;
 		
-		return ($order['user_id'])
-			? ($this->registry['userdata'] && $this->registry['userdata']['id']==$order['user_id'])
-			: !($this->registry['userdata']);
+		if(!$this->registry['userdata'] || !$order['user_id']) return false;
+		
+		return ($this->registry['userdata']['id']==$order['user_id']);
 	}
 	
 	private function make_address($order){
