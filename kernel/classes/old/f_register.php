@@ -266,14 +266,17 @@
 				'USER_FLAT' => $data['flat'],
 				'USER_WISHES' => $data['wishes'],
 			);
-			
-			foreach($replace_arr as $key => $val){$replace_arr[$key] = iconv('utf-8','windows-1251',$val);}
-			
+						
 			$emails = explode('::',ADMINS_EMAILS);
-			if(count($emails)>0){
-				foreach($emails as $admin_mail){
-					$mailer = new Mailer($this->registry,27,$replace_arr,$admin_mail,false,'windows-1251');						
-				}
+			foreach($emails as $admin_mail){
+				$mailer = new Mailer(
+						$this->registry,
+						27,
+						$replace_arr,
+						$admin_mail,
+						false,
+						'windows-1251'
+						);						
 			} 			
 						
 		}
