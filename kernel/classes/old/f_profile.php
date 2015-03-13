@@ -207,6 +207,7 @@
 				'ID' => $_SESSION['user_id'],
 				'OLD_FIO' => $_POST['old_name'],
 				'OLD_EMAIL' => $_POST['old_email'],
+				'OLD_PHONE' => $_POST['old_phone'],
 				'OLD_INDEX' => $_POST['old_zip_code'],
 				'OLD_COUNTRY' => 'Россия',
 				'OLD_REGION' => $_POST['old_region'],
@@ -219,6 +220,7 @@
 				'PASS' => $_POST['pass'],
 				'NEW_FIO' => $_POST['name'],
 				'NEW_EMAIL' => $_POST['email'],
+				'NEW_PHONE' => $_POST['phone'],
 				'NEW_INDEX' => $_POST['zip_code'],
 				'NEW_COUNTRY' => 'Россия',
 				'NEW_REGION' => $_POST['region'],
@@ -233,7 +235,14 @@
 			$emails = explode('::',ADMINS_EMAILS);
 						
 			foreach($emails as $admin_mail){
-				$mailer = new Mailer($this->registry,28,$replace_arr,$admin_mail,false,'windows-1251');
+				$mailer = new Mailer(
+						$this->registry,
+						28,
+						$replace_arr,
+						$admin_mail,
+						false,
+						'windows-1251'
+						);
 			}
 
 		}
