@@ -67,7 +67,10 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'overall_sum' => $order['overall_sum'],				
 				'from_account' => $order['from_account'],				
 				'lower_text' => $this->Front_Order_Done_Message->do_message($order),
-				'to_admin' => $to_admin
+				'to_admin' => $to_admin,
+				'head_sum' => ($to_admin) 
+					? sprintf('%s руб.',Common_Useful::price2read($order['overall_sum'] - $order['from_account']))
+					: false
 				);
 		
 		$html = $this->do_rq('tpl',$a); 
