@@ -20,7 +20,8 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'pb_label' => 'display:inline;font-weight:bold;',
 				'pb_text' => 'display:inline;',
 				'common_hint' => 'background:#fbf1d3;border-radius:2px;color:#333;padding:9px 35px 8px 15px;border:1px solid #e38a25;margin:0 0 20px 0;',
-				'ch_h3' => 'margin:0 0 10px;color:#e38a25;font-weight:normal;font-size:18px;'
+				'ch_h3' => 'margin:0 0 10px;color:#e38a25;font-weight:normal;font-size:18px;',
+				'head_sum' => 'font-size:12px;font-weight:normal;color:#999;'
 				);
 		
 		foreach($styles as $k => $v){
