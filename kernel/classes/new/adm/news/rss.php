@@ -159,6 +159,7 @@
 			foreach($replace as $s => $r) $content = str_replace($s,$r,$content);
 
 			$content = $this->strip_imgs($content);
+			$content = strip_tags($content);
 
 			return $content;
 		}
