@@ -132,9 +132,6 @@
 					case 609:
 						$settings->news_send();
 						break;
-					case 610:
-						$settings->sav_order_msgs();
-						break;
 					case 611:
 						$settings->sav_module_file();
 						break;
@@ -164,9 +161,6 @@
 					case 619:
 						$settings->ostatki_sav();
 						break;
-					case 620:
-						$settings->dp_params_sav();
-						break;	
 					case 621:
 						$settings_indexes->sav_indexes();
 						break;											

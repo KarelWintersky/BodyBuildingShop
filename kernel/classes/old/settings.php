@@ -71,26 +71,6 @@
 			}
 		}
 
-		public function sav_order_msgs(){
-			foreach($_POST['msg'] as $id => $arr){
-				mysql_query("UPDATE order_msgs SET order_msgs.name = '".$arr['name']."', order_msgs.text = '".$arr['text']."' WHERE order_msgs.id = '".$id."';");
-			}
-		}
-
-		public function order_msgs_list(){
-			$qLnk = mysql_query("
-								SELECT
-									order_msgs.*
-								FROM
-									order_msgs
-								ORDER BY
-									order_msgs.id ASC;
-								");
-			while($t = mysql_fetch_assoc($qLnk)){
-				$this->item_rq('order_msg_item',$t);
-			}
-		}
-
 		public function feedback_mail_list(&$sort){
 			$qLnk = mysql_query("
 								SELECT
@@ -934,28 +914,6 @@
 									");
 					}
 				}
-			}
-		}
-
-		public function dp_params_sav(){
-			foreach($_POST['params'] as $name => $value)
-				mysql_query(sprintf("
-						UPDATE
-							dp_params
-						SET
-							value = '%s'
-						WHERE
-							name = '%s';
-						",
-						mysql_real_escape_string($value),
-						$name
-						));
-		}
-		
-		public function dp_params_list(){
-			$qLnk = mysql_query("SELECT * FROM dp_params");
-			while($p = mysql_fetch_assoc($qLnk)){
-				$this->item_rq('dp_param',$p);
 			}
 		}
 		
