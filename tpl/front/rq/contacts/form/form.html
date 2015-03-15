@@ -1,4 +1,4 @@
-<form id="form_Contacts" method="POST" action="<?=$_SERVER['REQUEST_URI']?>#form">
+<form id="form_Contacts" method="POST" action="<?=$a['action'];?>">
 		
 	<a name="form"></a>
 
@@ -9,15 +9,15 @@
 
 	<div id="fc_inner">
 		
-		<?if(count($_POST)>0):?>
+		<?if($a['success_message']):?>
 			<div id="fc_succ">Ваше сообщение успешно отправлено</div>
 		<?endif;?>
 		
 		<div class="fc_line">
 			<label>Тема письма</label>
-                        <select name="topic">
-                            <?$this->registry['template']->F_contacts_form_options();?>
-                        </select>
+            <select name="topic">
+                <?=$a['topics'];?>
+            </select>
 		</div>
 		
 		<div class="fc_line txt_fld">
@@ -28,6 +28,7 @@
 		<div class="fc_line txt_fld">
 			<label>Ваш email</label>
 			<input type="text" name="email">
+			<input type="text" name="emailconfirm">
 		</div>		
 		
 		<div class="fc_line">

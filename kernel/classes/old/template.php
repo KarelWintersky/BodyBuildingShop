@@ -214,8 +214,15 @@ Class Template {
 
 
 		public function F_tech(){
-			if(isset($this->registry['page']['tech']) && $this->registry['page']['tech']!='' && method_exists($this,$this->registry['page']['tech'])){
+			if(!isset($this->registry['page']['tech']) || !$this->registry['page']['tech']) return false;
+			
+			$Front_Pages_Extra = new Front_Pages_Extra($this->registry);
+			$extra = $Front_Pages_Extra->get_extra($this->registry['page']['tech']);
+			if($extra) echo $extra;
+			
+			if(method_exists($this,$this->registry['page']['tech'])){
 				$f = $this->registry['page']['tech'];
+								
 				$this->$f();
 			}
 		}
@@ -227,34 +234,6 @@ Class Template {
 			));			
 			
 			$this->item_rq('map');
-		}
-
-		private function F_contacts_form(){
-			$Front_Contacts_Form_Send = new Front_Contacts_Form_Send($this->registry);
-			$Front_Contacts_Form_Send->do_send();
-			
-			$this->item_rq('contacts_form');
-		}
-
-		public function F_contacts_form_options(){
-			$data = array();
-			
-			$qLnk = mysql_query("
-								SELECT
-									feedback_mail.id,
-									feedback_mail.name
-								FROM
-									feedback_mail
-								ORDER BY
-									feedback_mail.sort ASC;
-								");
-			while($m = mysql_fetch_assoc($qLnk))
-				$data[] = array(
-						'val' => $m['id'],
-						'name' => $m['name'],
-						);
-
-			echo Common_Template_Select::opts($data,'Выберите тему');
 		}
 
 		private function F_prices_link($frompage = true){
