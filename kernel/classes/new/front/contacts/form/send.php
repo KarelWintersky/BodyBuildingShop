@@ -31,7 +31,7 @@ Class Front_Contacts_Form_Send Extends Common_Rq{
 	public function do_send(){
 		if(!count($_POST)) return false;
 						
-		if(isset($_POST['emailconfirm']) && !trim($_POST['emailconfirm'])) return false;
+		if(isset($_POST['emailconfirm']) && trim($_POST['emailconfirm'])) return false;
 		
 		$to = $this->get_to(
 				($_POST['topic']) ? $_POST['topic'] : 1
