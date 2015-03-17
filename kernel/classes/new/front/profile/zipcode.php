@@ -1,5 +1,5 @@
 <?php
-Class Front_Profile_Zipcode{
+Class Front_Profile_Zipcode Extends Common_Rq{
 	
 	private $registry;
 					
@@ -29,31 +29,35 @@ Class Front_Profile_Zipcode{
 	}	
 	
 	private function zip_code_query($zip_code,$field){
-		return "SELECT
-		indexes.ind,
-		indexes.ind_old,
-		indexes.region,
-		indexes.city,
-		indexes.type_ogr,
-		indexes.tarif_pos_basic,
-		indexes.tarif_pos_add,
-		indexes.tarif_band_basic,
-		indexes.tarif_band_add,
-		indexes.type_dost,
-		indexes.tarif_post_avia_pos,
-		indexes.tarif_avia_pos,
-		indexes.tarif_post_avia_band,
-		indexes.tarif_avia_band
-		FROM
-		indexes
-		WHERE
-		indexes.".$field." = '".$zip_code."'
-		AND
-		DATE(NOW())
-		BETWEEN
-		DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(indexes.time_ogr,'-',1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(indexes.time_ogr,'-',1),'.',1)))
-		AND
-		DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(indexes.time_ogr,'-',-1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(indexes.time_ogr,'-',-1),'.',1)))";
+		return sprintf("
+				SELECT
+					ind,
+					ind_old,
+					region,
+					city,
+					type_ogr,
+					tarif_pos_basic,
+					tarif_pos_add,
+					tarif_band_basic,
+					tarif_band_add,
+					type_dost,
+					tarif_post_avia_pos,
+					tarif_avia_pos,
+					tarif_post_avia_band,
+					tarif_avia_band
+				FROM
+					indexes
+				WHERE
+					%s = '%s'
+					AND
+					DATE(NOW())
+						BETWEEN
+							DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',1),'.',1)))
+						AND
+DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),'.',1)))",
+				$field,
+				mysql_real_escape_string($zip_code)
+				);
 	}
 		
 	public function zip_code_data($zip_code){
@@ -73,9 +77,7 @@ Class Front_Profile_Zipcode{
 				3 => 'Вы проживаете в труднодоступном регионе, в который доставка почтовых отправлений осуществляется только авиа-транспортом. Поэтому Вы можете делать заказы только ПО ПРЕДОПЛАТЕ или с оплатой через систему WebMoney',
 		);
 	
-		if(!isset($this->registry['zc_data'])){
-			$this->zip_code_find($zip_code,$flag);
-		}
+		if(!isset($this->registry['zc_data'])) $this->zip_code_find($zip_code,$flag);
 	
 		if($flag){
 			$zc_data = $this->registry['zc_data'];
@@ -83,8 +85,10 @@ Class Front_Profile_Zipcode{
 			$zc_data['ogr_type'] = isset($ogr_types[$zc_data['type_ogr']]) ? $ogr_types[$zc_data['type_ogr']] : '';
 		}
 	
-		require($this->registry['template']->TF.'item/profile/zip_code_data.html');
-	
+		$zc_data['flag'] = $flag;
+		$zc_data['input'] = $zip_code;
+		
+		return $this->do_rq('zipcode',$zc_data);
 	}
 			
 }

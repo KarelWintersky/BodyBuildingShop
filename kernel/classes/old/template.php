@@ -436,10 +436,6 @@ Class Template {
 
 		}
 
-	    private function F_delivery_count(){
-	    	$this->registry['logic']->zip_code_data($_GET['index']);
-	    }
-
 	    public function F_articles_list(){
 	    	$qLnk = mysql_query("
 	    						SELECT
@@ -499,13 +495,6 @@ Class Template {
 	    	}else{
 	    		$url = mb_strtolower($_SERVER['REQUEST_URI'],'utf-8');
 	    		
-	    		/*$url = explode('?',$_SERVER['REQUEST_URI']);
-	    		$url = $url[0];
-	    		$url = trim(THIS_URL,'/').$url;
-	    		$url = trim($url,'/');
-	    		$url = $url.'/';
-	    		$url = mb_strtolower($url,'utf-8');*/
-
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'" />';
 	    	}
