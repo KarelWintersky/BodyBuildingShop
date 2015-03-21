@@ -248,6 +248,9 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 		.goods_content_block .gcb_goods .gcb_goods_name{font-size:12px;padding:9px 0 0;}
 .goods_content_block.l{float:left;margin:0 20px 15px 0;}
 
+.right300{float:right;width:300px;margin:0 0 15px 15px;}
+.left300{float:left;width:300px;margin:0 15px 15px 0;}
+
 .table_one{width:100%;}
 	.table_one tr{}
 		.table_one p{margin:0;padding:0;}
