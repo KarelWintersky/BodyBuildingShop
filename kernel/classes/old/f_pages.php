@@ -4,12 +4,14 @@
 		private $registry;
 
 		private $Front_Articles_Widget;
+		private $Front_Content_Goods;
 		
 		public function __construct($registry){
 			$this->registry = $registry;
 			$f_articles = new f_Pitanie($this->registry);
 			
 			$this->Front_Articles_Widget = new Front_Articles_Widget($this->registry);
+			$this->Front_Content_Goods = new Front_Content_Goods($this->registry);
 		}
 
 		public function path_check(){
@@ -47,7 +49,8 @@
 			if(mysql_num_rows($qLnk)>0){
 				$page = mysql_fetch_assoc($qLnk);
 				$page['content'] = $this->Front_Articles_Widget->do_articles($page['content']);
-
+				$page['content'] = $this->Front_Content_Goods->string_to_goods($page['content']);
+				
 				$this->registry['page'] = $page;
 
 				$this->registry['longtitle'] = $this->registry['page']['seo_title'];

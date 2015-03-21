@@ -241,6 +241,13 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 	.texted .texted_hint{background:#fbf1d3;border-radius:2px;margin:0 0 30px;padding:13px 33px 9px 15px;}
 		.texted .texted_hint h2{color:#e38a25;font-size:14px;font-weight:normal;padding:0;margin:0 0 9px;}
 
+.goods_content_block{width:170px;border:1px solid #eee;padding:10px 15px;float:right;margin:0 0 0 20px;}
+	.goods_content_block .gcb_text{font-size:11px;}
+	.goods_content_block .gcb_goods{padding:10px 0;text-align:center;}
+		.goods_content_block .gcb_goods .gcb_goods_image{}
+		.goods_content_block .gcb_goods .gcb_goods_name{font-size:12px;padding:9px 0 0;}
+.goods_content_block.l{float:left;margin:0 20px 0 0;}
+
 .table_one{width:100%;}
 	.table_one tr{}
 		.table_one p{margin:0;padding:0;}

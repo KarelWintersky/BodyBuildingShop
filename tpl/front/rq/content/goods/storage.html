@@ -1,0 +1,24 @@
+<div class="goods_content_block <?=$a['class'];?>">
+
+	<?if($a['upper_text']):?>
+		<div class="gcb_text">
+			<?=$a['upper_text'];?>
+		</div>
+	<?endif;?>
+	
+	<div class="gcb_goods">
+		<div class="gcb_goods_image">
+			<img src="http://bodybuilding-shop.ru<?=$a['goods']['image'];?>" alt="htmlspecialchars($a['goods']['name']);" width="122" height="122">
+		</div>
+		<div class="gcb_goods_name">
+			<a href="<?=$a['goods']['link'];?>"><?=$a['goods']['name'];?></a>
+		</div>
+	</div>
+	
+	<?if($a['lower_text']):?>
+		<div class="gcb_text">
+			<?=$a['lower_text'];?>
+		</div>
+	<?endif;?>
+		
+</div>
