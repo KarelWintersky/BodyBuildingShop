@@ -8,7 +8,7 @@
 	
 	<div class="gcb_goods">
 		<div class="gcb_goods_image">
-			<img src="http://bodybuilding-shop.ru<?=$a['goods']['image'];?>" alt="htmlspecialchars($a['goods']['name']);" width="122" height="122">
+			<a href="<?=$a['goods']['link'];?>"><img src="http://bodybuilding-shop.ru<?=$a['goods']['image'];?>" alt="<?=htmlspecialchars($a['goods']['name'])?>;" width="122" height="122"></a>
 		</div>
 		<div class="gcb_goods_name">
 			<a href="<?=$a['goods']['link'];?>"><?=$a['goods']['name'];?></a>
