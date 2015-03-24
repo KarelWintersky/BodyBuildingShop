@@ -243,6 +243,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 
 .goods_content_block{width:170px;border:1px solid #eee;padding:10px 15px;float:right;margin:0 0 15px 20px;}
 	.goods_content_block .gcb_text{font-size:11px;}
+	.goods_content_block.text_center .gcb_text{text-align:center;}
 	.goods_content_block .gcb_goods{padding:10px 0;text-align:center;}
 		.goods_content_block .gcb_goods .gcb_goods_image{}
 		.goods_content_block .gcb_goods .gcb_goods_name{font-size:12px;padding:9px 0 0;}

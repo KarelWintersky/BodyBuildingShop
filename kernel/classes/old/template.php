@@ -78,26 +78,6 @@ Class Template {
 			require($this->TF.'item/template/'.$name.'.html');
 		}
 
-		public function sb_menu(){
-			$qLnk = mysql_query("
-								SELECT
-									main_parts.alias,
-									main_parts.name,
-									parent_tbl.alias AS parent_alias
-								FROM
-									main_parts
-								INNER JOIN main_parts AS parent_tbl ON parent_tbl.id = main_parts.parent_id
-								WHERE
-									main_parts.parent_id = '".$this->registry['main_part_id']."'
-								ORDER BY
-									main_parts.sort ASC;
-								");
-			while($r = mysql_fetch_assoc($qLnk)){
-				$r['active'] = ((count($this->registry['sub_aias_path'])==0 && $r['alias']=='') || (count($this->registry['sub_aias_path'])>0 && $r['alias']==$this->registry['sub_aias_path'][0])) ? 'active' : '';
-				$this->item_rq('sb_menu',$r);
-			}
-		}
-
 		public function main_menu(){
 
 			$q_ogr = ($this->registry['userdata']['type']==1) ? "AND main_parts.id <> 8" : "";

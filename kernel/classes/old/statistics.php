@@ -20,6 +20,9 @@ Class Statistics{
 	        }
 
 	        $this->registry['sub_aias_path'] = $route;
+	        
+	        $Adm_Statistics = new Adm_Statistics($this->registry);
+	        $Adm_Statistics->template_vars();
         }
 
 	}

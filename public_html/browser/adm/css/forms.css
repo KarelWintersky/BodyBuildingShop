@@ -647,6 +647,10 @@ form{}
 		#form_indexesTable .the_table .td_rrc input{width:90px;}
 		#form_indexesTable .the_table .td_tarif input{width:80px;}
 
-
+#table_StylesGlossary{border-collapse:collapse;width:100%;font-family:Arial;}
+	#table_StylesGlossary th, #table_StylesGlossary td{background:#f0f0f0;font-size:12px;font-weight:normal;color:#333;padding:8px 10px;border-bottom:2px solid #fff;}
+	#table_StylesGlossary th{background:#ccc;width:200px;text-align:right;}
+	#table_StylesGlossary td{}
+		#table_StylesGlossary td span{font-size:11px;color:#666;display:block;padding:5px 0 0;}
 
 		

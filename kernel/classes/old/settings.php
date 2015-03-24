@@ -24,6 +24,9 @@
 		        }
 
 		        $this->registry['sub_aias_path'] = $route;
+
+		        $Adm_Settings = new Adm_Settings($this->registry);
+		        $Adm_Settings->template_vars();
 	        }
 
 		}
