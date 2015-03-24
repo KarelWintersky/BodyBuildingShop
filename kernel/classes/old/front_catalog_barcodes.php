@@ -30,7 +30,7 @@
 			}
 			
 			$string = implode(', ',$features);
-			if(count($features)!=$count) $string.=sprintf('<a class="feats_list_more" href="/%s/%s/%s/">...</a>',
+			if(count($features)!=$count) $string.=sprintf('<span class="feats_list_more"><a href="/%s/%s/%s/">...</a></span>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']
@@ -52,7 +52,7 @@
 			}
 
 			$string = implode(', ',$packs);
-			if(count($packs)!=$count) $string.=sprintf('<a class="feats_list_more" href="/%s/%s/%s/">...</a>',
+			if(count($packs)!=$count) $string.=sprintf('<span class="feats_list_more"><a href="/%s/%s/%s/">...</a></span>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']

@@ -489,7 +489,7 @@
 			$new_colors = array_slice($colors,0,4);
 			$string = implode(', ',$new_colors);
 			
-			if(count($new_colors)!=count($colors)) $string.=sprintf('<a href="/%s/%s/%s/" class="feats_list_more">...</a>',
+			if(count($new_colors)!=count($colors)) $string.=sprintf('<span class="feats_list_more"><a href="/%s/%s/%s/">...</a></span>',
 				$g['parent_level_alias'],
 				$g['level_alias'],
 				$g['alias']
