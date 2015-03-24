@@ -494,6 +494,7 @@ Class Template {
 				echo '<link rel="canonical" href="'.$url.'" />';
 	    	}else{
 	    		$url = mb_strtolower($_SERVER['REQUEST_URI'],'utf-8');
+	    		$url = trim(THIS_URL,'/').$url;
 	    		
 	    		echo "\r\n";
 				echo '<link rel="canonical" href="'.$url.'" />';
