@@ -1,0 +1,15 @@
+<h1>
+	<a href="/adm/catalog/">
+		Каталог товаров</a>
+	/
+	<a href="/adm/catalog/0/<?=$a['parent_id'];?>/">
+		<?=$a['parent_name'];?></a>
+	/
+	<a href="/adm/catalog/<?=$a['parent_id'];?>/<?=$a['level_id']?>/">
+		<?=$a['level_name']?></a>
+	/
+	<a href="/adm/catalog/<?=$a['parent_id'];?>/<?=$a['level_id']?>/<?=$a['id']?>/">
+		<?=$a['name']?></a>
+	/
+	Товар в заказах
+</h1>

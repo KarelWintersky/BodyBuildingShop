@@ -10,6 +10,8 @@ Class Catalog{
 	        $route = $this->registry['aias_path'];
 	        array_shift($route);
 
+	        $Adm_Catalog_Statistics = new Adm_Catalog_Statistics($this->registry);
+	        
 	        if(count($route)==0){
 	        	$this->registry['f_404'] = false;
 	        	$this->registry['template']->set('c','catalog/main');
@@ -21,10 +23,13 @@ Class Catalog{
 	        } elseif(count($route)==2 && $this->level_check($route[0],$route[1])){
 	        	$this->registry['f_404'] = false;
 	        	$this->registry['template']->set('c','catalog/level');
-	        }elseif(count($route)==3 && $this->goods_check($route[0],$route[1],$route[2])){
+	        }elseif(count($route)==3 && $this->goods_check($route[0],$route[1],$route[2]) && !$Adm_Catalog_Statistics->route_check()){
 	        	$this->registry['f_404'] = false;
-	        }elseif(count($route)==4 && $this->goods_check($route[0],$route[1],$route[2]) && $route[3]=='orders'){
-	        	$this->registry['template']->set('c','catalog/goodsorders');
+	        }elseif(count($route)==3 && $this->goods_check($route[0],$route[1],$route[2]) && $Adm_Catalog_Statistics->route_check()){
+	        	$this->registry['template']->set('c','catalog/statistics');
+	        	
+	        	$Adm_Catalog_Statistics->template_vars();
+	        	
 	        	$this->registry['f_404'] = false;
 	        }
         }
@@ -1252,156 +1257,6 @@ Class Catalog{
 			$this->registry['doer']->set_rp($lnk);
 		}
 
-	}
-
-	public function goods_in_orders(&$total_amount){
-
-		$Orders = new Orders($this->registry,false);
-		
-		$orders = array();
-		$order_ids = array();
-		
-		//старая система заказов
-		$qLnk = mysql_query("
-							SELECT DISTINCT
-								orders_goods.order_id,
-								orders_goods.goods_feats_str,
-								orders_goods.amount
-							FROM
-								orders_goods
-							WHERE
-								orders_goods.goods_id = '".$this->registry['good']['id']."'
-							");
-		while($o = mysql_fetch_assoc($qLnk)){
-			$orders[$o['order_id']][] = array(
-					'amount' => $o['amount'],
-					'goods_barcode' => '',
-					'feats' => $o['goods_feats_str'],
-					);
-			$order_ids[] = $o['order_id'];
-		}
-		
-		//новая система заказов
-		$barcodes = array();
-		$qLnk = mysql_query(sprintf("
-				SELECT
-					barcode,
-					packing,
-					feature
-				FROM
-					goods_barcodes
-				WHERE
-					goods_id = '%d'
-				",$this->registry['good']['id']));
-		while($b = mysql_fetch_assoc($qLnk)) $barcodes[$b['barcode']] = $b;
-		
-		if(count($barcodes)>0){
-			$bc_keys = array();
-			foreach($barcodes as $key => $arr) $bc_keys[] = sprintf("'%s'",$key);
-			
-			$qLnk = mysql_query(sprintf("
-					SELECT
-						order_id,
-						goods_barcode,
-						goods_feats_str,
-						amount
-					FROM
-						orders_goods
-					WHERE
-						goods_barcode IN (%s)
-					",
-					implode(",",$bc_keys)
-					));
-			while($o = mysql_fetch_assoc($qLnk)){
-				$orders[$o['order_id']][] = array(
-						'amount' => $o['amount'],
-						'goods_barcode' => $o['goods_barcode'],
-						'feats' => $o['goods_feats_str'],
-						);
-				$order_ids[] = $o['order_id'];
-			}			
-		}
-
-		if(count($order_ids)>0){
-			foreach($order_ids as $key => $id) $order_ids[$key] = "'".$id."'";
-
-			$qLnk = mysql_query("
-								SELECT SQL_CALC_FOUND_ROWS
-									CONCAT_WS('/',orders.id,orders.user_num,orders.payment_method) AS text_id,
-									orders.id,
-									orders.user_num,
-									orders.payment_method,
-									orders.made_on,
-									orders.status
-								FROM
-									orders
-								WHERE
-									CONCAT_WS('/',orders.id,orders.user_num,orders.payment_method) IN (".implode(",",$order_ids).")
-								ORDER BY
-									orders.made_on DESC
-								".$this->goods_in_orders_pagination()."
-								");
-			$qA = mysql_query("SELECT FOUND_ROWS();");
-	   		$total_amount = mysql_result($qA,0);
-
-			$month_change = false;
-			while($o = mysql_fetch_assoc($qLnk)){
-				$amount = 0;
-				$pf = array();				
-				if(isset($orders[$o['text_id']])){
-					foreach($orders[$o['text_id']] as $goods){
-						$amount+=$goods['amount'];
-						
-						$packing = (isset($barcodes[$goods['goods_barcode']]['packing'])) 
-							? $barcodes[$goods['goods_barcode']]['packing']
-							: false;
-						$feature = (isset($barcodes[$goods['goods_barcode']]['feature'])) 
-							? $barcodes[$goods['goods_barcode']]['feature']
-							: false;
-						
-						$str = array($packing,$feature);
-						foreach($str as $key => $val) if(!$val) unset($str[$key]);
-
-						if(count($str)>0) $pf[] = implode(', ',$str);
-					}
-				}
-				
-				$o['amount'] = $amount;
-				$o['pf'] = implode('<br>',$pf);
-				
-				$o['status_txt'] = (isset($Orders->statuses[$o['status']])) ? $Orders->statuses[$o['status']] : '';
-				$o['month_change'] = ($month_change != date('m.Y',strtotime($o['made_on']))) ? true : false;
-				$this->item_rq('goods_in_orders',$o);
-
-				$month_change = date('m.Y',strtotime($o['made_on']));
-			}
-		}
-
-	}
-
-	private function goods_in_orders_pagination(){
-
-		$PAGING = 50;
-
-    	$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-    	$offset = $PAGING*($page-1);
-
-    	return "LIMIT ".$offset.", ".$PAGING;
-	}
-
-	public function goods_in_orders_nav($total_amount){
-
-		$url = $_SERVER['SCRIPT_URL'];
-
-		$PAGING = 50;
-		$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-
-		$prev = $page - 1;
-			$prev_url = ($prev==1) ? $url : $url.'?page='.$prev;
-		$next = $page + 1;
-
-		if($prev>0) echo '<li><a href="'.$prev_url.'">« Пред</a></li>';
-		echo '<li><a href="'.$url.'?page='.$next.'">След »</a></li>';
 	}
 
 	public function barcode_add(){

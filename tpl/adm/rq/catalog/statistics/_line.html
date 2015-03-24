@@ -1,0 +1,25 @@
+<?if($a['month_change']):?>
+	<tr>
+		<th colspan="5">
+			<?=Common_Useful_Date::date2node($a['made_on'],2);?>
+		</th>
+	</tr>
+<?endif;?>
+
+<tr>		
+	<td class="td_num">
+		<a href="/adm/orders/<?=$a['id'];?>-<?=$a['user_num'];?>-<?=$a['payment_method'];?>/" target="_blank"><?=$a['id'];?>/<?=$a['user_num'];?>/<?=$a['payment_method'];?></a>
+	</td>
+	<td class="td_features">
+		<?=$a['pf'];?>
+	</td>
+	<td class="td_amount">
+		<?=$a['amount'];?>
+	</td>
+	<td class="td_date">
+		<?=date('d.m.Y',strtotime($a['made_on']));?>
+	</td>
+	<td class="td_status">
+		<?=$a['status_name'];?>
+	</td>
+</tr>
