@@ -32,6 +32,8 @@
 		}
 
 		private function sub_level_check($alias){
+			if($alias=='indexes') return false;
+			
 			$qLnk = mysql_query("
 								SELECT
 									main_parts.*
