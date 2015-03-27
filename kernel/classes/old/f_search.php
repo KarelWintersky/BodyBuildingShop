@@ -105,10 +105,11 @@
 			);
 
 			$results = array();
-			$q = $_GET['q'];
-
+			$q = (isset($_GET['q'])) ? $_GET['q'] : false;
+			if(!$q) return $results; 
+			
 			//статьи
-			$qLnk = mysql_query("
+			$qLnk = mysql_query(sprintf("
 								SELECT
 									articles.name,
 									articles.alias
@@ -117,12 +118,15 @@
 								WHERE
 									articles.published = 1
 									AND
-									(articles.name LIKE '%".$q."%'
+									(articles.name LIKE '%%%s%%'
 									OR
-									articles.content LIKE '%".$q."%')
+									articles.content LIKE '%%%s%%')
 								ORDER BY
 									articles.name ASC;
-								");
+								",
+								mysql_real_escape_string($q),
+								mysql_real_escape_string($q)
+								));
 			while($g = mysql_fetch_assoc($qLnk)){
 				$results['articles'][] = array(
 					'lnk' => '/articles/'.$g['alias'].'/',
@@ -131,7 +135,7 @@
 			}
 
 			//новости
-			$qLnk = mysql_query("
+			$qLnk = mysql_query(sprintf("
 								SELECT
 									news.name,
 									news.alias
@@ -140,12 +144,15 @@
 								WHERE
 									news.published = 1
 									AND
-									(news.name LIKE '%".$q."%'
+									(news.name LIKE '%%%s%%'
 									OR
-									news.content LIKE '%".$q."%')
+									news.content LIKE '%%%s%%')
 								ORDER BY
 									news.name ASC;
-								");
+								",
+								mysql_real_escape_string($q),
+								mysql_real_escape_string($q)
+								));
 			while($g = mysql_fetch_assoc($qLnk)){
 				$results['news'][] = array(
 					'lnk' => '/news/'.$g['alias'].'/',
@@ -154,7 +161,7 @@
 			}
 
 			//страницы
-			$qLnk = mysql_query("
+			$qLnk = mysql_query(sprintf("
 								SELECT
 									pages.name,
 									pages.alias
@@ -163,12 +170,15 @@
 								WHERE
 									pages.published = 1
 									AND
-									(pages.name LIKE '%".$q."%'
+									(pages.name LIKE '%%%s%%'
 									OR
-									pages.content LIKE '%".$q."%')
+									pages.content LIKE '%%%s%%')
 								ORDER BY
 									pages.name ASC;
-								");
+								",
+								mysql_real_escape_string($q),
+								mysql_real_escape_string($q)
+								));
 			while($g = mysql_fetch_assoc($qLnk)){
 				$results['pages'][] = array(
 					'lnk' => '/'.$g['alias'].'/',
@@ -179,19 +189,22 @@
 			$results['goods'] = $this->find_goods($q);
 
 			//производители
-			$qLnk = mysql_query("
+			$qLnk = mysql_query(sprintf("
 								SELECT
 									growers.name,
 									growers.alias
 								FROM
 									growers
 								WHERE
-									growers.name LIKE '%".$q."%'
+									growers.name LIKE '%%%s%%'
 									OR
-									growers.content LIKE '%".$q."%'
+									growers.content LIKE '%%%s%%'
 								ORDER BY
 									growers.name ASC;
-								");
+								",
+								mysql_real_escape_string($q),
+								mysql_real_escape_string($q)
+								));
 			while($g = mysql_fetch_assoc($qLnk)){
 				$results['growers'][] = array(
 					'lnk' => '/growers/'.$g['alias'].'/',
