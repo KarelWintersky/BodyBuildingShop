@@ -52,7 +52,7 @@
 		}
 	.hot_goods_item .hgi_price{font-size:12px;font-weight:bold;color:#ccc;margin:12px 0 10px;float:left;}
 	.hot_goods_item .hgi_price.w_discount{margin-top:0;}
-		.hot_goods_item .hgi_price span{color:#333;}
+		.hot_goods_item .hgi_price span{color:#333;padding-left:2px;}
 	.hot_goods_item .hgi_price .hgi_price_old{font-weight:normal;font-size:11px;}
 		.hot_goods_item .hgi_price .hgi_price_old span{text-decoration:line-through;}
 	.hot_goods_item .goods_item_lnk_1{float:right;font-size:11px;padding:12px 0 0;margin:0 -9px 0 0;}

@@ -97,7 +97,7 @@
 		<div class="goods_tog_block_h <?= isset($_COOKIE['goods_block'][1]) ? 'invis' : 'vis';?>">
 			<h2>
 				<a href="#" onclick="return goods_tog_block(this,'#gtbi_1',1);">
-					<span>Описание <?=$this->registry['goods']['name']?></span>
+					<span>Описание <?=$this->registry['goods']['seo_h1']?></span>
 					<b></b>
 				</a>
 				</h2>
@@ -116,7 +116,7 @@
 			<div class="goods_tog_block_h <?= isset($_COOKIE['goods_block'][2]) ? 'invis' : 'vis';?>">
 				<h2>
 					<a href="#" onclick="return goods_tog_block(this,'#gtbi_2',2);">
-						<span>Рекомендации по применению <?=$this->registry['goods']['name']?></span>
+						<span>Рекомендации по применению <?=$this->registry['goods']['seo_h1']?></span>
 						<b></b>
 					</a>
 				</h2>
@@ -137,7 +137,7 @@
 			<div class="goods_tog_block_h <?= isset($_COOKIE['goods_block'][3]) ? 'invis' : 'vis';?>">
 				<h2>
 					<a href="#" onclick="return goods_tog_block(this,'#gtbi_3',3);">
-						<span>Ингредиенты <?=$this->registry['goods']['name']?></span>
+						<span>Ингредиенты <?=$this->registry['goods']['seo_h1']?></span>
 						<b></b>
 					</a>
 					</h2>

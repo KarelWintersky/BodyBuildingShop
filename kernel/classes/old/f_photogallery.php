@@ -51,6 +51,8 @@
 									parent_levels.id = ".CLOTH_PARENT_LEVEL_ID."
 									AND
 									goods.published = 1
+									AND
+									goods.parent_barcode = '0'
 								ORDER BY
 									levels.sort ASC,
 									goods.sort ASC;
