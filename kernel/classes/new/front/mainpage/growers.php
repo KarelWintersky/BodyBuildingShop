@@ -19,9 +19,10 @@ Class Front_Mainpage_Growers Extends Common_Rq{
 					growers
 				WHERE
 					goods_count > 0
+					AND
+					id IN (14,15,16,17,2,3,7,1)
 				ORDER BY
-					sort ASC
-				LIMIT 4;
+					sort ASC;
 				");
 		while($g = mysql_fetch_assoc($qLnk)) $growers[] = $g;
 			
