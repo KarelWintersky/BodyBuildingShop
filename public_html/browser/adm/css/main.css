@@ -47,3 +47,16 @@ h3{font-size:12px;color:#333;margin:0 0 15px;}
 	.table_one th{background:#dadada;}
 	.table_one td{background:#f3f3f3;}
 	.table_one tr:hover td{background:#f0f0f0;}
+	
+.front_the_quote{font-size:11px;color:#666;border:1px solid #ccc;border-radius:5px;margin:10px 0 15px;padding:5px 10px !important;}	
+	
+.front_uses_table{border-collapse:collapse;width:100%;font-size:12px;margin:0 0 20px;}
+	.front_uses_table td{border:1px solid #000;text-align:center;}	
+	
+.front_table_one{width:100%;font-size:12px;margin:0 0 20px;}
+	.front_table_one tr{}
+		.front_table_one p{margin:0;padding:0;}
+		.front_table_one tr td, .table_one tr th{padding:10px;}
+		.front_table_one tr th{background:#d8d8d8;}
+		.front_table_one tr td{color:#333;}
+		.front_table_one tr:nth-child(2n+1) td{background:#f4f4f4;}	
