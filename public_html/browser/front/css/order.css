@@ -184,7 +184,8 @@
 		#extra_payment #extra_payment_methods .method_item{padding:0 0 14px;}			
 			#extra_payment #extra_payment_methods .method_item input{float:left;margin:1px 7px 0 0;}			
 			#extra_payment #extra_payment_methods .method_item span{float:left;font-size:14px;color:#333;}			
-						
+		
+#courier_hint{margin:0 0 30px;}
 					
 .params_block{background:#f2f2f2;font-size:12px;border-radius:2px;padding:19px 30px 8px !important;margin:8px 0 17px;}			
 	.params_block li{padding:0 0 10px !important;line-height:17px;list-style:none !important;}						
