@@ -51,8 +51,8 @@
 				.goods_item .goods_item_l .goods_item_feats .feats_list_more a{font-size:16px;line-height:1px;height:8px;padding:0 4px 3px;display:inline-block;color:#3a4ecf;border:1px solid #bfbfbf;border-radius:5px;text-decoration:none;background:#f2f2f2;position:absolute;top:0;left:0;}
 			.goods_item .goods_item_l .goods_item_feats li{padding:0 0 4px;}
 			.goods_item .goods_item_l .goods_item_feats b{font-weight:normal;color:#999;}
-			.goods_item .goods_item_l .goods_item_feats a{margin-left:8px;}
-				.goods_item .goods_item_l .goods_item_feats img{margin-top:3px;}
+			/*.goods_item .goods_item_l .goods_item_feats a{margin-left:8px;}
+				.goods_item .goods_item_l .goods_item_feats img{margin-top:3px;}*/
 	.goods_item .goods_item_r{float:right;width:127px;margin:0 20px 0 0;}
 		.goods_item .goods_item_r .goods_item_price{padding:19px 0 0 13px;}
 			.goods_item .goods_item_r .goods_item_price li{color:#ccc;}
