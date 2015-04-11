@@ -18,7 +18,7 @@
 		Ваш контактный e-mail: 
 		<strong>
 			<?if($a['to_admin']):?>
-				<a href='mailto:<?=$a["user_email"];?>?subject=Заказ <?=$a["num"];?> оплачен&cc=hercules@superset.ru&body=Здравствуйте.\n\nДеньги за заказ <?=$a["num"];?> поступили.\n\nС уважением,\n              Татищев Сергей.\nФедерация Бодибилдинга России\nwww.bodybuilding.spb.ru\nwww.bodybuilding-shop.ru\n'><?=$a["user_email"];?></a>
+				<a href='mailto:<?=$a["user_email"];?>?subject=Заказ <?=$a["num"];?> оплачен&cc=hercules@superset.ru&body=Здравствуйте.%0D%0A%0D%0A%20%20%20%20%20%20%20%20Деньги за заказ <?=$a["num"];?> поступили.%0D%0A %0D%0AС уважением,%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Татищев Сергей.%0D%0AФедерация Бодибилдинга России%0D%0Ahttp://www.bodybuilding.spb.ru%0D%0Ahttp://www.bodybuilding-shop.ru'><?=$a["user_email"];?></a>
 			<?else:?>
 				<?=$a["user_email"];?>
 			<?endif;?>
