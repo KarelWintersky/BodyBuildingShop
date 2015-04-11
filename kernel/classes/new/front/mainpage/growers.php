@@ -20,7 +20,7 @@ Class Front_Mainpage_Growers Extends Common_Rq{
 				WHERE
 					goods_count > 0
 					AND
-					id IN (14,15,16,17,2,3,7,1)
+					id IN (14,5,16,17,2,3,7,1)
 				ORDER BY
 					sort ASC;
 				");
