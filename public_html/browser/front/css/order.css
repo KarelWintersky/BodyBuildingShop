@@ -205,8 +205,8 @@
 		#order_done .hint_2 h2{font-size:14px;color:#e38a25;font-weight:normal;margin:0;padding:0 0 6px;}		
 			
 		
-#order_social{background:#edf2f5;border-radius:4px;padding:18px 20px 22px;margin:40px 0 0;}
-	#order_social ul{padding:5px 0 0;}
+#order_social{background:#edf2f5;border-radius:4px;padding:18px 20px 22px;margin:40px 0 0;font-size:11px;}
+	#order_social ul{padding:25px 0 0;}
 		#order_social ul li{float:left;background:none;padding:0;margin:0 24px 0 0;list-style:none;}
 			#order_social ul li span{float:left;width:16px;height:16px;background-image:url(/browser/front/i/spr1.png);background-repeat:no-repeat;margin:0 8px 0 0;}
 			#order_social ul li.os_vk span{background-position:0 -77px;}
