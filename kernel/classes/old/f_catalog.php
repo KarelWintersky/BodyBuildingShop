@@ -264,11 +264,11 @@
 
 			$list_params['display'] = $PAGING;
 
-			if($PAGING=='all' && $from!=2){
+			if(($PAGING=='all' || !$PAGING) && $from!=2){
 				$list_params['start'] = 1;
 				$list_params['fin'] = NULL;
 				return "";
-			}elseif($PAGING=='all' && $from==2){
+			}elseif(($PAGING=='all' || !$PAGING) && $from==2){
 				$list_params['start'] = 1;
 				$list_params['fin'] = POPULAR_MAX;
 				return "LIMIT ".POPULAR_MAX;
