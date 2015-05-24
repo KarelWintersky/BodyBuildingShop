@@ -154,6 +154,7 @@
 				'&hellip;' => '',
 				'&Ccedil;' => '',
 				'&ccedil;' => '',
+				'&euro;' => '',
 				);
 
 			foreach($replace as $s => $r) $content = str_replace($s,$r,$content);
