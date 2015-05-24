@@ -85,7 +85,8 @@ Class Adm_Catalog_Statistics_Data{
 	}
 	
 	public function get_data(){
-		$orders = $this->old_orders() + $this->new_orders($barcodes); 
+		$orders = $this->old_orders() + $this->new_orders($barcodes);
+		if(!count($orders)) return array(); 
 		
 		$ids = array();
 		foreach($orders as $key => $arr) $ids[] = sprintf("'%s'",$key);
