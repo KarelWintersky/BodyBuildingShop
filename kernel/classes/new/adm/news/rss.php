@@ -137,7 +137,8 @@
 		}
 
 		private function prepare_content($content){
-
+			$content = htmlspecialchars_decode($content);
+			
 			$replace = array(
 				'&laquo;' => '«',
 				'&raquo;' => '»',
@@ -161,7 +162,7 @@
 
 			$content = $this->strip_imgs($content);
 			$content = strip_tags($content);
-
+			
 			return $content;
 		}
 
