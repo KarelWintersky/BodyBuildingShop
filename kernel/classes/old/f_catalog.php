@@ -522,7 +522,7 @@
 				$page_link = '/popular/';
 			}
 
-			if($list_params['display']!='all'){
+			if($list_params['display']!='all' && $list_params['display']!=0){
 				$pages_amount = ceil($list_params['total_goods_amount']/$list_params['display']);
 				$cur_page = (isset($_GET['page'])) ? $_GET['page'] : 1;
 
