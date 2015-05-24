@@ -131,7 +131,7 @@
 #form_OrderDelivery{}		
 	#form_OrderDelivery #fod_items{}		
 		#form_OrderDelivery #fod_items .fod_item{border:1px solid #ccc;margin:0 0 20px;border-radius:2px;}
-		#form_OrderDelivery #fod_items .fod_item.disabled{opacity:.3;}
+		#form_OrderDelivery #fod_items .fod_item.disabled{opacity:.5;}
 			#form_OrderDelivery #fod_items .fod_item .fod_item_head{font-size:13px;padding:10px 20px 15px;}		
 					#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input{float:left;padding:4px 15px 0 0;}		
 						#form_OrderDelivery #fod_items .fod_item .fod_item_head .fod_item_head_input input{float:left;margin:5px 14px 0 0;cursor:pointer;}		
@@ -170,7 +170,7 @@
 #form_OrderPayment{}		
 	#form_OrderPayment #fop_items{}		
 		#form_OrderPayment #fop_items .fop_item{border:1px solid #ccc;margin:0 0 20px;border-radius:2px;}
-		#form_OrderPayment #fop_items .fop_item.disabled{opacity:.3;}
+		#form_OrderPayment #fop_items .fop_item.disabled{opacity:.5;}
 			#form_OrderPayment #fop_items .fop_item .fop_item_head{font-size:13px;padding:10px 20px 15px;}		
 					#form_OrderPayment #fop_items .fop_item .fop_item_head .fop_item_head_input{float:left;padding:4px 15px 0 0;}		
 						#form_OrderPayment #fop_items .fop_item .fop_item_head .fop_item_head_input input{float:left;margin:5px 14px 0 0;cursor:pointer;}		
