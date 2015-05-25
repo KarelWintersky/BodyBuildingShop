@@ -47,12 +47,12 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 
 		return $html;
 	}
-	
+		
 	public function print_html($order,$to_admin){
 		
 		$delivery = Front_Order_Data_Delivery::get_methods($order['delivery_type']);
 		$payment = Front_Order_Data_Payment::get_methods($order['payment_method_id']);
-		
+				
 		$a = array(
 				'num' => $order['num'],
 				'date' => date('d.m.Y H:i',strtotime($order['made_on'])),
@@ -64,7 +64,7 @@ Class Front_Order_Mail_Notify_Html Extends Common_Rq{
 				'payment_name' => ($payment) ? $payment['name'] : false,
 				'delivery_type' => $order['delivery_type'],
 				'nalog_costs' => $order['nalog_costs'],
-				'delivery_costs' => $order['delivery_costs'],
+				'delivery_costs' => (!is_null($order['delivery_costs'])) ? $order['delivery_costs'] : false,
 				'overall_sum' => $order['overall_sum'],				
 				'from_account' => $order['from_account'],				
 				'lower_text' => $this->Front_Order_Done_Message->do_message($order),
