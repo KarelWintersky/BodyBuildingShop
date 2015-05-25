@@ -6,6 +6,7 @@ Class Adm_Settings_Mailout{
 	private $file;
 	
 	private $Front_Template_Links;
+	private $Front_Template_Images;
 			
 	public function __construct($registry){
 		$this->registry = $registry;
@@ -13,6 +14,7 @@ Class Adm_Settings_Mailout{
 		$this->file = ROOT_PATH.'files/news_work_file.txt';
 		
 		$this->Front_Template_Links = new Front_Template_Links($this->registry);
+		$this->Front_Template_Images = new Front_Template_Images($this->registry);
 	}
 	
 	public function do_mailout(){
@@ -64,6 +66,7 @@ Class Adm_Settings_Mailout{
 		foreach($_POST as $key => $val) $$key = $val;
 				
 		$news_text = $this->Front_Template_Links->do_links($news_text);
+		$news_text = $this->Front_Template_Images->do_images($news_text);
 		
 		file_put_contents(
 				$this->file,
