@@ -31,8 +31,8 @@
 				$blocks->cron_do_goods_prices();
 				break;
 			case 'do_news':
-				$seettings = new Settings($registry,false);
-				$seettings->cron_do_news();
+				$Adm_Settings_Mailout = new Adm_Settings_Mailout($registry,false);
+				$Adm_Settings_Mailout->do_mailout();
 				break;
 			case 'do_rezerv_orders':
 				$seettings = new Settings($registry,false);

@@ -130,7 +130,8 @@
 						$settings->del_user_from_maillist();
 						break;
 					case 609:
-						$settings->news_send();
+						$Adm_Settings_Mailout = new Adm_Settings_Mailout($this->registry);
+						$Adm_Settings_Mailout->mailout_initiate();
 						break;
 					case 611:
 						$settings->sav_module_file();

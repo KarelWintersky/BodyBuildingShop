@@ -273,63 +273,6 @@
 
 		}
 
-		public function cron_do_news(){
-
-			$file = ROOT_PATH.'files/news_work_file.txt';
-			$news_str =  file_get_contents($file);
-
-
-			$news_d = explode('::',$news_str);
-
-			$start_time = date('d.m.Y H:i');
-
-			$qLnk = mysql_query("SELECT users.id, users.name, users.email FROM users WHERE users.get_news = 1;");
-			$count = 0;
-			while($u = mysql_fetch_assoc($qLnk)){
-
-				//$news_text = preg_replace('/\v+|\\\[rn]/','<br/>',$news_d[1]);
-				$news_text = $news_d[1];
-
-				$replace_arr = array(
-					'USER_NAME' => $u['name'],
-					'USER_ID' => $u['id'],
-					'NEWS_TEXT' => $news_text,
-					'NEWS_TOPIC' => $news_d[0]
-				);
-
-				$mailer = new Mailer($this->registry,6,$replace_arr,$u['email'],false,'windows-1251');
-
-				$count++;
-			}
-
-			$fin_time = date('d.m.Y H:i');
-
-			$emails = explode('::',ADMINS_EMAILS);
-			if(count($emails)>0){
-				foreach($emails as $admin_mail){
-					$replace_arr = array(
-						'MAIL_CHAIN_NAME' => '«Новости»',
-						'COUNT' => $count,
-						'MAIL_CHAIN_START' => $start_time,
-						'MAIL_CHAIN_FIN' => $fin_time,
-						'MAIL_TOPICS' => $news_d[0],
-					);
-
-					$mailer = new Mailer($this->registry,10,$replace_arr,$admin_mail);
-				}
-			}
-
-		}
-
-		public function news_send(){
-			foreach($_POST as $key => $val){$$key = $val;}
-
-			$file = ROOT_PATH.'files/news_work_file.txt';
-			file_put_contents($file,$news_topic.'::'.$news_text);
-			exec('/usr/bin/php /home/wwwuser/www/bodybuilding-shop.ru/kernel/cron.php do_news',$output);
-
-		}
-
 		public function module_txt_file(){
 			$file = ROOT_PATH.'files/module.txt';
 			if(is_file($file)){
