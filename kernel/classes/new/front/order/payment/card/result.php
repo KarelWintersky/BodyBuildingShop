@@ -11,29 +11,69 @@ Class Front_Order_Payment_Card_Result{
 		$this->Front_Order_Mail_Card = new Front_Order_Mail_Card($this->registry);
 	}	
 	
+	private function check_sum($ai,$withdraw_amount){
+		$qLnk = mysql_query(sprintf("
+				SELECT
+					overall_sum - from_account AS sum
+				FROM
+					orders
+				WHERE
+					ai = '%d'
+				",
+				$ai
+				));
+		$order = mysql_fetch_assoc($qLnk);
+		if(!$order) return false;
+		
+		if(!$order['sum']) return false;
+		
+		return ($order['sum']==$withdraw_amount);
+	}
+	
+	private function check_string($params,$Y){
+		/*
+		 * проверка строки по хэшу
+		 * */
+		
+		$string = array(
+				$params['notification_type'],
+				$params['operation_id'],
+				$params['amount'],
+				$params['currency'],
+				$params['datetime'],
+				$params['sender'],
+				$params['codepro'],
+				$Y['secret'],
+				$params['label'],
+				);
+
+		$string = implode('&',$string);
+			$string = sha1($string,true);
+
+		return ($string==$params['sha1_hash']);
+	}
+	
 	public function do_result($path){
-		w($_POST);
-		echo 2;
+		if(count($path)) Front_Order_Payment_Card_Helper::goto_index();
+		if(!Front_Order_Payment_Card_Helper::keys_check()) exit();
 		
-		/*if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
+		$params = $_POST;
 		
-        $R = $this->registry['config']['robokassa'];
+		if($params['notification_type']!='card-incoming' || !$params['label']) exit();
+		
+        $Y = $this->registry['config']['yandex_money'];
                 
-		$crc = strtoupper(md5(sprintf("%s:%s:%s:Shp_item=%s",
-				$_POST['OutSum'],
-				$_POST['InvId'],
-				$R['pass2'],
-				$_POST['Shp_item']
-				)));
+        if(!$this->check_string($params,$Y)) exit();
+        
+		if(!$this->check_sum(
+				$params['label'],
+				$params['withdraw_amount']
+				)) exit();
 		
-		if($crc!=strtoupper($_POST['SignatureValue'])) exit();
+		$this->update_order($params['label']);
+		$this->Front_Order_Mail_Card->send_letter($params['label']);
 		
-		$this->update_order($_POST['InvId']);
-		$this->Front_Order_Mail_Card->send_letter($_POST['InvId']);
-		
-		echo sprintf("OK%s\n",
-				$_POST['InvId']
-				);		*/
+		echo "OK";
 	}
 		
 	private function update_order($ai){
