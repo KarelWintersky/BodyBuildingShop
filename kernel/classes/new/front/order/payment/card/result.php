@@ -13,6 +13,7 @@ Class Front_Order_Payment_Card_Result{
 	
 	public function do_result($path){
 		w($_POST);
+		echo 2;
 		
 		/*if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
 		
