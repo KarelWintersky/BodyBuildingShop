@@ -185,7 +185,7 @@ Class Front_Order_Write{
 			'order_status' => $this->order_status($input),
 			'payed_on' => ($input['payment_method']==6) ? "NOW()" : "0000-00-00",
 			'user_id' => ($this->registry['userdata']) ? $this->registry['userdata']['id'] : 0,
-			'by_card' => ($input['payment_method']==4 || $input['account_extra_payment']==4),
+			'by_card' => ($input['payment_method']==7 || $input['account_extra_payment']==7),
 			'discount_percent' => $this->discount_percent($input),
 			'from_account' => $this->from_account($input),
 			'pay2courier' => ($input['payment_method']==5), 

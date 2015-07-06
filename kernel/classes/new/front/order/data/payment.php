@@ -19,11 +19,11 @@ Class Front_Order_Data_Payment{
 					'short_name' => 'WebMoney, Яндекс-деньги',
 					'tech_name' => 'электронные деньги',
 				),
-				4 => array(
+				/*4 => array(
 					'name' => 'Оплата банковской картой, QIWI, RBK Money и другие системы',
 					'short_name' => 'Robokassa',
 					'tech_name' => 'по банковской карте',
-				),
+				),*/
 				5 => array(
 					'name' => 'Наличными курьеру или в магазине',
 					'short_name' => 'Наличными',
@@ -36,6 +36,11 @@ Class Front_Order_Data_Payment{
 					'class_alias' => 'account',
 					'tech_name' => 'полностью со счета',
 				),
+				7 => array(
+						'name' => 'Оплата банковской картой',
+						'short_name' => 'Банковской картой',
+						'tech_name' => 'по банковской карте',
+				),				
 			);
 
 		return (!$method_id)

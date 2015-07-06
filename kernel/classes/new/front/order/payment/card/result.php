@@ -12,9 +12,11 @@ Class Front_Order_Payment_Card_Result{
 	}	
 	
 	public function do_result($path){
-		if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
+		w($_POST);
 		
-                $R = $this->registry['config']['robokassa'];
+		/*if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
+		
+        $R = $this->registry['config']['robokassa'];
                 
 		$crc = strtoupper(md5(sprintf("%s:%s:%s:Shp_item=%s",
 				$_POST['OutSum'],
@@ -30,7 +32,7 @@ Class Front_Order_Payment_Card_Result{
 		
 		echo sprintf("OK%s\n",
 				$_POST['InvId']
-				);		
+				);		*/
 	}
 		
 	private function update_order($ai){
