@@ -32,8 +32,8 @@ Class Front_Order_Payment_Card_Result{
 		
 		return ($sum_from_yandex>=$sum_from_order);
 	}
-	
-	public function do_result($path){		
+		
+	public function do_result($path){
 		if(count($path)) Front_Order_Payment_Card_Helper::goto_index();
 				
 		$string2hash = array(	

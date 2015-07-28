@@ -11,6 +11,5 @@ Class Front_Order_Payment_Card_Helper{
 		exit();		
 	}
 	
-
 }
 ?>
