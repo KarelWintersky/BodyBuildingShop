@@ -11,29 +11,51 @@ Class Front_Order_Payment_Card_Result{
 		$this->Front_Order_Mail_Card = new Front_Order_Mail_Card($this->registry);
 	}	
 	
-	public function do_result($path){
-		w($_POST);
-		echo 2;
+	private function check_sum($ai,$sum_from_yandex){
+		if(!$ai || !is_numeric($ai)) return false;
 		
-		/*if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
+		$qLnk = mysql_query(sprintf("
+				SELECT
+					overall_sum,
+					from_account
+				FROM
+					orders
+				WHERE
+					ai = '%d'
+				",
+				$ai
+				));
+		$order = mysql_fetch_assoc($qLnk);
+		if(!$order) return false;
 		
-        $R = $this->registry['config']['robokassa'];
-                
-		$crc = strtoupper(md5(sprintf("%s:%s:%s:Shp_item=%s",
-				$_POST['OutSum'],
-				$_POST['InvId'],
-				$R['pass2'],
-				$_POST['Shp_item']
-				)));
+		$sum_from_order = $order['overall_sum'] - $order['from_account'];
 		
-		if($crc!=strtoupper($_POST['SignatureValue'])) exit();
+		return ($sum_from_yandex>=$sum_from_order);
+	}
+	
+	public function do_result($path){		
+		if(count($path)) Front_Order_Payment_Card_Helper::goto_index();
+				
+		$string2hash = array(	
+				$_POST['notification_type'],
+				$_POST['operation_id'],
+				$_POST['amount'],
+				$_POST['currency'],
+				$_POST['datetime'],
+				$_POST['sender'],
+				$_POST['codepro'],
+				$this->registry['config']['yandex_money']['secret'],
+				$_POST['label']
+				);
+		$string2hash = implode('&',$string2hash);
+		$hash = sha1($string2hash);
 		
-		$this->update_order($_POST['InvId']);
-		$this->Front_Order_Mail_Card->send_letter($_POST['InvId']);
+		if($hash!=$_POST['sha1_hash']) return false;
 		
-		echo sprintf("OK%s\n",
-				$_POST['InvId']
-				);		*/
+		if(!$this->check_sum($_POST['label'],$_POST['withdraw_amount'])) return false;
+				
+		$this->update_order($_POST['label']);
+		$this->Front_Order_Mail_Card->send_letter($_POST['label']);
 	}
 		
 	private function update_order($ai){

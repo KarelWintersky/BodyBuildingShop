@@ -29,8 +29,6 @@ Class Front_Order_Payment_Card{
 					payment_method = '%s'
 					AND
 					by_card = 1
-					AND
-					status = 1
 				",
 				$num[0],
 				$num[1],
@@ -39,6 +37,14 @@ Class Front_Order_Payment_Card{
 		$order = mysql_fetch_assoc($qLnk);
 		if(!$order) Front_Order_Payment_Card_Helper::goto_error();
 
+		//если заказ уже оплачен, редиректим на страницу успеха
+		if($order['status']==3){
+			$_SESSION['done_order_num'] = $order_id;
+			
+			header('Location: /order/done/');
+			exit();			
+		}
+		
 		$Y = $this->registry['config']['yandex_money'];
 		
 		$vars = array(

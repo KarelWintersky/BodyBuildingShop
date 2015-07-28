@@ -19,23 +19,7 @@ Class Controller_Card Extends Controller_Base{
 				'order',
 		));		
 	}
-	
-	function done(){
-		$this->registry->set('noindex',true);
-		$this->registry['template']->set('tpl','front');
-		$this->registry['f_404'] = false;
-		$this->registry['template']->set('c','order/card/done_');
 		
-		$this->registry->set('longtitle','Заказ оплачен успешно');
-		
-		$this->registry['CL_css']->set(array(
-				'order',
-		));		
-		
-		$Front_Order_Payment_Card_Done = new Front_Order_Payment_Card_Done($this->registry);
-		$Front_Order_Payment_Card_Done->do_page();
-	}
-	
 	function prepare($path = NULL){
 		$this->registry->set('noindex',true);
 		$this->registry['template']->set('tpl','front');
