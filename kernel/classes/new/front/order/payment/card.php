@@ -46,12 +46,15 @@ Class Front_Order_Payment_Card{
 		}
 		
 		$Y = $this->registry['config']['yandex_money'];
-		
+
+        $sum = $order['overall_sum'] - $order['from_account'];
+        $sum = $sum/0.98; //возлагаем комиссию на покупателя
+
 		$vars = array(
 				'account_number' => $Y['account_number'],
 				'comment' => sprintf('Бодибилдинг Магазин. Оплата заказа %s',$order_id),
 				'ai' => $order['ai'],
-				'sum' => $order['overall_sum'] - $order['from_account']
+				'sum' => $sum
 				);
 		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

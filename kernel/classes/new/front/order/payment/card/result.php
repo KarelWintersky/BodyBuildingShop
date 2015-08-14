@@ -29,6 +29,7 @@ Class Front_Order_Payment_Card_Result{
 		if(!$order) return false;
 		
 		$sum_from_order = $order['overall_sum'] - $order['from_account'];
+        $sum_from_order = $sum_from_order/0.98; //проверка тоже вместе с возложением комиссии на покупателя
 		
 		return ($sum_from_yandex>=$sum_from_order);
 	}
