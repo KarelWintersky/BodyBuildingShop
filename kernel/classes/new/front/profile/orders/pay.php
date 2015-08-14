@@ -27,8 +27,6 @@ Class Front_Profile_Orders_Pay Extends Common_Rq{
 					AND
 					by_card = 1
 					AND
-					status = 1
-					AND
 					payment_method_id <> '0'
 				",
 				$this->registry['userdata']['id'],
@@ -38,13 +36,21 @@ Class Front_Profile_Orders_Pay Extends Common_Rq{
 				));
 		$order = mysql_fetch_assoc($qLnk);
 		if(!$order) return false;
-	
-		$order['num'] = sprintf('%d/%d/%s',
-				$order['id'],
-				$order['user_num'],
-				$order['payment_method']
-		);		
-		
+
+        $order['num'] = sprintf('%d/%d/%s',
+            $order['id'],
+            $order['user_num'],
+            $order['payment_method']
+        );
+
+        //если заказ уже оплачен, редиректим на страницу успеха
+        if($order['status']==3){
+            $_SESSION['done_order_num'] = $order['num'];
+
+            header('Location: /order/done/');
+            exit();
+        }
+
 		$this->set_vars($order);
 		
 		return true;
