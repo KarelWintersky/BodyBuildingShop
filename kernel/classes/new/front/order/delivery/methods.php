@@ -25,7 +25,8 @@ Class Front_Order_Delivery_Methods{
 					$list[1]['disabled'] = true; $list[1]['active'] = false; }
 		
 		//if(!$list[1]['active'] && !$list[2]['active'] && !$list[4]['active']){ $list[2]['active'] = true; }
-				
+		if(!$list[1]['active'] && !$list[4]['active']){ $list[4]['active'] = true; }
+
 		return $list;
 	}
 	
