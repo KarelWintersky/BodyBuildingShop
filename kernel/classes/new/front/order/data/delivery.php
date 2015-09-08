@@ -10,13 +10,13 @@ Class Front_Order_Data_Delivery{
 					'field' => 'delivery_mail',
 					'class_alias' => 'post'
 				),
-				/*2 => array(
+				2 => array(
 					'name' => 'Доставка курьером',
 					'tech_name' => 'курьером',						
 					'payment' => array(2,3,4,5,6,7),
 					'field' => 'delivery_courier',
 					'class_alias' => 'courier'	
-				),*/
+				),
 				/*3 => array(
 				 'name' => 'Доставка транспортной компанией',
 						'payment' => array(2,3,4,6,7)
