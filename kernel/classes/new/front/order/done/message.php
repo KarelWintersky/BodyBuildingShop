@@ -41,7 +41,7 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		elseif(
 				$order['delivery_type']==1
 				&&
-				($order['payment_method_id']==4 || $order['account_extra_payment']==4)
+				($order['payment_method_id']==7 || $order['account_extra_payment']==7)
 				)
 			$type = 3;		
 		
@@ -84,7 +84,7 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		elseif(
 				$order['delivery_type']==2
 				&&
-				($order['payment_method_id']==4 || $order['account_extra_payment']==4)
+				($order['payment_method_id']==7 || $order['account_extra_payment']==7)
 			)
 			$type = 6;		
 		
@@ -122,7 +122,7 @@ Class Front_Order_Done_Message Extends Common_Rq{
 		elseif(
 				$order['delivery_type']==4
 				&&
-				($order['payment_method_id']==4 || $order['account_extra_payment']==4)
+				($order['payment_method_id']==7 || $order['account_extra_payment']==7)
 		)
 		$type = 10;
 		
