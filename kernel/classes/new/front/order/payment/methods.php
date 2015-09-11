@@ -66,6 +66,8 @@ Class Front_Order_Payment_Methods{
 		
 		$list = array();
 		foreach($methods as $id => $arr){
+            if(isset($arr['dont_display_on_frontend'])) continue;
+
 			$list[$id] = array(
 					'id' => $id,
 					'name' => $arr['name'],
