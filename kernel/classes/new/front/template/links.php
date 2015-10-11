@@ -62,6 +62,7 @@ Class Front_Template_Links{
 		
 	private function do_replace($matches){
 		if(strpos($matches[1],'#')===0) return $matches[0];
+		if(strpos($matches[1],'mailto')===0) return $matches[0];
 		if(!$matches[1]) return $matches[0];
 		if($matches[1]=='/') return $this->replace_index_slash($matches);
 		
