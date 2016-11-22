@@ -4,12 +4,14 @@ Class Front_Order_Payment_Card_Result{
 	private $registry;
 	
 	private $Front_Order_Mail_Card;
-				
+	private $Front_Order_Write_Ostatok;
+
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Mail_Card = new Front_Order_Mail_Card($this->registry);
-	}	
+		$this->Front_Order_Write_Ostatok = new Front_Order_Write_Ostatok($this->registry);
+	}
 	
 	private function check_sum($ai,$sum_from_yandex){
 		if(!$ai || !is_numeric($ai)) return false;
@@ -56,6 +58,9 @@ Class Front_Order_Payment_Card_Result{
 		if(!$this->check_sum($_POST['label'],$_POST['withdraw_amount'])) return false;
 				
 		$this->update_order($_POST['label']);
+
+		$this->Front_Order_Write_Ostatok->succesfullyRemoveReserveByAI($_POST['label']);
+
 		$this->Front_Order_Mail_Card->send_letter($_POST['label']);
 	}
 		

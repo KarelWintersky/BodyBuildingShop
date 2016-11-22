@@ -692,14 +692,18 @@
 								SELECT
 									ostatki.*,
 									goods.name AS goods_name,
-									goods.barcode AS barcode,
+									goods.id AS goods_id,
+									goods_barcodes.barcode AS barcode,
+									goods_barcodes.packing,
+									goods_barcodes.feature,
 									goods.level_id AS goods_level_id,
 									levels.parent_id AS goods_parent_id,
 									users.name AS added_by_name,
 									(SELECT COUNT(*) FROM rezerv WHERE rezerv.ostatok_id = ostatki.id) AS rezerv_count
 								FROM
 									ostatki
-								INNER JOIN goods ON goods.id = ostatki.goods_id
+								INNER JOIN goods_barcodes ON goods_barcodes.barcode = ostatki.barcode
+								INNER JOIN goods ON goods.id = goods_barcodes.goods_id
 								INNER JOIN levels ON levels.id = goods.level_id
 								LEFT OUTER JOIN users ON users.id = ostatki.added_by
 								ORDER BY
@@ -714,15 +718,18 @@
 			$qLnk = mysql_query("
 								SELECT
 									rezerv.*,
-									goods.barcode AS goods_barcode,
 									goods.name AS goods_name,
 									goods.id AS goods_id,
+									goods_barcodes.barcode AS barcode,
+									goods_barcodes.packing,
+									goods_barcodes.feature,
 									goods.level_id AS goods_level_id,
 									levels.parent_id AS goods_parent_id
 								FROM
 									rezerv
 								INNER JOIN ostatki ON ostatki.id = rezerv.ostatok_id
-								INNER JOIN goods ON goods.id = ostatki.goods_id
+								INNER JOIN goods_barcodes ON goods_barcodes.barcode = ostatki.barcode
+								INNER JOIN goods ON goods.id = goods_barcodes.goods_id
 								INNER JOIN levels ON levels.id = goods.level_id
 								ORDER BY
 									rezerv.date DESC;
@@ -759,37 +766,36 @@
 		public function ostatok_add($value,$barcode){
 
 			if($barcode!='' && $value!=''){
-				$qLnk = mysql_query("
-									SELECT
-										goods.id
-									FROM
-										goods
-									WHERE
-										goods.barcode = '".$barcode."'
-									LIMIT 1;
-									");
-				if(mysql_num_rows($qLnk)>0){
-					$goods_id = mysql_result($qLnk,0);
 
-					$qLnk = mysql_query("
+				$qLnk = mysql_query(sprintf("
+					SELECT
+						*
+					FROM
+						ostatki
+					WHERE
+						barcode = '%s'
+					", $barcode));
+				$row = mysql_fetch_assoc($qLnk);
+
+				if($row){
+					mysql_query("
 										UPDATE
 											ostatki
 										SET
 											ostatki.value = ostatki.value + ".$value."
 										WHERE
-											ostatki.goods_id = '".$goods_id."';
+											ostatki.barcode = '".$barcode."';
 										");
-					if(mysql_affected_rows()==0){
-						mysql_query("
+				}else{
+					mysql_query("
 									INSERT INTO
 										ostatki
-										(goods_id, value, added_on, added_by)
+										(barcode, value, added_on, added_by)
 										VALUES
-										('".$goods_id."', '".$value."', NOW(), '".$this->registry['userdata']['id']."');
+										('".$barcode."', '".$value."', NOW(), '".$this->registry['userdata']['id']."');
 									");
-					}
-
 				}
+
 			}
 
 		}

@@ -25,7 +25,8 @@ Class Front_Order_Write{
 		$this->Front_Order_Write_Query = new Front_Order_Write_Query($this->registry);
 		$this->Front_Order_Write_Coupon = new Front_Order_Write_Coupon($this->registry);
 		$this->Front_Order_Write_Goods = new Front_Order_Write_Goods($this->registry);
-		
+		$this->Front_Order_Write_Ostatok = new Front_Order_Write_Ostatok($this->registry);
+
 		$this->Front_Catalog_Goods_Rate = new Front_Catalog_Goods_Rate($this->registry);
 		
 		$this->Front_Order_Mail = new Front_Order_Mail($this->registry);
@@ -89,7 +90,7 @@ Class Front_Order_Write{
 		return $id;
 	}	
 	
-	private function dissmiss_from_account($query){
+	private function dissmiss_from_account($query, $orderStatus, $order_num){
 		/*
 		 * списываем средства со счета юзера
 		 * */
@@ -105,6 +106,10 @@ Class Front_Order_Write{
 				$query['from_account'],
 				$this->registry['userdata']['id']
 				));
+
+		if($orderStatus == 3){
+			$this->Front_Order_Write_Ostatok->succesfullyRemoveReserve($order_num);
+		}
 	}
 	
 	private function instant_payment($payment_method){
@@ -177,12 +182,14 @@ Class Front_Order_Write{
 	public function do_write(){		
 		$data = $this->Front_Order_Data->get_data();
 		$input = $this->Front_Order_Write_Input->make_data($data);
-				
+
+		$orderStatus = $this->order_status($input);
+
 		$query = $input + array(
 			'user_num' => $this->user_num(),
 			'payment_method_code' => $this->payment_method_code($input['payment_method']),
 			'payment_number' => $this->get_payment_number($input['payment_method']),
-			'order_status' => $this->order_status($input),
+			'order_status' => $orderStatus,
 			'payed_on' => ($input['payment_method']==6) ? "NOW()" : "0000-00-00",
 			'user_id' => ($this->registry['userdata']) ? $this->registry['userdata']['id'] : 0,
 			'by_card' => ($input['payment_method']==7 || $input['account_extra_payment']==7),
@@ -203,7 +210,9 @@ Class Front_Order_Write{
 		
 		$this->Front_Order_Write_Coupon->truncate_coupon($input['coupon'],$order_num);
 
-		$this->dissmiss_from_account($query);
+		$this->Front_Order_Write_Ostatok->doReserve($order_num);
+
+		$this->dissmiss_from_account($query, $orderStatus, $order_num);
 				
 		$this->truncate_cart_and_storage();
 
