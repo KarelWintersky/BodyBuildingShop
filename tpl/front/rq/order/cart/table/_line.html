@@ -48,6 +48,15 @@
 		<?endif;?>
 		
 		<span>шт.</span>
+
+		<?if(!$a['readonly']):?>
+			<?if($a['ostatok'] !== false):?>
+				<div class="clr"></div>
+				<div class="td_ostatok">
+					В наличии <?=$a['ostatok']?> шт.
+				</div>
+			<?endif;?>
+		<?endif;?>
 	</td>
 	
 	<?if(!$a['readonly']):?>

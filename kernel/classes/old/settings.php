@@ -800,42 +800,9 @@
 
 		}
 
-		public function order_cancel($id_arr){
-			$ostatki = array();
-			$qLnk = mysql_query("
-								SELECT
-									rezerv.*
-								FROM
-									rezerv
-								WHERE
-									rezerv.order_id = '".implode('/',$id_arr)."'
-								");
-			while($r = mysql_fetch_assoc($qLnk)){
-				mysql_query("
-							UPDATE
-								ostatki
-							SET
-								ostatki.value = ostatki.value + '".$r['amount']."'
-							WHERE
-								ostatki.id = '".$r['ostatok_id']."'
-							");
-				$ostatki[] = $r['ostatok_id'];
-			}
-			if(count($ostatki)>0){
-				$qLnk = mysql_query("SELECT ostatki.goods_id FROM ostatki WHERE ostatki.id IN (".implode(",",$ostatki).");");
-				while($o = mysql_fetch_assoc($qLnk)){
-					mysql_query("UPDATE goods SET goods.present = 1 WHERE goods.id = '".$o['goods_id']."'");
-				}
-			}
-
-			mysql_query("DELETE FROM rezerv WHERE rezerv.order_id = '".implode('/',$id_arr)."';");
-		}
-
-		public function order_apply($id_arr){
-			mysql_query("DELETE FROM rezerv WHERE rezerv.order_id = '".implode('/',$id_arr)."'");
-		}
-
 		public function do_rezerv_orders(){
+			$Front_Order_Write_Ostatok = new Front_Order_Write_Ostatok($this->registry);
+
 			//функция запускается по крону раз в сутки - отменяем заказы по резервам за опр. кол-во дней
 			$qLnk = mysql_query("
 								SELECT DISTINCT
@@ -846,8 +813,7 @@
 									DATE(rezerv.date) < DATE(DATE_SUB(DATE(NOW()),INTERVAL ".REZERV_ORDER_DAYS." DAY))
 								");
 			while($r = mysql_fetch_assoc($qLnk)){
-				$id_arr = explode('/',$r['order_id']);
-				$this->order_cancel($id_arr);
+				$Front_Order_Write_Ostatok->unhappyRemoveReserve($r['order_id']);
 			}
 		}
 

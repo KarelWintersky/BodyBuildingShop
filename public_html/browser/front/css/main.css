@@ -360,7 +360,7 @@ h1.second_style, h2.second_style{color:#e38a25;font-size:19px;font-weight:normal
 	#search_page .search_result{font-size:11px;padding:0 0 6px;}
 	#search_page .search_result.last{padding-bottom:20px;}
 
-.g_order_ostatok_zero{display:none;opacity:0;background:#fff;width:112px;height:32px;position:absolute;color:#333;font-size:11px;text-align:center;left:-1px;top:-1px;padding:7px 5px 1px;}
+.g_order_ostatok_zero{display:none;background:#fff;width:112px;height:32px;position:absolute;color:#333;font-size:11px;text-align:center;left:-1px;top:-1px;padding:7px 5px 1px;}
 
 .uses_table{border-collapse:collapse;width:100%;}
 	.uses_table td{border:1px solid #000;text-align:center;}

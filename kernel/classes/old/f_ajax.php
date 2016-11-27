@@ -50,7 +50,7 @@ Class f_Ajax{
 
 	private function goods_ostatok_check(){
 		$catalog = new f_Catalog($this->registry);
-		$catalog->goods_ostatok_check($_POST['goods_id'],$_POST['cookie_stored_data']);
+		$catalog->goods_ostatok_check($_POST['barcode'],$_POST['cart']);
 	}
 
 	private function stat_goods_table(){

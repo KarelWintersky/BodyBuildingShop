@@ -1,5 +1,5 @@
 <?php
-Class Front_Order_Cart{
+Class Front_Order_Cart extends Common_Rq{
 
 	private $registry;
 	
@@ -29,11 +29,12 @@ Class Front_Order_Cart{
 		if(!$data) return $this->cart_empty();
 		
 		$vars = array(
-				'table' => $this->Front_Order_Cart_Table->do_table($data),	
+				'table' => $this->Front_Order_Cart_Table->do_table($data,false,$ostatkiDontMatch),
 				'coupon' => $this->Front_Order_Cart_Coupon->do_block($data),		
 				'gift' => $this->Front_Order_Cart_Gift->do_block($data),
 				'values' => $this->Front_Order_Cart_Values->do_block($data),		
-				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(1)					
+				'crumbs' => $this->Front_Order_Crumbs->do_crumbs(1),
+				'proceed' => $this->do_rq('proceed', $ostatkiDontMatch)
 				);
 		
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);

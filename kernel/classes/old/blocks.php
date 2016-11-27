@@ -550,12 +550,13 @@ Class Blocks{
 						$feedback[] = $l.' (заказ с номером '.$A[1].' не найден)$$0';
 					}
 
-					/*if($ord_status==4){//если заказ отменен, смотрим если ли в нем товары по остаткам
-						$this->ostatki_order_cancel_notify($A[1]);
-						Settings::order_cancel($order_arr);
+					$Front_Order_Write_Ostatok = new Front_Order_Write_Ostatok($this->registry);
+
+					if($ord_status==4){//если заказ отменен, смотрим если ли в нем товары по остаткам
+						$Front_Order_Write_Ostatok->unhappyRemoveReserve($A[1]);
 					}elseif($ord_status==3){//если заказ оплачен, удаляем резерв
-						Settings::order_apply($order_arr);
-					}*/
+						$Front_Order_Write_Ostatok->succesfullyRemoveReserve($A[1]);
+					}
 
 					$mail_nalog = $this->order_nalog($order_arr,$status);
 
