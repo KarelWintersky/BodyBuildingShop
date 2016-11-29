@@ -848,7 +848,10 @@
 			$goods_in_cart_out = array();
 			foreach($goods_in_cart as $str){
 				$str = explode(':',$str);
-				$goods_in_cart_out[$str[0]] = $str[2];
+
+				if(count($str) == 3){
+					$goods_in_cart_out[$str[0]] = $str[2];
+				}
 			}
 
 			if(!isset($goods_in_cart_out[$barcode])){
@@ -869,9 +872,10 @@
 								");
 			if(mysql_num_rows($qLnk)>0){
 				$g = mysql_fetch_assoc($qLnk);
-				if($g['value']<$cur_goods_amount){
+				if((int)$g['value'] <= (int)$cur_goods_amount){
 					$response = 0;
 				}
+
 			}
 
 			echo $response;
