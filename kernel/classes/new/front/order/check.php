@@ -28,7 +28,7 @@ Class Front_Order_Check Extends Common_Rq{
 		
 		$vars = array(
 			'crumbs' => $this->Front_Order_Crumbs->do_crumbs(4),
-			'table' => $this->Front_Order_Cart_Table->do_table($data,true),
+			'table' => $this->Front_Order_Cart_Table->do_table($data,true,$ostatkiDontMatch),
 			'values' => $this->Front_Order_Cart_Values->do_block($data,true),
 			'params' => $this->Front_Order_Check_Params->do_params($data),
 			'payment' => $this->Front_Order_Check_Payment->do_block($data),

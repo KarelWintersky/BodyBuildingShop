@@ -12,22 +12,22 @@ Class Front_Order_Write_Ostatok{
      */
     public function doReserve($orderNum){
         $ostatkiToReserve = array();
-        $qLnk = mysql_query("
+        $qLnk = mysql_query(sprintf("
             SELECT
               ostatki.id,
               orders_goods.amount
             FROM
               orders_goods
-            INNER JOIN ostatki ON ostatki.barcode = orders_goods.barcode
+            INNER JOIN ostatki ON ostatki.barcode = orders_goods.goods_barcode
             WHERE
               orders_goods.order_id = '%s'
               AND
               ostatki.value > 0
-            ");
+            ", $orderNum));
         while($row = mysql_fetch_assoc($qLnk)){
             $ostatkiToReserve[$row['id']] = $row['amount'];
         }
-
+        
         foreach($ostatkiToReserve as $ostatok_id => $amount){
             mysql_query(sprintf("
                 INSERT INTO
