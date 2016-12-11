@@ -30,14 +30,14 @@ Class Front_Template{
 		
 		$this->Front_Template_Css->go();
 		$this->Front_Template_Js->go();
-		
+		echo 2;exit();
 		$html = $this->registry['CL_template_vars']->vars_replace($html);
 		$html = $this->Front_Template_Links->do_links($html);
 		
 		$html = $this->Front_Template_Texted->do_replace($html);
 		
 		$html = $this->Front_Template_Compress->do_compress($html);
-		echo 2;exit();
+
 		return $html;
 	}
 	
