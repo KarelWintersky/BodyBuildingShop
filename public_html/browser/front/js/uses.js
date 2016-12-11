@@ -102,7 +102,7 @@ function add2cart(trigger,packing){
 	if(color) cookie_string = cookie_string+':'+color;
 
 	var arr = {};
-	
+
 	if(cart!=''){
 		cart = cart.split('|');
 		$.each(cart,function(i,elem){
