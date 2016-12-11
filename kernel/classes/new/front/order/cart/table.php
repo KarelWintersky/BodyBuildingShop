@@ -36,7 +36,7 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 			
 			$g['readonly'] = $readonly;
 
-			if(isset($ostatki[$g['barcode']]) && $ostatki[$g['barcode']] < $g['amount']){
+			if(isset($g['barcode']) && isset($ostatki[$g['barcode']]) && $ostatki[$g['barcode']] < $g['amount']){
 				$g['ostatok'] = $ostatki[$g['barcode']];
 
 				$ostatkiDontMatch = true;
@@ -52,9 +52,11 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 
 	private function getOstatki($goods){
 		$barcodes = array();
-p($goods);
+
 		foreach($goods as $goodsItem){
-			$barcodes[] = sprintf("'%s'", $goodsItem['barcode']);
+			if(isset($goodsItem['barcode'])){
+				$barcodes[] = sprintf("'%s'", $goodsItem['barcode']);
+			}
 		}
 
 		if(!count($barcodes)){
