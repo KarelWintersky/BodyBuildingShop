@@ -36,7 +36,6 @@ Class Controller_Index Extends Controller_Base{
     }
     
     function check(){
-		echo 2;exit();
     	Front_Order_Steps::check_step(4);
     	
     	$this->registry->set('noindex',true);
