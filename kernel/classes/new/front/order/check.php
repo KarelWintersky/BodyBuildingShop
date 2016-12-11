@@ -34,10 +34,12 @@ Class Front_Order_Check Extends Common_Rq{
 			'payment' => $this->Front_Order_Check_Payment->do_block($data),
 			'courier' => $this->Front_Order_Check_Courier->notify_block($data)
 		);
-		echo 5;exit();
 		foreach($vars as $k => $v){
 			$this->registry['CL_template_vars']->set($k,$v);
 		}
+
+
+		echo 6;exit();
 	}
 			
 }
