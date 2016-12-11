@@ -25,7 +25,7 @@ Class Front_Order_Check Extends Common_Rq{
 		$data = $this->registry['CL_data']->get_data();
 		
 		$this->registry->set('longtitle','Проверьте внимательно Ваш заказ');
-		
+		echo 5;exit();
 		$vars = array(
 			'crumbs' => $this->Front_Order_Crumbs->do_crumbs(4),
 			'table' => $this->Front_Order_Cart_Table->do_table($data,true,$ostatkiDontMatch),
@@ -38,8 +38,6 @@ Class Front_Order_Check Extends Common_Rq{
 		foreach($vars as $k => $v){
 			$this->registry['CL_template_vars']->set($k,$v);
 		}
-
-		echo 5;exit();
 	}
 			
 }
