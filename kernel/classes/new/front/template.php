@@ -37,7 +37,7 @@ Class Front_Template{
 		$html = $this->Front_Template_Texted->do_replace($html);
 		
 		$html = $this->Front_Template_Compress->do_compress($html);
-		
+		echo 2;exit();
 		return $html;
 	}
 	

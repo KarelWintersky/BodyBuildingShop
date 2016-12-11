@@ -36,10 +36,8 @@ Class Front_Order_Check Extends Common_Rq{
 		);
 		foreach($vars as $k => $v){
 			$this->registry['CL_template_vars']->set($k,$v);
-
-			echo $v;
 		}
-exit();
+
 	}
 			
 }
