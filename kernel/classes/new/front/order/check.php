@@ -35,7 +35,11 @@ Class Front_Order_Check Extends Common_Rq{
 			'courier' => $this->Front_Order_Check_Courier->notify_block($data)
 		);
 	
-		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
+		foreach($vars as $k => $v){
+			$this->registry['CL_template_vars']->set($k,$v);
+		}
+
+		echo 5;exit();
 	}
 			
 }
