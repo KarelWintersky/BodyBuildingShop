@@ -52,7 +52,7 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 
 	private function getOstatki($goods){
 		$barcodes = array();
-
+p($goods);
 		foreach($goods as $goodsItem){
 			$barcodes[] = sprintf("'%s'", $goodsItem['barcode']);
 		}
