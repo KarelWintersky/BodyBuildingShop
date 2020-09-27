@@ -1,8 +1,11 @@
 <?php
-Class Front_Order_Data_Cart_Query{
-		
-	public static function do_query($barcodes){
-		$qLnk = mysql_query(sprintf("
+
+class Front_Order_Data_Cart_Query
+{
+    
+    public static function do_query($barcodes)
+    {
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					goods.id AS goods_id,
 					goods.level_id AS level_id,
@@ -32,12 +35,12 @@ Class Front_Order_Data_Cart_Query{
 					AND
 					goods.published = 1
 				",
-				OVERALL_DISCOUNT,
-				implode(",",$barcodes)
-				));
-
-		return $qLnk;
-	}
-			
+            OVERALL_DISCOUNT,
+            implode( ",", $barcodes )
+        ) );
+        
+        return $qLnk;
+    }
+    
 }
-?>
+

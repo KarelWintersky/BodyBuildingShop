@@ -1,15 +1,19 @@
 <?php
-Class Adm_Catalog_Goods_List Extends Common_Rq{
 
-	private $registry;
-	
-	public function __construct($registry){
-		$this->registry = $registry;
-	}
-	
-	private function get_goods($level_id){
-		$goods = array();
-		$qLnk = mysql_query(sprintf("
+class Adm_Catalog_Goods_List extends Common_Rq
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    private function get_goods($level_id)
+    {
+        $goods = array();
+        $qLnk = mysql_query( sprintf( "
 				SELECT DISTINCT
 					goods.id,
 					goods.name,
@@ -38,25 +42,27 @@ Class Adm_Catalog_Goods_List Extends Common_Rq{
 					goods.published DESC,
 					goods.sort ASC;
 				",
-				$level_id
-				));
-		while($g = mysql_fetch_assoc($qLnk)) $goods[] = $g;
-
-		return $goods;
-	}
-	
-	public function print_list($level_id){
-		$goods = $this->get_goods($level_id);
-		
-		$html = array(); $i = 1;
-		foreach($goods as $g){
-			$g['sort'] = $i;
-			
-			$html[] = $this->do_rq('list',$g,true);
-			$i++;
-		}
-		
-		return implode('',$html);		
-	}
+            $level_id
+        ) );
+        while ($g = mysql_fetch_assoc( $qLnk )) $goods[] = $g;
+        
+        return $goods;
+    }
+    
+    public function print_list($level_id)
+    {
+        $goods = $this->get_goods( $level_id );
+        
+        $html = array();
+        $i = 1;
+        foreach ($goods as $g) {
+            $g[ 'sort' ] = $i;
+            
+            $html[] = $this->do_rq( 'list', $g, true );
+            $i++;
+        }
+        
+        return implode( '', $html );
+    }
 }
-?>
+

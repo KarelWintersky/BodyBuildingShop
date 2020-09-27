@@ -1,16 +1,20 @@
 <?php
-Class Front_Order_Bill_Account{
 
-	private $registry;
-				
-	public function __construct($registry){
-		$this->registry = $registry;
-	}	
-				
-	public function get_data($num,$skip_user_match){
-		if(!$this->registry['userdata']) return false;
-		
-		$qLnk = mysql_query(sprintf("
+class Front_Order_Bill_Account
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    public function get_data($num, $skip_user_match)
+    {
+        if (!$this->registry[ 'userdata' ]) return false;
+        
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					account_orders.*,
 					users.name AS user_name,
@@ -30,20 +34,20 @@ Class Front_Order_Bill_Account{
 					AND
 					users.id = '%d'
 				",
-				$num[0],
-				$this->registry['userdata']['id']
-				));
-		$order = mysql_fetch_assoc($qLnk);
-		if(!$order) return false;
-
-		$output = array(
-				'num' => implode('/',$num),
-				'name' => $order['user_name'],
-				'address' => Common_Address::implode_address($order),
-				'price' => Common_Useful::price2read($order['sum']),
-		);
-		
-		return $output;		
-	}			
+            $num[ 0 ],
+            $this->registry[ 'userdata' ][ 'id' ]
+        ) );
+        $order = mysql_fetch_assoc( $qLnk );
+        if (!$order) return false;
+        
+        $output = array(
+            'num' => implode( '/', $num ),
+            'name' => $order[ 'user_name' ],
+            'address' => Common_Address::implode_address( $order ),
+            'price' => Common_Useful::price2read( $order[ 'sum' ] ),
+        );
+        
+        return $output;
+    }
 }
-?>
+

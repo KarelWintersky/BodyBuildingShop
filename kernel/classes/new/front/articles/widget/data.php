@@ -1,16 +1,20 @@
 <?php
-Class Front_Articles_Widget_Data{
 
-	private $registry;
-		
-	public function __construct($registry){
-		$this->registry = $registry;
-	}	
-		
-	public function get_data($ids){
-		$articles = array();
-		
-		$qLnk = mysql_query(sprintf("
+class Front_Articles_Widget_Data
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    public function get_data($ids)
+    {
+        $articles = array();
+        
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					name,
 					alias,
@@ -25,13 +29,13 @@ Class Front_Articles_Widget_Data{
 				ORDER BY
 					FIELD(id, %s)
 				",
-				implode(",",$ids),
-				implode(",",$ids)
-		));
-		while($a = mysql_fetch_assoc($qLnk)) $articles[] = $a;
-
-		return $articles;
-	}
-	
+            implode( ",", $ids ),
+            implode( ",", $ids )
+        ) );
+        while ($a = mysql_fetch_assoc( $qLnk )) $articles[] = $a;
+        
+        return $articles;
+    }
+    
 }
-?>
+

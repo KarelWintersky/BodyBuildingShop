@@ -1,15 +1,19 @@
 <?php
-Class Front_Mainpage_Goods Extends Common_Rq{
 
-	private $registry;
-		
-	public function __construct($registry){
-		$this->registry = $registry;
-	}	
-		
-	private function get_data(){
-		$goods = array();
-		$qLnk = mysql_query(sprintf("
+class Front_Mainpage_Goods extends Common_Rq
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    private function get_data()
+    {
+        $goods = array();
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					goods.name,
 					goods.alias,
@@ -45,42 +49,44 @@ Class Front_Mainpage_Goods Extends Common_Rq{
 				ORDER BY RAND()
 				LIMIT 6
 				",
-				OVERALL_DISCOUNT
-				));
-		while($g = mysql_fetch_assoc($qLnk)) $goods[] = $g;
-				
-		return $goods;
-	}
-	
-	public function do_goods(){
-		$goods = $this->get_data();
-		
-		$html = array(); $i = 1;
-		foreach($goods as $g){
-			$g['num'] = $i;
-
-			$g['link'] = sprintf('/%s/%s/%s/',
-					$g['parent_level_alias'],
-					$g['level_alias'],
-					$g['alias']
-					);
-			$g['name'] = ($g['grower_name'])
-				? sprintf('"%s". %s',$g['grower_name'],$g['name'])
-				: $g['name'];
-			
-			$g['avatar'] = ($g['avatar'])
-				? Front_Catalog_Helper_Image::goods_path($g['goods_id'],$g['avatar'],'122x122')
-				: false;
-			
-			$html[] = $this->do_rq('item',$g,true);
-		
-			$i++;
-		}		
-		
-		return $this->do_rq('goods',
-				implode('',$html)
-				);
-	}
-		
+            OVERALL_DISCOUNT
+        ) );
+        while ($g = mysql_fetch_assoc( $qLnk )) $goods[] = $g;
+        
+        return $goods;
+    }
+    
+    public function do_goods()
+    {
+        $goods = $this->get_data();
+        
+        $html = array();
+        $i = 1;
+        foreach ($goods as $g) {
+            $g[ 'num' ] = $i;
+            
+            $g[ 'link' ] = sprintf( '/%s/%s/%s/',
+                $g[ 'parent_level_alias' ],
+                $g[ 'level_alias' ],
+                $g[ 'alias' ]
+            );
+            $g[ 'name' ] = ($g[ 'grower_name' ])
+                ? sprintf( '"%s". %s', $g[ 'grower_name' ], $g[ 'name' ] )
+                : $g[ 'name' ];
+            
+            $g[ 'avatar' ] = ($g[ 'avatar' ])
+                ? Front_Catalog_Helper_Image::goods_path( $g[ 'goods_id' ], $g[ 'avatar' ], '122x122' )
+                : false;
+            
+            $html[] = $this->do_rq( 'item', $g, true );
+            
+            $i++;
+        }
+        
+        return $this->do_rq( 'goods',
+            implode( '', $html )
+        );
+    }
+    
 }
-?>
+

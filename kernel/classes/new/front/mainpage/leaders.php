@@ -1,16 +1,20 @@
 <?php
-Class Front_Mainpage_Leaders Extends Common_Rq{
 
-	private $registry;
-		
-	public function __construct($registry){
-		$this->registry = $registry;
-	}	
-		
-	private function get_data(){
-		$goods = array();
-
-		$qLnk = mysql_query("
+class Front_Mainpage_Leaders extends Common_Rq
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    private function get_data()
+    {
+        $goods = array();
+        
+        $qLnk = mysql_query( "
 				SELECT
 					goods.id,
 					goods.name,
@@ -40,35 +44,36 @@ Class Front_Mainpage_Leaders Extends Common_Rq{
 				ORDER BY
 					goods.popularity_index DESC
 				LIMIT 3;						
-				");
-		while($g = mysql_fetch_assoc($qLnk)) $goods[] = $g;
-			
-		return $goods;
-	}
-	
-	public function do_leaders(){
-		$goods = $this->get_data();
-		
-		$html = array();
-		foreach($goods as $g){
-			$g['link'] = sprintf('/%s/%s/%s/',
-					$g['parent_level_alias'],
-					$g['level_alias'],
-					$g['alias']
-					);
-			
-			$g['avatar'] = Front_Catalog_Helper_Image::goods_path($g['photo_goods_id'],$g['avatar'],'80x80');
-			
-			$g['name'] = ($g['grower_name'])
-				? sprintf('"%s". %s',$g['grower_name'],$g['name'])
-				: $g['name'];			
-			
-			$html[] = $this->do_rq('item',$g,true);
-		}
-		
-		return $this->do_rq('leaders',
-				implode('',$html)
-				);
-	}		
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) $goods[] = $g;
+        
+        return $goods;
+    }
+    
+    public function do_leaders()
+    {
+        $goods = $this->get_data();
+        
+        $html = array();
+        foreach ($goods as $g) {
+            $g[ 'link' ] = sprintf( '/%s/%s/%s/',
+                $g[ 'parent_level_alias' ],
+                $g[ 'level_alias' ],
+                $g[ 'alias' ]
+            );
+            
+            $g[ 'avatar' ] = Front_Catalog_Helper_Image::goods_path( $g[ 'photo_goods_id' ], $g[ 'avatar' ], '80x80' );
+            
+            $g[ 'name' ] = ($g[ 'grower_name' ])
+                ? sprintf( '"%s". %s', $g[ 'grower_name' ], $g[ 'name' ] )
+                : $g[ 'name' ];
+            
+            $html[] = $this->do_rq( 'item', $g, true );
+        }
+        
+        return $this->do_rq( 'leaders',
+            implode( '', $html )
+        );
+    }
 }
-?>
+

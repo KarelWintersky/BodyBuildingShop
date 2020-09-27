@@ -1,34 +1,38 @@
-<?
-Class Statistics{
+<?php
 
-	private $registry;
-
-	public function __construct($registry, $frompage = true){
-		$this->registry = $registry;
-		$this->registry->set('statistics',$this);
-
-        if($frompage){
-	        $route = $this->registry['aias_path'];
-	        array_shift($route);
-
-	        if(count($route)==0){
-	        	$this->registry['f_404'] = false;
-	        	$this->registry['template']->set('c','statistics/checkzeros');
-	        }elseif(count($route)==1 && $this->sub_level_check($route[0])){
-		       	$this->registry['template']->set('c','statistics/'.$route[0]);
-		       	$this->registry['f_404'] = false;
-	        }
-
-	        $this->registry['sub_aias_path'] = $route;
-	        
-	        $Adm_Statistics = new Adm_Statistics($this->registry);
-	        $Adm_Statistics->template_vars();
+class Statistics
+{
+    
+    private $registry;
+    
+    public function __construct($registry, $frompage = true)
+    {
+        $this->registry = $registry;
+        $this->registry->set( 'statistics', $this );
+        
+        if ($frompage) {
+            $route = $this->registry[ 'aias_path' ];
+            array_shift( $route );
+            
+            if (count( $route ) == 0) {
+                $this->registry[ 'f_404' ] = false;
+                $this->registry[ 'template' ]->set( 'c', 'statistics/checkzeros' );
+            } elseif (count( $route ) == 1 && $this->sub_level_check( $route[ 0 ] )) {
+                $this->registry[ 'template' ]->set( 'c', 'statistics/'.$route[ 0 ] );
+                $this->registry[ 'f_404' ] = false;
+            }
+            
+            $this->registry[ 'sub_aias_path' ] = $route;
+            
+            $Adm_Statistics = new Adm_Statistics( $this->registry );
+            $Adm_Statistics->template_vars();
         }
-
-	}
-
-	private function sub_level_check($alias){
-		$qLnk = mysql_query("
+        
+    }
+    
+    private function sub_level_check($alias)
+    {
+        $qLnk = mysql_query( "
 							SELECT
 								main_parts.*
 							FROM
@@ -38,22 +42,24 @@ Class Statistics{
 								AND
 								main_parts.alias = '".$alias."'
 							LIMIT 1;
-							");
-		if(mysql_num_rows($qLnk)>0){
-			$this->registry['sub_level_info'] = mysql_fetch_assoc($qLnk);
-			return true;
-		}
-		return false;
-	}
-
-	private function item_rq($name,$a = NULL){
-		require($this->registry['template']->TF.'item/statistics/'.$name.'.html');
-	}
-
-	public function check_zeros(){
-		$etal_parent = 0;
-		$etal_level = 0;
-		$qLnk = mysql_query("
+							" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $this->registry[ 'sub_level_info' ] = mysql_fetch_assoc( $qLnk );
+            return true;
+        }
+        return false;
+    }
+    
+    private function item_rq($name, $a = NULL)
+    {
+        require($this->registry[ 'template' ]->TF.'item/statistics/'.$name.'.html');
+    }
+    
+    public function check_zeros()
+    {
+        $etal_parent = 0;
+        $etal_level = 0;
+        $qLnk = mysql_query( "
 							SELECT
 								goods.id,
 								goods.barcode,
@@ -85,24 +91,25 @@ Class Statistics{
 								parent_tbl.sort ASC,
 								levels.sort ASC,
 								goods.sort ASC;
-							");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$g['display_name'] = ($g['packing']!='') ? $g['name'].', '. $g['packing'] : $g['name'];
-
-			$g['parent_change'] = ($etal_parent!=$g['parent_id']) ? true : false;
-			$g['level_change'] = ($etal_level!=$g['level_id']) ? true : false;
-
-			$g['published_class'] = ($g['published']==1) ? '' : 'unpub';
-
-			$this->item_rq('check_zeros',$g);
-
-			$etal_parent = $g['parent_id'];
-			$etal_level = $g['level_id'];
-		}
-	}
-
-	public function main_statistics(){
-		$qLnk = mysql_query("
+							" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $g[ 'display_name' ] = ($g[ 'packing' ] != '') ? $g[ 'name' ].', '.$g[ 'packing' ] : $g[ 'name' ];
+            
+            $g[ 'parent_change' ] = ($etal_parent != $g[ 'parent_id' ]) ? true : false;
+            $g[ 'level_change' ] = ($etal_level != $g[ 'level_id' ]) ? true : false;
+            
+            $g[ 'published_class' ] = ($g[ 'published' ] == 1) ? '' : 'unpub';
+            
+            $this->item_rq( 'check_zeros', $g );
+            
+            $etal_parent = $g[ 'parent_id' ];
+            $etal_level = $g[ 'level_id' ];
+        }
+    }
+    
+    public function main_statistics()
+    {
+        $qLnk = mysql_query( "
 							SELECT
 								DATE(orders.made_on) as day,
 								COUNT(*) AS count,
@@ -121,32 +128,34 @@ Class Statistics{
 								DATE(orders.made_on)
 							ORDER BY
 								orders.made_on DESC
-							");
-		while($s = mysql_fetch_assoc($qLnk)){
-
-			$s['weekend_class'] = (in_array(date('w',strtotime($s['day'])),array(0,6))) ? 'weekend' : '';
-
-			$this->item_rq('main_statistics',$s);
-		}
-	}
-
-	public function stat_goods_ids(){
-		$goods = array();
-		$qLnk = mysql_query("
+							" );
+        while ($s = mysql_fetch_assoc( $qLnk )) {
+            
+            $s[ 'weekend_class' ] = (in_array( date( 'w', strtotime( $s[ 'day' ] ) ), array( 0, 6 ) )) ? 'weekend' : '';
+            
+            $this->item_rq( 'main_statistics', $s );
+        }
+    }
+    
+    public function stat_goods_ids()
+    {
+        $goods = array();
+        $qLnk = mysql_query( "
 							SELECT
 								goods_stat_list.goods_id
 							FROM
 								goods_stat_list;
-							");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$goods[] = intval($g['goods_id']);
-		}
-
-		echo json_encode($goods);
-	}
-
-	public function stat_goods_table_item($goods_id){
-		$qLnk = mysql_query("
+							" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $goods[] = intval( $g[ 'goods_id' ] );
+        }
+        
+        echo json_encode( $goods );
+    }
+    
+    public function stat_goods_table_item($goods_id)
+    {
+        $qLnk = mysql_query( "
 							SELECT
 								goods.name,
 								goods.id,
@@ -199,14 +208,15 @@ Class Statistics{
 							INNER JOIN levels ON levels.id = goods.level_id
 							WHERE
 								goods_stat_list.goods_id = '".$goods_id."'
-							");
-		while($g = mysql_fetch_assoc($qLnk)){
-			echo json_encode($g);
-		}
-	}
-
-	public function stat_goods_table(){
-		$qLnk = mysql_query("
+							" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            echo json_encode( $g );
+        }
+    }
+    
+    public function stat_goods_table()
+    {
+        $qLnk = mysql_query( "
 							SELECT
 								goods.name,
 								goods.id,
@@ -257,51 +267,52 @@ Class Statistics{
 								goods_stat_list
 							INNER JOIN goods ON goods.id = goods_stat_list.goods_id
 							INNER JOIN levels ON levels.id = goods.level_id
-							");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$this->item_rq('stat_goods_table',$g);
-		}
-	}
-
-	public function del_goods_stat(){
-		if(isset($_POST['del'])){
-			mysql_query("DELETE FROM goods_stat_list WHERE goods_stat_list.goods_id IN (".implode(",",array_keys($_POST['del'])).");");
-		}
-	}
-
-	public function add_goods_stat(){
-		if($_POST['block']!=''){
-			$lines = preg_split("/[\n\r]+/s", $_POST['block']);
-
-			foreach($lines as $key => $l) $lines[$key] = trim($l);
-
-			if(count($lines)>0){
-				$goods = array();
-				$qLnk = mysql_query("
+							" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $this->item_rq( 'stat_goods_table', $g );
+        }
+    }
+    
+    public function del_goods_stat()
+    {
+        if (isset( $_POST[ 'del' ] )) {
+            mysql_query( "DELETE FROM goods_stat_list WHERE goods_stat_list.goods_id IN (".implode( ",", array_keys( $_POST[ 'del' ] ) ).");" );
+        }
+    }
+    
+    public function add_goods_stat()
+    {
+        if ($_POST[ 'block' ] != '') {
+            $lines = preg_split( "/[\n\r]+/s", $_POST[ 'block' ] );
+            
+            foreach ($lines as $key => $l) $lines[ $key ] = trim( $l );
+            
+            if (count( $lines ) > 0) {
+                $goods = array();
+                $qLnk = mysql_query( "
 									SELECT
 										goods.id
 									FROM
 										goods
 									WHERE
-										goods.barcode IN (".implode(",",$lines).")
-									");
-				while($g = mysql_fetch_assoc($qLnk)){
-					$goods[] = '('.$g['id'].')';
-				}
-
-				if(count($goods)>0){
-					mysql_query("
+										goods.barcode IN (".implode( ",", $lines ).")
+									" );
+                while ($g = mysql_fetch_assoc( $qLnk )) {
+                    $goods[] = '('.$g[ 'id' ].')';
+                }
+                
+                if (count( $goods ) > 0) {
+                    mysql_query( "
 								INSERT INTO
 									goods_stat_list
 									(goods_id)
 									VALUES
-									".implode(", ",$goods)."
-								");
-				}
-
-			}
-		}
-	}
-
+									".implode( ", ", $goods )."
+								" );
+                }
+                
+            }
+        }
+    }
+    
 }
-?>

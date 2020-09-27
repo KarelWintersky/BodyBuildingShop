@@ -1,16 +1,20 @@
 <?php
-Class Adm_Settings_Sitemap_Data{
 
-	private $registry;
-		
-	public function __construct($registry){
-		$this->registry = $registry;
-	}
-	
-	private function get_goods(){
-		$data = array();
-		
-		$qLnk = mysql_query("
+class Adm_Settings_Sitemap_Data
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    private function get_goods()
+    {
+        $data = array();
+        
+        $qLnk = mysql_query( "
 				SELECT
 					goods.alias,
 					goods.modified,
@@ -34,18 +38,19 @@ Class Adm_Settings_Sitemap_Data{
 					parent_tbl.sort ASC,
 					levels.sort ASC,
 					goods.sort ASC;
-				");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$data[$g['parent_level_alias']]['modified'] = $g['parent_level_modified'];
-			$data[$g['parent_level_alias']]['ch'][$g['level_alias']]['modified'] = $g['level_modified'];
-			$data[$g['parent_level_alias']]['ch'][$g['level_alias']]['ch'][$g['alias']]['modified'] = $g['modified'];
-		}		
-		
-		return $data;
-	}
-	
-	private function get_growers($data){
-		$qLnk = mysql_query("
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $data[ $g[ 'parent_level_alias' ] ][ 'modified' ] = $g[ 'parent_level_modified' ];
+            $data[ $g[ 'parent_level_alias' ] ][ 'ch' ][ $g[ 'level_alias' ] ][ 'modified' ] = $g[ 'level_modified' ];
+            $data[ $g[ 'parent_level_alias' ] ][ 'ch' ][ $g[ 'level_alias' ] ][ 'ch' ][ $g[ 'alias' ] ][ 'modified' ] = $g[ 'modified' ];
+        }
+        
+        return $data;
+    }
+    
+    private function get_growers($data)
+    {
+        $qLnk = mysql_query( "
 				SELECT
 					modified,
 					alias
@@ -57,20 +62,21 @@ Class Adm_Settings_Sitemap_Data{
 					goods_count > 0
 				ORDER BY
 					name ASC;
-				");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$data['growers']['modified'] = '';
-			$data['growers']['ch'][$g['alias']]['modified'] = $g['modified'];
-		}
-		
-		$qLnk = mysql_query("SELECT MAX(modified) FROM growers;");
-		$data['growers']['modified'] = mysql_result($qLnk,0);
-
-		return $data;
-	}
-	
-	private function get_articles($data){
-		$qLnk = mysql_query("
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $data[ 'growers' ][ 'modified' ] = '';
+            $data[ 'growers' ][ 'ch' ][ $g[ 'alias' ] ][ 'modified' ] = $g[ 'modified' ];
+        }
+        
+        $qLnk = mysql_query( "SELECT MAX(modified) FROM growers;" );
+        $data[ 'growers' ][ 'modified' ] = mysql_result( $qLnk, 0 );
+        
+        return $data;
+    }
+    
+    private function get_articles($data)
+    {
+        $qLnk = mysql_query( "
 				SELECT
 					modified,
 					alias
@@ -82,20 +88,21 @@ Class Adm_Settings_Sitemap_Data{
 					alias <> ''
 				ORDER BY
 					name ASC;
-				");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$data['articles']['modified'] = '';
-			$data['articles']['ch'][$g['alias']]['modified'] = $g['modified'];
-		}
-		
-		$qLnk = mysql_query("SELECT MAX(modified) FROM articles;");
-		$data['articles']['modified'] = mysql_result($qLnk,0);
-
-		return $data;
-	}
-	
-	private function get_news($data){
-		$qLnk = mysql_query("
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $data[ 'articles' ][ 'modified' ] = '';
+            $data[ 'articles' ][ 'ch' ][ $g[ 'alias' ] ][ 'modified' ] = $g[ 'modified' ];
+        }
+        
+        $qLnk = mysql_query( "SELECT MAX(modified) FROM articles;" );
+        $data[ 'articles' ][ 'modified' ] = mysql_result( $qLnk, 0 );
+        
+        return $data;
+    }
+    
+    private function get_news($data)
+    {
+        $qLnk = mysql_query( "
 				SELECT
 					date AS modified,
 					alias
@@ -107,20 +114,21 @@ Class Adm_Settings_Sitemap_Data{
 					alias <> ''				
 				ORDER BY
 					name ASC;
-				");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$data['news']['modified'] = '';
-			$data['news']['ch'][$g['alias']]['modified'] = $g['modified'];
-		}
-		
-		$qLnk = mysql_query("SELECT MAX(date) FROM news;");
-		$data['news']['modified'] = mysql_result($qLnk,0);
-		
-		return $data;
-	}
-	
-	private function get_pages($data){
-		$qLnk = mysql_query("
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $data[ 'news' ][ 'modified' ] = '';
+            $data[ 'news' ][ 'ch' ][ $g[ 'alias' ] ][ 'modified' ] = $g[ 'modified' ];
+        }
+        
+        $qLnk = mysql_query( "SELECT MAX(date) FROM news;" );
+        $data[ 'news' ][ 'modified' ] = mysql_result( $qLnk, 0 );
+        
+        return $data;
+    }
+    
+    private function get_pages($data)
+    {
+        $qLnk = mysql_query( "
 				SELECT
 					modified,
 					alias
@@ -134,16 +142,17 @@ Class Adm_Settings_Sitemap_Data{
 					alias <> ''				
 				ORDER BY
 					name ASC;
-				");
-		while($g = mysql_fetch_assoc($qLnk)){
-			$data[$g['alias']]['modified'] = $g['modified'];
-		}
-		
-		return $data;
-	}
-	
-	private function main_page(){
-		$qLnk = mysql_query("
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            $data[ $g[ 'alias' ] ][ 'modified' ] = $g[ 'modified' ];
+        }
+        
+        return $data;
+    }
+    
+    private function main_page()
+    {
+        $qLnk = mysql_query( "
 					SELECT 
 						MAX(date) 
 					FROM 
@@ -152,21 +161,22 @@ Class Adm_Settings_Sitemap_Data{
 						published = 1 
 						AND 
 						DATE(date) <= DATE(NOW());
-				");
-		return mysql_result($qLnk,0);		
-	}
-	
-	public function get_data(){
-		$data = $this->get_goods();
-		$data = $this->get_growers($data);
-		$data = $this->get_articles($data);
-		$data = $this->get_news($data);
-		$data = $this->get_pages($data);
-		
-		return array(
-				'pages' => $data,
-				'main_page' => $this->main_page()
-				);
-	}	
+				" );
+        return mysql_result( $qLnk, 0 );
+    }
+    
+    public function get_data()
+    {
+        $data = $this->get_goods();
+        $data = $this->get_growers( $data );
+        $data = $this->get_articles( $data );
+        $data = $this->get_news( $data );
+        $data = $this->get_pages( $data );
+        
+        return array(
+            'pages' => $data,
+            'main_page' => $this->main_page(),
+        );
+    }
 }
-?>
+

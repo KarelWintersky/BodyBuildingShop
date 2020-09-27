@@ -1,34 +1,38 @@
-<?
-	Class f_Catalog{
+<?php
 
-		private $registry;
-
-		private $Front_Catalog_Barcodes;
-		private $Front_Catalog_Goods_List_Sort;
-
-		public function __construct($registry){
-			$this->registry = $registry;
-			$this->registry->set('CL_catalog',$this);
-
-			$this->Front_Catalog_Barcodes = new Front_Catalog_Barcodes($this->registry);
-			$this->Front_Catalog_Goods_List_Sort = new Front_Catalog_Goods_List_Sort($this->registry);			
-			$this->Front_Catalog_Goods_List_Display = new Front_Catalog_Goods_List_Display($this->registry);			
-			$this->Front_Catalog_Goods_List_Paginate = new Front_Catalog_Goods_List_Paginate($this->registry);			
-                        
-			if(!defined('POPULAR_MAX')) define('POPULAR_MAX',15,true);
-		}
-
-		public function redirect_check(){
-			$path_arr = $this->registry['route_path'];
-			
-			if(count($path_arr)==2 && $path_arr[0]=='shop'){
-				$code_arr = explode('.html',$path_arr[1]);
-				if(count($code_arr)==2 && $code_arr[1]==''){
-					$code_arr = explode('shop-',$code_arr[0]);
-					if(count($code_arr)==2 && $code_arr[0]==''){
-						$code = $code_arr[1];
-
-						$qLnk = mysql_query("
+class f_Catalog
+{
+    
+    private $registry;
+    
+    private $Front_Catalog_Barcodes;
+    private $Front_Catalog_Goods_List_Sort;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+        $this->registry->set( 'CL_catalog', $this );
+        
+        $this->Front_Catalog_Barcodes = new Front_Catalog_Barcodes( $this->registry );
+        $this->Front_Catalog_Goods_List_Sort = new Front_Catalog_Goods_List_Sort( $this->registry );
+        $this->Front_Catalog_Goods_List_Display = new Front_Catalog_Goods_List_Display( $this->registry );
+        $this->Front_Catalog_Goods_List_Paginate = new Front_Catalog_Goods_List_Paginate( $this->registry );
+        
+        if (!defined( 'POPULAR_MAX' )) define( 'POPULAR_MAX', 15, true );
+    }
+    
+    public function redirect_check()
+    {
+        $path_arr = $this->registry[ 'route_path' ];
+        
+        if (count( $path_arr ) == 2 && $path_arr[ 0 ] == 'shop') {
+            $code_arr = explode( '.html', $path_arr[ 1 ] );
+            if (count( $code_arr ) == 2 && $code_arr[ 1 ] == '') {
+                $code_arr = explode( 'shop-', $code_arr[ 0 ] );
+                if (count( $code_arr ) == 2 && $code_arr[ 0 ] == '') {
+                    $code = $code_arr[ 1 ];
+                    
+                    $qLnk = mysql_query( "
 											SELECT
 												goods.alias,
 												levels.alias AS level_alias,
@@ -40,75 +44,78 @@
 											WHERE
 												goods.barcode = '".$code."'
 											LIMIT 1;
-											");
-						if(mysql_num_rows($qLnk)>0){
-							$g = mysql_fetch_assoc($qLnk);
-							$link = '/'.$g['parent_level_alias'].'/'.$g['level_alias'].'/'.$g['alias'].'/';
-
-							header('HTTP/1.1 301 Moved Permanently');
-							header('Location: '.$link);
-							exit();
-						}
-					}
-				}
-			}
-			return false;
-		}
-
-		public function path_check(){
-
-			$this->registry['f_404'] = false;
-			$path_arr = $this->registry['route_path'];
-
-			if(count($path_arr)==1 && $this->check_parent_level($path_arr[0])){
-				$this->registry['CL_css']->set(array(
-						'catalog',
-				));				
-				
-				$this->registry['template']->set('c','catalog/parent_level');
-				return true;
-			}elseif(count($path_arr)==2 && $this->check_level($path_arr[0],$path_arr[1])){
-				$this->registry['template']->set('c','catalog/level');
-				
-				$this->registry['CL_css']->set(array(
-						'catalog',
-				));				
-				$this->registry['CL_js']->set(array(
-						'goods'
-				));				
-				
-				$Front_Catalog_Levels = new Front_Catalog_Levels($this->registry);
-				$Front_Catalog_Levels->do_vars();
-				
-				return true;
-			}elseif(count($path_arr)==3 && $this->check_level($path_arr[0],$path_arr[1]) && $this->check_goods($path_arr[2],$path_arr[0],$path_arr[1])){
-				
-				$this->registry['CL_css']->set(array(
-						'catalog',
-				));				
-				
-				$this->registry['template']->set('c','catalog/goods');
-				return true;
-			}
-
-			$this->registry['f_404'] = true;
-			return false;
-		}
-
-		public function item_rq($name,$a = NULL){
-			require($this->registry['template']->TF.'item/catalog/'.$name.'.html');
-		}
-
-		private function check_goods($alias,$parent_alias,$level_alias){
-			
-			$path = explode('?',$_SERVER['REQUEST_URI']);
-			if(count($path)>1){
-				header('HTTP/1.1 301 Moved Permanently');
-				header('Location: '.$path[0]);
-				exit();				
-			}
-			
-			$qLnk = mysql_query("
+											" );
+                    if (mysql_num_rows( $qLnk ) > 0) {
+                        $g = mysql_fetch_assoc( $qLnk );
+                        $link = '/'.$g[ 'parent_level_alias' ].'/'.$g[ 'level_alias' ].'/'.$g[ 'alias' ].'/';
+                        
+                        header( 'HTTP/1.1 301 Moved Permanently' );
+                        header( 'Location: '.$link );
+                        exit();
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
+    public function path_check()
+    {
+        
+        $this->registry[ 'f_404' ] = false;
+        $path_arr = $this->registry[ 'route_path' ];
+        
+        if (count( $path_arr ) == 1 && $this->check_parent_level( $path_arr[ 0 ] )) {
+            $this->registry[ 'CL_css' ]->set( array(
+                'catalog',
+            ) );
+            
+            $this->registry[ 'template' ]->set( 'c', 'catalog/parent_level' );
+            return true;
+        } elseif (count( $path_arr ) == 2 && $this->check_level( $path_arr[ 0 ], $path_arr[ 1 ] )) {
+            $this->registry[ 'template' ]->set( 'c', 'catalog/level' );
+            
+            $this->registry[ 'CL_css' ]->set( array(
+                'catalog',
+            ) );
+            $this->registry[ 'CL_js' ]->set( array(
+                'goods',
+            ) );
+            
+            $Front_Catalog_Levels = new Front_Catalog_Levels( $this->registry );
+            $Front_Catalog_Levels->do_vars();
+            
+            return true;
+        } elseif (count( $path_arr ) == 3 && $this->check_level( $path_arr[ 0 ], $path_arr[ 1 ] ) && $this->check_goods( $path_arr[ 2 ], $path_arr[ 0 ], $path_arr[ 1 ] )) {
+            
+            $this->registry[ 'CL_css' ]->set( array(
+                'catalog',
+            ) );
+            
+            $this->registry[ 'template' ]->set( 'c', 'catalog/goods' );
+            return true;
+        }
+        
+        $this->registry[ 'f_404' ] = true;
+        return false;
+    }
+    
+    public function item_rq($name, $a = NULL)
+    {
+        require($this->registry[ 'template' ]->TF.'item/catalog/'.$name.'.html');
+    }
+    
+    private function check_goods($alias, $parent_alias, $level_alias)
+    {
+        
+        $path = explode( '?', $_SERVER[ 'REQUEST_URI' ] );
+        if (count( $path ) > 1) {
+            header( 'HTTP/1.1 301 Moved Permanently' );
+            header( 'Location: '.$path[ 0 ] );
+            exit();
+        }
+        
+        $qLnk = mysql_query( "
 								SELECT
 									goods.*,
 									(goods.personal_discount + ".OVERALL_DISCOUNT.") AS personal_discount,
@@ -128,43 +135,44 @@
 									AND
 									parent_levels.alias = '".$parent_alias."'
 								LIMIT 1;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				$g = mysql_fetch_assoc($qLnk);
-				
-				$this->registry['CL_css']->set(array(
-					'shadowbox'
-				));				
-				$this->registry['CL_js']->set(array(
-					'goods',
-					'lib/shadowbox'
-				));				
-				
-				$g['canonical'] = $this->get_canonical($g['parent_barcode'],$g['barcode']);
-
-				$g['price_1_n'] = $g['price_1'] - $g['price_1']*$g['personal_discount']/100;
-				$g['price_2_n'] = $g['price_2'] - $g['price_2']*$g['personal_discount']/100;
-
-				$this->registry['goods'] = $g;
-
-				$this->registry['template']->add2crumbs($this->registry['goods']['alias'],$this->registry['goods']['name']);
-
-				$this->registry['longtitle'] = $this->registry['goods']['seo_title'];
-				$this->registry['seo_kw'] = $this->registry['goods']['seo_kw'];
-				$this->registry['seo_dsc'] = $this->registry['goods']['seo_dsc'];
-
-				$this->page_goods_feats();
-
-				return true;
-			}
-			return false;
-		}
-
-		private function get_canonical($parent_barcode,$this_barcode){
-			if($parent_barcode==$this_barcode) return false;
-
-			if($parent_barcode>0){
-				$qLnk = mysql_query(sprintf("
+								" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $g = mysql_fetch_assoc( $qLnk );
+            
+            $this->registry[ 'CL_css' ]->set( array(
+                'shadowbox',
+            ) );
+            $this->registry[ 'CL_js' ]->set( array(
+                'goods',
+                'lib/shadowbox',
+            ) );
+            
+            $g[ 'canonical' ] = $this->get_canonical( $g[ 'parent_barcode' ], $g[ 'barcode' ] );
+            
+            $g[ 'price_1_n' ] = $g[ 'price_1' ] - $g[ 'price_1' ] * $g[ 'personal_discount' ] / 100;
+            $g[ 'price_2_n' ] = $g[ 'price_2' ] - $g[ 'price_2' ] * $g[ 'personal_discount' ] / 100;
+            
+            $this->registry[ 'goods' ] = $g;
+            
+            $this->registry[ 'template' ]->add2crumbs( $this->registry[ 'goods' ][ 'alias' ], $this->registry[ 'goods' ][ 'name' ] );
+            
+            $this->registry[ 'longtitle' ] = $this->registry[ 'goods' ][ 'seo_title' ];
+            $this->registry[ 'seo_kw' ] = $this->registry[ 'goods' ][ 'seo_kw' ];
+            $this->registry[ 'seo_dsc' ] = $this->registry[ 'goods' ][ 'seo_dsc' ];
+            
+            $this->page_goods_feats();
+            
+            return true;
+        }
+        return false;
+    }
+    
+    private function get_canonical($parent_barcode, $this_barcode)
+    {
+        if ($parent_barcode == $this_barcode) return false;
+        
+        if ($parent_barcode > 0) {
+            $qLnk = mysql_query( sprintf( "
 								SELECT
 									goods.alias,
 									levels.alias AS level_alias,
@@ -176,24 +184,25 @@
 								WHERE
 									goods.barcode = '%s'
 								LIMIT 1;
-					",$parent_barcode));
-				$goods = mysql_fetch_assoc($qLnk);
-				if($goods){
-					if(!$goods['alias']) return false;
-					
-					$url = '/'.$goods['parent_alias'].'/'.$goods['level_alias'].'/'.$goods['alias'].'/';
-					
-					header('HTTP/1.1 301 Moved Permanently');
-					header('Location: '.$url);
-					exit();					
-				}
-			}
-
-			return false;
-		}
-
-		private function check_parent_level($parent_alias){
-			$qLnk = mysql_query("
+					", $parent_barcode ) );
+            $goods = mysql_fetch_assoc( $qLnk );
+            if ($goods) {
+                if (!$goods[ 'alias' ]) return false;
+                
+                $url = '/'.$goods[ 'parent_alias' ].'/'.$goods[ 'level_alias' ].'/'.$goods[ 'alias' ].'/';
+                
+                header( 'HTTP/1.1 301 Moved Permanently' );
+                header( 'Location: '.$url );
+                exit();
+            }
+        }
+        
+        return false;
+    }
+    
+    private function check_parent_level($parent_alias)
+    {
+        $qLnk = mysql_query( "
 								SELECT
 									levels.*
 								FROM
@@ -203,26 +212,27 @@
 									AND
 									levels.parent_id = 0
 								LIMIT 1;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				$level = mysql_fetch_assoc($qLnk);
-				$level['level_link'] = '/'.$level['alias'].'/';
-				$this->registry['level'] = $level;
-
-				$this->registry->set('longtitle',$this->registry['level']['seo_title']);
-				$this->registry['seo_kw'] = $this->registry['level']['seo_kw'];
-				$this->registry['seo_dsc'] = $this->registry['level']['seo_dsc'];
-
-
-				$this->registry['template']->add2crumbs($this->registry['level']['alias'],$this->registry['level']['name']);
-
-				return true;
-			}
-			return false;
-		}
-
-		private function check_level($parent_alias,$level_alias){
-			$qLnk = mysql_query("
+								" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $level = mysql_fetch_assoc( $qLnk );
+            $level[ 'level_link' ] = '/'.$level[ 'alias' ].'/';
+            $this->registry[ 'level' ] = $level;
+            
+            $this->registry->set( 'longtitle', $this->registry[ 'level' ][ 'seo_title' ] );
+            $this->registry[ 'seo_kw' ] = $this->registry[ 'level' ][ 'seo_kw' ];
+            $this->registry[ 'seo_dsc' ] = $this->registry[ 'level' ][ 'seo_dsc' ];
+            
+            
+            $this->registry[ 'template' ]->add2crumbs( $this->registry[ 'level' ][ 'alias' ], $this->registry[ 'level' ][ 'name' ] );
+            
+            return true;
+        }
+        return false;
+    }
+    
+    private function check_level($parent_alias, $level_alias)
+    {
+        $qLnk = mysql_query( "
 								SELECT
 									levels.*,
 									parent_tbl.alias AS parent_alias,
@@ -235,63 +245,66 @@
 									AND
 									parent_tbl.alias = '".$parent_alias."'
 								LIMIT 1;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				$level = mysql_fetch_assoc($qLnk);
-				$level['level_link'] = '/'.$level['parent_alias'].'/'.$level['alias'].'/';
-				$this->registry['level'] = $level;
-
-				$longtitle = isset($_GET['page']) ? $this->registry['level']['seo_title'].' - страница '.$_GET['page'] : $this->registry['level']['seo_title'];
-					$this->registry->set('longtitle',$longtitle);
-				$this->registry['seo_kw'] = $this->registry['level']['seo_kw'];
-				$this->registry['seo_dsc'] = $this->registry['level']['seo_dsc'];
-				$this->registry['level_name'] = $this->registry['level']['parent_name'].', '.$this->registry['level']['name'];
-
-
-				$this->registry['template']->add2crumbs($this->registry['level']['parent_alias'],$this->registry['level']['parent_name']);
-				$this->registry['template']->add2crumbs($this->registry['level']['alias'],$this->registry['level']['name']);
-
-				$this->registry['cookie_type'] = 'catalog';
-
-				return true;
-			}
-			return false;
-		}
-
-		private function goods_list_pagination(&$list_params,$reqiure_file,$from){
-
-			$PAGING = $this->registry['CL_catalog_paginate']->get_current_paging($from);	
-
-			$list_params['display'] = $PAGING;
-
-			if(($PAGING=='all' || !$PAGING) && $from!=2){
-				$list_params['start'] = 1;
-				$list_params['fin'] = NULL;
-				return "";
-			}elseif(($PAGING=='all' || !$PAGING) && $from==2){
-				$list_params['start'] = 1;
-				$list_params['fin'] = POPULAR_MAX;
-				return "LIMIT ".POPULAR_MAX;
-			}
-
-        	$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-        	$offset = $PAGING*($page-1);
-
-        	$list_params['start'] = $offset+1;
-        	$list_params['fin'] = $offset+$PAGING;
-
-        	return "LIMIT ".$offset.", ".$PAGING;
-		}
-
-		private function trunc_active($arr){
-			foreach($arr as $id => $a){
-				$arr[$id]['active'] = 0;
-			}
-			return $arr;
-		}		
-		
-		private function mk_avatar($g){				
-			$qLnk = mysql_query(sprintf("
+								" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $level = mysql_fetch_assoc( $qLnk );
+            $level[ 'level_link' ] = '/'.$level[ 'parent_alias' ].'/'.$level[ 'alias' ].'/';
+            $this->registry[ 'level' ] = $level;
+            
+            $longtitle = isset( $_GET[ 'page' ] ) ? $this->registry[ 'level' ][ 'seo_title' ].' - страница '.$_GET[ 'page' ] : $this->registry[ 'level' ][ 'seo_title' ];
+            $this->registry->set( 'longtitle', $longtitle );
+            $this->registry[ 'seo_kw' ] = $this->registry[ 'level' ][ 'seo_kw' ];
+            $this->registry[ 'seo_dsc' ] = $this->registry[ 'level' ][ 'seo_dsc' ];
+            $this->registry[ 'level_name' ] = $this->registry[ 'level' ][ 'parent_name' ].', '.$this->registry[ 'level' ][ 'name' ];
+            
+            
+            $this->registry[ 'template' ]->add2crumbs( $this->registry[ 'level' ][ 'parent_alias' ], $this->registry[ 'level' ][ 'parent_name' ] );
+            $this->registry[ 'template' ]->add2crumbs( $this->registry[ 'level' ][ 'alias' ], $this->registry[ 'level' ][ 'name' ] );
+            
+            $this->registry[ 'cookie_type' ] = 'catalog';
+            
+            return true;
+        }
+        return false;
+    }
+    
+    private function goods_list_pagination(&$list_params, $reqiure_file, $from)
+    {
+        
+        $PAGING = $this->registry[ 'CL_catalog_paginate' ]->get_current_paging( $from );
+        
+        $list_params[ 'display' ] = $PAGING;
+        
+        if (($PAGING == 'all' || !$PAGING) && $from != 2) {
+            $list_params[ 'start' ] = 1;
+            $list_params[ 'fin' ] = NULL;
+            return "";
+        } elseif (($PAGING == 'all' || !$PAGING) && $from == 2) {
+            $list_params[ 'start' ] = 1;
+            $list_params[ 'fin' ] = POPULAR_MAX;
+            return "LIMIT ".POPULAR_MAX;
+        }
+        
+        $page = (isset( $_GET[ 'page' ] )) ? $_GET[ 'page' ] : 1;
+        $offset = $PAGING * ($page - 1);
+        
+        $list_params[ 'start' ] = $offset + 1;
+        $list_params[ 'fin' ] = $offset + $PAGING;
+        
+        return "LIMIT ".$offset.", ".$PAGING;
+    }
+    
+    private function trunc_active($arr)
+    {
+        foreach ($arr as $id => $a) {
+            $arr[ $id ][ 'active' ] = 0;
+        }
+        return $arr;
+    }
+    
+    private function mk_avatar($g)
+    {
+        $qLnk = mysql_query( sprintf( "
 					SELECT
 						alias,
 						goods_id,
@@ -300,34 +313,35 @@
 						goods_photo
 					WHERE
 						id = '%d' 
-					",$g['avatar_id']));
-			$photo = mysql_fetch_assoc($qLnk);
-			if(!$photo) return false;
-			
-			return sprintf('<img src="%s" alt="%s">',
-					Front_Catalog_Helper_Image::goods_path($photo['goods_id'],$photo['alias'],'122x122'),
-					htmlspecialchars($photo['alt'])
-					);
-		}
-		
-		public function goods_list(&$list_html,&$list_params,&$reqiure_file,$from){
-			
-			if($from==0){//level
-				$q_where = "goods.level_id = '".$this->registry['level']['id']."' AND";
-			}elseif($from==1){//grower
-				$q_where = "goods.grower_id = '".$this->registry['grower']['id']."' AND";
-			}elseif($from==2){//popular
-				$q_where = "goods.price_1 > 100 AND";
-			}
-
-			$reqiure_file = $this->registry['CL_catalog_display']->get_display_type($from);
-
-			$result_arr = array();
-
-			$result_ids = array();
-			$feats_arr = array();
-
-			$qLnk = mysql_query(sprintf("
+					", $g[ 'avatar_id' ] ) );
+        $photo = mysql_fetch_assoc( $qLnk );
+        if (!$photo) return false;
+        
+        return sprintf( '<img src="%s" alt="%s">',
+            Front_Catalog_Helper_Image::goods_path( $photo[ 'goods_id' ], $photo[ 'alias' ], '122x122' ),
+            htmlspecialchars( $photo[ 'alt' ] )
+        );
+    }
+    
+    public function goods_list(&$list_html, &$list_params, &$reqiure_file, $from)
+    {
+        
+        if ($from == 0) {//level
+            $q_where = "goods.level_id = '".$this->registry[ 'level' ][ 'id' ]."' AND";
+        } elseif ($from == 1) {//grower
+            $q_where = "goods.grower_id = '".$this->registry[ 'grower' ][ 'id' ]."' AND";
+        } elseif ($from == 2) {//popular
+            $q_where = "goods.price_1 > 100 AND";
+        }
+        
+        $reqiure_file = $this->registry[ 'CL_catalog_display' ]->get_display_type( $from );
+        
+        $result_arr = array();
+        
+        $result_ids = array();
+        $feats_arr = array();
+        
+        $qLnk = mysql_query( sprintf( "
 								SELECT SQL_CALC_FOUND_ROWS
 									goods.avatar_id,
 									goods.id AS id,
@@ -368,27 +382,27 @@
 									seo_h1 ASC
 								%s;
 								",
-								OVERALL_DISCOUNT,
-								$q_where,
-								$this->Front_Catalog_Goods_List_Sort->get_sort($from),
-								$this->goods_list_pagination($list_params,$reqiure_file,$from)
-								));
-			
-       		$qAmount = mysql_query("SELECT FOUND_ROWS();");
-       		$total_goods_amount = mysql_result($qAmount,0);
-        	$list_params['total_goods_amount'] = ($from==2 && POPULAR_MAX<$total_goods_amount) ? POPULAR_MAX : $total_goods_amount;
-			$list_params['fin'] = ($list_params['fin']>$list_params['total_goods_amount'] || is_null($list_params['fin'])) ? $list_params['total_goods_amount'] : $list_params['fin'];
-
-			if($list_params['total_goods_amount']>0):
-
-				while($g = mysql_fetch_assoc($qLnk)){
-					$result_ids[] = $g['id'];
-					$result_arr[] = $g;
-				}
-
-				if(count($result_ids)==0) return false;
-				
-				$qLnk = mysql_query("
+            OVERALL_DISCOUNT,
+            $q_where,
+            $this->Front_Catalog_Goods_List_Sort->get_sort( $from ),
+            $this->goods_list_pagination( $list_params, $reqiure_file, $from )
+        ) );
+        
+        $qAmount = mysql_query( "SELECT FOUND_ROWS();" );
+        $total_goods_amount = mysql_result( $qAmount, 0 );
+        $list_params[ 'total_goods_amount' ] = ($from == 2 && POPULAR_MAX < $total_goods_amount) ? POPULAR_MAX : $total_goods_amount;
+        $list_params[ 'fin' ] = ($list_params[ 'fin' ] > $list_params[ 'total_goods_amount' ] || is_null( $list_params[ 'fin' ] )) ? $list_params[ 'total_goods_amount' ] : $list_params[ 'fin' ];
+        
+        if ($list_params[ 'total_goods_amount' ] > 0):
+            
+            while ($g = mysql_fetch_assoc( $qLnk )) {
+                $result_ids[] = $g[ 'id' ];
+                $result_arr[] = $g;
+            }
+            
+            if (count( $result_ids ) == 0) return false;
+            
+            $qLnk = mysql_query( "
 									SELECT
 										goods_features.goods_id,
 										goods_features.feature_id,
@@ -400,79 +414,79 @@
 									INNER JOIN features ON features.id = goods_features.feature_id
 									INNER JOIN feature_groups ON feature_groups.id = features.group_id
 									WHERE
-										goods_features.goods_id IN (".implode(',',$result_ids).")
+										goods_features.goods_id IN (".implode( ',', $result_ids ).")
 									ORDER BY
 										goods_features.goods_id ASC,
 										feature_groups.name ASC,
 										features.sort ASC;
-									");
-				while($f = mysql_fetch_assoc($qLnk)){
-					$feats_arr[$f['goods_id']][$f['group_id']]['name'] = $f['group_name'];
-					$feats_arr[$f['goods_id']][$f['group_id']]['feats'][$f['feature_id']]['name'] = $f['feature_name'];
-					$feats_arr[$f['goods_id']][$f['group_id']]['feats'][$f['feature_id']]['active'] = 0;
-				}
-
-				$this->registry['feats_arr'] = $feats_arr;
-
-				$grower_id_criteria = 0;
-				$no_tastes = true;
-				foreach($result_arr as $key => $g){
-
-					$g['name_print'] = Front_Catalog_Helper_Goods::list_name($g);
-					
-					$g['avatar'] = $this->mk_avatar($g);
-					
-					if($g['personal_discount']>0){
-						$g['price_1_n'] = $g['price_1'] - $g['price_1']*$g['personal_discount']/100;
-						$g['price_2_n'] = $g['price_2'] - $g['price_2']*$g['personal_discount']/100;
-					}
-
-					//$g['grower_change'] =( $q_order=='grower ASC' && $grower_id_criteria!=$g['grower_id']) ? true : false;
-					$g['grower_change'] =($grower_id_criteria!=$g['grower_id']);
-
-					$g['barcodes_avialable_check'] = $this->Front_Catalog_Barcodes->barcodes_avialable_check($g['id']);
-					$g['packs_list'] = $this->Front_Catalog_Barcodes->packs_list($g);
-					$g['min_price'] = $this->Front_Catalog_Barcodes->min_price($g);
-					$g['packs_list_table'] = $this->packs_list_table($g['packs_list']);
-					
-					$g['colors_list'] = $this->colors_list($g);
-					$g['colors_list_table'] = $this->features_list_table($g['colors_list']);
-					
-					$g['features_list'] = $this->Front_Catalog_Barcodes->features_list($g);
-					$g['features_list_table'] = $this->features_list_table($g['features_list']);
-
-					if($g['features_list_table']!='') $no_tastes = false;
-					
-					
-
-					$grower_id_criteria = $g['grower_id'];
-					
-					$result_arr[$key] = $g;
-				}
-
-				ob_start();
-				foreach($result_arr as $g){
-					$g['no_tastes'] = $no_tastes;
-					$this->item_rq($reqiure_file,$g);
-				}
-				$list_html = ob_get_clean();				
-				
-				if($reqiure_file=='table'){
-					ob_start();
-					$this->item_rq('table_th',$g);
-					$th = ob_get_contents();
-					ob_end_clean();
-
-					$list_html = '<table cellspacing="0" class="goods_item_table">'.$th.$list_html.'</table>';
-				}
-
-			endif;
-
-		}
-
-		private function colors_list($g){
-			$colors = array();
-			$qLnk = mysql_query(sprintf("
+									" );
+            while ($f = mysql_fetch_assoc( $qLnk )) {
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'name' ] = $f[ 'group_name' ];
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'feats' ][ $f[ 'feature_id' ] ][ 'name' ] = $f[ 'feature_name' ];
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'feats' ][ $f[ 'feature_id' ] ][ 'active' ] = 0;
+            }
+            
+            $this->registry[ 'feats_arr' ] = $feats_arr;
+            
+            $grower_id_criteria = 0;
+            $no_tastes = true;
+            foreach ($result_arr as $key => $g) {
+                
+                $g[ 'name_print' ] = Front_Catalog_Helper_Goods::list_name( $g );
+                
+                $g[ 'avatar' ] = $this->mk_avatar( $g );
+                
+                if ($g[ 'personal_discount' ] > 0) {
+                    $g[ 'price_1_n' ] = $g[ 'price_1' ] - $g[ 'price_1' ] * $g[ 'personal_discount' ] / 100;
+                    $g[ 'price_2_n' ] = $g[ 'price_2' ] - $g[ 'price_2' ] * $g[ 'personal_discount' ] / 100;
+                }
+                
+                //$g['grower_change'] =( $q_order=='grower ASC' && $grower_id_criteria!=$g['grower_id']) ? true : false;
+                $g[ 'grower_change' ] = ($grower_id_criteria != $g[ 'grower_id' ]);
+                
+                $g[ 'barcodes_avialable_check' ] = $this->Front_Catalog_Barcodes->barcodes_avialable_check( $g[ 'id' ] );
+                $g[ 'packs_list' ] = $this->Front_Catalog_Barcodes->packs_list( $g );
+                $g[ 'min_price' ] = $this->Front_Catalog_Barcodes->min_price( $g );
+                $g[ 'packs_list_table' ] = $this->packs_list_table( $g[ 'packs_list' ] );
+                
+                $g[ 'colors_list' ] = $this->colors_list( $g );
+                $g[ 'colors_list_table' ] = $this->features_list_table( $g[ 'colors_list' ] );
+                
+                $g[ 'features_list' ] = $this->Front_Catalog_Barcodes->features_list( $g );
+                $g[ 'features_list_table' ] = $this->features_list_table( $g[ 'features_list' ] );
+                
+                if ($g[ 'features_list_table' ] != '') $no_tastes = false;
+                
+                
+                $grower_id_criteria = $g[ 'grower_id' ];
+                
+                $result_arr[ $key ] = $g;
+            }
+            
+            ob_start();
+            foreach ($result_arr as $g) {
+                $g[ 'no_tastes' ] = $no_tastes;
+                $this->item_rq( $reqiure_file, $g );
+            }
+            $list_html = ob_get_clean();
+            
+            if ($reqiure_file == 'table') {
+                ob_start();
+                $this->item_rq( 'table_th', $g );
+                $th = ob_get_contents();
+                ob_end_clean();
+                
+                $list_html = '<table cellspacing="0" class="goods_item_table">'.$th.$list_html.'</table>';
+            }
+        
+        endif;
+        
+    }
+    
+    private function colors_list($g)
+    {
+        $colors = array();
+        $qLnk = mysql_query( sprintf( "
 					SELECT
 						features.name
 					FROM
@@ -482,130 +496,136 @@
 						goods_features.goods_id = '%d'
 					ORDER BY
 						features.sort ASC;
-					",$g['id']));
-			echo mysql_error();
-			while($f = mysql_fetch_assoc($qLnk)) $colors[] = $f['name'];
-
-			$new_colors = array_slice($colors,0,4);
-			$string = implode(', ',$new_colors);
-			
-			if(count($new_colors)!=count($colors)) $string.=sprintf('<span class="feats_list_more"><a href="/%s/%s/%s/">...</a></span>',
-				$g['parent_level_alias'],
-				$g['level_alias'],
-				$g['alias']
-				);
-			
-			return $string; 
-		}
-		
-		private function features_list_table($features_list){
-			$str = str_replace(', ','<br>',$features_list);
-			$str = str_replace('<a', '<br><a',$str);
-				
-			return $str;			
-		}
-		
-		private function packs_list_table($packs_list){
-			$str = str_replace(', ','<br>',$packs_list);
-			$str = str_replace('<a', '<br><a',$str);
-			
-			return $str;
-		}
-		
-		public function show_pagination($list_params,$from){
-
-			if($from==0){//level
-				$page_link = $this->registry['level']['level_link'];
-			}elseif($from==1){//grower
-				$page_link = $this->registry['grower']['level_link'];
-			}elseif($from==2){//popular
-				$page_link = '/popular/';
-			}
-
-			if($list_params['display']!='all' && $list_params['display']!=0){
-				$pages_amount = ceil($list_params['total_goods_amount']/$list_params['display']);
-				$cur_page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-
-				if($pages_amount>1):
-
-					$a['type'] = 1;
-
-					ob_start();
-					for($i=1;$i<=$pages_amount;$i++){
-						$a['active'] = ($i==$cur_page) ? true : false;
-						$a['lnk_param'] = ($i==1) ? '' : '?page='.$i;
-						$a['link_href'] = $page_link;
-						$a['i'] = $i;
-						$this->item_rq('pagination',$a);
-
-						if($i==$cur_page){
-							$prev = ($i-1>0) ? (($i-1==1) ? ' ' : '?page='.($i-1)) : false;
-							$next = ($i+1<=$pages_amount) ? '?page='.($i+1) : false;
-						}
-
-					}
-					$html = ob_get_contents();
-					ob_end_clean();
-
-					$a['type'] = 2;
-
-					if(isset($next)){
-						ob_start();
-							$a['link_text'] = '»';
-							$a['class'] = 'next';
-							$a['link_param'] = $next;
-							$a['link_href'] = $page_link;
-							$this->item_rq('pagination',$a);
-							$next = ob_get_contents();
-							ob_end_clean();
-					}else $next = false;
-
-					if(isset($prev)){
-						ob_start();
-							$a['link_text'] = '«';
-							$a['class'] = 'prev';
-							$a['link_param'] = $prev;
-							$a['link_href'] = $page_link;
-							$this->item_rq('pagination',$a);
-							$prev = ob_get_contents();
-							ob_end_clean();
-					}else $prev = false;
-
-					if($prev || $next) echo '<ul id="level_pagination">'.$prev.$html.$next.'</ul>';
-					
-				endif;
-
-			}
-		}
-
-		public function goods_feats_first_values($goods_id){
-			$string_arr = array();
-			if(isset($this->registry['feats_arr'][$goods_id])){
-				foreach($this->registry['feats_arr'][$goods_id] as $arr){
-					$ids = array_keys($arr['feats']);
-					$string_arr[] = array_shift($ids);
-				}
-			}
-
-			echo implode(',',$string_arr);
-		}
-	
-		public function goods_feats($goods_id,$require_file){
-			if(isset($this->registry['feats_arr'][$goods_id])){
-				$i=1;
-				foreach($this->registry['feats_arr'][$goods_id] as $group_id => $arr){
-					$arr['group_id'] = $group_id;
-					$arr['goods_id'] = $goods_id;
-					$arr['last'] = ($i==count($this->registry['feats_arr'][$goods_id])) ? 'last' : '';
-					$this->item_rq($require_file,$arr);
-
-					$i++;
-				}
-			}
-		}
-
-		private function page_goods_feats(){
-			$qLnk = mysql_query("
+					", $g[ 'id' ] ) );
+        echo mysql_error();
+        while ($f = mysql_fetch_assoc( $qLnk )) $colors[] = $f[ 'name' ];
+        
+        $new_colors = array_slice( $colors, 0, 4 );
+        $string = implode( ', ', $new_colors );
+        
+        if (count( $new_colors ) != count( $colors )) $string .= sprintf( '<span class="feats_list_more"><a href="/%s/%s/%s/">...</a></span>',
+            $g[ 'parent_level_alias' ],
+            $g[ 'level_alias' ],
+            $g[ 'alias' ]
+        );
+        
+        return $string;
+    }
+    
+    private function features_list_table($features_list)
+    {
+        $str = str_replace( ', ', '<br>', $features_list );
+        $str = str_replace( '<a', '<br><a', $str );
+        
+        return $str;
+    }
+    
+    private function packs_list_table($packs_list)
+    {
+        $str = str_replace( ', ', '<br>', $packs_list );
+        $str = str_replace( '<a', '<br><a', $str );
+        
+        return $str;
+    }
+    
+    public function show_pagination($list_params, $from)
+    {
+        
+        if ($from == 0) {//level
+            $page_link = $this->registry[ 'level' ][ 'level_link' ];
+        } elseif ($from == 1) {//grower
+            $page_link = $this->registry[ 'grower' ][ 'level_link' ];
+        } elseif ($from == 2) {//popular
+            $page_link = '/popular/';
+        }
+        
+        if ($list_params[ 'display' ] != 'all' && $list_params[ 'display' ] != 0) {
+            $pages_amount = ceil( $list_params[ 'total_goods_amount' ] / $list_params[ 'display' ] );
+            $cur_page = (isset( $_GET[ 'page' ] )) ? $_GET[ 'page' ] : 1;
+            
+            if ($pages_amount > 1):
+                
+                $a[ 'type' ] = 1;
+                
+                ob_start();
+                for ($i = 1; $i <= $pages_amount; $i++) {
+                    $a[ 'active' ] = ($i == $cur_page) ? true : false;
+                    $a[ 'lnk_param' ] = ($i == 1) ? '' : '?page='.$i;
+                    $a[ 'link_href' ] = $page_link;
+                    $a[ 'i' ] = $i;
+                    $this->item_rq( 'pagination', $a );
+                    
+                    if ($i == $cur_page) {
+                        $prev = ($i - 1 > 0) ? (($i - 1 == 1) ? ' ' : '?page='.($i - 1)) : false;
+                        $next = ($i + 1 <= $pages_amount) ? '?page='.($i + 1) : false;
+                    }
+                    
+                }
+                $html = ob_get_contents();
+                ob_end_clean();
+                
+                $a[ 'type' ] = 2;
+                
+                if (isset( $next )) {
+                    ob_start();
+                    $a[ 'link_text' ] = '»';
+                    $a[ 'class' ] = 'next';
+                    $a[ 'link_param' ] = $next;
+                    $a[ 'link_href' ] = $page_link;
+                    $this->item_rq( 'pagination', $a );
+                    $next = ob_get_contents();
+                    ob_end_clean();
+                } else $next = false;
+                
+                if (isset( $prev )) {
+                    ob_start();
+                    $a[ 'link_text' ] = '«';
+                    $a[ 'class' ] = 'prev';
+                    $a[ 'link_param' ] = $prev;
+                    $a[ 'link_href' ] = $page_link;
+                    $this->item_rq( 'pagination', $a );
+                    $prev = ob_get_contents();
+                    ob_end_clean();
+                } else $prev = false;
+                
+                if ($prev || $next) echo '<ul id="level_pagination">'.$prev.$html.$next.'</ul>';
+            
+            endif;
+            
+        }
+    }
+    
+    public function goods_feats_first_values($goods_id)
+    {
+        $string_arr = array();
+        if (isset( $this->registry[ 'feats_arr' ][ $goods_id ] )) {
+            foreach ($this->registry[ 'feats_arr' ][ $goods_id ] as $arr) {
+                $ids = array_keys( $arr[ 'feats' ] );
+                $string_arr[] = array_shift( $ids );
+            }
+        }
+        
+        echo implode( ',', $string_arr );
+    }
+    
+    public function goods_feats($goods_id, $require_file)
+    {
+        if (isset( $this->registry[ 'feats_arr' ][ $goods_id ] )) {
+            $i = 1;
+            foreach ($this->registry[ 'feats_arr' ][ $goods_id ] as $group_id => $arr) {
+                $arr[ 'group_id' ] = $group_id;
+                $arr[ 'goods_id' ] = $goods_id;
+                $arr[ 'last' ] = ($i == count( $this->registry[ 'feats_arr' ][ $goods_id ] )) ? 'last' : '';
+                $this->item_rq( $require_file, $arr );
+                
+                $i++;
+            }
+        }
+    }
+    
+    private function page_goods_feats()
+    {
+        $qLnk = mysql_query( "
 								SELECT
 									goods_features.goods_id,
 									goods_features.feature_id,
@@ -618,46 +638,49 @@
 								INNER JOIN features ON features.id = goods_features.feature_id
 								INNER JOIN feature_groups ON feature_groups.id = features.group_id
 								WHERE
-									goods_features.goods_id = '".$this->registry['goods']['id']."'
+									goods_features.goods_id = '".$this->registry[ 'goods' ][ 'id' ]."'
 								ORDER BY
 									goods_features.goods_id ASC,
 									feature_groups.name ASC,
 									features.sort ASC;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				while($f = mysql_fetch_assoc($qLnk)){
-					$feats_arr[$f['goods_id']][$f['group_id']]['name'] = $f['group_name'];
-					$feats_arr[$f['goods_id']][$f['group_id']]['feats'][$f['feature_id']]['name'] = $f['feature_name'];
-					$feats_arr[$f['goods_id']][$f['group_id']]['feats'][$f['feature_id']]['active'] = 0;
-					$feats_arr[$f['goods_id']][$f['group_id']]['feats'][$f['feature_id']]['img'] = $f['feature_image'];
-				}
-
-				$this->registry['feats_arr'] = $feats_arr;
-			}
-
-		}
-
-		public function print_feats_groups(){
-			if(isset($this->registry['feats_arr'][$this->registry['goods']['id']]) && count($this->registry['feats_arr'][$this->registry['goods']['id']])>0){
-				foreach($this->registry['feats_arr'][$this->registry['goods']['id']] as $group_id => $group_arr){
-					$group_arr['group_id'] = $group_id;
-					$this->item_rq('feat_img_group',$group_arr);
-				}
-			}
-		}
-
-		public function print_feats_photo($arr){
-			foreach($arr as $feat_id => $feat_arr){
-				$this->item_rq('feat_img',$feat_arr);
-			}
-		}
-
-		public function goods_gallery_matrix($req_file){
-
-			if(!isset($this->registry['goods_photo_matrix'])){
-				
-				$ids = array($this->registry['goods']['id']);
-				$qLnk = mysql_query(sprintf("
+								" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            while ($f = mysql_fetch_assoc( $qLnk )) {
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'name' ] = $f[ 'group_name' ];
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'feats' ][ $f[ 'feature_id' ] ][ 'name' ] = $f[ 'feature_name' ];
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'feats' ][ $f[ 'feature_id' ] ][ 'active' ] = 0;
+                $feats_arr[ $f[ 'goods_id' ] ][ $f[ 'group_id' ] ][ 'feats' ][ $f[ 'feature_id' ] ][ 'img' ] = $f[ 'feature_image' ];
+            }
+            
+            $this->registry[ 'feats_arr' ] = $feats_arr;
+        }
+        
+    }
+    
+    public function print_feats_groups()
+    {
+        if (isset( $this->registry[ 'feats_arr' ][ $this->registry[ 'goods' ][ 'id' ] ] ) && count( $this->registry[ 'feats_arr' ][ $this->registry[ 'goods' ][ 'id' ] ] ) > 0) {
+            foreach ($this->registry[ 'feats_arr' ][ $this->registry[ 'goods' ][ 'id' ] ] as $group_id => $group_arr) {
+                $group_arr[ 'group_id' ] = $group_id;
+                $this->item_rq( 'feat_img_group', $group_arr );
+            }
+        }
+    }
+    
+    public function print_feats_photo($arr)
+    {
+        foreach ($arr as $feat_id => $feat_arr) {
+            $this->item_rq( 'feat_img', $feat_arr );
+        }
+    }
+    
+    public function goods_gallery_matrix($req_file)
+    {
+        
+        if (!isset( $this->registry[ 'goods_photo_matrix' ] )) {
+            
+            $ids = array( $this->registry[ 'goods' ][ 'id' ] );
+            $qLnk = mysql_query( sprintf( "
 						SELECT
 							id
 						FROM
@@ -666,11 +689,11 @@
 							parent_barcode = '%s'
 						ORDER BY
 							sort ASC;
-						",$this->registry['goods']['barcode']));
-				while($g = mysql_fetch_assoc($qLnk)) $ids[] = $g['id'];
-				
-				$PM = array();
-				$qLnk = mysql_query(sprintf("
+						", $this->registry[ 'goods' ][ 'barcode' ] ) );
+            while ($g = mysql_fetch_assoc( $qLnk )) $ids[] = $g[ 'id' ];
+            
+            $PM = array();
+            $qLnk = mysql_query( sprintf( "
 									SELECT
 										goods_photo.id,
 										goods_photo.goods_id,
@@ -683,34 +706,35 @@
 									ORDER BY
 										goods_photo.sort ASC;
 									",
-									implode(",",$ids)
-									));
-				while($f = mysql_fetch_assoc($qLnk)){
-					$PM[] = $f;
-				}
-
-				$this->registry['goods_photo_matrix'] = $PM;
-
-			}
-
-			if($req_file=='goods_photo' && count($this->registry['goods_photo_matrix'])<=1) return;
-
-			$i=1;
-			foreach($this->registry['goods_photo_matrix'] as $f){
-				$f['class'] = ($i%5==0) ? 'r' : '';
-				
-				$f['img'] = Front_Catalog_Helper_Image::goods_path($f['goods_id'],$f['alias'],'src');
-				$f['preview'] = Front_Catalog_Helper_Image::goods_path($f['goods_id'],$f['alias'],'80x80');
-				
-				$this->item_rq($req_file,$f);
-
-				$i++;
-			}
-
-		}
-
-		public function levels_list(){
-			$qLnk = mysql_query("
+                implode( ",", $ids )
+            ) );
+            while ($f = mysql_fetch_assoc( $qLnk )) {
+                $PM[] = $f;
+            }
+            
+            $this->registry[ 'goods_photo_matrix' ] = $PM;
+            
+        }
+        
+        if ($req_file == 'goods_photo' && count( $this->registry[ 'goods_photo_matrix' ] ) <= 1) return;
+        
+        $i = 1;
+        foreach ($this->registry[ 'goods_photo_matrix' ] as $f) {
+            $f[ 'class' ] = ($i % 5 == 0) ? 'r' : '';
+            
+            $f[ 'img' ] = Front_Catalog_Helper_Image::goods_path( $f[ 'goods_id' ], $f[ 'alias' ], 'src' );
+            $f[ 'preview' ] = Front_Catalog_Helper_Image::goods_path( $f[ 'goods_id' ], $f[ 'alias' ], '80x80' );
+            
+            $this->item_rq( $req_file, $f );
+            
+            $i++;
+        }
+        
+    }
+    
+    public function levels_list()
+    {
+        $qLnk = mysql_query( "
 								SELECT
 									levels.id,
 									levels.name,
@@ -722,54 +746,56 @@
 								WHERE
 									levels.published = 1
 									AND
-									levels.parent_id = '".$this->registry['level']['id']."'
+									levels.parent_id = '".$this->registry[ 'level' ][ 'id' ]."'
 								ORDER BY
 									levels.sort ASC;
-								");
-			$i = 1;
-			while($l = mysql_fetch_assoc($qLnk)){
-				$l['class'] = ($i%4==0) ? 'r' : '';
-				$this->item_rq('levels_list',$l);
-
-				$i++;
-			}
-		}
-
-		public function in_the_cart($goods_id,$packing){
-			$barcodes = array();
-			$qLnk = mysql_query(sprintf("SELECT barcode FROM goods_barcodes WHERE goods_id = '%d'",$goods_id));
-			while($b = mysql_fetch_assoc($qLnk)) $barcodes[] = $b['barcode'];
-			$counter = 0;
-			if(isset($_COOKIE['thecart'])){
-				$cart_arr = explode('|',$_COOKIE['thecart']);
-				foreach($cart_arr as $goods_string){
-					$goods_arr = explode(':',$goods_string);
-
-					if(in_array($goods_arr[0],$barcodes) && $packing==$goods_arr[1]) $counter+=$goods_arr[2];
-				}
-			}
-			echo ($counter>0) ? '<div class="added"><div class="added_i">'.$counter.'</div></div>' : '';
-		}
-
-		public function prev_next(){
-
-			$sort_items = array(
-				'sort|ASC' => array('goods.sort','ASC','DESC',"goods.sort > '".$this->registry['goods']['sort']."'","goods.sort < '".$this->registry['goods']['sort']."'"),
-				'name|ASC' => array('goods.name','ASC','DESC',"goods.seo_h1 > '".$this->registry['goods']['seo_h1']."'","goods.seo_h1 < '".$this->registry['goods']['seo_h1']."'"),
-				'name|DESC' => array('goods.name','DESC','ASC',"goods.seo_h1 < '".$this->registry['goods']['seo_h1']."'","goods.seo_h1 > '".$this->registry['goods']['seo_h1']."'"),
-				'price_1|ASC' => array('goods.price_1','ASC','DESC',"goods.price_1 > '".$this->registry['goods']['price_1']."'","goods.price_1 < '".$this->registry['goods']['price_1']."'"),
-				'price_1|DESC' => array('goods.price_1','DESC','ASC',"goods.price_1 < '".$this->registry['goods']['price_1']."'","goods.price_1 > '".$this->registry['goods']['price_1']."'"),
-				'grower|ASC' => array('grower','ASC','DESC',"growers.name > '".$this->registry['goods']['grower']."'","growers.name < '".$this->registry['goods']['grower']."'"),
-				'popularity_index|DESC' => array('goods.popularity_index','DESC','ASC',"goods.popularity_index > '".$this->registry['goods']['popularity_index']."'","goods.popularity_index < '".$this->registry['goods']['popularity_index']."'"),
-				'present|DESC' => array('goods.present','DESC','ASC',"seo_h1 > '".$this->registry['goods']['seo_h1']."'","seo_h1 < '".$this->registry['goods']['seo_h1']."'"),
-			);
-
-			$level_id = $this->registry['goods']['level_id'];
-			$sort_key = 'sort|ASC';
-				$sort_arr = $sort_items[$sort_key];
-
-			//next
-			$qLnk = mysql_query("
+								" );
+        $i = 1;
+        while ($l = mysql_fetch_assoc( $qLnk )) {
+            $l[ 'class' ] = ($i % 4 == 0) ? 'r' : '';
+            $this->item_rq( 'levels_list', $l );
+            
+            $i++;
+        }
+    }
+    
+    public function in_the_cart($goods_id, $packing)
+    {
+        $barcodes = array();
+        $qLnk = mysql_query( sprintf( "SELECT barcode FROM goods_barcodes WHERE goods_id = '%d'", $goods_id ) );
+        while ($b = mysql_fetch_assoc( $qLnk )) $barcodes[] = $b[ 'barcode' ];
+        $counter = 0;
+        if (isset( $_COOKIE[ 'thecart' ] )) {
+            $cart_arr = explode( '|', $_COOKIE[ 'thecart' ] );
+            foreach ($cart_arr as $goods_string) {
+                $goods_arr = explode( ':', $goods_string );
+                
+                if (in_array( $goods_arr[ 0 ], $barcodes ) && $packing == $goods_arr[ 1 ]) $counter += $goods_arr[ 2 ];
+            }
+        }
+        echo ($counter > 0) ? '<div class="added"><div class="added_i">'.$counter.'</div></div>' : '';
+    }
+    
+    public function prev_next()
+    {
+        
+        $sort_items = array(
+            'sort|ASC' => array( 'goods.sort', 'ASC', 'DESC', "goods.sort > '".$this->registry[ 'goods' ][ 'sort' ]."'", "goods.sort < '".$this->registry[ 'goods' ][ 'sort' ]."'" ),
+            'name|ASC' => array( 'goods.name', 'ASC', 'DESC', "goods.seo_h1 > '".$this->registry[ 'goods' ][ 'seo_h1' ]."'", "goods.seo_h1 < '".$this->registry[ 'goods' ][ 'seo_h1' ]."'" ),
+            'name|DESC' => array( 'goods.name', 'DESC', 'ASC', "goods.seo_h1 < '".$this->registry[ 'goods' ][ 'seo_h1' ]."'", "goods.seo_h1 > '".$this->registry[ 'goods' ][ 'seo_h1' ]."'" ),
+            'price_1|ASC' => array( 'goods.price_1', 'ASC', 'DESC', "goods.price_1 > '".$this->registry[ 'goods' ][ 'price_1' ]."'", "goods.price_1 < '".$this->registry[ 'goods' ][ 'price_1' ]."'" ),
+            'price_1|DESC' => array( 'goods.price_1', 'DESC', 'ASC', "goods.price_1 < '".$this->registry[ 'goods' ][ 'price_1' ]."'", "goods.price_1 > '".$this->registry[ 'goods' ][ 'price_1' ]."'" ),
+            'grower|ASC' => array( 'grower', 'ASC', 'DESC', "growers.name > '".$this->registry[ 'goods' ][ 'grower' ]."'", "growers.name < '".$this->registry[ 'goods' ][ 'grower' ]."'" ),
+            'popularity_index|DESC' => array( 'goods.popularity_index', 'DESC', 'ASC', "goods.popularity_index > '".$this->registry[ 'goods' ][ 'popularity_index' ]."'", "goods.popularity_index < '".$this->registry[ 'goods' ][ 'popularity_index' ]."'" ),
+            'present|DESC' => array( 'goods.present', 'DESC', 'ASC', "seo_h1 > '".$this->registry[ 'goods' ][ 'seo_h1' ]."'", "seo_h1 < '".$this->registry[ 'goods' ][ 'seo_h1' ]."'" ),
+        );
+        
+        $level_id = $this->registry[ 'goods' ][ 'level_id' ];
+        $sort_key = 'sort|ASC';
+        $sort_arr = $sort_items[ $sort_key ];
+        
+        //next
+        $qLnk = mysql_query( "
 								SELECT
 									goods.name,
 									goods.alias,
@@ -786,16 +812,16 @@
 									AND
 									goods.level_id = '".$level_id."'
 									AND
-									".$sort_arr[3]."
+									".$sort_arr[ 3 ]."
 								ORDER BY
-									".$sort_arr[0]." ".$sort_arr[1].",
+									".$sort_arr[ 0 ]." ".$sort_arr[ 1 ].",
 									goods.seo_h1 ASC
 								LIMIT 1
-								");
-			$next = (mysql_num_rows($qLnk)>0) ? mysql_fetch_assoc($qLnk) : false;
-
-			//prev
-			$qLnk = mysql_query("
+								" );
+        $next = (mysql_num_rows( $qLnk ) > 0) ? mysql_fetch_assoc( $qLnk ) : false;
+        
+        //prev
+        $qLnk = mysql_query( "
 								SELECT
 									goods.name,
 									goods.alias,
@@ -812,20 +838,21 @@
 									AND
 									goods.level_id = '".$level_id."'
 									AND
-									".$sort_arr[4]."
+									".$sort_arr[ 4 ]."
 								ORDER BY
-									".$sort_arr[0]." ".$sort_arr[2].",
+									".$sort_arr[ 0 ]." ".$sort_arr[ 2 ].",
 									goods.seo_h1 ASC
 								LIMIT 1
-								");
-			$prev = (mysql_num_rows($qLnk)>0) ? mysql_fetch_assoc($qLnk) : false;
-
-			$a = array($prev,$next);
-			$this->item_rq('prev_next',$a);
-		}
-
-		public function print_ostatok($barcode){
-			$qLnk = mysql_query("
+								" );
+        $prev = (mysql_num_rows( $qLnk ) > 0) ? mysql_fetch_assoc( $qLnk ) : false;
+        
+        $a = array( $prev, $next );
+        $this->item_rq( 'prev_next', $a );
+    }
+    
+    public function print_ostatok($barcode)
+    {
+        $qLnk = mysql_query( "
 								SELECT
 									ostatki.value
 								FROM
@@ -833,35 +860,36 @@
 								WHERE
 									ostatki.barcode = '".$barcode."'
 								LIMIT 1;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				$a = mysql_fetch_assoc($qLnk);
-				$this->item_rq('ostatok',$a);
-			}
-		}
-
-		public function goods_ostatok_check($barcode,$cart){
-			$response = 1;
-
-			$goods_in_cart = explode('|',$cart);
-
-			$goods_in_cart_out = array();
-			foreach($goods_in_cart as $str){
-				$str = explode(':',$str);
-
-				if(count($str) == 3){
-					$goods_in_cart_out[$str[0]] = $str[2];
-				}
-			}
-
-			if(!isset($goods_in_cart_out[$barcode])){
-				$cur_goods_amount = 0;
-			}else{
-				$cur_goods_amount = $goods_in_cart_out[$barcode];
-			}
-
-
-			$qLnk = mysql_query("
+								" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $a = mysql_fetch_assoc( $qLnk );
+            $this->item_rq( 'ostatok', $a );
+        }
+    }
+    
+    public function goods_ostatok_check($barcode, $cart)
+    {
+        $response = 1;
+        
+        $goods_in_cart = explode( '|', $cart );
+        
+        $goods_in_cart_out = array();
+        foreach ($goods_in_cart as $str) {
+            $str = explode( ':', $str );
+            
+            if (count( $str ) == 3) {
+                $goods_in_cart_out[ $str[ 0 ] ] = $str[ 2 ];
+            }
+        }
+        
+        if (!isset( $goods_in_cart_out[ $barcode ] )) {
+            $cur_goods_amount = 0;
+        } else {
+            $cur_goods_amount = $goods_in_cart_out[ $barcode ];
+        }
+        
+        
+        $qLnk = mysql_query( "
 								SELECT
 									ostatki.value
 								FROM
@@ -869,17 +897,16 @@
 								WHERE
 									ostatki.barcode = '".$barcode."'
 								LIMIT 1;
-								");
-			if(mysql_num_rows($qLnk)>0){
-				$g = mysql_fetch_assoc($qLnk);
-				if((int)$g['value'] <= (int)$cur_goods_amount){
-					$response = 0;
-				}
-
-			}
-
-			echo $response;
-		}
-
-	}
-?>
+								" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $g = mysql_fetch_assoc( $qLnk );
+            if ((int)$g[ 'value' ] <= (int)$cur_goods_amount) {
+                $response = 0;
+            }
+            
+        }
+        
+        echo $response;
+    }
+    
+}

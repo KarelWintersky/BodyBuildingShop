@@ -1,15 +1,18 @@
 <?php
 
-Class Front_Content_Goods_Data{
-	
-		private $registry;
+class Front_Content_Goods_Data
+{
 
-        function __construct($registry) {
-          $this->registry = $registry;
-        }
-        
-        private function get_image($goods){
-        	$qLnk = mysql_query(sprintf("
+    private $registry;
+
+    function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+
+    private function get_image($goods)
+    {
+        $qLnk = mysql_query( sprintf( "
         			SELECT
         				alias
         			FROM
@@ -20,15 +23,16 @@ Class Front_Content_Goods_Data{
         				sort ASC
         			LIMIT 1;
         			",
-        			$goods['id']
-        			));
-        	$image = mysql_fetch_assoc($qLnk);
-        	
-        	return Front_Catalog_Helper_Image::goods_path($goods['id'],$image['alias'],'122x122');
-        }
-        
-		public function get_goods($barcode){
-			$qLnk = mysql_query(sprintf("
+            $goods[ 'id' ]
+        ) );
+        $image = mysql_fetch_assoc( $qLnk );
+
+        return Front_Catalog_Helper_Image::goods_path( $goods[ 'id' ], $image[ 'alias' ], '122x122' );
+    }
+
+    public function get_goods($barcode)
+    {
+        $qLnk = mysql_query( sprintf( "
 					SELECT
 						goods.id,
 						goods.name,
@@ -45,24 +49,24 @@ Class Front_Content_Goods_Data{
 					WHERE
 						goods_barcodes.barcode = '%s'
 					",
-					mysql_real_escape_string($barcode)
-					));
-			$goods = mysql_fetch_assoc($qLnk);
-			if(!$goods) return false;
-			
-			$goods['name'] = ($goods['grower_name'])
-				? sprintf('"%s". %s',$goods['grower_name'],$goods['name'])
-				: $goods['name'];
-			
-			$goods['link'] = sprintf('/%s/%s/%s/',
-					$goods['parent_alias'],
-					$goods['level_alias'],
-					$goods['alias']
-					);
-			
-			$goods['image'] = $this->get_image($goods); 
-			
-			return $goods;
-		}
+            mysql_real_escape_string( $barcode )
+        ) );
+        $goods = mysql_fetch_assoc( $qLnk );
+        if (!$goods) return false;
+
+        $goods[ 'name' ] = ($goods[ 'grower_name' ])
+            ? sprintf( '"%s". %s', $goods[ 'grower_name' ], $goods[ 'name' ] )
+            : $goods[ 'name' ];
+
+        $goods[ 'link' ] = sprintf( '/%s/%s/%s/',
+            $goods[ 'parent_alias' ],
+            $goods[ 'level_alias' ],
+            $goods[ 'alias' ]
+        );
+
+        $goods[ 'image' ] = $this->get_image( $goods );
+
+        return $goods;
+    }
 }
-?>
+

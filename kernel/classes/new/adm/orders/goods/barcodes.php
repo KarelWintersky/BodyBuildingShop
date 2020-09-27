@@ -1,19 +1,23 @@
 <?php
-Class Adm_Orders_Goods_Barcodes{
 
-	private $registry;
-	
-	public function __construct($registry){
-		$this->registry = $registry;
-	}
-	
-	public function get_data($goods){
-		$barcodes = array();
-		foreach($goods as $g)
-			if($g['goods_barcode'])
-				$barcodes[] = $g['goods_barcode'];
-				
-		$qLnk = mysql_query(sprintf("
+class Adm_Orders_Goods_Barcodes
+{
+
+    private $registry;
+
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+
+    public function get_data($goods)
+    {
+        $barcodes = array();
+        foreach ($goods as $g)
+            if ($g[ 'goods_barcode' ])
+                $barcodes[] = $g[ 'goods_barcode' ];
+
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					goods_barcodes.barcode,
 					goods_barcodes.packing,
@@ -33,26 +37,26 @@ Class Adm_Orders_Goods_Barcodes{
 				WHERE
 					goods_barcodes.barcode IN (%s)
 				",
-				implode(",",$barcodes)
-		));
-		while($g = mysql_fetch_assoc($qLnk)){
-			foreach($goods as $key => $gitem){
-				if($gitem['goods_barcode']==$g['barcode']){
-					$goods[$key]['goods_id'] = $g['id'];
-					$goods[$key]['alias'] = $g['alias'];
-					$goods[$key]['level_alias'] = $g['level_alias'];
-					$goods[$key]['parent_alias'] = $g['parent_alias'];
-					$goods[$key]['goods_name'] = $g['goods_name'];
-					$goods[$key]['level_id'] = $g['level_id'];
-					$goods[$key]['parent_id'] = $g['parent_id'];
-					$goods[$key]['packing'] = $g['packing'];
-					$goods[$key]['feature'] = $g['feature'];
-				}
-			}
-		}
+            implode( ",", $barcodes )
+        ) );
+        while ($g = mysql_fetch_assoc( $qLnk )) {
+            foreach ($goods as $key => $gitem) {
+                if ($gitem[ 'goods_barcode' ] == $g[ 'barcode' ]) {
+                    $goods[ $key ][ 'goods_id' ] = $g[ 'id' ];
+                    $goods[ $key ][ 'alias' ] = $g[ 'alias' ];
+                    $goods[ $key ][ 'level_alias' ] = $g[ 'level_alias' ];
+                    $goods[ $key ][ 'parent_alias' ] = $g[ 'parent_alias' ];
+                    $goods[ $key ][ 'goods_name' ] = $g[ 'goods_name' ];
+                    $goods[ $key ][ 'level_id' ] = $g[ 'level_id' ];
+                    $goods[ $key ][ 'parent_id' ] = $g[ 'parent_id' ];
+                    $goods[ $key ][ 'packing' ] = $g[ 'packing' ];
+                    $goods[ $key ][ 'feature' ] = $g[ 'feature' ];
+                }
+            }
+        }
 
-		return $goods;
-	}
-	
+        return $goods;
+    }
+
 }
-?>
+

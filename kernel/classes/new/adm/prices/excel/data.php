@@ -1,19 +1,23 @@
 <?php
-Class Adm_Prices_Excel_Data{
 
-	private $registry;
-	
-	private $Adm_Prices_Excel_Array;
-	
-	public function __construct($registry){
-		$this->registry = $registry;
-		
-		$this->Adm_Prices_Excel_Array = new Adm_Prices_Excel_Array($this->registry);
-	}
-	
-	private function get_goods(){
-		$goods = array();
-		$qLnk = mysql_query("
+class Adm_Prices_Excel_Data
+{
+
+    private $registry;
+
+    private $Adm_Prices_Excel_Array;
+
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+
+        $this->Adm_Prices_Excel_Array = new Adm_Prices_Excel_Array( $this->registry );
+    }
+
+    private function get_goods()
+    {
+        $goods = array();
+        $qLnk = mysql_query( "
 					SELECT
 						goods.id,
 						goods.level_id,
@@ -42,15 +46,16 @@ Class Adm_Prices_Excel_Data{
 						parent_tbl.sort ASC,
 						levels.sort ASC,
 						goods.sort ASC;
-				");
-		while($g = mysql_fetch_assoc($qLnk)) $goods[$g['id']] = $g;
-		
-		return $goods;
-	}
-	
-	private function get_barcodes($goods){
-		$barcodes = array();
-		$qLnk = mysql_query(sprintf("
+				" );
+        while ($g = mysql_fetch_assoc( $qLnk )) $goods[ $g[ 'id' ] ] = $g;
+
+        return $goods;
+    }
+
+    private function get_barcodes($goods)
+    {
+        $barcodes = array();
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					*
 				FROM
@@ -60,29 +65,31 @@ Class Adm_Prices_Excel_Data{
 				ORDER BY
 					sort ASC;
 				",
-				implode(",",array_keys($goods))
-				));
-		while($b = mysql_fetch_assoc($qLnk)) $barcodes[$b['goods_id']][] = $b;
-				
-		return $barcodes;
-	}
-	
-	private function exclude_goods_without_barcodes($goods,$barcodes){
-		foreach($goods as $goods_id => $g)
-			if(!isset($barcodes[$goods_id]))
-				unset($goods[$goods_id]);
-		
-		return $goods;
-	}
-	
-	public function get_data(){
-		$goods = $this->get_goods();
-		$barcodes = $this->get_barcodes($goods);
-		
-		$goods = $this->exclude_goods_without_barcodes($goods,$barcodes);
-		
-		return $this->Adm_Prices_Excel_Array->make_array($goods,$barcodes);
-	}
-	
+            implode( ",", array_keys( $goods ) )
+        ) );
+        while ($b = mysql_fetch_assoc( $qLnk )) $barcodes[ $b[ 'goods_id' ] ][] = $b;
+
+        return $barcodes;
+    }
+
+    private function exclude_goods_without_barcodes($goods, $barcodes)
+    {
+        foreach ($goods as $goods_id => $g)
+            if (!isset( $barcodes[ $goods_id ] ))
+                unset( $goods[ $goods_id ] );
+
+        return $goods;
+    }
+
+    public function get_data()
+    {
+        $goods = $this->get_goods();
+        $barcodes = $this->get_barcodes( $goods );
+
+        $goods = $this->exclude_goods_without_barcodes( $goods, $barcodes );
+
+        return $this->Adm_Prices_Excel_Array->make_array( $goods, $barcodes );
+    }
+
 }
-?>
+

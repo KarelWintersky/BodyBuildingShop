@@ -1,41 +1,48 @@
-<?
-Class Articles{
+<?php
 
-	private $registry;
-
-	public function __construct($registry, $frompage = true){
-		$this->registry = $registry;
-		$this->registry->set('articles',$this);
-
-        if($frompage){
-	        $route = $this->registry['aias_path'];
-	        array_shift($route);
-
-	        if(count($route)==0){
-	        	$this->registry['f_404'] = false;
-	        	$this->registry['template']->set('c','articles/main');
-	        }elseif(count($route)==1 && $this->article_check($route[0])){
-	        	$this->registry['f_404'] = false;
-	        	$this->registry['template']->set('c','articles/article');
-	        }
+class Articles
+{
+    
+    private $registry;
+    
+    public function __construct($registry, $frompage = true)
+    {
+        $this->registry = $registry;
+        $this->registry->set( 'articles', $this );
+        
+        if ($frompage) {
+            $route = $this->registry[ 'aias_path' ];
+            array_shift( $route );
+            
+            if (count( $route ) == 0) {
+                $this->registry[ 'f_404' ] = false;
+                $this->registry[ 'template' ]->set( 'c', 'articles/main' );
+            } elseif (count( $route ) == 1 && $this->article_check( $route[ 0 ] )) {
+                $this->registry[ 'f_404' ] = false;
+                $this->registry[ 'template' ]->set( 'c', 'articles/article' );
+            }
         }
-
-	}
-
-	private function item_rq($name,$a = NULL){
-		require($this->registry['template']->TF.'item/articles/'.$name.'.html');
-	}
-
-	private function article_check($id){
-
-		if($id==0){
-			$this->registry['action'] = 902;
-			return true;
-		}
-
-		if(!is_numeric($id)){return false;}
-
-		$qLnk = mysql_query("
+        
+    }
+    
+    private function item_rq($name, $a = NULL)
+    {
+        require($this->registry[ 'template' ]->TF.'item/articles/'.$name.'.html');
+    }
+    
+    private function article_check($id)
+    {
+        
+        if ($id == 0) {
+            $this->registry[ 'action' ] = 902;
+            return true;
+        }
+        
+        if (!is_numeric( $id )) {
+            return false;
+        }
+        
+        $qLnk = mysql_query( "
 							SELECT
 								articles.*
 							FROM
@@ -43,40 +50,43 @@ Class Articles{
 							WHERE
 								articles.id = '".$id."'
 							LIMIT 1;
-							");
-		if(mysql_num_rows($qLnk)>0){
-			$this->registry['article'] = mysql_fetch_assoc($qLnk);
-			$this->registry['action'] = 901;
-			return true;
-		}
-		return false;
-	}
-
-	public function articles_list(){
-		$qLnk = mysql_query("
+							" );
+        if (mysql_num_rows( $qLnk ) > 0) {
+            $this->registry[ 'article' ] = mysql_fetch_assoc( $qLnk );
+            $this->registry[ 'action' ] = 901;
+            return true;
+        }
+        return false;
+    }
+    
+    public function articles_list()
+    {
+        $qLnk = mysql_query( "
 							SELECT
 								articles.*
 							FROM
 								articles
 							ORDER BY
 								articles.name ASC;
-							");
-		$i = 1;
-		while($a = mysql_fetch_assoc($qLnk)){
-			$a['sort'] = $i;
-			$this->item_rq('list_item',$a);
-			$i++;
-		}
-	}
-
-	public function articles_sort(){
-		foreach($_POST['sort'] as $id => $sort){
-			mysql_query("UPDATE articles SET articles.sort = '".$sort."' WHERE articles.id = '".$id."';");
-		}
-	}
-
-    private function checkFreeUrl($url,$id){
-		$qLnk = mysql_query("
+							" );
+        $i = 1;
+        while ($a = mysql_fetch_assoc( $qLnk )) {
+            $a[ 'sort' ] = $i;
+            $this->item_rq( 'list_item', $a );
+            $i++;
+        }
+    }
+    
+    public function articles_sort()
+    {
+        foreach ($_POST[ 'sort' ] as $id => $sort) {
+            mysql_query( "UPDATE articles SET articles.sort = '".$sort."' WHERE articles.id = '".$id."';" );
+        }
+    }
+    
+    private function checkFreeUrl($url, $id)
+    {
+        $qLnk = mysql_query( "
 							SELECT
 								COUNT(*)
 							FROM
@@ -85,44 +95,48 @@ Class Articles{
 								articles.alias = '".$url."'
 								AND
 								articles.id <> ".$id.";
-							");
-
-		return (mysql_result($qLnk,0)==1) ? false : true;
-
+							" );
+        
+        return (mysql_result( $qLnk, 0 ) == 1) ? false : true;
+        
     }
-
-    private function urlGenerate($url,$id){
-    	$workurl = $url;
-    	$i=1;
-    	while(!$this->checkFreeUrl($workurl,$id)){
-    		$workurl = $url.'-'.$i;
-    		$i++;
-    	}
-    	return $workurl;
+    
+    private function urlGenerate($url, $id)
+    {
+        $workurl = $url;
+        $i = 1;
+        while (!$this->checkFreeUrl( $workurl, $id )) {
+            $workurl = $url.'-'.$i;
+            $i++;
+        }
+        return $workurl;
     }
-
-    public function article_add(){
-		foreach($_POST as $key => $val){$$key = (is_array($val)) ? $val : mysql_real_escape_string($val);}
-
-		$published = (isset($published) && $published==1) ? 1 : 0;
-		$in_sitemap = (isset($in_sitemap) && $in_sitemap==1) ? 1 : 0;
-		$socialblock = (isset($socialblock) && $socialblock==1) ? 1 : 0;
-
-		$longtitle = ($longtitle!='') ? $longtitle : $name;
-		$main_h2 = ($main_h2!='') ? $main_h2 : $name;
-		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
-			$alias = mb_strtolower($alias,'utf-8');
-		$alias = $this->urlGenerate($alias,$id);
-
-		$qLnk = mysql_query("SELECT MAX(articles.sort)+1 FROM articles;");
-		$sort = mysql_result($qLnk,0);
-
-		$img_alt = str_replace('"','',$img_alt);
-
-		$content = Adm_Helper_Content::delete_junk($content);
-		$content = Adm_Helper_Content::div_replace($content);
-		
-		mysql_query("
+    
+    public function article_add()
+    {
+        foreach ($_POST as $key => $val) {
+            $$key = (is_array( $val )) ? $val : mysql_real_escape_string( $val );
+        }
+        
+        $published = (isset( $published ) && $published == 1) ? 1 : 0;
+        $in_sitemap = (isset( $in_sitemap ) && $in_sitemap == 1) ? 1 : 0;
+        $socialblock = (isset( $socialblock ) && $socialblock == 1) ? 1 : 0;
+        
+        $longtitle = ($longtitle != '') ? $longtitle : $name;
+        $main_h2 = ($main_h2 != '') ? $main_h2 : $name;
+        $alias = ($alias != '') ? $alias : Common_Useful::rus2translit( $name );
+        $alias = mb_strtolower( $alias, 'utf-8' );
+        $alias = $this->urlGenerate( $alias, $id );
+        
+        $qLnk = mysql_query( "SELECT MAX(articles.sort)+1 FROM articles;" );
+        $sort = mysql_result( $qLnk, 0 );
+        
+        $img_alt = str_replace( '"', '', $img_alt );
+        
+        $content = Adm_Helper_Content::delete_junk( $content );
+        $content = Adm_Helper_Content::div_replace( $content );
+        
+        mysql_query( "
 					INSERT INTO
 						articles
 						(articles.name,
@@ -152,42 +166,45 @@ Class Articles{
 																'".$socialblock."',
 																	'".$img_alt."',
 																		'".$main_h2."')
-					");
-
-		$id = mysql_insert_id();
-
-		$rp = trim($rp,'/');
-		$rp_arr = explode('/',$rp);
-		$rp_arr[2] = $id;
-
-		$rp = '/'.implode('/',$rp_arr).'/';
-
-		$this->registry['doer']->set_rp($rp);
+					" );
+        
+        $id = mysql_insert_id();
+        
+        $rp = trim( $rp, '/' );
+        $rp_arr = explode( '/', $rp );
+        $rp_arr[ 2 ] = $id;
+        
+        $rp = '/'.implode( '/', $rp_arr ).'/';
+        
+        $this->registry[ 'doer' ]->set_rp( $rp );
     }
-
-	public function article_sav(){
-
-		foreach($_POST as $key => $val){$$key = (is_array($val)) ? $val : mysql_real_escape_string($val);}
-
-		$photomanager = new Photomanager($this->registry);
-		$avatar = $photomanager->upload_article_avatar($old_avatar,$id);
-
-		$published = (isset($published) && $published==1) ? 1 : 0;
-		$in_sitemap = (isset($in_sitemap) && $in_sitemap==1) ? 1 : 0;
-		$socialblock = (isset($socialblock) && $socialblock==1) ? 1 : 0;
-
-		$longtitle = ($longtitle!='') ? $longtitle : $name;
-		$main_h2 = ($main_h2!='') ? $main_h2 : $name;
-		$alias = ($alias!='') ? $alias : Common_Useful::rus2translit($name);
-			$alias = mb_strtolower($alias,'utf-8');
-		$alias = $this->urlGenerate($alias,$id);
-
-		$img_alt = str_replace('"','',$img_alt);
-
-		$content = Adm_Helper_Content::delete_junk($content);
-		$content = Adm_Helper_Content::div_replace($content);
-		
-		mysql_query("
+    
+    public function article_sav()
+    {
+        
+        foreach ($_POST as $key => $val) {
+            $$key = (is_array( $val )) ? $val : mysql_real_escape_string( $val );
+        }
+        
+        $photomanager = new Photomanager( $this->registry );
+        $avatar = $photomanager->upload_article_avatar( $old_avatar, $id );
+        
+        $published = (isset( $published ) && $published == 1) ? 1 : 0;
+        $in_sitemap = (isset( $in_sitemap ) && $in_sitemap == 1) ? 1 : 0;
+        $socialblock = (isset( $socialblock ) && $socialblock == 1) ? 1 : 0;
+        
+        $longtitle = ($longtitle != '') ? $longtitle : $name;
+        $main_h2 = ($main_h2 != '') ? $main_h2 : $name;
+        $alias = ($alias != '') ? $alias : Common_Useful::rus2translit( $name );
+        $alias = mb_strtolower( $alias, 'utf-8' );
+        $alias = $this->urlGenerate( $alias, $id );
+        
+        $img_alt = str_replace( '"', '', $img_alt );
+        
+        $content = Adm_Helper_Content::delete_junk( $content );
+        $content = Adm_Helper_Content::div_replace( $content );
+        
+        mysql_query( "
 					UPDATE
 						articles
 					SET
@@ -206,9 +223,8 @@ Class Articles{
 						articles.main_h2 = '".$main_h2."'
 					WHERE
 						articles.id = '".$id."'
-					");
-
-	}
-
+					" );
+     
+    }
+    
 }
-?>

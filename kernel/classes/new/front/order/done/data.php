@@ -1,17 +1,21 @@
 <?php
-Class Front_Order_Done_Data{
 
-	private $registry;
-				
-	public function __construct($registry){
-		$this->registry = $registry;
-	}	
-			
-	private function get_order($order_num){
-		$num = explode('/',$order_num);
-		if(count($num)!=3) return false;
-		
-		$qLnk = mysql_query(sprintf("
+class Front_Order_Done_Data
+{
+    
+    private $registry;
+    
+    public function __construct($registry)
+    {
+        $this->registry = $registry;
+    }
+    
+    private function get_order($order_num)
+    {
+        $num = explode( '/', $order_num );
+        if (count( $num ) != 3) return false;
+        
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					orders.*,
 					users.login AS user_login,
@@ -36,25 +40,26 @@ Class Front_Order_Done_Data{
 					AND
 					orders.payment_method = '%s'					
 				",
-				$num[0],
-				$num[1],
-				mysql_real_escape_string($num[2])
-				));
-		$order = mysql_fetch_assoc($qLnk);
-		
-		return $order;
-	}
-	
-	public function get_data(){
-		$order_num = (isset($_SESSION['done_order_num'])) ? $_SESSION['done_order_num'] : false;
-		if(!$order_num) return false;
-		
-		$order = $this->get_order($order_num);
-		if(!$order) return false;
-		
-		$order['num'] = $order_num;
-		
-		return $order;
-	}			
+            $num[ 0 ],
+            $num[ 1 ],
+            mysql_real_escape_string( $num[ 2 ] )
+        ) );
+        $order = mysql_fetch_assoc( $qLnk );
+        
+        return $order;
+    }
+    
+    public function get_data()
+    {
+        $order_num = (isset( $_SESSION[ 'done_order_num' ] )) ? $_SESSION[ 'done_order_num' ] : false;
+        if (!$order_num) return false;
+        
+        $order = $this->get_order( $order_num );
+        if (!$order) return false;
+        
+        $order[ 'num' ] = $order_num;
+        
+        return $order;
+    }
 }
-?>
+

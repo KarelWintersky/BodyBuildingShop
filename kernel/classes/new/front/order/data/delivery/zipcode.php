@@ -1,17 +1,21 @@
 <?php
-Class Front_Order_Data_Delivery_Zipcode{
-						
-	public static function get_zipcode_data($zipcode){
-		$zipcode_data = self::get_query($zipcode);
-						
-		return $zipcode_data;
-	}
-	
-	public static function get_query($zipcode){	
-		$zip_code = trim($zipcode);
-		if(!$zipcode) return false;
-		
-		$qLnk = mysql_query(sprintf("
+
+class Front_Order_Data_Delivery_Zipcode
+{
+    
+    public static function get_zipcode_data($zipcode)
+    {
+        $zipcode_data = self::get_query( $zipcode );
+        
+        return $zipcode_data;
+    }
+    
+    public static function get_query($zipcode)
+    {
+        $zip_code = trim( $zipcode );
+        if (!$zipcode) return false;
+        
+        $qLnk = mysql_query( sprintf( "
 				SELECT
 					ind,
 					region,
@@ -42,13 +46,13 @@ Class Front_Order_Data_Delivery_Zipcode{
 						AND
 DATE(CONCAT_WS('-',YEAR(NOW()),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),'.',-1),SUBSTRING_INDEX(SUBSTRING_INDEX(time_ogr,'-',-1),'.',1)))
 				",
-				mysql_real_escape_string($zipcode), 
-				mysql_real_escape_string($zipcode)
-				));
-		$data = mysql_fetch_assoc($qLnk);
-			
-		return $data;
-	}
-				
+            mysql_real_escape_string( $zipcode ),
+            mysql_real_escape_string( $zipcode )
+        ) );
+        $data = mysql_fetch_assoc( $qLnk );
+        
+        return $data;
+    }
+    
 }
-?>
+
