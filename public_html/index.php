@@ -9,6 +9,16 @@ $registry = new Registry();
 $registry->set( 'config', $config );
 $registry->set( 'ROOT_PATH', ROOT_PATH ); // with tailing slash
 
+if (array_key_exists('SMTP_Transport', $config) && $config['SMTP_Transport']['enable']) {
+    $registry->set('SMTP_Transport', array(
+        'ssl'      =>   'tls',
+        'port'     =>   587,
+        'auth'     =>   'login',
+        'username' =>   $config['SMTP_Transport']['username'],
+        'password' =>   $config['SMTP_Transport']['password']
+    ));
+}
+
 $db = new Database( $registry );
 $logic = new Logic( $registry );
 $logic->register_params();

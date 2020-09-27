@@ -28,6 +28,11 @@ $config = array(
         'secret' => '',
     ),
     'hide_counters' => true, //не выводить код счетчиков в шаблон,
-    'optimise_frontend' => false, //включаем оптимизацию фронтенда (css, js, html)
+    'optimise_frontend' => false, //включаем оптимизацию фронтенда (css, js, html),
+    'SMTP_Transport'    => array(
+        'enable'    =>  false,
+        'username'  =>  '',
+        'password'  =>  ''
+    ),
 );
 

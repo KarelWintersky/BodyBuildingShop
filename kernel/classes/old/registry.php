@@ -30,6 +30,11 @@ class Registry implements ArrayAccess
         unset( $this->vars[ $key ] );
     }
     
+    public function exists($key)
+    {
+        return array_key_exists($key, $this->vars);
+    }
+    
     
     public function offsetExists($offset)
     {

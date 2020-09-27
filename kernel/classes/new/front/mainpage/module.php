@@ -22,6 +22,12 @@ class Front_Mainpage_Module extends Common_Rq
         );
     }
     
+    /**
+     * @todo: SLIDER (nivo-slider)
+     * Возвращает слайды
+     *
+     * @return array|bool|string
+     */
     private function get_slides()
     {
         $file = ROOT_PATH.'files/module.txt';

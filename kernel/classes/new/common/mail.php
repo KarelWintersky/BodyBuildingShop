@@ -2,7 +2,9 @@
 
 class Common_Mail
 {
-    
+    /**
+     * @var Registry
+     */
     private $registry;
     
     public function __construct($registry)
@@ -14,16 +16,23 @@ class Common_Mail
         require_once('Zend/Mail.php');
     }
     
-    public function send_mail(
-        $emails,
-        $subject,
-        $text,
-        $attach = false,
-        $wrap = true,
-        $encoding = 'UTF-8',
-        $from = false
-    )
+    public function send_mail($emails, $subject, $text, $attach = false, $wrap = true, $encoding = 'UTF-8', $from = false)
     {
+        $mail_transport = null;
+        
+        if ($this->registry->exists('SMTP_Transport')) {
+            // must be looks like this array:
+            /*$config = array(
+                'ssl'      => 'tls',
+                'port'     => 587,
+                'auth'     => 'login',
+                'username' => 'myusername@mydomain.com',
+                'password' => 'myPassword'
+            );*/
+            
+            $cfg = $this->registry->get('SMTP_Transport');
+            $mail_transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $cfg);
+        }
         
         $emails = $this->to_emails( $emails );
         if (!count( $emails )) return false;
@@ -69,7 +78,7 @@ class Common_Mail
             $img->id = 'logomail';
         }
         
-        $mail->send();
+        $mail->send($mail_transport);
     }
     
     private function wrap_text($text)
