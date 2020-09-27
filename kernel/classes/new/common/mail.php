@@ -14,6 +14,7 @@ class Common_Mail
         
         set_include_path( ROOT_PATH.'kernel/libs/' );
         require_once('Zend/Mail.php');
+        require_once('Zend/Mail/Transport/Smtp.php');
     }
     
     public function send_mail($emails, $subject, $text, $attach = false, $wrap = true, $encoding = 'UTF-8', $from = false)
@@ -22,6 +23,7 @@ class Common_Mail
         
         if ($this->registry->exists('SMTP_Transport')) {
             // must be looks like this array:
+            // https://gist.github.com/dantoncancella/4564395
             /*$config = array(
                 'ssl'      => 'tls',
                 'port'     => 587,
