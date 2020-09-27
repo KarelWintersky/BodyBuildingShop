@@ -9,10 +9,15 @@ class Adm_Settings_Mailout
 
     private $Front_Template_Links;
     private $Front_Template_Images;
-
+    /**
+     * @var string
+     */
+    private $root_path;
+    
     public function __construct($registry)
     {
         $this->registry = $registry;
+        $this->root_path = ROOT_PATH;
 
         $this->file = ROOT_PATH.'files/news_work_file.txt';
 
@@ -79,8 +84,7 @@ class Adm_Settings_Mailout
         );
 
         //@todo: path
-        $root = $this->registry->ROOT_PATH;
-        exec( "/usr/bin/php {$root}kernel/cron.php do_news", $output );
+        exec( "/usr/bin/php {$this->root_path}kernel/cron.php do_news", $output );
     }
 
 }

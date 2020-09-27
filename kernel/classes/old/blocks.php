@@ -4,11 +4,16 @@ class Blocks
 {
     
     private $registry;
+    /**
+     * @var string
+     */
+    private $root_path;
     
     public function __construct($registry, $frompage = true)
     {
         $this->registry = $registry;
         $this->registry->set( 'blocks', $this );
+        $this->root_path = ROOT_PATH;
         
         if ($frompage) {
             $route = $this->registry[ 'aias_path' ];
@@ -26,7 +31,7 @@ class Blocks
     
     private function item_rq($name, $a = NULL)
     {
-        require(ROOT_PATH.'tpl/front/item/blocks/'.$name.'.html');
+        require("{$this->root_path}tpl/front/item/blocks/{$name}.html");
     }
     
     private function go_blocks()
@@ -121,8 +126,8 @@ class Blocks
         
         $file = ROOT_PATH.'files/blocks_work_file.txt';
         file_put_contents( $file, $unpub.'$$'.$_POST[ 'blocks_field' ] );
-        //@todo: PATH
-        exec( '/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php do_goods_absence', $output );
+        //@todo: PATH+
+        exec( "/usr/bin/php {$this->root_path}/kernel/cron.php do_goods_absence", $output );
         
         $reply[ 3 ] = $output;
         $this->registry[ 'reply_arr' ] = $reply;
@@ -249,8 +254,8 @@ class Blocks
         
         $file = ROOT_PATH.'files/blocks_work_file.txt';
         file_put_contents( $file, $_POST[ 'blocks_field' ] );
-        //@todo: path
-        exec( '/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php do_goods_prices', $output );
+        //@todo: path+
+        exec( "/usr/bin/php {$this->root_path}kernel/cron.php do_goods_prices", $output );
         
         $reply[ 4 ] = $output;
         $this->registry[ 'reply_arr' ] = $reply;
@@ -412,8 +417,8 @@ class Blocks
         
         $file = ROOT_PATH.'files/blocks_work_file.txt';
         file_put_contents( $file, $_POST[ 'blocks_field' ] );
-        //@todo: path
-        exec( '/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php go_goods_present', $output );
+        //@todo: path+
+        exec( "/usr/bin/php {$this->root_path}kernel/cron.php go_goods_present", $output );
         
         $reply[ 2 ] = $output;
         $this->registry[ 'reply_arr' ] = $reply;
@@ -452,7 +457,7 @@ class Blocks
         $file = ROOT_PATH.'files/blocks_work_file.txt';
         file_put_contents( $file, $_POST[ 'blocks_field' ] );
         //@todo: path
-        exec( '/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php do_orders', $output );
+        exec( "/usr/bin/php {$this->root_path}kernel/cron.php do_orders", $output );
         
         $reply[ 1 ] = $output;
         $this->registry[ 'reply_arr' ] = $reply;
