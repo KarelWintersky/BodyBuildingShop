@@ -7,13 +7,17 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 		$this->registry = $registry;
 	}	
 		
-	private function print_lines($data,$readonly){
+	private function print_lines($data,$readonly,&$ostatkiDontMatch){
+		$ostatkiDontMatch = false;
+
 		$html = array();
 				
 		$goods = $data['goods'];
 		
 		if($readonly && $data['gift']) $goods[] = $data['gift'];
-			
+
+		$ostatki = $this->getOstatki($goods);
+
 		foreach($goods as $key => $g){
 			$g['url'] = (isset($g['parent_alias']))
 				? sprintf('/%s/%s/%s/',
@@ -31,13 +35,53 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 			$g['key'] = $key;
 			
 			$g['readonly'] = $readonly;
-			
+
+			if(isset($g['barcode']) && isset($ostatki[$g['barcode']]) && $ostatki[$g['barcode']] < $g['amount']){
+				$g['ostatok'] = $ostatki[$g['barcode']];
+
+				$ostatkiDontMatch = true;
+			}else{
+				$g['ostatok'] = false;
+			}
+
 			$html[] = $this->do_rq('line',$g,true);
 		}
 				
 		return implode('',$html);
 	}
-	
+
+	private function getOstatki($goods){
+		$barcodes = array();
+
+		foreach($goods as $goodsItem){
+			if(isset($goodsItem['barcode'])){
+				$barcodes[] = sprintf("'%s'", $goodsItem['barcode']);
+			}
+		}
+
+		if(!count($barcodes)){
+			return array();
+		}
+
+		$ostatki = array();
+		$qLnk = mysql_query(sprintf("
+			SELECT
+				barcode,
+				value
+			FROM
+				ostatki
+			WHERE
+				barcode IN (%s)
+			",
+				implode(', ', $barcodes)
+				));
+		while($row = mysql_fetch_assoc($qLnk)){
+			$ostatki[$row['barcode']] = $row['value'];
+		}
+
+		return $ostatki;
+	}
+
 	private function features_colors($g){
 		$feature = (isset($g['feature'])) ? $g['feature'] : false;
 		$color = (isset($g['color'])) ? $g['color'] : false;
@@ -56,10 +100,10 @@ Class Front_Order_Cart_Table Extends Common_Rq{
 		return implode(', ',$string);
 	}
 	
-	public function do_table($data,$readonly = false){
+	public function do_table($data,$readonly = false,&$ostatkiDontMatch){
 		
 		$a = array(
-				'lines' => $this->print_lines($data,$readonly),
+				'lines' => $this->print_lines($data,$readonly,$ostatkiDontMatch),
 				'readonly' => $readonly
 				);
 		

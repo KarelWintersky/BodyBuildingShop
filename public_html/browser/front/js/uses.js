@@ -58,14 +58,14 @@ function feat_change_list(elem){
 
 }
 
-function goods_ostatok_check(goods_id,cookie_stored_data){
+function goods_ostatok_check(barcode, cart){
 	var reply = true;
 	$.ajax({
 		url: '/ajax/',
 	    type:'POST',
 		dataType:'text',
-		data:  {method:'goods_ostatok_check',goods_id:goods_id,cookie_stored_data:cookie_stored_data},
-		async:true,
+		data:  {method:'goods_ostatok_check',barcode:barcode,cart:cart},
+		async:false,
 		success:function(resp){
 			reply = (resp==1) ? true : false;
 		}
@@ -82,7 +82,16 @@ function add2cart(trigger,packing){
 	
 	var barcode = ($(barcode_select).length>0) 
 		? $(barcode_select).val()
-		: $(barcode_input).val();		
+		: $(barcode_input).val();
+
+	var cart = ($.cookie('thecart')) ? $.cookie('thecart') : '';
+
+	if(!goods_ostatok_check(barcode, cart)){
+		$(trigger).find('.g_order_ostatok_zero').show();
+		return false;
+	}else{
+		$(trigger).find('.g_order_ostatok_zero').hide();
+	}
 
 	var color = ($(color_select).length>0)
 		? $(color_select).val()
@@ -93,7 +102,7 @@ function add2cart(trigger,packing){
 	if(color) cookie_string = cookie_string+':'+color;
 
 	var arr = {};
-	var cart = ($.cookie('thecart')) ? $.cookie('thecart') : '';
+
 	if(cart!=''){
 		cart = cart.split('|');
 		$.each(cart,function(i,elem){

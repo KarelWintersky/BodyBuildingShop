@@ -66,11 +66,13 @@ Class Front_Order_Payment_Methods{
 		
 		$list = array();
 		foreach($methods as $id => $arr){
+            if(isset($arr['dont_display_on_frontend'])) continue;
+
 			$list[$id] = array(
 					'id' => $id,
 					'name' => $arr['name'],
 					'active' => ($id==$active),
-					'disabled' => (!in_array($id,$match)),
+					'disabled' => ($id==1 || !in_array($id,$match)), //jan 2016 - закрыли оплату наложенным платежом
 					'class_alias' => (isset($arr['class_alias'])) ? $arr['class_alias'] : false
 			);
 		}

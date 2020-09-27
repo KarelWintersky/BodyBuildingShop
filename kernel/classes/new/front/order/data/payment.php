@@ -23,6 +23,7 @@ Class Front_Order_Data_Payment{
 					'name' => 'Оплата банковской картой, QIWI, RBK Money и другие системы',
 					'short_name' => 'Robokassa',
 					'tech_name' => 'по банковской карте',
+                    'dont_display_on_frontend' => true
 				),
 				5 => array(
 					'name' => 'Наличными курьеру или в магазине',
@@ -36,6 +37,11 @@ Class Front_Order_Data_Payment{
 					'class_alias' => 'account',
 					'tech_name' => 'полностью со счета',
 				),
+				7 => array(
+						'name' => 'Оплата банковской картой',
+						'short_name' => 'Банковской картой',
+						'tech_name' => 'по банковской карте',
+				),				
 			);
 
 		return (!$method_id)

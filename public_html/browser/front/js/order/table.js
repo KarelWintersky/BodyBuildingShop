@@ -2,8 +2,10 @@ $(function() {
 	$('#order_goods_refresh_link a').click(function(e){
 		if(!table_check()) return false;
 		
-		cart_restruct(false);	
-		
+		cart_restruct(false);
+
+		location.reload();
+
 		e.preventDefault();
 	});
 	
@@ -13,7 +15,9 @@ $(function() {
 		cart_restruct(key_to_delete);
 		
 		$(this).parents('.goods_line').remove();
-		
+
+		location.reload();
+
 		e.preventDefault();
 	});
 	
@@ -56,7 +60,7 @@ var cart_restruct = function(key_to_delete){
 	    type:'POST',
 		dataType:'json',
 		data:  {method:'cart_restruct',goods:goods},
-		async:true,
+		async:false,
 		success:function(resp){
 			if(resp.empty){
 				location.href = '/order/';

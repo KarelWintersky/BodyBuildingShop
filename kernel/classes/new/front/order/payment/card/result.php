@@ -4,33 +4,64 @@ Class Front_Order_Payment_Card_Result{
 	private $registry;
 	
 	private $Front_Order_Mail_Card;
-				
+	private $Front_Order_Write_Ostatok;
+
 	public function __construct($registry){
 		$this->registry = $registry;
 		
 		$this->Front_Order_Mail_Card = new Front_Order_Mail_Card($this->registry);
-	}	
+		$this->Front_Order_Write_Ostatok = new Front_Order_Write_Ostatok($this->registry);
+	}
 	
+	private function check_sum($ai,$sum_from_yandex){
+		if(!$ai || !is_numeric($ai)) return false;
+		
+		$qLnk = mysql_query(sprintf("
+				SELECT
+					overall_sum,
+					from_account
+				FROM
+					orders
+				WHERE
+					ai = '%d'
+				",
+				$ai
+				));
+		$order = mysql_fetch_assoc($qLnk);
+		if(!$order) return false;
+		
+		$sum_from_order = $order['overall_sum'] - $order['from_account'];
+        $sum_from_order = $sum_from_order/0.98; //проверка тоже вместе с возложением комиссии на покупателя
+		
+		return ($sum_from_yandex>=$sum_from_order);
+	}
+		
 	public function do_result($path){
-		if(count($path) || !Front_Order_Payment_Card_Helper::keys_check()) Front_Order_Payment_Card_Helper::goto_index();
+		if(count($path)) Front_Order_Payment_Card_Helper::goto_index();
+				
+		$string2hash = array(	
+				$_POST['notification_type'],
+				$_POST['operation_id'],
+				$_POST['amount'],
+				$_POST['currency'],
+				$_POST['datetime'],
+				$_POST['sender'],
+				$_POST['codepro'],
+				$this->registry['config']['yandex_money']['secret'],
+				$_POST['label']
+				);
+		$string2hash = implode('&',$string2hash);
+		$hash = sha1($string2hash);
 		
-                $R = $this->registry['config']['robokassa'];
-                
-		$crc = strtoupper(md5(sprintf("%s:%s:%s:Shp_item=%s",
-				$_POST['OutSum'],
-				$_POST['InvId'],
-				$R['pass2'],
-				$_POST['Shp_item']
-				)));
+		if($hash!=$_POST['sha1_hash']) return false;
 		
-		if($crc!=strtoupper($_POST['SignatureValue'])) exit();
-		
-		$this->update_order($_POST['InvId']);
-		$this->Front_Order_Mail_Card->send_letter($_POST['InvId']);
-		
-		echo sprintf("OK%s\n",
-				$_POST['InvId']
-				);		
+		if(!$this->check_sum($_POST['label'],$_POST['withdraw_amount'])) return false;
+				
+		$this->update_order($_POST['label']);
+
+		$this->Front_Order_Write_Ostatok->succesfullyRemoveReserveByAI($_POST['label']);
+
+		$this->Front_Order_Mail_Card->send_letter($_POST['label']);
 	}
 		
 	private function update_order($ai){

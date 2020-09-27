@@ -17,7 +17,7 @@ Class Front_Order_Check_Payment Extends Common_Rq{
 	}	
 			
 	private function print_methods($data){
-		$allowed_methods = array(2,3,4,5);
+		$allowed_methods = array(2,3,4,7);
 		
 		$methods = $this->Front_Order_Payment_Methods->get_actual_list($data);
 		foreach($methods as $key => $m)

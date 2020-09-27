@@ -27,8 +27,6 @@ Class Front_Profile_Orders_Pay Extends Common_Rq{
 					AND
 					by_card = 1
 					AND
-					status = 1
-					AND
 					payment_method_id <> '0'
 				",
 				$this->registry['userdata']['id'],
@@ -38,13 +36,21 @@ Class Front_Profile_Orders_Pay Extends Common_Rq{
 				));
 		$order = mysql_fetch_assoc($qLnk);
 		if(!$order) return false;
-	
-		$order['num'] = sprintf('%d/%d/%s',
-				$order['id'],
-				$order['user_num'],
-				$order['payment_method']
-		);		
-		
+
+        $order['num'] = sprintf('%d/%d/%s',
+            $order['id'],
+            $order['user_num'],
+            $order['payment_method']
+        );
+
+        //если заказ уже оплачен, редиректим на страницу успеха
+        if($order['status']==3){
+            $_SESSION['done_order_num'] = $order['num'];
+
+            header('Location: /order/done/');
+            exit();
+        }
+
 		$this->set_vars($order);
 		
 		return true;
@@ -53,34 +59,19 @@ Class Front_Profile_Orders_Pay Extends Common_Rq{
 	private function set_vars($order){
 	
 		$this->registry['longtitle'] = sprintf('Оплата заказа № %s',$order['num']);
-	
-                $R = $this->registry['config']['robokassa'];
-                
-		$unique_id = $order['ai'];
-		$desc = sprintf('Оплата заказа № %s в Бодибилдинг-Магазине',$order['num']);
-		$sum = $order['overall_sum'] - $order['from_account'];
-		$code = 1;
-			
-		$crc  = md5(sprintf("%s:%s:%s:%s:Shp_item=%s",
-				$R['login'],
-				$sum,
-				$unique_id,
-				$R['pass'],
-				$code
-		));
-		
-		$vars = array(
-				'login' => $R['login'],
-				'sum' => $sum,
-				'unique_id' => $unique_id,
-				'desc' => $desc,
-				'signature' => $crc,
-				'code' => $code,
-				'curr' => $R['curr'],
-				'lang' => $R['lang'],
-				'url' => $R['url'],
-		);		
-			
+
+        $Y = $this->registry['config']['yandex_money'];
+
+        $sum = $order['overall_sum'] - $order['from_account'];
+        $sum = $sum/0.98; //возлагаем комиссию на покупателя
+
+        $vars = array(
+            'account_number' => $Y['account_number'],
+            'comment' => sprintf('Бодибилдинг Магазин. Оплата заказа %s',$order['num']),
+            'ai' => $order['ai'],
+            'sum' => $sum
+        );
+
 		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
 	}	
 		

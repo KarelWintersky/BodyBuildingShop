@@ -2,9 +2,13 @@
 Class Adm_Orders_Save{
 
 	private $registry;
-	
+
+	private $Front_Order_Write_Ostatok;
+
 	public function __construct($registry){
 		$this->registry = $registry;
+
+		$this->Front_Order_Write_Ostatok = new Front_Order_Write_Ostatok($this->registry);
 	}
 			
 	public function order_save(){
@@ -44,6 +48,10 @@ Class Adm_Orders_Save{
 			$BL->order_goods_rate($num,1);
 			$mail_discount = $BL->mk_discount($arr,1);
 			$BL->mail_user_data_change($mail_nalog,$mail_discount,$arr);
+
+			$this->Front_Order_Write_Ostatok->succesfullyRemoveReserve($num);
+		}elseif($status==4){
+			$this->Front_Order_Write_Ostatok->unhappyRemoveReserve($num);
 		}
 		
 	}		

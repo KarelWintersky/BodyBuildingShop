@@ -31,9 +31,9 @@ Class Front_Order_Delivery_Methods{
 	
 	public function get_actual_list($data){
 		$active = $this->registry['CL_storage']->get_storage('delivery');
-			$active = ($active) ? $active : 1;
-		
-		$methods = Front_Order_Data_Delivery::get_methods();
+		$active = ($active) ? $active : 1;
+
+    $methods = Front_Order_Data_Delivery::get_methods();
 		
 		$list = array();
 		foreach($methods as $id => $arr){

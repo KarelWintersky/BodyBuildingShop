@@ -1,0 +1,12 @@
+<div id="ofs_proceed">
+
+    <?if($a):?>
+        <span>Выбрано количество товаров, превышающее остатки на складе</span>
+    <?endif;?>
+
+    <input
+            type="submit"
+            value="Продолжить"
+            <?=$a ? 'disabled' : ''?>
+    >
+</div>

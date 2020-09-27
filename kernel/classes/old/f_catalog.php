@@ -824,14 +824,14 @@
 			$this->item_rq('prev_next',$a);
 		}
 
-		public function print_ostatok(){
+		public function print_ostatok($barcode){
 			$qLnk = mysql_query("
 								SELECT
 									ostatki.value
 								FROM
 									ostatki
 								WHERE
-									ostatki.goods_id = '".$this->registry['goods']['id']."'
+									ostatki.barcode = '".$barcode."'
 								LIMIT 1;
 								");
 			if(mysql_num_rows($qLnk)>0){
@@ -840,17 +840,26 @@
 			}
 		}
 
-		public function goods_ostatok_check($goods_id,$cookie_stored_data){
+		public function goods_ostatok_check($barcode,$cart){
 			$response = 1;
 
-			$goods_in_cart = explode(':',$cookie_stored_data);
-			foreach($goods_in_cart as $key => $str){
-				$str = explode('|',$str);
-				$goods_in_cart[$key] = $str[0];
-			}
-			$goods_in_cart = array_count_values($goods_in_cart);
+			$goods_in_cart = explode('|',$cart);
 
-			$cur_goods_amount = $goods_in_cart[$goods_id];
+			$goods_in_cart_out = array();
+			foreach($goods_in_cart as $str){
+				$str = explode(':',$str);
+
+				if(count($str) == 3){
+					$goods_in_cart_out[$str[0]] = $str[2];
+				}
+			}
+
+			if(!isset($goods_in_cart_out[$barcode])){
+				$cur_goods_amount = 0;
+			}else{
+				$cur_goods_amount = $goods_in_cart_out[$barcode];
+			}
+
 
 			$qLnk = mysql_query("
 								SELECT
@@ -858,14 +867,15 @@
 								FROM
 									ostatki
 								WHERE
-									ostatki.goods_id = '".$goods_id."'
+									ostatki.barcode = '".$barcode."'
 								LIMIT 1;
 								");
 			if(mysql_num_rows($qLnk)>0){
 				$g = mysql_fetch_assoc($qLnk);
-				if($g['value']<$cur_goods_amount){
+				if((int)$g['value'] <= (int)$cur_goods_amount){
 					$response = 0;
 				}
+
 			}
 
 			echo $response;

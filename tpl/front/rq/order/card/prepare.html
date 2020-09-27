@@ -2,24 +2,23 @@
 	<h2>Оплата заказа</h2>
 
 	<div class="texted">
-		По нажатию на кнопку "Оплатить" Вы будете перенаправлены на страницу платежной системы Robokassa для оплаты Вашего заказа. Обращаем Ваше внимание, что система может брать  дополнительную комиссию за перевод денег в зависимости от суммы платежа. Точный размер суммы к оплате будет показан на следующем шаге.
+        <p>По нажатию на кнопку "Оплатить" Вы будете перенаправлены на страницу платежной системы для оплаты Вашего заказа.</p>
+        <p>Обращаем Ваше внимание, что система может брать дополнительную комиссию за перевод денег в зависимости от суммы платежа. Точный размер суммы к оплате будет показан на следующем шаге.</p>
 	</div>
 
-	<form action="{{url}}" method="POST" id="form_RobocassaGo">
-
-	   <input type="hidden" name="MrchLogin" value="{{login}}">
-	   <input type="hidden" name="OutSum" value="{{sum}}">
-	   <input type="hidden" name="InvId" value="{{unique_id}}">
-	   <input type="hidden" name="Desc" value="{{desc}}">
-	   <input type="hidden" name="SignatureValue" value="{{signature}}">
-	   <input type="hidden" name="Shp_item" value="{{code}}">
-	   <input type="hidden" name="Culture" value="{{lang}}">
-	   <input type="hidden" name="IncCurrLabel" value="{{curr}}">
-
-	   <div class="fl fl_sbm">
-	   		<input type="submit" value="Оплатить">
+	<form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml" id="form_CardPaymentGo">
+		<input type="hidden" name="receiver" value="{{account_number}}">
+		<input type="hidden" name="formcomment" value="{{comment}}">
+		<input type="hidden" name="short-dest" value="{{comment}}">
+		<input type="hidden" name="label" value="{{ai}}">
+		<input type="hidden" name="quickpay-form" value="shop">
+		<input type="hidden" name="targets" value="{{comment}}">
+		<input type="hidden" name="sum" value="{{sum}}" data-type="number" >
+		<input type="hidden" name="paymentType" value="AC">
+	
+		<div class="fl fl_sbm">
+			<input type="submit" name="submit-button" value="Оплатить">
 		</div>
-
 	</form>
 
 </div>

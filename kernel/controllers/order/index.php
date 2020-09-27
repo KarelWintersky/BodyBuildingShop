@@ -47,7 +47,7 @@ Class Controller_Index Extends Controller_Base{
     			'order',
     	));
     	$Front_Order_Data = new Front_Order_Data($this->registry);
-    	
+
     	$Front_Order_Check = new Front_Order_Check($this->registry);
     	$Front_Order_Check->do_vars();    	
     }    
