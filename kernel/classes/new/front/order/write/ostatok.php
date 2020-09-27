@@ -27,7 +27,7 @@ Class Front_Order_Write_Ostatok{
         while($row = mysql_fetch_assoc($qLnk)){
             $ostatkiToReserve[$row['id']] = $row['amount'];
         }
-
+        
         foreach($ostatkiToReserve as $ostatok_id => $amount){
             mysql_query(sprintf("
                 INSERT INTO

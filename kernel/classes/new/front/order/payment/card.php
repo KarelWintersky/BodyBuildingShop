@@ -9,6 +9,10 @@ Class Front_Order_Payment_Card{
 			
 	public function do_prepare(){
 		if(!isset($_GET['id'])) Front_Order_Payment_Card_Helper::goto_error();
+		if (isset($_GET['callback']) && $_GET['callback'] == 'yandex') {
+		    $sleep_required = true;
+		} else { $sleep_required = false; }
+
 		
 		$order_id = trim($_GET['id']);
 		if(!$order_id) Front_Order_Payment_Card_Helper::goto_error();
@@ -45,21 +49,38 @@ Class Front_Order_Payment_Card{
 			exit();			
 		}
 		
-		$Y = $this->registry['config']['yandex_money'];
+		if ($sleep_required) {
+die("
+<html>
+    <head>
+        <meta http-equiv='refresh' content='10;url=/order/card/prepare/?id={$order_id}' />
+    </head>
+    <script>
+	var timer = setTimeout(function()
+	{ window.location='/order/card/prepare/?id={$order_id}'; }, 10000);
+    </script>
+    <body>
+	<h1>Подождите пожалуйста, обрабатываем ответ от платёжной системы... Это займет примерно 10 секунд.</h1>
+    </body>
+</html>");
+//		    header('Location: /order/card/prepare/?id=' . $order_id );
+		} else {
+		    $Y = $this->registry['config']['yandex_money'];
 
-        $sum = $order['overall_sum'] - $order['from_account'];
-        $sum = $sum/0.98; //возлагаем комиссию на покупателя
+	            $sum = $order['overall_sum'] - $order['from_account'];
+	            $sum = $sum/0.98; //возлагаем комиссию на покупателя
 
-		$vars = array(
-				'account_number' => $Y['account_number'],
-				'comment' => sprintf('Бодибилдинг Магазин. Оплата заказа %s',$order_id),
-				'ai' => $order['ai'],
-				'sum' => $sum
-				);
+		    $vars = array(
+			'account_number' => $Y['account_number'],
+			'comment' => sprintf('Бодибилдинг Магазин. Оплата заказа %s',$order_id),
+			'ai' => $order['ai'],
+			'sum' => $sum,
+			'order_id' => $order_id
+		    );
 		
-		foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
-		
-		$this->registry->set('longtitle','Оплата заказа');		
+		    foreach($vars as $k => $v) $this->registry['CL_template_vars']->set($k,$v);
+		    $this->registry->set('longtitle','Оплата заказа');
+		}
 	}
 	
 }

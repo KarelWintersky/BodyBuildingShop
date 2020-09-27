@@ -210,7 +210,7 @@ function form_AccountOrder(form){
 
 function numCheck(val){
 	var nReg = /^[0-9]+$/;
-	if(nReg.test(val)){return true;}else{return false;}
+	return nReg.test(val);
 }
 
 function form_profileInfo_preloader(form){

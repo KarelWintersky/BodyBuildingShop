@@ -32,6 +32,10 @@ Class Controller_Card Extends Controller_Base{
 		
 		$Front_Order_Payment_Card = new Front_Order_Payment_Card($this->registry);
 		$Front_Order_Payment_Card->do_prepare();
+		
+header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
+header('Pragma: no-cache'); // HTTP 1.0.
+header('Expires: 0'); // Proxies.
 	}
 	
 	function card($path = NULL){}

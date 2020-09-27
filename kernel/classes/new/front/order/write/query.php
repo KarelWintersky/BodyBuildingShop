@@ -18,7 +18,8 @@ Class Front_Order_Write_Query{
 	by_card - оплата картой или нет*/
 	
 	public function do_query($data){
-		mysql_query(sprintf("
+	
+	$sql = sprintf("
 				INSERT INTO
 					orders
 						(
@@ -73,7 +74,11 @@ Class Front_Order_Write_Query{
 					? sprintf("'%s'",$data['gift_barcode'])
 					: "NULL",
 				($data['is_spb']) ? 1 : 0
-				));	
+				);
+				
+		// var_dump($sql); die;
+		
+		mysql_query($sql);
 		
 	}
 }

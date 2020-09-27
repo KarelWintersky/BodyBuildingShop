@@ -15,7 +15,10 @@
 		<input type="hidden" name="targets" value="{{comment}}">
 		<input type="hidden" name="sum" value="{{sum}}" data-type="number" >
 		<input type="hidden" name="paymentType" value="AC">
-	
+<!--	<input type="hidden" name="successURL" value="http://www.bodybuilding-shop.ru/order/card/result/?id={{order_id}}&callback=yandex"> -->
+
+	<input type="hidden" name="successURL" value="http://www.bodybuilding-shop.ru/order/card/prepare/?id={{order_id}}&callback=yandex">
+
 		<div class="fl fl_sbm">
 			<input type="submit" name="submit-button" value="Оплатить">
 		</div>

@@ -33,7 +33,7 @@ Class Front_Order_Delivery_Methods{
 		$active = $this->registry['CL_storage']->get_storage('delivery');
 		$active = ($active) ? $active : 1;
 
-    $methods = Front_Order_Data_Delivery::get_methods();
+		$methods = Front_Order_Data_Delivery::get_methods();
 		
 		$list = array();
 		foreach($methods as $id => $arr){

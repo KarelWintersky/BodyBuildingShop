@@ -114,6 +114,14 @@ Class Router {
 			// Анализируем путь
 			$this->getController($file, $controller, $action, $args);
 			
+			/*file_put_contents('/var/www/new2.bodybuilding-shop.ru/log/router.log', json_encode([
+			    'controller'   =>  $controller,
+	    		    'file'          =>  $file,
+	                    'action'        =>  $action,
+	                    'args'          =>  $args
+	                    ]) . PHP_EOL , FILE_APPEND);*/
+	                    
+			
 			// Файл доступен?
 			if(!is_readable($file)) {
 		        $this->registry['f_404'] = true;

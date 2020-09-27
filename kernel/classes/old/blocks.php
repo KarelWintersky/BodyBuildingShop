@@ -114,7 +114,8 @@ Class Blocks{
 
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$unpub.'$$'.$_POST['blocks_field']);
-		exec('/usr/bin/php /home/wwwuser/www/bodybuilding-shop.ru/kernel/cron.php do_goods_absence',$output);
+		//@todo: PATH
+		exec('/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php do_goods_absence',$output);
 
 		$reply[3] = $output;
 		$this->registry['reply_arr'] = $reply;
@@ -237,7 +238,8 @@ Class Blocks{
 
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
-		exec('/usr/bin/php /home/wwwuser/www/bodybuilding-shop.ru/kernel/cron.php do_goods_prices',$output);
+		//@todo: path
+		exec('/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php do_goods_prices',$output);
 
 		$reply[4] = $output;
 		$this->registry['reply_arr'] = $reply;
@@ -396,7 +398,8 @@ Class Blocks{
 
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
-		exec('/usr/bin/php /home/wwwuser/www/bodybuilding-shop.ru/kernel/cron.php go_goods_present',$output);
+		//@todo: path
+		exec('/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php go_goods_present',$output);
 
 		$reply[2] = $output;
 		$this->registry['reply_arr'] = $reply;
@@ -432,7 +435,8 @@ Class Blocks{
 	public function do_orders(){
 		$file = ROOT_PATH.'files/blocks_work_file.txt';
 		file_put_contents($file,$_POST['blocks_field']);
-		exec('/usr/bin/php /home/wwwuser/www/bodybuilding-shop.ru/kernel/cron.php do_orders',$output);
+		//@todo: path
+		exec('/usr/bin/php /var/www/www.bodybuilding-shop.ru/kernel/cron.php do_orders',$output);
 
 		$reply[1] = $output;
 		$this->registry['reply_arr'] = $reply;
