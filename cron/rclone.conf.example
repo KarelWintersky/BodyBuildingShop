@@ -1,0 +1,7 @@
+[bbs]
+type = swift
+env_auth = false
+user = <...>
+key = <...>
+auth = https://auth.selcdn.ru/v1.0
+endpoint_type = public

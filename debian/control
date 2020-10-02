@@ -8,7 +8,7 @@ Homepage: http://bodybuildingshop.ru
 
 Package: bodybuildingshop
 Architecture: all
-Depends:
+Depends: pigz
 Description: BodyBuildingShop site
  BodyBuildingShop site
 
