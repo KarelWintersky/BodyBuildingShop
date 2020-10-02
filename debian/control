@@ -1,0 +1,14 @@
+Source: bodybuildingshop
+Section: unknown
+Priority: optional
+Maintainer: Wombat <vim@fontanka.ru>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.8
+Homepage: http://bodybuildingshop.ru
+
+Package: bodybuildingshop
+Architecture: all
+Depends:
+Description: BodyBuildingShop site
+ BodyBuildingShop site
+
