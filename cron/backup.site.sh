@@ -5,7 +5,7 @@
 CLOUD_CONTAINER="BBS_SITE"
 
 # Minimal age interval (weekly * 10 + 1)
-MIN_AGE=71d
+MIN_AGE=12d
 
 FILENAME_RAR=bbs_site_${NOW}.rar
 
