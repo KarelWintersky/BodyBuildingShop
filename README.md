@@ -27,3 +27,12 @@ NB: Пакет настроен так, чтобы класть сайт в `/va
 ## Config
 
 Конфиг лежит в `$/kernel/config.php`
+
+
+
+--- 
+
+## Что нужно для сборки (что-то явно лишнее):
+```
+apt install make build-essential fakeroot debhelper 
+```

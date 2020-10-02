@@ -1,3 +1,9 @@
+bodybuildingshop (2.2) stable; urgency=medium
+
+  * [*] Fix cron scripts
+
+ -- Wombat <vim@fontanka.ru>  Fri, 02 Oct 2020 16:13:24 +0300
+
 bodybuildingshop (2.1) stable; urgency=medium
 
   * [+] Backup scripts and cron tasks

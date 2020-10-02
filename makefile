@@ -9,6 +9,7 @@ help:
 
 install:	##@system Install package. Don't run it manually!!!
 	install -d $(PATH_PROJECT)
+	cp -r cron $(PATH_PROJECT)
 	cp -r kernel $(PATH_PROJECT)
 	cp -r public_html $(PATH_PROJECT)
 	cp -r tpl $(PATH_PROJECT)
@@ -23,7 +24,7 @@ update:			##@build Update project from GIT
 
 build:			##@build Build project to DEB Package
 	@echo Building project to DEB-package
-	dpkg-buildpackage -rfakeroot --no-sign
+	export DEBFULLNAME="Karel Wintersky" && export DEBEMAIL="karel.wintersky@gmail.com" && dpkg-buildpackage -rfakeroot --no-sign --build=binary
 
 # ------------------------------------------------
 # Add the following 'help' target to your makefile, add help text after each target name starting with '##'
