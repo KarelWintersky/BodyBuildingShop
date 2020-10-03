@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-. _config.conf
+SCRIPT="${0}"
+SCRIPT_BASEDIR="$(dirname ${SCRIPT})"
+if [[ ${SCRIPT_BASEDIR} != '.' ]]; then
+	SCRIPT_PATH=`echo ${SCRIPT_BASEDIR}`
+else
+	SCRIPT_PATH=`echo ${PWD}`
+fi
+
+. ${SCRIPT_PATH}/_config.conf
 
 CLOUD_CONTAINER="BBS_SQL"
 

@@ -1,3 +1,9 @@
+bodybuildingshop (2.3.1) stable; urgency=medium
+
+  * [*] Crontasks fix
+
+ -- Wombat <vim@fontanka.ru>  Sat, 03 Oct 2020 14:38:00 +0300
+
 bodybuildingshop (2.3) stable; urgency=medium
 
   * [*] Absolute paths to rar-include/exclude files
