@@ -26,9 +26,17 @@ build:			##@build Build project to DEB Package
 	@echo Building project to DEB-package
 	export DEBFULLNAME="Karel Wintersky" && export DEBEMAIL="karel.wintersky@gmail.com" && dpkg-buildpackage -rfakeroot --no-sign --build=binary
 
+dchv:           ##@development Set version in changelog: use `make dchv VERSION=x.y.z`
+	export DEBFULLNAME="Karel Wintersky" && export DEBEMAIL="karel.wintersky@gmail.com" && dch -v ${VERSION}
+
+dchr:           ##@development Fix version in changelog file: use `make dchr`
+	export DEBFULLNAME="Karel Wintersky" && export DEBEMAIL="karel.wintersky@gmail.com" && dch --release --distribution unstable
+
 # ------------------------------------------------
 # Add the following 'help' target to your makefile, add help text after each target name starting with '##'
 # A category can be added with @category
+# args := `arg="$(filter-out $@,$(MAKECMDGOALS))" && echo $${arg:-${1}}`
+
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
 WHITE  := $(shell tput -Txterm setaf 7)
